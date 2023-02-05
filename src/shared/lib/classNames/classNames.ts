@@ -15,6 +15,7 @@ export function classNames(
   ].join(" ");
 }
 
+//! например
 classNames("remove-btn", { hovered: true, selectable: true, red: false }, [
   "btn",
 ]);

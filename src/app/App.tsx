@@ -1,12 +1,11 @@
 import "./styles/index.scss";
-import { Counter } from "./counter";
 import { Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Suspense, useContext, useState } from "react";
-import { AboutPageAsync } from "./pages/AboutPage/AboutPage.async";
-import { MainPageAsync } from "./pages/MainPage/MainPage.async";
-import { useTheme } from "./theme/useTheme";
-import { classNames } from "./helpers/classNames/classNames";
+import { Suspense } from "react";
+import { classNames } from "shared/lib/classNames/classNames";
+import { useTheme } from "./providers/lib/useTheme";
+import { AboutPageAsync } from "pages/AboutPage";
+import { MainPageAsync } from "pages/MainPage";
 
 const App = () => {
   //? хук переключения темы
@@ -25,7 +24,6 @@ const App = () => {
           <Route path={"/"} element={<MainPageAsync />} />
         </Routes>
       </Suspense>
-      <Counter />
     </div>
   );
 };
