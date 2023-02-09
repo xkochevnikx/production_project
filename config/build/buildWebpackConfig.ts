@@ -21,6 +21,7 @@ export function buildWebpackConfig(
       filename: "[name].[contenthash].js",
       path: paths.build,
       clean: true,
+      assetModuleFilename: "assets/[contanthash][ext]",
     },
 
     plugins: buildPlagins(options),

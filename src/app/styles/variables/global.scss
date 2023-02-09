@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "Consola";
-  src: url("./fonts/CONSOLA.TTF") format("truetype");
-}
-
 :root {
   --font-family-main: "Consola";
 
@@ -13,4 +8,19 @@
   --font-size-l: 24px;
   --font-line-l: 32px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+  //размеры
+  --navbar-height: 60px;
+
+  --sidebar-width-collapsed: 300px;
+  --sidebar-width: 70px;
+}
+
+.content-page {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+  padding: 20px;
 }
