@@ -3,18 +3,18 @@ import { AppLink } from "shared/UI/AppLink/AppLink";
 import cls from "./Navbar.module.scss";
 
 interface NavbarProps {
-  className?: string;
+   className?: string;
 }
 
 export const Navbar = ({ className }: NavbarProps) => (
-  <div className={classNames(cls.Navbar, {}, [className])}>
-    <div className={cls.links}>
-      <AppLink to="/" className={cls.link}>
-        главная
-      </AppLink>
-      <AppLink to="/about">о сайте</AppLink>
-    </div>
-  </div>
+   <div className={classNames(cls.Navbar, {}, [className])}>
+      <div className={cls.links}>
+         <AppLink to="/" className={cls.link}>
+            главная
+         </AppLink>
+         <AppLink to="/about">о сайте</AppLink>
+      </div>
+   </div>
 );
 
 export default Navbar;
