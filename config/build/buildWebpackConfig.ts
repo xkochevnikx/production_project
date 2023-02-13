@@ -1,12 +1,12 @@
-import webpack from "webpack";
-import { IBuildOptions } from "./types/config";
-import { buildPlagins } from "./buildPlagins";
-import { buildLoaders } from "./buildLoaders";
-import { buildResolvers } from "./buildResolvers";
-import { buildDevServer } from "./buildDevServer";
+import webpack from 'webpack';
+import { IBuildOptions } from './types/config';
+import { buildPlagins } from './buildPlagins';
+import { buildLoaders } from './buildLoaders';
+import { buildResolvers } from './buildResolvers';
+import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig(
-   options: IBuildOptions
+   options: IBuildOptions,
 ): webpack.Configuration {
    const { mode, paths, isDev } = options;
 
@@ -18,10 +18,10 @@ export function buildWebpackConfig(
 
       // Указываем точку выхода, сюда всё будет собираться
       output: {
-         filename: "[name].[contenthash].js",
+         filename: '[name].[contenthash].js',
          path: paths.build,
          clean: true,
-         assetModuleFilename: "assets/[contanthash][ext]",
+         assetModuleFilename: 'assets/[contanthash][ext]',
       },
 
       plugins: buildPlagins(options),
@@ -34,7 +34,7 @@ export function buildWebpackConfig(
 
       // указываем расширение тех файлов при импорте которых не обязательно в конце указывать расширение
       resolve: buildResolvers(options),
-      devtool: isDev ? "inline-source-map" : undefined,
+      devtool: isDev ? 'inline-source-map' : undefined,
       devServer: isDev ? buildDevServer(options) : undefined,
    };
 }

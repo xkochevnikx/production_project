@@ -1,11 +1,11 @@
 //! это хук который фактически включает всю логику переключения темы за исключением контекста
 
-import { useContext } from "react";
+import { useContext } from 'react';
 import {
    LOCAL_STORAGE_THEME_KEY,
    Theme,
    ThemeContext,
-} from "../ThemeProvider/UI/ThemeContext";
+} from '../ThemeProvider/UI/ThemeContext';
 
 interface UseThemeResult {
    toggleTheme: () => void;
