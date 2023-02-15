@@ -9,7 +9,8 @@ interface PageErrorProps {
 
 export function PageError({ className }: PageErrorProps) {
    function reloadPage() {
-      //! у объекта локэйшн есть функция релоад с помощью которой можно перезагрузит страницу
+      //! у объекта локэйшн есть функция релоад с помощью которой можно перезагрузить страницу
+      // eslint-disable-next-line no-restricted-globals
       location.reload();
    }
    const { t } = useTranslation();
