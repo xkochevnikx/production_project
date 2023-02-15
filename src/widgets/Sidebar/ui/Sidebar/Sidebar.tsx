@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
@@ -19,11 +19,12 @@ export function Sidebar({ className }: SidebarProps) {
 
    return (
       <div
+         data-testid="sidebar"
          className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
             className,
          ])}
       >
-         <button type="button" onClick={toggleOn}>
+         <button data-testid="sideToggle" type="button" onClick={toggleOn}>
             {t('Открыть')}
          </button>
          <div className={cls.switchers}>
