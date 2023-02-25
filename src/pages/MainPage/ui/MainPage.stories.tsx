@@ -1,18 +1,18 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { MainPageAsync } from './MainPage.async';
+import { MainPage } from './MainPage';
 
 export default {
-   title: 'page/MainPageAsync',
-   component: MainPageAsync,
+   title: 'page/MainPage',
+   component: MainPage,
    argTypes: {
       backgroundColor: { control: 'color' },
    },
-} as ComponentMeta<typeof MainPageAsync>;
+} as ComponentMeta<typeof MainPage>;
 
-const Template: ComponentStory<typeof MainPageAsync> = (args) => (
-   <MainPageAsync {...args} />
+const Template: ComponentStory<typeof MainPage> = (args) => (
+   <MainPage {...args} />
 );
 
 export const Light = Template.bind({});
