@@ -6,7 +6,7 @@ on:
       branches: [master]
 jobs:
    pipeline:
-      runs-on: windows-latest
+      runs-on: macos-latest
       strategy:
          matrix:
             node-version: [16.17.1]
@@ -30,4 +30,4 @@ jobs:
          - name: build storybook
            run: npm run storybook:build
          - name: screenshot testing
-           run: npm run test:ui
+           run: npm run test:ui:ci
