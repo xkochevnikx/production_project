@@ -27,7 +27,7 @@ export function buildPlagins({
          new webpack.HotModuleReplacementPlugin(),
          new BundleAnalyzerPlugin({
             openAnalyzer: false,
-         })
+         }),
       );
    }
 
