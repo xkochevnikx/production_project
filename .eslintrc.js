@@ -45,7 +45,7 @@ module.exports = {
          'error',
          {
             ignoreComments: true,
-            code: 100,
+            code: 120,
          },
       ],
       'i18next/no-literal-string': [
@@ -55,6 +55,7 @@ module.exports = {
             ignoreAttribute: ['data-testid', 'to'],
          },
       ],
+      'react/jsx-no-bind': ['error', { ignoreDOMComponents: true }],
    },
    globals: {
       __IS_DEV__: true,
