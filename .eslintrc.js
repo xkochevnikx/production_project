@@ -55,7 +55,7 @@ module.exports = {
             ignoreAttribute: ['data-testid', 'to'],
          },
       ],
-      'react/jsx-no-bind': ['error', { ignoreDOMComponents: true }],
+      'react/jsx-no-bind': ['warn', { ignoreDOMComponents: true }],
    },
    globals: {
       __IS_DEV__: true,
