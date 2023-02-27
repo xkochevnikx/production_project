@@ -7,8 +7,8 @@ import { Button, ButtonSize, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher/';
 import cls from './Sidebar.module.scss';
-import MainIcon from '../../../../shared/assets/icons/Main.svg';
-import AboutIcon from '../../../../shared/assets/icons/About.svg';
+import MainIcon from '../../../../shared/assets/icons/main.svg';
+import AboutIcon from '../../../../shared/assets/icons/about.svg';
 
 interface SidebarProps {
    className?: string;
@@ -33,7 +33,10 @@ export function Sidebar({ className }: SidebarProps) {
          <div className={cls.items}>
             <AppLink className={cls.item} to={RoutePath.main}>
                <MainIcon className={cls.icon} />
-               <span className={cls.link}> {t('главная')}</span>
+               <span className={cls.link}>
+                  {' '}
+                  {t('главная')}
+               </span>
             </AppLink>
 
             <AppLink className={cls.item} to={RoutePath.about}>
