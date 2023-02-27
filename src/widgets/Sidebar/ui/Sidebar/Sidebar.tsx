@@ -33,7 +33,10 @@ export function Sidebar({ className }: SidebarProps) {
          <div className={cls.items}>
             <AppLink className={cls.item} to={RoutePath.main}>
                <MainIcon className={cls.icon} />
-               <span className={cls.link}> {t('главная')}</span>
+               <span className={cls.link}>
+                  {' '}
+                  {t('главная')}
+               </span>
             </AppLink>
 
             <AppLink className={cls.item} to={RoutePath.about}>
