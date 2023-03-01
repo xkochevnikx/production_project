@@ -15,51 +15,51 @@ interface SidebarProps {
 }
 
 export function Sidebar({ className }: SidebarProps) {
-   const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(false);
 
-   const { t } = useTranslation();
+    const { t } = useTranslation();
 
-   function toggleOn() {
-      setCollapsed((prev) => !prev);
-   }
+    function toggleOn() {
+        setCollapsed((prev) => !prev);
+    }
 
-   return (
-      <div
-         data-testid="sidebar"
-         className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-            className,
-         ])}
-      >
-         <div className={cls.items}>
-            <AppLink className={cls.item} to={RoutePath.main}>
-               <MainIcon className={cls.icon} />
-               <span className={cls.link}>
-                  {' '}
-                  {t('главная')}
-               </span>
-            </AppLink>
+    return (
+        <div
+            data-testid="sidebar"
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
+        >
+            <div className={cls.items}>
+                <AppLink className={cls.item} to={RoutePath.main}>
+                    <MainIcon className={cls.icon} />
+                    <span className={cls.link}>
+                        {' '}
+                        {t('главная')}
+                    </span>
+                </AppLink>
 
-            <AppLink className={cls.item} to={RoutePath.about}>
-               <AboutIcon className={cls.icon} />
-               <span className={cls.link}>{t('о сайте')}</span>
-            </AppLink>
-         </div>
+                <AppLink className={cls.item} to={RoutePath.about}>
+                    <AboutIcon className={cls.icon} />
+                    <span className={cls.link}>{t('о сайте')}</span>
+                </AppLink>
+            </div>
 
-         <Button
-            theme={ThemeButton.BACKGROUND_INVERTED}
-            className={cls.collapseBtn}
-            data-testid="sideToggle"
-            type="button"
-            onClick={toggleOn}
-            square
-            size={ButtonSize.L}
-         >
-            {collapsed ? '<' : '>'}
-         </Button>
-         <div className={cls.switchers}>
-            <ThemeSwitcher />
-            <LanguageSwitcher short={collapsed} />
-         </div>
-      </div>
-   );
+            <Button
+                theme={ThemeButton.BACKGROUND_INVERTED}
+                className={cls.collapseBtn}
+                data-testid="sideToggle"
+                type="button"
+                onClick={toggleOn}
+                square
+                size={ButtonSize.L}
+            >
+                {collapsed ? '<' : '>'}
+            </Button>
+            <div className={cls.switchers}>
+                <ThemeSwitcher />
+                <LanguageSwitcher short={collapsed} />
+            </div>
+        </div>
+    );
 }

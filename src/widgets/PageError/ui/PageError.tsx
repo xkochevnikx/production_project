@@ -8,16 +8,16 @@ interface PageErrorProps {
 }
 
 export function PageError({ className }: PageErrorProps) {
-   function reloadPage() {
-      //! у объекта локэйшн есть функция релоад с помощью которой можно перезагрузить страницу
-      // eslint-disable-next-line no-restricted-globals
-      location.reload();
-   }
-   const { t } = useTranslation();
-   return (
-      <div className={classNames(cls.PageError, {}, [className])}>
-         {t('Произошла непредвиденная ошибка')}
-         <Button onClick={reloadPage}>{t('Обновить страницу')}</Button>
-      </div>
-   );
+    function reloadPage() {
+        //! у объекта локэйшн есть функция релоад с помощью которой можно перезагрузить страницу
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
+    }
+    const { t } = useTranslation();
+    return (
+        <div className={classNames(cls.PageError, {}, [className])}>
+            {t('Произошла непредвиденная ошибка')}
+            <Button onClick={reloadPage}>{t('Обновить страницу')}</Button>
+        </div>
+    );
 }

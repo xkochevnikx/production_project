@@ -4,17 +4,17 @@ import { Button } from 'shared/UI/Button/ui/Button';
 
 //! это учебный компонент для тестирования ErrorBoundary
 export function BugButton() {
-   const { t } = useTranslation();
-   const [error, setError] = useState(false);
+    const { t } = useTranslation();
+    const [error, setError] = useState(false);
 
-   function toThrow() {
-      setError(true);
-   }
+    function toThrow() {
+        setError(true);
+    }
 
-   useEffect(() => {
-      if (error) {
-         throw new Error();
-      }
-   }, [error]);
-   return <Button onClick={toThrow}>{t('Прокинуть ошибку')}</Button>;
+    useEffect(() => {
+        if (error) {
+            throw new Error();
+        }
+    }, [error]);
+    return <Button onClick={toThrow}>{t('Прокинуть ошибку')}</Button>;
 }

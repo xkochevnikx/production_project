@@ -4,15 +4,15 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { NotFoundPage } from './NotFoundPage';
 
 export default {
-   title: 'page/NotFoundPage',
-   component: NotFoundPage,
-   argTypes: {
-      backgroundColor: { control: 'color' },
-   },
+    title: 'page/NotFoundPage',
+    component: NotFoundPage,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof NotFoundPage>;
 
 const Template: ComponentStory<typeof NotFoundPage> = (args) => (
-   <NotFoundPage {...args} />
+    <NotFoundPage {...args} />
 );
 
 export const Light = Template.bind({});

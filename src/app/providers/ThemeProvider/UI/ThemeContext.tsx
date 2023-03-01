@@ -1,5 +1,5 @@
 import {
-   createContext, FC, useMemo, useState,
+    createContext, FC, useMemo, useState,
 } from 'react';
 
 export enum Theme {
@@ -16,22 +16,28 @@ export const LOCAL_STORAGE_THEME_KEY = 'theme';
 
 export const ThemeContext = createContext<IThemeContextProps>({});
 
+interface IThemeProviderProps {
+   initialTheme?: Theme;
+}
+
 const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
-export const ThemeProvider: FC = ({ children }) => {
-   const [theme, setTheme] = useState<Theme>(defaultTheme);
+export const ThemeProvider: FC<IThemeProviderProps> = (props) => {
+    const { initialTheme, children } = props;
 
-   const defaultProps = useMemo(
-      () => ({
-         theme,
-         setTheme,
-      }),
-      [theme],
-   );
+    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
-   return (
-      <ThemeContext.Provider value={defaultProps}>
-         {children}
-      </ThemeContext.Provider>
-   );
+    const defaultProps = useMemo(
+        () => ({
+            theme,
+            setTheme,
+        }),
+        [theme],
+    );
+
+    return (
+        <ThemeContext.Provider value={defaultProps}>
+            {children}
+        </ThemeContext.Provider>
+    );
 };
