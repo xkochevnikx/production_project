@@ -11,7 +11,7 @@ export interface IcomponentRender {
     initialState: DeepPartial<IStateSchema>;
 }
 
-export function componentRender(component: ReactNode, options: IcomponentRender = {}) {
+export function componentRender(component: ReactNode, options: IcomponentRender) {
     const { route = '/', initialState } = options;
     return render(
         <StoreProvider initialState={initialState}>
