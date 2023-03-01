@@ -8,16 +8,16 @@ import i18n from '../../../config/i18n/i18nForTests';
 
 export interface IcomponentRender {
     route?: string;
-    initialState: DeepPartial<IStateSchema>;
+    initialState?: DeepPartial<IStateSchema>;
 }
 
-export function componentRender(component: ReactNode, options: IcomponentRender) {
+export function componentRender(component: ReactNode, options: IcomponentRender = {}) {
     const { route = '/', initialState } = options;
     return render(
         <StoreProvider initialState={initialState}>
             <MemoryRouter initialEntries={[route]}>
                 <I18nextProvider i18n={i18n}>{component}</I18nextProvider>
             </MemoryRouter>
-        </StoreProvider>,
+        </StoreProvider>
     );
 }
