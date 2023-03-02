@@ -45,6 +45,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'react/jsx-no-bind': ['warn', { ignoreDOMComponents: true }],
         'no-param-reassign': 'off',
+        'linebreak-style': ['error', 'windows'],
     },
     globals: {
         __IS_DEV__: true,

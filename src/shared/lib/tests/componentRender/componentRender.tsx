@@ -18,6 +18,6 @@ export function componentRender(component: ReactNode, options: IcomponentRender 
             <MemoryRouter initialEntries={[route]}>
                 <I18nextProvider i18n={i18n}>{component}</I18nextProvider>
             </MemoryRouter>
-        </StoreProvider>
+        </StoreProvider>,
     );
 }

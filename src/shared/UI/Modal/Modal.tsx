@@ -1,19 +1,15 @@
 import React, {
-    ReactNode,
-    useCallback,
-    useEffect,
-    useRef,
-    useState,
+    ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
-   className?: string;
-   children?: ReactNode;
-   isOpen?: boolean;
-   onClose?: () => void;
+    className?: string;
+    children?: ReactNode;
+    isOpen?: boolean;
+    onClose?: () => void;
 }
 
 export function Modal(props: ModalProps) {
@@ -65,7 +61,7 @@ export function Modal(props: ModalProps) {
 
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className])}>
+            <div className={classNames(cls.Modal, mods, [className, 'app_modal'])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div onClick={onContentClick} className={cls.content}>
                         {children}

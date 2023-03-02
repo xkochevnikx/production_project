@@ -3,13 +3,13 @@ import {
 } from 'react';
 
 export enum Theme {
-   LIGHT = 'light',
-   DARK = 'dark',
+    LIGHT = 'app_light_theme',
+    DARK = 'app_dark_theme',
 }
 
 export interface IThemeContextProps {
-   theme?: Theme;
-   setTheme?: (Theme: Theme) => void;
+    theme?: Theme;
+    setTheme?: (Theme: Theme) => void;
 }
 
 export const LOCAL_STORAGE_THEME_KEY = 'theme';
@@ -17,7 +17,7 @@ export const LOCAL_STORAGE_THEME_KEY = 'theme';
 export const ThemeContext = createContext<IThemeContextProps>({});
 
 interface IThemeProviderProps {
-   initialTheme?: Theme;
+    initialTheme?: Theme;
 }
 
 const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
@@ -35,9 +35,5 @@ export const ThemeProvider: FC<IThemeProviderProps> = (props) => {
         [theme],
     );
 
-    return (
-        <ThemeContext.Provider value={defaultProps}>
-            {children}
-        </ThemeContext.Provider>
-    );
+    return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
 };
