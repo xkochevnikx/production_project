@@ -1,6 +1,5 @@
 import React, { InputHTMLAttributes, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
@@ -21,8 +20,8 @@ export const Input = memo((props: InputProps) => {
     };
 
     return (
-        <div className={classNames(cls.Input, {}, [className])}>
-            {placeholder && <div className={cls.placeholder}>{`${placeholder}_`}</div>}
+        <div className={classNames('', {}, [className])}>
+            {placeholder && <div>{`${placeholder}_`}</div>}
 
             <input type={type} value={value} onChange={onChangeHandler} />
         </div>
