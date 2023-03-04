@@ -3,8 +3,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from '../../../shared/UI/Button/ui/Button';
 
 interface LangSwitcherProps {
-   className?: string;
-   short?: boolean;
+    className?: string;
+    short?: boolean;
 }
 
 export function LanguageSwitcher({ className, short }: LangSwitcherProps) {
