@@ -11,7 +11,7 @@ import MainIcon from '../../../../shared/assets/icons/main.svg';
 import AboutIcon from '../../../../shared/assets/icons/about.svg';
 
 interface SidebarProps {
-   className?: string;
+    className?: string;
 }
 
 export function Sidebar({ className }: SidebarProps) {
@@ -26,9 +26,7 @@ export function Sidebar({ className }: SidebarProps) {
     return (
         <div
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-                className,
-            ])}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
             <div className={cls.items}>
                 <AppLink className={cls.item} to={RoutePath.main}>

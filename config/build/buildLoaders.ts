@@ -4,13 +4,21 @@ import { IBuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
     const fileLoader = {
-        test: /\.(png|jpe?g|gif|woff|woff2|TTF)$/i,
+        test: /\.(png|jpe?g|gif|ttf)$/i,
+
         use: [
             {
                 loader: 'file-loader',
             },
         ],
     };
+
+    // const ttfLoader = {
+    //     options: {
+    //         name: `fonts/[name].[ext]`,
+    //         publicPath: '../',
+    //     },
+    // };
 
     const svgLoader = {
         test: /\.svg$/,
@@ -24,12 +32,7 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
             loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
-                plugins: [
-                    [
-                        'i18next-extract',
-                        { locales: ['ru', 'en'], keyAsDefaultValue: true },
-                    ],
-                ],
+                plugins: [['i18next-extract', { locales: ['ru', 'en'], keyAsDefaultValue: true }]],
             },
         },
     };
