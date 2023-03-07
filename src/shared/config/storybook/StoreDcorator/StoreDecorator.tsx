@@ -7,17 +7,14 @@ const defaultAsyncReducer: DeepPartial<ReducersMapObject<IStateSchema>> = {
     loginForm: loginReducer,
 };
 
-export const StoreDecorator =
-    (
-        state: DeepPartial<IStateSchema>,
-        asyncReducers?: DeepPartial<ReducersMapObject<IStateSchema>>
-    ) =>
-    (StoryComponent: Story) =>
-        (
-            <StoreProvider
-                initialState={state}
-                asyncReducers={{ ...defaultAsyncReducer, ...asyncReducers }}
-            >
-                <StoryComponent />
-            </StoreProvider>
-        );
+export const StoreDecorator = (
+    state: DeepPartial<IStateSchema>,
+    asyncReducers?: DeepPartial<ReducersMapObject<IStateSchema>>,
+) => (StoryComponent: Story) => (
+    <StoreProvider
+        initialState={state}
+        asyncReducers={{ ...defaultAsyncReducer, ...asyncReducers }}
+    >
+        <StoryComponent />
+    </StoreProvider>
+);
