@@ -46,7 +46,7 @@ export function Navbar({ className }: NavbarProps) {
             <Button onClick={onShowModal} theme={ThemeButton.CLEAR_INVERTED} className={cls.links}>
                 {t('войти')}
             </Button>
-            <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
         </div>
     );
 }
