@@ -1,6 +1,6 @@
 import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -11,7 +11,7 @@ interface NavbarProps {
     className?: string;
 }
 
-export function Navbar({ className }: NavbarProps) {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const isAuth = useSelector(getUserAuthData);
@@ -33,7 +33,11 @@ export function Navbar({ className }: NavbarProps) {
     if (isAuth) {
         return (
             <div className={classNames(cls.Navbar, {}, [className])}>
-                <Button onClick={onLogout} theme={ThemeButton.CLEAR_INVERTED} className={cls.links}>
+                <Button
+                    onClick={onLogout}
+                    theme={ThemeButton.CLEAR_INVERTED}
+                    className={cls.links}
+                >
                     {t('выйти')}
                 </Button>
                 <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
@@ -43,12 +47,18 @@ export function Navbar({ className }: NavbarProps) {
 
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
-            <Button onClick={onShowModal} theme={ThemeButton.CLEAR_INVERTED} className={cls.links}>
+            <Button
+                onClick={onShowModal}
+                theme={ThemeButton.CLEAR_INVERTED}
+                className={cls.links}
+            >
                 {t('войти')}
             </Button>
-            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
+            {isAuthModal && (
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+            )}
         </div>
     );
-}
+});
 
 export default Navbar;

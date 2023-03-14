@@ -14,7 +14,7 @@ export function LoginModal({ className, isOpen, onClose }: LoginModalProps) {
     return (
         <Modal className={classNames(' ', {}, [className])} isOpen={isOpen} onClose={onClose}>
             <Suspense fallback={<Loader />}>
-                <LoginFormAsync />
+                <LoginFormAsync onSuccess={onClose} />
             </Suspense>
         </Modal>
     );

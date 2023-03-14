@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink } from 'shared/UI/AppLink/AppLink';
 import { Button, ButtonSize, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
+import { SidebarItemList } from 'widgets/Sidebar/modal/items';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher/';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
-import MainIcon from '../../../../shared/assets/icons/main.svg';
-import AboutIcon from '../../../../shared/assets/icons/about.svg';
 
 interface SidebarProps {
     className?: string;
@@ -17,8 +14,6 @@ interface SidebarProps {
 export function Sidebar({ className }: SidebarProps) {
     const [collapsed, setCollapsed] = useState(false);
 
-    const { t } = useTranslation();
-
     function toggleOn() {
         setCollapsed((prev) => !prev);
     }
@@ -26,23 +21,19 @@ export function Sidebar({ className }: SidebarProps) {
     return (
         <div
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
         >
             <div className={cls.items}>
-                <AppLink className={cls.item} to={RoutePath.main}>
-                    <MainIcon className={cls.icon} />
-                    <span className={cls.link}>
-                        {' '}
-                        {t('главная')}
-                    </span>
-                </AppLink>
-
-                <AppLink className={cls.item} to={RoutePath.about}>
-                    <AboutIcon className={cls.icon} />
-                    <span className={cls.link}>{t('о сайте')}</span>
-                </AppLink>
+                {SidebarItemList.map((item) => (
+                    <SidebarItem
+                        item={item}
+                        collapsed={collapsed}
+                        key={item.path}
+                    />
+                ))}
             </div>
-
             <Button
                 theme={ThemeButton.BACKGROUND_INVERTED}
                 className={cls.collapseBtn}

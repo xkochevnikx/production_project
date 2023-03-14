@@ -25,5 +25,14 @@
             "password": "123"
         }
     ],
-    "profile": { "name": "typicode" }
+    "profile": {
+        "first": "Svyat",
+        "lastname": "Deev",
+        "age": 38,
+        "currency": "RUB",
+        "country": "Ingermanland",
+        "city": "SPB",
+        "username": "admin",
+        "avatar": "https://aif-s3.aif.ru/images/019/944/8b5fa6c96e9c8c2fa9b8abd0ebfa7a2c.png"
+    }
 }
