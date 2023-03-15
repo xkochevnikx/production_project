@@ -15,6 +15,7 @@ export default (env: IBuildEnv) => {
     const mode = env.mode || 'development';
     const isDev = mode === 'development';
     const PORT = env.port || 3000;
+    const apiUrl = env.apiUrl || 'http://localhost:8000';
 
     //! конфигурационный файл
     const config: webpack.Configuration = buildWebpackConfig({
@@ -22,6 +23,7 @@ export default (env: IBuildEnv) => {
         paths,
         isDev,
         port: PORT,
+        apiUrl,
     });
 
     return config;
