@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { render } from '@testing-library/react';
 import { IStateSchema, StoreProvider } from 'app/providers/StoreProviders';
 import { ReactNode, Suspense } from 'react';
@@ -11,14 +10,20 @@ export interface IComponentRender {
     initialState?: DeepPartial<IStateSchema>;
 }
 
-export function componentRender(component: ReactNode, options: IComponentRender = {}) {
+export function componentRender(
+    component: ReactNode,
+    options: IComponentRender = {},
+) {
     const { route = '/', initialState } = options;
 
     return render(
-        <StoreProvider initialState={initialState}>
-            <MemoryRouter initialEntries={[route]}>
-                <I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
-            </MemoryRouter>
-        </StoreProvider>,
+        <MemoryRouter initialEntries={[route]}>
+            <StoreProvider initialState={initialState}>
+                <I18nextProvider i18n={i18nForTests}>
+                    {component}
+                </I18nextProvider>
+            </StoreProvider>
+            {' '}
+        </MemoryRouter>,
     );
 }

@@ -1,18 +1,15 @@
 import { Story } from '@storybook/react';
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { IStateSchema, StoreProvider } from 'app/providers/StoreProviders';
 import { loginReducer } from 'features/AuthByUsername/modal/slice/loginSlice';
 import { ProfileReducer } from 'entities/Profile';
+import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
-const defaultAsyncReducer: DeepPartial<ReducersMapObject<IStateSchema>> = {
+const defaultAsyncReducer: ReducersList = {
     loginForm: loginReducer,
     profile: ProfileReducer,
 };
 
-export const StoreDecorator = (
-    state: DeepPartial<IStateSchema>,
-    asyncReducers?: DeepPartial<ReducersMapObject<IStateSchema>>,
-) => (StoryComponent: Story) => (
+export const StoreDecorator = (state: DeepPartial<IStateSchema>, asyncReducers?: ReducersList) => (StoryComponent: Story) => (
     <StoreProvider
         initialState={state}
         asyncReducers={{ ...defaultAsyncReducer, ...asyncReducers }}

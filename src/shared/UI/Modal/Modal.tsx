@@ -1,7 +1,12 @@
 import React, {
-    ReactNode, useCallback, useEffect, useRef, useState,
+    MutableRefObject,
+    ReactNode,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mode } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -15,7 +20,9 @@ interface ModalProps {
 export function Modal(props: ModalProps) {
     const [isClosing, setIsClosing] = useState(false);
 
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+    const timerRef = useRef() as MutableRefObject<
+        ReturnType<typeof setTimeout>
+    >;
 
     const {
         className, children, isOpen, onClose,
@@ -54,14 +61,19 @@ export function Modal(props: ModalProps) {
         e.stopPropagation();
     }
 
-    const mods: Record<string, boolean> = {
+    const mods: Mode = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
 
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className, 'app_modal'])}>
+            <div
+                className={classNames(cls.Modal, mods, [
+                    className,
+                    'app_modal',
+                ])}
+            >
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div onClick={onContentClick} className={cls.content}>
                         {children}

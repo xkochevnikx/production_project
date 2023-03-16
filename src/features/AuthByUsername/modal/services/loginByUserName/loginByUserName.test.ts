@@ -3,11 +3,6 @@ import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk';
 import { loginByUserName } from './loginByUserName';
 
-jest.mock('axios');
-
-// ? это для глубокого мокания в данном случае для метода пост
-const mockedAxios = jest.mocked(axios, true);
-
 describe('loginByUserName.test', () => {
     // let dispatch: Dispatch;
     // let getState: () => IStateSchema;
@@ -41,25 +36,34 @@ describe('loginByUserName.test', () => {
     // });
     test('succes login', async () => {
         const userValue = { username: 'qwe', id: '1' };
-        mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }));
-
         const thunk = new TestAsyncThunk(loginByUserName);
-        const result = await thunk.callThunk({ username: '123', password: '123' });
+        thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
+
+        const result = await thunk.callThunk({
+            username: '123',
+            password: '123',
+        });
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(3);
-        expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
-        expect(mockedAxios.post).toBeCalled();
+        expect(thunk.dispatch).toHaveBeenCalledWith(
+            userActions.setAuthData(userValue),
+        );
+        expect(thunk.api.post).toBeCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual(userValue);
     });
     test('error login', async () => {
-        mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
-
         const thunk = new TestAsyncThunk(loginByUserName);
-        const result = await thunk.callThunk({ username: '123', password: '123' });
+
+        thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
+
+        const result = await thunk.callThunk({
+            username: '123',
+            password: '123',
+        });
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-        expect(mockedAxios.post).toBeCalled();
+        expect(thunk.api.post).toBeCalled();
         expect(result.meta.requestStatus).toBe('rejected');
         expect(result.payload).toEqual('error');
     });
