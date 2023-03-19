@@ -12,7 +12,11 @@ interface LoginModalProps {
 
 export function LoginModal({ className, isOpen, onClose }: LoginModalProps) {
     return (
-        <Modal className={classNames(' ', {}, [className])} isOpen={isOpen} onClose={onClose}>
+        <Modal
+            className={classNames('', {}, [className])}
+            isOpen={isOpen}
+            onClose={onClose}
+        >
             <Suspense fallback={<Loader />}>
                 <LoginFormAsync onSuccess={onClose} />
             </Suspense>

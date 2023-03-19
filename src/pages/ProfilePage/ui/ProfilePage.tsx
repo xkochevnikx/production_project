@@ -4,7 +4,6 @@ import {
     ProfileReducer,
 } from 'entities/Profile';
 import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
@@ -26,8 +25,6 @@ function ProfilePage({ className }: ProfilePageProps) {
     useEffect(() => {
         dispatch(fetchProfileData());
     }, [dispatch]);
-
-    const { t } = useTranslation();
 
     return (
         <DynamicModuleLoader

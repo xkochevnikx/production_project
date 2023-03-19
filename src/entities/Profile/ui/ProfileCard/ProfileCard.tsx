@@ -19,6 +19,7 @@ export const ProfileCard = memo(({ className }: ProfileCardProps) => {
     const translation = useTranslation();
     const data = useSelector(getProfileData);
     const error = useSelector(getProfileError);
+
     const isLoading = useSelector(getProfileIsLoading);
 
     return (

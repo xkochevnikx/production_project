@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/UI/Button/ui/Button';
 
@@ -7,9 +7,9 @@ export function BugButton() {
     const { t } = useTranslation();
     const [error, setError] = useState(false);
 
-    function toThrow() {
+    const toThrow = useCallback(() => {
         setError(true);
-    }
+    }, []);
 
     useEffect(() => {
         if (error) {

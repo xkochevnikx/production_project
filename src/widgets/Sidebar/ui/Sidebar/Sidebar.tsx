@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonSize, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
@@ -14,9 +14,9 @@ interface SidebarProps {
 export function Sidebar({ className }: SidebarProps) {
     const [collapsed, setCollapsed] = useState(false);
 
-    function toggleOn() {
+    const toggleOn = useCallback(() => {
         setCollapsed((prev) => !prev);
-    }
+    }, []);
 
     return (
         <div
@@ -47,7 +47,7 @@ export function Sidebar({ className }: SidebarProps) {
             </Button>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LanguageSwitcher short={collapsed} />
+                <LanguageSwitcher short={collapsed} className={cls.lang} />
             </div>
         </div>
     );

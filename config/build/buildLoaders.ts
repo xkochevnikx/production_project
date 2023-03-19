@@ -13,13 +13,6 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
         ],
     };
 
-    // const ttfLoader = {
-    //     options: {
-    //         name: `fonts/[name].[ext]`,
-    //         publicPath: '../',
-    //     },
-    // };
-
     const svgLoader = {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
@@ -32,7 +25,12 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
             loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
-                plugins: [['i18next-extract', { locales: ['ru', 'en'], keyAsDefaultValue: true }]],
+                // plugins: [
+                //     [
+                //         'i18next-extract',
+                //         { locales: ['ru', 'en'], keyAsDefaultValue: true },
+                //     ],
+                // ],
             },
         },
     };

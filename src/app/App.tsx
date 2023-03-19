@@ -17,16 +17,12 @@ function App() {
         dispatch(userActions.initAuthData());
     }, [dispatch]);
 
-    // const [isOpen, setIsOpen] = useState(false);
-
     // ? suspense это крутилка из коробки для асинхронных чанков
     // ? для класса вызываем функцию в которую передаём основной , в объекте дополниельный и тему в массиве.
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <Navbar />
-                {/* <button onClick={() => setIsOpen(true)}>modal</button> */}
-
                 <div className="content-page">
                     <Sidebar />
                     <AppRouter />

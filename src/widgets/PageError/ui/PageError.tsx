@@ -1,18 +1,20 @@
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/UI/Button/ui/Button';
 import cls from './PageError.module.scss';
 
 interface PageErrorProps {
-   className?: string;
+    className?: string;
 }
 
 export function PageError({ className }: PageErrorProps) {
-    function reloadPage() {
+    const reloadPage = useCallback(() => {
         //! у объекта локэйшн есть функция релоад с помощью которой можно перезагрузить страницу
         // eslint-disable-next-line no-restricted-globals
         location.reload();
-    }
+    }, []);
+
     const { t } = useTranslation();
     return (
         <div className={classNames(cls.PageError, {}, [className])}>

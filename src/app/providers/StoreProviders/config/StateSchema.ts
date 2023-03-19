@@ -5,7 +5,6 @@ import {
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { ICounterSchema } from 'entities/Counter';
 import { IProfileSchema } from 'entities/Profile';
 import { IUserSchema } from 'entities/User';
 import { ILoginSchema } from 'features/AuthByUsername';
@@ -13,7 +12,6 @@ import { NavigateOptions, To } from 'react-router-dom';
 import { AxiosInstance } from 'axios';
 
 export interface IStateSchema {
-    counter: ICounterSchema;
     user: IUserSchema;
 
     // async reducers
