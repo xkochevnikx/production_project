@@ -72,7 +72,6 @@
         "identity-obj-proxy": "^3.0.0",
         "jest": "^27.5.1",
         "json-server": "^0.17.2",
-        "loki": "^0.31.1",
         "mini-css-extract-plugin": "^2.5.3",
         "npm": "^9.4.1",
         "react-i18next": "^11.15.5",
@@ -96,20 +95,5 @@
         "react-dom": "^17.0.2",
         "react-redux": "^7.2.6",
         "react-router-dom": "^6.2.1"
-    },
-    "loki": {
-        "configurations": {
-            "chrome.laptop": {
-                "target": "chrome.docker",
-                "width": 1366,
-                "height": 768,
-                "deviceScaleFactor": 1,
-                "mobile": false
-            },
-            "chrome.iphone7": {
-                "target": "chrome.docker",
-                "preset": "iPhone 7"
-            }
-        }
     }
 }
