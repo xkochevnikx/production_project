@@ -3,7 +3,10 @@ import { getLoginIsLoading } from 'features/AuthByUsername/modal/selectors/getLo
 import { getLoginPassword } from 'features/AuthByUsername/modal/selectors/getLoginPassword/getLoginPassword';
 import { getLoginUsername } from 'features/AuthByUsername/modal/selectors/getLoginUsername/getLoginUsername';
 import { loginByUserName } from 'features/AuthByUsername/modal/services/loginByUserName/loginByUserName';
-import { loginActions, loginReducer } from 'features/AuthByUsername/modal/slice/loginSlice';
+import {
+    loginActions,
+    loginReducer,
+} from 'features/AuthByUsername/modal/slice/loginSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -59,12 +62,19 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
 
     const { t } = useTranslation();
     return (
-        <DynamicModuleLoader name="loginForm" reducers={initialReducers} removeAfterUnmount>
+        <DynamicModuleLoader
+            name="loginForm"
+            reducers={initialReducers}
+            removeAfterUnmount
+        >
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('форма авторизации')} />
 
                 {error && (
-                    <Text theme={TextTheme.ERROR} text={i18n.t('Вы ввели неправильные данные')} />
+                    <Text
+                        theme={TextTheme.ERROR}
+                        text={i18n.t('Вы ввели неправильные данные')}
+                    />
                 )}
 
                 <Input

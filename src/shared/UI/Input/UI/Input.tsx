@@ -1,18 +1,30 @@
 import React, { InputHTMLAttributes, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import cls from './input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly'
+>;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
     placeholder: string;
+    readonly?: boolean;
+    type?: string;
 }
 
 export const Input = memo((props: InputProps) => {
     const {
-        className, placeholder, value, onChange, type = 'text', ...otherProps
+        className,
+        placeholder,
+        value,
+        onChange,
+        type = 'text',
+        readonly,
+        ...otherProps
     } = props;
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,10 +32,19 @@ export const Input = memo((props: InputProps) => {
     };
 
     return (
-        <div className={classNames('', {}, [className])}>
-            {placeholder && <div>{`${placeholder}_`}</div>}
+        <div
+            className={classNames('', { [cls.readonly]: readonly }, [
+                className,
+            ])}
+        >
+            {placeholder && <span>{`${placeholder}_`}</span>}
 
-            <input type={type} value={value} onChange={onChangeHandler} />
+            <input
+                type={type}
+                value={value}
+                onChange={onChangeHandler}
+                readOnly={readonly}
+            />
         </div>
     );
 });

@@ -1,18 +1,32 @@
 .ProfileCard {
-   padding: 20px;
-   border: 2px solid var(--inverted-bg-color);
+    padding: 10px;
+    border: 2px solid var(--inverted-bg-color);
 }
 
 .header {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-}
-
-.data {
-   margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .input {
-   margin-top: 30px;
+    margin-top: 10px;
+}
+
+.loading,
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.avatarWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: start;
+}
+
+.editing {
+    border: 2px solid var(--red-dark);
 }
