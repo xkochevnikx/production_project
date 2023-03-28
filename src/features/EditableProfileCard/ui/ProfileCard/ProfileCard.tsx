@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { Text, TextAlign, TextTheme } from 'shared/UI/Text/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/UI/Input/UI/Input';
-import { IProfile } from 'entities/Profile/modal/types/profile';
+import { IProfile } from 'features/EditableProfileCard/modal/types/profile';
 import { Loader } from 'shared/UI/Loader/Loader';
 import { Avatar } from 'shared/UI/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Current';

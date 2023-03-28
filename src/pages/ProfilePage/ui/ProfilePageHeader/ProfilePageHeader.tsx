@@ -4,12 +4,11 @@ import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/UI/Text/ui/Text';
 import { useSelector } from 'react-redux';
-import {
-    getProfileReadonly,
-    ProfileActions,
-    updateProfileData,
-} from 'entities/Profile';
+
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getProfileReadonly } from 'features/EditableProfileCard/modal/selectors/getProfileReadonly/getProfileReadonly';
+import { ProfileActions } from 'features/EditableProfileCard/modal/slice/ProfileSlice';
+import { updateProfileData } from 'features/EditableProfileCard/modal/services/updateProfileData/updateProfileData';
 import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {

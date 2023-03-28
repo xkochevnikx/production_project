@@ -5,11 +5,11 @@ import {
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { IProfileSchema } from 'entities/Profile';
 import { IUserSchema } from 'entities/User';
 import { ILoginSchema } from 'features/AuthByUsername';
 import { NavigateOptions, To } from 'react-router-dom';
 import { AxiosInstance } from 'axios';
+import { IProfileSchema } from 'features/EditableProfileCard/modal/types/profile';
 
 export interface IStateSchema {
     user: IUserSchema;
