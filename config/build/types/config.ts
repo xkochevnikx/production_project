@@ -13,6 +13,7 @@ export interface IBuildOptions {
     isDev: boolean;
     port: number;
     apiUrl: string;
+    project: 'strorybook' | 'frontend' | 'jest';
 }
 
 export interface IBuildEnv {
