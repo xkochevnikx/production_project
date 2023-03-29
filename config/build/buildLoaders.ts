@@ -1,8 +1,9 @@
 import webpack from 'webpack';
+import { buildBabelLoaders } from './loaders/buildBabelLoaders';
 import { buildCssLoaders } from './loaders/buildCssLoaders';
 import { IBuildOptions } from './types/config';
 
-export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders(options: IBuildOptions): webpack.RuleSetRule[] {
     const fileLoader = {
         test: /\.(png|jpe?g|gif|ttf)$/i,
 
@@ -18,24 +19,9 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     };
 
-    const babelLoader = {
-        test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-                // plugins: [
-                //     [
-                //         'i18next-extract',
-                //         { locales: ['ru', 'en'], keyAsDefaultValue: true },
-                //     ],
-                // ],
-            },
-        },
-    };
+    const babelLoader = buildBabelLoaders(options);
 
-    const cssLoader = buildCssLoaders(isDev);
+    const cssLoader = buildCssLoaders(options);
 
     const typescriptLoader = {
         test: /\.tsx?$/,
