@@ -16,7 +16,7 @@ const reducers: ReducersList = {
 function ProfilePage() {
     return (
         <DynamicModuleLoader
-            name='profile'
+            name="profile"
             reducers={reducers}
             removeAfterUnmount
         >

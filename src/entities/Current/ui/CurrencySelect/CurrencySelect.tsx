@@ -27,12 +27,14 @@ const options = [
 ];
 
 export const CurrencySelect = memo(
-    ({ className, value, onChange, readonly, label }: CurrencySelectProps) => {
+    ({
+        className, value, onChange, readonly, label,
+    }: CurrencySelectProps) => {
         const onChangeHandler = useCallback(
             (value: string) => {
                 onChange?.(value as Currency);
             },
-            [onChange]
+            [onChange],
         );
 
         return (
@@ -45,5 +47,5 @@ export const CurrencySelect = memo(
                 onChange={onChangeHandler}
             />
         );
-    }
+    },
 );

@@ -57,5 +57,5 @@ export const ProfilePageHeader = memo(
                 )}
             </div>
         );
-    }
+    },
 );

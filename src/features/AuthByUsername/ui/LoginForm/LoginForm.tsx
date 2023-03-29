@@ -43,14 +43,14 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
         (value: string) => {
             dispatch(loginActions.setUsername(value));
         },
-        [dispatch]
+        [dispatch],
     );
 
     const onChangePassword = useCallback(
         (value: string) => {
             dispatch(loginActions.setPassword(value));
         },
-        [dispatch]
+        [dispatch],
     );
 
     const onLoginClick = useCallback(async () => {
@@ -63,7 +63,7 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
     const { t } = useTranslation('loginform');
     return (
         <DynamicModuleLoader
-            name='loginForm'
+            name="loginForm"
             reducers={initialReducers}
             removeAfterUnmount
         >
@@ -79,14 +79,14 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
 
                 <Input
                     onChange={onChangeUserName}
-                    type='text'
+                    type="text"
                     className={cls.input}
                     placeholder={t('Введите имя')}
                     value={username}
                 />
                 <Input
                     onChange={onChangePassword}
-                    type='text'
+                    type="text"
                     className={cls.input}
                     placeholder={t('Введите пароль')}
                     value={password}
