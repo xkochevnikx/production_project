@@ -38,7 +38,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     theme={ThemeButton.CLEAR_INVERTED}
                     className={cls.links}
                 >
-                    {t('выйти')}
+                    {t('Выйти')}
                 </Button>
                 <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
             </div>
@@ -52,7 +52,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 theme={ThemeButton.CLEAR_INVERTED}
                 className={cls.links}
             >
-                {t('войти')}
+                {t('Войти')}
             </Button>
             {isAuthModal && (
                 <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />

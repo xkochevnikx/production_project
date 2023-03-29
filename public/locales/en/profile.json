@@ -1,0 +1,21 @@
+{
+    "Ваше имя_": "Enter your name_",
+    "Ваше фамилия_": "Your last name_",
+    "Ваш возраст_": "Your age_",
+    "Ваш город_": "Your city_",
+    "Введите логин_": "Enter login_",
+    "Введите ссылку на аватар_": "Enter link to avatar_",
+    "Укажите валюту_": "Specify currency_",
+    "Укажите страну_": "Specify country_",
+    "Сохранить": "Save",
+    "Отменить": "Cancel",
+    "Введите имя и фамилию": "Enter first and last name",
+    "Данные не указаны": "Data not specified",
+    "Некорректный возраст": "Incorrect age",
+    "Ошибка на сервере": "Error on the server",
+    "Редактировать": "Edit",
+    "Профиль": "Profile",
+    "Произошла ошибка": "An error has occurred",
+    "Попробуйте перезагрузить страницу": "Try reloading the page",
+    "Идёт загрузка..": "Loading in progress.."
+}

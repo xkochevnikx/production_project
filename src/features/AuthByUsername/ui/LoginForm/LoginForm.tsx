@@ -43,14 +43,14 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
         (value: string) => {
             dispatch(loginActions.setUsername(value));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangePassword = useCallback(
         (value: string) => {
             dispatch(loginActions.setPassword(value));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onLoginClick = useCallback(async () => {
@@ -60,15 +60,15 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
         }
     }, [dispatch, username, password, onSuccess]);
 
-    const { t } = useTranslation();
+    const { t } = useTranslation('loginform');
     return (
         <DynamicModuleLoader
-            name="loginForm"
+            name='loginForm'
             reducers={initialReducers}
             removeAfterUnmount
         >
             <div className={classNames(cls.LoginForm, {}, [className])}>
-                <Text title={t('форма авторизации')} />
+                <Text title={t('Форма авторизации')} />
 
                 {error && (
                     <Text
@@ -79,16 +79,16 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
 
                 <Input
                     onChange={onChangeUserName}
-                    type="text"
+                    type='text'
                     className={cls.input}
-                    placeholder="введите имя"
+                    placeholder={t('Введите имя')}
                     value={username}
                 />
                 <Input
                     onChange={onChangePassword}
-                    type="text"
+                    type='text'
                     className={cls.input}
-                    placeholder="введите пароль"
+                    placeholder={t('Введите пароль')}
                     value={password}
                 />
                 <Button
@@ -97,7 +97,7 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
                     theme={ThemeButton.OUTLINE}
                     className={cls.loginBtn}
                 >
-                    {t('войти')}
+                    {t('Войти')}
                 </Button>
             </div>
         </DynamicModuleLoader>

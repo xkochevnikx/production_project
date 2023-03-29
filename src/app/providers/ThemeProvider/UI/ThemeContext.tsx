@@ -1,10 +1,9 @@
-import {
-    createContext, FC, useMemo, useState,
-} from 'react';
+import { createContext, FC, useMemo, useState } from 'react';
 
 export enum Theme {
     LIGHT = 'app_light_theme',
     DARK = 'app_dark_theme',
+    ORANGE = 'app_orange_theme',
 }
 
 export interface IThemeContextProps {
@@ -20,7 +19,8 @@ interface IThemeProviderProps {
     initialTheme?: Theme;
 }
 
-const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
+const defaultTheme =
+    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
 export const ThemeProvider: FC<IThemeProviderProps> = (props) => {
     const { initialTheme, children } = props;
@@ -32,8 +32,12 @@ export const ThemeProvider: FC<IThemeProviderProps> = (props) => {
             theme,
             setTheme,
         }),
-        [theme],
+        [theme]
     );
 
-    return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
+    return (
+        <ThemeContext.Provider value={defaultProps}>
+            {children}
+        </ThemeContext.Provider>
+    );
 };

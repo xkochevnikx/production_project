@@ -4,11 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-        'plugin:i18next/recommended',
-    ],
+    extends: ['plugin:react/recommended', 'airbnb'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -17,7 +13,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+    plugins: ['react', '@typescript-eslint', 'react-hooks'],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -37,13 +33,13 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'i18next/no-literal-string': [
-            'warn',
-            {
-                markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to'],
-            },
-        ],
+        // 'i18next/no-literal-string': [
+        //     'warn',
+        //     {
+        //         markupOnly: true,
+        //         ignoreAttribute: ['data-testid', 'to'],
+        //     },
+        // ],
         'max-len': ['error', { ignoreComments: true, code: 130 }],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',

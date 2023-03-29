@@ -8,6 +8,7 @@ interface CurrencySelectProps {
     value?: Currency;
     onChange?: (value: Currency) => void;
     readonly?: boolean;
+    label?: string;
 }
 
 const options = [
@@ -26,25 +27,23 @@ const options = [
 ];
 
 export const CurrencySelect = memo(
-    ({
-        className, value, onChange, readonly,
-    }: CurrencySelectProps) => {
+    ({ className, value, onChange, readonly, label }: CurrencySelectProps) => {
         const onChangeHandler = useCallback(
             (value: string) => {
                 onChange?.(value as Currency);
             },
-            [onChange],
+            [onChange]
         );
 
         return (
             <Select
                 readonly={readonly}
                 className={classNames('', {}, [className])}
-                label="Укажите валюту"
+                label={label}
                 options={options}
                 value={value}
                 onChange={onChangeHandler}
             />
         );
-    },
+    }
 );

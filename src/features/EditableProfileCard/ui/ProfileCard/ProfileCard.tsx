@@ -43,7 +43,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
         onChangeCurrency,
     } = props;
 
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile');
 
     if (isLoading) {
         return (
@@ -92,7 +92,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 onChange={onChangeFirstname}
                 className={cls.input}
                 value={data?.first}
-                placeholder={t('Ваше имя')}
+                placeholder={t('Ваше имя_')}
                 readonly={readonly}
             />
 
@@ -100,7 +100,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 onChange={onChangeLastname}
                 className={cls.input}
                 value={data?.lastname}
-                placeholder={t('Ваше фамилия')}
+                placeholder={t('Ваше фамилия_')}
                 readonly={readonly}
             />
 
@@ -108,7 +108,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 onChange={onChangeAge}
                 className={cls.input}
                 value={data?.age}
-                placeholder={t('Ваш возраст')}
+                placeholder={t('Ваш возраст_')}
                 readonly={readonly}
             />
 
@@ -116,7 +116,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 onChange={onChangeCity}
                 className={cls.input}
                 value={data?.city}
-                placeholder={t('Ваш город')}
+                placeholder={t('Ваш город_')}
                 readonly={readonly}
             />
 
@@ -124,7 +124,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 onChange={onChangeUsername}
                 className={cls.input}
                 value={data?.username}
-                placeholder={t('введите ник')}
+                placeholder={t('Введите логин_')}
                 readonly={readonly}
             />
 
@@ -132,7 +132,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 onChange={onChangeAvatar}
                 className={cls.input}
                 value={data?.avatar}
-                placeholder={t('введите ссылку на аватар')}
+                placeholder={t('Введите ссылку на аватар_')}
                 readonly={readonly}
             />
 
@@ -141,6 +141,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 value={data?.currency}
                 onChange={onChangeCurrency}
                 readonly={readonly}
+                label={t('Укажите валюту_')}
             />
 
             <CountrySelect
@@ -148,6 +149,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 value={data?.country}
                 onChange={onChangeCountry}
                 readonly={readonly}
+                label={t('Укажите страну_')}
             />
         </div>
     );

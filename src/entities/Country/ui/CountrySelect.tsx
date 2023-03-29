@@ -8,6 +8,7 @@ interface CountrySelectProps {
     value?: Country;
     onChange?: (value: Country) => void;
     readonly?: boolean;
+    label?: string;
 }
 
 const options = [
@@ -26,25 +27,23 @@ const options = [
 ];
 
 export const CountrySelect = memo(
-    ({
-        className, value, onChange, readonly,
-    }: CountrySelectProps) => {
+    ({ className, value, onChange, readonly, label }: CountrySelectProps) => {
         const onChangeHandler = useCallback(
             (value: string) => {
                 onChange?.(value as Country);
             },
-            [onChange],
+            [onChange]
         );
 
         return (
             <Select
                 readonly={readonly}
                 className={classNames('', {}, [className])}
-                label="Укажите страну"
+                label={label}
                 options={options}
                 value={value}
                 onChange={onChangeHandler}
             />
         );
-    },
+    }
 );

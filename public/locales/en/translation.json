@@ -2,14 +2,15 @@
     "Перевод": "Translate",
     "Страница не найдена": "Page not found",
     "Открыть": "Open",
-    "главная": "main",
-    "о сайте": "about",
     "Произошла непредвиденная ошибка": "error",
-    "Обновить страницу": "refresh the page",
-    "Прокинуть ошибку": "throw error",
+    "Обновить страницу": "Refresh the page",
+    "Прокинуть ошибку": "Throw error",
     "Язык": "English",
-    "войти": "to come in",
     "Короткий язык": "En",
     "Вы ввели неправильные данные": "You entered incorrect data",
-    "форма авторизации": "authorization form"
+    "Войти": "Sign In",
+    "Выйти": "Go out",
+    "О сайте": "About",
+    "Главная": "Main",
+    "Профиль": "Profile"
 }

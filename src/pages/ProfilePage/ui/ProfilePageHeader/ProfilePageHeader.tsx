@@ -33,7 +33,7 @@ export const ProfilePageHeader = memo(
             dispatch(ProfileActions.cancelEdit());
         }, [dispatch]);
 
-        const { t } = useTranslation();
+        const { t } = useTranslation('profile');
 
         return (
             <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
@@ -57,5 +57,5 @@ export const ProfilePageHeader = memo(
                 )}
             </div>
         );
-    },
+    }
 );
