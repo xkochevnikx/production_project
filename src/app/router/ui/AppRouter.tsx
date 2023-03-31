@@ -1,9 +1,6 @@
-import { Suspense, useCallback } from 'react';
+import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import {
-    AppRouterProps,
-    routeConfig,
-} from 'shared/config/routeConfig/routeConfig';
+import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader';
 import { RequireAuth } from './RequireAuth';
 
@@ -41,12 +38,12 @@ export function AppRouter() {
                         element={
                             route.authOnly ? (
                                 <RequireAuth>
-                                    <div className="page-wrapper">
+                                    <div className='page-wrapper'>
                                         {route.element}
                                     </div>
                                 </RequireAuth>
                             ) : (
-                                <div className="page-wrapper">
+                                <div className='page-wrapper'>
                                     {route.element}
                                 </div>
                             )
