@@ -1,31 +1,56 @@
-import { getUserAuthData } from 'entities/User';
-import { Suspense, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import {
+    AppRouterProps,
+    routeConfig,
+} from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader';
+import { RequireAuth } from './RequireAuth';
 
 export function AppRouter() {
-    const isAuth = useSelector(getUserAuthData);
+    // const renderWithWrapper = useCallback((route: AppRouterProps) => {
+    //     const element = (
+    //         <Suspense fallback={<PageLoader />}>
+    //             <div className='page-wrapper'>{route.element}</div>
+    //         </Suspense>
+    //     );
+    //     return (
+    //         <Route
+    //             key={route.path}
+    //             path={route.path}
+    //             element={
+    //                 route.authOnly ? (
+    //                     <RequireAuth>{element}</RequireAuth>
+    //                 ) : (
+    //                     element
+    //                 )
+    //             }
+    //         />
+    //     );
+    // }, []);
 
-    const routes = useMemo(
-        () => Object.values(routeConfig).filter((route) => {
-            if (route.authOnly && !isAuth) {
-                return false;
-            }
-            return true;
-        }),
-        [isAuth],
-    );
+    // return <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>;
 
     return (
         <Suspense fallback={<PageLoader />}>
             <Routes>
-                {routes.map(({ element, path }) => (
+                {Object.values(routeConfig).map((route) => (
                     <Route
-                        key={path}
-                        path={path}
-                        element={<div className="page-wrapper">{element}</div>}
+                        key={route.path}
+                        path={route.path}
+                        element={
+                            route.authOnly ? (
+                                <RequireAuth>
+                                    <div className="page-wrapper">
+                                        {route.element}
+                                    </div>
+                                </RequireAuth>
+                            ) : (
+                                <div className="page-wrapper">
+                                    {route.element}
+                                </div>
+                            )
+                        }
                     />
                 ))}
             </Routes>

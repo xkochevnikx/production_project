@@ -2,14 +2,15 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { userActions } from 'entities/User';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserInited, userActions } from 'entities/User';
 import { AppRouter } from './router';
 import { useTheme } from './providers/lib/useTheme';
 
 function App() {
     // ? хук переключения темы
     const { theme } = useTheme();
+    const inited = useSelector(getUserInited);
 
     const dispatch = useDispatch();
 
@@ -25,7 +26,7 @@ function App() {
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
-                    <AppRouter />
+                    {inited && <AppRouter />}
                 </div>
             </Suspense>
         </div>
