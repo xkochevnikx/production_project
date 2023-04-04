@@ -62,11 +62,7 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
 
     const { t } = useTranslation('loginform');
     return (
-        <DynamicModuleLoader
-            name="loginForm"
-            reducers={initialReducers}
-            removeAfterUnmount
-        >
+        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('Форма авторизации')} />
 

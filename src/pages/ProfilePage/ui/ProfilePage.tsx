@@ -15,11 +15,7 @@ const reducers: ReducersList = {
 
 function ProfilePage() {
     return (
-        <DynamicModuleLoader
-            name="profile"
-            reducers={reducers}
-            removeAfterUnmount
-        >
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <ProfilePageHeader />
             <EditableProfileCard />
         </DynamicModuleLoader>

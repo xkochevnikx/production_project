@@ -38,12 +38,12 @@ export function AppRouter() {
                         element={
                             route.authOnly ? (
                                 <RequireAuth>
-                                    <div className='page-wrapper'>
+                                    <div className="page-wrapper">
                                         {route.element}
                                     </div>
                                 </RequireAuth>
                             ) : (
-                                <div className='page-wrapper'>
+                                <div className="page-wrapper">
                                     {route.element}
                                 </div>
                             )

@@ -9,7 +9,6 @@ export type ReducersList = {
 };
 
 interface IDynamicModuleLoaderProps {
-    name: StateSchemaKey;
     reducers: ReducersList;
     removeAfterUnmount?: boolean;
 }
@@ -19,9 +18,7 @@ export const DynamicModuleLoader: FC<IDynamicModuleLoaderProps> = (props) => {
 
     const dispatch = useDispatch();
 
-    const {
-        children, name, reducers, removeAfterUnmount,
-    } = props;
+    const { children, reducers, removeAfterUnmount } = props;
 
     useEffect(() => {
         // ? объект превращаем в кортеж это массивы в массиве где в каждом подмассиве лежит ключ и значение.
