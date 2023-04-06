@@ -6,7 +6,7 @@ import ProfilePage from './ProfilePage';
 import Avatar from '../../../shared/assets/test/крош.jpg';
 
 export default {
-    title: 'page/ProfilePage',
+    title: 'pages/ProfilePage',
     component: ProfilePage,
     argTypes: {
         backgroundColor: { control: 'color' },

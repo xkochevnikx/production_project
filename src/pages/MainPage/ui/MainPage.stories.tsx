@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { MainPage } from './MainPage';
 
 export default {
-    title: 'page/MainPage',
+    title: 'pages/MainPage',
     component: MainPage,
     argTypes: {
         backgroundColor: { control: 'color' },
