@@ -16,6 +16,7 @@ import {
     ArticleBlock,
     ArticleBlockType,
 } from 'entities/Article/modal/types/article';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { ArticleDetailsReducer } from '../../modal/slice/ArticleDetailsSlice';
 import { fetchArticleById } from '../../modal/services/fetchArticleById';
 import cls from './ArticleDetails.module.scss';
@@ -45,16 +46,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     const { t } = useTranslation('articles');
 
     const article = useSelector(getArticleDetailsData);
-    console.log(article);
 
     const error = useSelector(getArticleDetailsError);
     const isLoading = useSelector(getArticleDetailsIsLoading);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleById(id));
-        }
-    }, [dispatch, id]);
+    useInitialEffect(() => dispatch(fetchArticleById(id)));
 
     const renderBlock = (block: ArticleBlock) => {
         switch (block.type) {

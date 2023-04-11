@@ -11,6 +11,8 @@ import { NavigateOptions, To } from 'react-router-dom';
 import { AxiosInstance } from 'axios';
 import { IProfileSchema } from 'features/EditableProfileCard/modal/types/profile';
 import { IArticleDetailsSchema } from 'entities/Article';
+import { IArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { IAddCommentFormSchema } from 'features/AddCommentForm';
 
 export interface IStateSchema {
     user: IUserSchema;
@@ -19,6 +21,8 @@ export interface IStateSchema {
     loginForm?: ILoginSchema;
     profile?: IProfileSchema;
     articleDetails?: IArticleDetailsSchema;
+    articleDetailsComments?: IArticleDetailsCommentsSchema;
+    addCommentForm?: IAddCommentFormSchema;
 }
 
 export type StateSchemaKey = keyof IStateSchema;

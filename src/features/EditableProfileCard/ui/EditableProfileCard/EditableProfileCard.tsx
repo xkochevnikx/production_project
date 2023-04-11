@@ -7,6 +7,8 @@ import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/UI/Text/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { ValidateProfileError } from 'features/EditableProfileCard/modal/types/profile';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { getProfileValidateErrors } from '../../modal/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../modal/services/fetchProfileData/fetchProfileData';
 import { getProfileReadonly } from '../../modal/selectors/getProfileReadonly/getProfileReadonly';
@@ -32,12 +34,13 @@ export const EditableProfileCard = memo(() => {
 
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+    const { id } = useParams<{ id: string }>();
 
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
+    });
     const onChangeFirstname = useCallback(
         (value?: string) => {
             dispatch(ProfileActions.updateProfile({ first: value || '' }));

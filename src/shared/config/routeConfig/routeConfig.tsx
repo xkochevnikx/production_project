@@ -1,5 +1,5 @@
 import { AboutPage } from 'pages/AboutPage';
-import { ArticleDetailsPage } from 'pages/ArticleDetailsPage/ArticleDetailsPage';
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage';
 import { ArticlesPage } from 'pages/ArticlePage/ArticlesPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
@@ -22,7 +22,7 @@ export enum AppRoutes {
 export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: '/',
     [AppRoutes.ABOUT]: '/about',
-    [AppRoutes.PROFILE]: '/profile',
+    [AppRoutes.PROFILE]: '/profile/',
     [AppRoutes.ARTICLES]: '/articles',
     [AppRoutes.ARTICLE_DETAILS]: '/articles/',
 
@@ -41,7 +41,7 @@ export const routeConfig: Record<AppRoutes, AppRouterProps> = {
     },
 
     [AppRoutes.PROFILE]: {
-        path: RoutePath.profile,
+        path: `${RoutePath.profile}:id`,
         element: <ProfilePage />,
         authOnly: true,
     },

@@ -18,7 +18,7 @@ export const DynamicModuleLoader: FC<IDynamicModuleLoaderProps> = (props) => {
 
     const dispatch = useDispatch();
 
-    const { children, reducers, removeAfterUnmount } = props;
+    const { children, reducers, removeAfterUnmount = true } = props;
 
     useEffect(() => {
         // ? объект превращаем в кортеж это массивы в массиве где в каждом подмассиве лежит ключ и значение.

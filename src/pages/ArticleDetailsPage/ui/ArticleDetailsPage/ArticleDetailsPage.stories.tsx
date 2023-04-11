@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDcorator/StoreDecorator';
-import { IArticle } from '../../entities/Article/index';
+import { IArticle } from '../../../../entities/Article/index';
 import {
     ArticleBlockType,
     ArticleType,
-} from '../../entities/Article/modal/types/article';
+} from '../../../../entities/Article/modal/types/article';
 import { ArticleDetailsPage } from './ArticleDetailsPage';
 
 export default {

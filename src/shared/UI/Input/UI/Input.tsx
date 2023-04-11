@@ -33,7 +33,7 @@ export const Input = memo((props: InputProps) => {
 
     return (
         <div
-            className={classNames('', { [cls.readonly]: readonly }, [
+            className={classNames(cls.Input, { [cls.readonly]: readonly }, [
                 className,
             ])}
         >
