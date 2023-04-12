@@ -9,6 +9,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getProfileReadonly } from 'features/EditableProfileCard/modal/selectors/getProfileReadonly/getProfileReadonly';
 import { ProfileActions } from 'features/EditableProfileCard/modal/slice/ProfileSlice';
 import { updateProfileData } from 'features/EditableProfileCard/modal/services/updateProfileData/updateProfileData';
+import { getUserAuthData } from 'entities/User';
+import { getProfileData } from 'features/EditableProfileCard/modal/selectors/getProfileData/getProfileData';
 import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -20,6 +22,12 @@ export const ProfilePageHeader = memo(
         const readonly = useSelector(getProfileReadonly);
 
         const dispatch = useAppDispatch();
+
+        const userData = useSelector(getUserAuthData);
+
+        const profile = useSelector(getProfileData);
+
+        const canEdit = userData?.id === profile?.id;
 
         const onEdit = useCallback(() => {
             dispatch(ProfileActions.setReadonly(false));
@@ -38,22 +46,32 @@ export const ProfilePageHeader = memo(
         return (
             <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
                 <Text title={t('Профиль')} />
-                {readonly ? (
-                    <Button onClick={onEdit} theme={ThemeButton.OUTLINE}>
-                        {t('Редактировать')}
-                    </Button>
-                ) : (
-                    <>
-                        <Button
-                            onClick={onCancelEdit}
-                            theme={ThemeButton.OUTLINE_RED}
-                        >
-                            {t('Отменить')}
-                        </Button>
-                        <Button onClick={onSave} theme={ThemeButton.OUTLINE}>
-                            {t('Сохранить')}
-                        </Button>
-                    </>
+                {canEdit && (
+                    <div>
+                        {readonly ? (
+                            <Button
+                                onClick={onEdit}
+                                theme={ThemeButton.OUTLINE}
+                            >
+                                {t('Редактировать')}
+                            </Button>
+                        ) : (
+                            <>
+                                <Button
+                                    onClick={onCancelEdit}
+                                    theme={ThemeButton.OUTLINE_RED}
+                                >
+                                    {t('Отменить')}
+                                </Button>
+                                <Button
+                                    onClick={onSave}
+                                    theme={ThemeButton.OUTLINE}
+                                >
+                                    {t('Сохранить')}
+                                </Button>
+                            </>
+                        )}
+                    </div>
                 )}
             </div>
         );

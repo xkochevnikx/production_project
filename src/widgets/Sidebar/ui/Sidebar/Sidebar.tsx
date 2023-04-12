@@ -2,10 +2,11 @@ import { useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonSize, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
-import { SidebarItemList } from 'widgets/Sidebar/modal/items';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher/';
+import { useSelector } from 'react-redux';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
+import { getSidebarItems } from '../../modal/selectors/getSidebarItems';
 
 interface SidebarProps {
     className?: string;
@@ -13,6 +14,8 @@ interface SidebarProps {
 
 export function Sidebar({ className }: SidebarProps) {
     const [collapsed, setCollapsed] = useState(false);
+
+    const sidebarItemList = useSelector(getSidebarItems);
 
     const toggleOn = useCallback(() => {
         setCollapsed((prev) => !prev);
@@ -26,7 +29,7 @@ export function Sidebar({ className }: SidebarProps) {
             ])}
         >
             <div className={cls.items}>
-                {SidebarItemList.map((item) => (
+                {sidebarItemList.map((item) => (
                     <SidebarItem
                         item={item}
                         collapsed={collapsed}
