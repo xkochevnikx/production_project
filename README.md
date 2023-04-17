@@ -24,6 +24,7 @@
 ### Функционал
 
 
+
 ### Демонстрация интерфейса
 
 <a href="https://ibb.co/j6tyTvr"><img src="https://i.ibb.co/dWZPr05/prod-Proj1.png" alt="prod-Proj1" border="0"></a>
@@ -45,6 +46,11 @@ $ npm i
 Чтобы запустить сервер для разработки, выполните команду:
 ```sh
 npm run start:dev
+```
+
+### Webpack cборка в двух режимах 
+```sh
+npm run build:dev - режим разработки / npm run build:prod - прод режим 
 ```
 
 ## Команда проекта
