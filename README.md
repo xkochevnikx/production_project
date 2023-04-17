@@ -10,13 +10,13 @@
 - Json-server
 - Axios
 - Webpack 
+- SCSS
 - Storybook 
 - Jest test
 - CI (Continuous Integration)
 - i18n 
 - Redux toolkit
 - Prettier/Eslint/StyleLint
-- 
 
 ### Интерфейс
 Веб-приложение, c оптимизацией для мобильных устройств
@@ -39,18 +39,11 @@
 $ npm i
 ```
 
-### Запуск Development сервера
+### Запуск Development сервера 
 Чтобы запустить сервер для разработки, выполните команду:
 ```sh
-npm start
+npm run start:dev
 ```
-
-### Запуск сервера
-Чтобы выполнить запуск json-server, выполните команду: 
-```sh
-json-server -w db.json -p 8000
-```
-
 
 ## Команда проекта
 
