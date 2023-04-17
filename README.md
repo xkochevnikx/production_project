@@ -28,6 +28,8 @@
 
 <a href="https://ibb.co/j6tyTvr"><img src="https://i.ibb.co/dWZPr05/prod-Proj1.png" alt="prod-Proj1" border="0"></a>
 
+<a href="https://ibb.co/sRh4td4"><img src="https://i.ibb.co/C8qyW3y/prod-Proj3.png" alt="prod-Proj3" border="0"></a>
+
 <a href="https://ibb.co/vL5Nfs6"><img src="https://i.ibb.co/5sDQCYg/prod-Proj2.png" alt="prod-Proj2" border="0"></a>
 
 ### Установка
