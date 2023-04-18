@@ -13,6 +13,7 @@ import { IProfileSchema } from 'features/EditableProfileCard/modal/types/profile
 import { IArticleDetailsSchema } from 'entities/Article';
 import { IArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { IAddCommentFormSchema } from 'features/AddCommentForm';
+import { IArticlesPageSchema } from 'pages/ArticlePage';
 
 export interface IStateSchema {
     user: IUserSchema;
@@ -23,6 +24,7 @@ export interface IStateSchema {
     articleDetails?: IArticleDetailsSchema;
     articleDetailsComments?: IArticleDetailsCommentsSchema;
     addCommentForm?: IAddCommentFormSchema;
+    articlesPage?: IArticlesPageSchema;
 }
 
 export type StateSchemaKey = keyof IStateSchema;
