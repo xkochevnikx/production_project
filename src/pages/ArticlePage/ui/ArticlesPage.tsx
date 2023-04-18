@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleList, ArticleView } from 'entities/Article';
 import {
@@ -9,8 +9,10 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
+import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { fetchArticlesList } from '../modal/services/fetchArticlesList';
 import {
+    articlesPageActions,
     articlesPageReducer,
     getArticles,
 } from '../modal/slice/articlesPageSlice';
@@ -40,14 +42,22 @@ export const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
 
+    const onChangeView = useCallback(
+        (view: ArticleView) => {
+            dispatch(articlesPageActions.setView(view));
+        },
+        [dispatch],
+    );
+
     useInitialEffect(() => {
         dispatch(fetchArticlesList());
+        dispatch(articlesPageActions.initState());
     });
 
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.ArticlesPage, {}, [className])}>
-                {t('Страница статей')}
+                <ArticleViewSelector view={view} onViewClick={onChangeView} />
                 <ArticleList
                     articles={articles}
                     isLoading={isLoading}
