@@ -22,13 +22,13 @@ export function Sidebar({ className }: SidebarProps) {
     }, []);
 
     return (
-        <div
+        <aside
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
                 className,
             ])}
         >
-            <div className={cls.items}>
+            <nav className={cls.items}>
                 {sidebarItemList.map((item) => (
                     <SidebarItem
                         item={item}
@@ -36,7 +36,7 @@ export function Sidebar({ className }: SidebarProps) {
                         key={item.path}
                     />
                 ))}
-            </div>
+            </nav>
             <Button
                 theme={ThemeButton.BACKGROUND_INVERTED}
                 className={cls.collapseBtn}
@@ -52,6 +52,6 @@ export function Sidebar({ className }: SidebarProps) {
                 <ThemeSwitcher />
                 <LanguageSwitcher short={collapsed} className={cls.lang} />
             </div>
-        </div>
+        </aside>
     );
 }

@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next';
+import { Page } from 'shared/UI/Page/Page';
 
 export function AboutPage() {
     const { t } = useTranslation('about');
     // ? первым аргументом передаём название нэймспейса
 
     return (
-        <div>
+        <Page>
             <h2>{t('О сайте')}</h2>
-        </div>
+        </Page>
     );
 }

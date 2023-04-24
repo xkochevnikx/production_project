@@ -7,6 +7,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from 'shared/UI/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -16,8 +17,10 @@ const reducers: ReducersList = {
 function ProfilePage() {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <ProfilePageHeader />
-            <EditableProfileCard />
+            <Page>
+                <ProfilePageHeader />
+                <EditableProfileCard />
+            </Page>
         </DynamicModuleLoader>
     );
 }

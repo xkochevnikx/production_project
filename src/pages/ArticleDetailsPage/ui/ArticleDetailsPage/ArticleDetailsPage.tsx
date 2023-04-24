@@ -15,6 +15,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/UI/Page/Page';
 import { addCommentForArticle } from '../../modal/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../modal/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleCommentsIsLoading } from '../../modal/selectors/comments';
@@ -63,18 +64,18 @@ export const ArticleDetailsPage = memo(
 
         if (!id) {
             return (
-                <div
+                <Page
                     className={classNames(cls.ArticleDetailsPage, {}, [
                         className,
                     ])}
                 >
                     <h1>{t('Статья не найдена')}</h1>
-                </div>
+                </Page>
             );
         }
         return (
             <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
-                <div
+                <Page
                     className={classNames(cls.ArticleDetailsPage, {}, [
                         className,
                     ])}
@@ -91,7 +92,7 @@ export const ArticleDetailsPage = memo(
                     <AddCommentForm onSendComment={onSendComment} />
 
                     <CommentList isLoading={isLoading} comments={comments} />
-                </div>
+                </Page>
             </DynamicModuleLoader>
         );
     },
