@@ -7,7 +7,6 @@ import {
 } from '@reduxjs/toolkit';
 import { IUserSchema } from 'entities/User';
 import { ILoginSchema } from 'features/AuthByUsername';
-import { NavigateOptions, To } from 'react-router-dom';
 import { AxiosInstance } from 'axios';
 import { IProfileSchema } from 'features/EditableProfileCard/modal/types/profile';
 import { IArticleDetailsSchema } from 'entities/Article';
@@ -45,7 +44,6 @@ export interface IReduxStoreWithManager extends EnhancedStore<IStateSchema> {
 
 export interface IThunkExtraArg {
     api: AxiosInstance;
-    navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface IThunkConfig<T> {

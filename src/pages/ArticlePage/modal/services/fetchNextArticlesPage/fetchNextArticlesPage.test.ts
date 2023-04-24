@@ -9,13 +9,14 @@ describe('fetchNextArticlesPage.test', () => {
     test('success', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
             articlesPage: {
-                error: undefined,
+                error: '',
                 view: ArticleView.SMALL,
                 ids: [],
                 entities: {},
                 page: 1,
                 hasMore: true,
                 isLoading: false,
+                inited: false,
             },
         });
 
@@ -27,13 +28,14 @@ describe('fetchNextArticlesPage.test', () => {
     test('fetchArticlesList not called', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
             articlesPage: {
-                error: undefined,
+                error: '',
                 view: ArticleView.SMALL,
                 ids: [],
                 entities: {},
                 page: 1,
                 hasMore: false,
                 isLoading: false,
+                inited: false,
             },
         });
 
@@ -45,13 +47,14 @@ describe('fetchNextArticlesPage.test', () => {
     test('fetchArticlesList not called isLoading', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
             articlesPage: {
-                error: undefined,
+                error: '',
                 view: ArticleView.SMALL,
                 ids: [],
                 entities: {},
                 page: 1,
                 hasMore: true,
                 isLoading: true,
+                inited: false,
             },
         });
 

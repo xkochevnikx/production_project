@@ -32,6 +32,7 @@ export const ArticleViewSelector = memo(
             <div className={cls.ArticleViewSelector}>
                 {viewTypes.map((viewItem) => (
                     <Button
+                        key={viewItem.view}
                         onClick={onClick(viewItem.view)}
                         theme={ThemeButton.CLEAR}
                     >
@@ -40,12 +41,12 @@ export const ArticleViewSelector = memo(
                             className={classNames(
                                 '',
                                 { [cls.notSelected]: viewItem.view !== view },
-                                [className],
+                                [className]
                             )}
                         />
                     </Button>
                 ))}
             </div>
         );
-    },
+    }
 );
