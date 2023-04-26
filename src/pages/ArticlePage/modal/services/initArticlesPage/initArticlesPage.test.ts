@@ -26,7 +26,7 @@ describe('initArticlesPage.test', () => {
         expect(fetchArticlesList).toBeCalled();
         expect(fetchArticlesList).toHaveBeenCalledWith({ page: 1 });
         expect(thunk.dispatch).toHaveBeenCalledWith(
-            articlesPageActions.initState()
+            articlesPageActions.initState(),
         );
     });
 

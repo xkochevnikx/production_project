@@ -7,7 +7,7 @@ import {
 import { IReducerManager, IStateSchema, StateSchemaKey } from './StateSchema';
 
 export function createReducerManager(
-    initialReducers: ReducersMapObject<IStateSchema>
+    initialReducers: ReducersMapObject<IStateSchema>,
 ): IReducerManager {
     const reducers = { ...initialReducers };
 
