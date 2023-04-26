@@ -23,8 +23,10 @@ describe('initArticlesPage.test', () => {
 
         await thunk.callThunk();
         expect(thunk.dispatch).toBeCalledTimes(4);
+        expect(fetchArticlesList).toBeCalled();
+        expect(fetchArticlesList).toHaveBeenCalledWith({ page: 1 });
         expect(thunk.dispatch).toHaveBeenCalledWith(
-            articlesPageActions.initState(),
+            articlesPageActions.initState()
         );
     });
 

@@ -21,10 +21,17 @@ export const DynamicModuleLoader: FC<IDynamicModuleLoaderProps> = (props) => {
     const { children, reducers, removeAfterUnmount = true } = props;
 
     useEffect(() => {
+        //? тут получаем массив добавленных редюсеров
+        const mountedReducers = store.reducerManager.getReducerMap();
+
         // ? объект превращаем в кортеж это массивы в массиве где в каждом подмассиве лежит ключ и значение.
         Object.entries(reducers).forEach(([name, reducer]) => {
-            store.reducerManager.add(name as StateSchemaKey, reducer);
-            dispatch({ type: `@INIT ${name} reducer` });
+            //? тут в массиве добавленных редюсеров по названию нашего монтируемого смотрим есть он уже или нет. и на этом основании либо добавляем снова или нет
+            const mounted = mountedReducers[name as StateSchemaKey];
+            if (!mounted) {
+                store.reducerManager.add(name as StateSchemaKey, reducer);
+                dispatch({ type: `@INIT ${name} reducer` });
+            }
         });
 
         return () => {
