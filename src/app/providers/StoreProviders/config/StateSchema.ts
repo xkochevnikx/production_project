@@ -13,9 +13,11 @@ import { IArticleDetailsSchema } from 'entities/Article';
 import { IArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { IAddCommentFormSchema } from 'features/AddCommentForm';
 import { IArticlesPageSchema } from 'pages/ArticlePage';
+import { iScrollSaveSchema } from 'widgets/ScrollSave';
 
 export interface IStateSchema {
     user: IUserSchema;
+    scrollSave: iScrollSaveSchema;
 
     // async reducers
     loginForm?: ILoginSchema;
