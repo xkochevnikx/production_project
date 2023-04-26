@@ -11,7 +11,7 @@ import { IStateSchema, IThunkExtraArg } from './StateSchema';
 
 export function createReduxStore(
     initialState?: IStateSchema,
-    asyncReducers?: ReducersMapObject<IStateSchema>
+    asyncReducers?: ReducersMapObject<IStateSchema>,
 ) {
     const rootReducer: ReducersMapObject<IStateSchema> = {
         ...asyncReducers,
@@ -28,12 +28,11 @@ export function createReduxStore(
         reducer: reducerManager.reduce as Reducer<CombinedState<IStateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
-        middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware({
-                thunk: {
-                    extraArgument: extraArg,
-                },
-            }),
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+            thunk: {
+                extraArgument: extraArg,
+            },
+        }),
     });
     // @ts-ignore
     store.reducerManager = reducerManager;

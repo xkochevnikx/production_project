@@ -44,7 +44,7 @@ export const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
         (view: ArticleView) => {
             dispatch(articlesPageActions.setView(view));
         },
-        [dispatch]
+        [dispatch],
     );
 
     const onLoadNextPart = useCallback(() => {

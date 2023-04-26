@@ -15,7 +15,7 @@ export function StoreProvider(props: StoreProviderProps) {
 
     const store = createReduxStore(
         initialState as IStateSchema,
-        asyncReducers as ReducersMapObject<IStateSchema>
+        asyncReducers as ReducersMapObject<IStateSchema>,
     );
 
     return <Provider store={store}>{children}</Provider>;

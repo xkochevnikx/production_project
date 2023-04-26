@@ -41,12 +41,12 @@ export const ArticleViewSelector = memo(
                             className={classNames(
                                 '',
                                 { [cls.notSelected]: viewItem.view !== view },
-                                [className]
+                                [className],
                             )}
                         />
                     </Button>
                 ))}
             </div>
         );
-    }
+    },
 );
