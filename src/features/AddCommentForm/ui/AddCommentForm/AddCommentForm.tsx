@@ -51,7 +51,6 @@ const AddCommentForm = memo(
                     className={classNames(cls.AddCommentForm, {}, [className])}
                 >
                     <Input
-                        className={cls.input}
                         placeholder={t('Введите текст')}
                         value={text}
                         onChange={onCommentChangeText}

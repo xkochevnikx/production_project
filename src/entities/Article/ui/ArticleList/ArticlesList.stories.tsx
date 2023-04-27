@@ -5,7 +5,7 @@ import {
     ArticleView,
     IArticle,
 } from 'entities/Article/modal/types/article';
-import { ArticleList } from './ArticleList';
+import { ArticlesList } from './ArticlesList';
 
 const article = {
     id: '1',
@@ -84,14 +84,14 @@ const article = {
 
 export default {
     title: 'entities/Article/ArticleList',
-    component: ArticleList,
+    component: ArticlesList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticleList>;
+} as ComponentMeta<typeof ArticlesList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => (
-    <ArticleList {...args} />
+const Template: ComponentStory<typeof ArticlesList> = (args) => (
+    <ArticlesList {...args} />
 );
 
 export const ListBigisLoading = Template.bind({});

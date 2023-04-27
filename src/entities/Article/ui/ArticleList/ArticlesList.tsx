@@ -1,11 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import cls from './ArticleList.module.scss';
+import cls from './ArticlesList.module.scss';
 import { ArticleView, IArticle } from '../../modal/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
-interface ArticleListProps {
+interface ArticlesListProps {
     className?: string;
     articles: IArticle[];
     view?: ArticleView;
@@ -14,17 +14,15 @@ interface ArticleListProps {
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
-    .map((item, index) => (
-        <ArticleListItemSkeleton key={index} view={view} />
-    ));
+    .map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
-export const ArticleList = memo(
+export const ArticlesList = memo(
     ({
         className,
         articles,
         view = ArticleView.SMALL,
         isLoading,
-    }: ArticleListProps) => {
+    }: ArticlesListProps) => {
         const renderArticle = (article: IArticle) => (
             <ArticleListItem
                 article={article}

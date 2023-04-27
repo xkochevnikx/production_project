@@ -9,4 +9,6 @@ export {
 
 export { getArticleDetailsData } from './modal/selectors/getAllArticleDetails';
 
-export { ArticleList } from './ui/ArticleList/ArticleList';
+export { ArticlesList } from './ui/ArticleList/ArticlesList';
+
+export { ArticleSortField } from './modal/types/article';

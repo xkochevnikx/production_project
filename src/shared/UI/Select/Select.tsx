@@ -38,10 +38,8 @@ export const Select = memo((props: ISelectProps) => {
         [options],
     );
 
-    const mods = {};
-
     return (
-        <div className={classNames(cls.Wrapper, mods, [className])}>
+        <div className={classNames(cls.Wrapper, {}, [className])}>
             {label && <span>{label}</span>}
             <select
                 disabled={readonly}
