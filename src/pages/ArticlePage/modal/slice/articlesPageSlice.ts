@@ -16,7 +16,7 @@ const articlesAdapter = createEntityAdapter<IArticle>({
 });
 
 export const getArticles = articlesAdapter.getSelectors<IStateSchema>(
-    (state) => state.articlesPage || articlesAdapter.getInitialState(),
+    (state) => state.articlesPage || articlesAdapter.getInitialState()
 );
 
 const articlesPageSlice = createSlice({
@@ -41,7 +41,7 @@ const articlesPageSlice = createSlice({
             state.view = action.payload;
             localStorage.setItem(
                 ARTICLES_VIEW_LOCALSTORAGE_KEY,
-                action.payload,
+                action.payload
             );
         },
 
@@ -63,7 +63,7 @@ const articlesPageSlice = createSlice({
 
         initState: (state) => {
             const view = localStorage.getItem(
-                ARTICLES_VIEW_LOCALSTORAGE_KEY,
+                ARTICLES_VIEW_LOCALSTORAGE_KEY
             ) as ArticleView;
             state.view = view;
             state.limit = view === ArticleView.BIG ? 4 : 9;
@@ -72,18 +72,24 @@ const articlesPageSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchArticlesList.pending, (state) => {
+            .addCase(fetchArticlesList.pending, (state, action) => {
                 state.isLoading = true;
                 state.error = undefined;
+                if (action.meta.arg.replace) {
+                    articlesAdapter.removeAll(state);
+                }
             })
-            .addCase(
-                fetchArticlesList.fulfilled,
-                (state, action: PayloadAction<IArticle[]>) => {
-                    state.isLoading = false;
+            .addCase(fetchArticlesList.fulfilled, (state, action) => {
+                state.isLoading = false;
+                articlesAdapter.setMany(state, action.payload);
+                state.hasMore = action.payload.length > 0;
+
+                if (action.meta.arg.replace) {
+                    articlesAdapter.setAll(state, action.payload);
+                } else {
                     articlesAdapter.setMany(state, action.payload);
-                    state.hasMore = action.payload.length > 0;
-                },
-            )
+                }
+            })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;

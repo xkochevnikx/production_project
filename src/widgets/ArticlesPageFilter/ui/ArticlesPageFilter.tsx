@@ -17,6 +17,8 @@ import {
 } from 'pages/ArticlePage';
 import { SortOrder } from 'shared/types';
 import cls from './ArticlesPageFilter.module.scss';
+import { fetchArticlesList } from 'pages/ArticlePage/modal/services/fetchArticlesList/fetchArticlesList';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 
 interface ArticlesPageFilterProps {
     className?: string;
@@ -33,32 +35,46 @@ export const ArticlesPageFilter = memo(
         const order = useSelector(getArticlesPageOrder);
         const search = useSelector(getArticlesPageSearch);
 
+        const fetchData = useCallback(() => {
+            dispatch(fetchArticlesList({ replace: true }));
+        }, [dispatch]);
+
+        const debounceFetchData = useDebounce(fetchData, 500);
+
         const onChangeView = useCallback(
             (view: ArticleView) => {
                 dispatch(articlesPageActions.setView(view));
+                dispatch(articlesPageActions.setPage(1));
+                debounceFetchData();
             },
-            [dispatch],
+            [dispatch, debounceFetchData]
         );
 
         const onChangeOrder = useCallback(
             (newOrder: SortOrder) => {
                 dispatch(articlesPageActions.setOrder(newOrder));
+                dispatch(articlesPageActions.setPage(1));
+                debounceFetchData();
             },
-            [dispatch],
+            [dispatch, debounceFetchData]
         );
 
         const onChangeSort = useCallback(
             (newSort: ArticleSortField) => {
                 dispatch(articlesPageActions.setSort(newSort));
+                dispatch(articlesPageActions.setPage(1));
+                debounceFetchData();
             },
-            [dispatch],
+            [dispatch, debounceFetchData]
         );
 
         const onChangeSearch = useCallback(
             (newSearch: string) => {
                 dispatch(articlesPageActions.setSearch(newSearch));
+                dispatch(articlesPageActions.setPage(1));
+                debounceFetchData();
             },
-            [dispatch],
+            [dispatch, debounceFetchData]
         );
 
         return (
@@ -86,5 +102,5 @@ export const ArticlesPageFilter = memo(
                 </Card>
             </div>
         );
-    },
+    }
 );
