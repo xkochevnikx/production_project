@@ -16,9 +16,9 @@ import {
     getArticlesPageView,
 } from 'pages/ArticlePage';
 import { SortOrder } from 'shared/types';
-import cls from './ArticlesPageFilter.module.scss';
 import { fetchArticlesList } from 'pages/ArticlePage/modal/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import cls from './ArticlesPageFilter.module.scss';
 
 interface ArticlesPageFilterProps {
     className?: string;
@@ -47,7 +47,7 @@ export const ArticlesPageFilter = memo(
                 dispatch(articlesPageActions.setPage(1));
                 debounceFetchData();
             },
-            [dispatch, debounceFetchData]
+            [dispatch, debounceFetchData],
         );
 
         const onChangeOrder = useCallback(
@@ -56,7 +56,7 @@ export const ArticlesPageFilter = memo(
                 dispatch(articlesPageActions.setPage(1));
                 debounceFetchData();
             },
-            [dispatch, debounceFetchData]
+            [dispatch, debounceFetchData],
         );
 
         const onChangeSort = useCallback(
@@ -65,7 +65,7 @@ export const ArticlesPageFilter = memo(
                 dispatch(articlesPageActions.setPage(1));
                 debounceFetchData();
             },
-            [dispatch, debounceFetchData]
+            [dispatch, debounceFetchData],
         );
 
         const onChangeSearch = useCallback(
@@ -74,7 +74,7 @@ export const ArticlesPageFilter = memo(
                 dispatch(articlesPageActions.setPage(1));
                 debounceFetchData();
             },
-            [dispatch, debounceFetchData]
+            [dispatch, debounceFetchData],
         );
 
         return (
@@ -102,5 +102,5 @@ export const ArticlesPageFilter = memo(
                 </Card>
             </div>
         );
-    }
+    },
 );

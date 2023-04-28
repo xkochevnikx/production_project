@@ -2,7 +2,7 @@ import { useCallback, useRef } from 'react';
 
 export const useTrottle = (
     callback: (...args: any[]) => void,
-    delay: number
+    delay: number,
 ) => {
     const trottleRef = useRef(false);
 
@@ -17,6 +17,6 @@ export const useTrottle = (
                 }, delay);
             }
         },
-        [callback, delay]
+        [callback, delay],
     );
 };
