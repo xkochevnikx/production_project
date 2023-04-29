@@ -1,23 +1,22 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ArticleSortField, ArticleView } from 'entities/Article';
-import { useTranslation } from 'react-i18next';
-import { Card } from 'shared/UI/Card/Card';
-import { Input } from 'shared/UI/Input/UI/Input';
+import { ArticleView } from 'entities/Article';
 import { ArticlesSortSelected } from 'features/ArticlesSortSelected';
 import {
     articlesPageActions,
     getArticlesPageOrder,
     getArticlesPageSearch,
     getArticlesPageSort,
+    getArticlesPageType,
     getArticlesPageView,
 } from 'pages/ArticlePage';
-import { SortOrder } from 'shared/types';
 import { fetchArticlesList } from 'pages/ArticlePage/modal/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { ArticlesTypeTabs } from 'features/ArticlesTypeTabs';
+import { ArticlesSearch } from 'features/ArticlesSearch/ArticlesSearch';
 import cls from './ArticlesPageFilter.module.scss';
 
 interface ArticlesPageFilterProps {
@@ -26,11 +25,10 @@ interface ArticlesPageFilterProps {
 
 export const ArticlesPageFilter = memo(
     ({ className }: ArticlesPageFilterProps) => {
-        const { t } = useTranslation();
         const dispatch = useAppDispatch();
 
         const view = useSelector(getArticlesPageView);
-
+        const type = useSelector(getArticlesPageType);
         const sort = useSelector(getArticlesPageSort);
         const order = useSelector(getArticlesPageOrder);
         const search = useSelector(getArticlesPageSearch);
@@ -50,33 +48,6 @@ export const ArticlesPageFilter = memo(
             [dispatch, debounceFetchData],
         );
 
-        const onChangeOrder = useCallback(
-            (newOrder: SortOrder) => {
-                dispatch(articlesPageActions.setOrder(newOrder));
-                dispatch(articlesPageActions.setPage(1));
-                debounceFetchData();
-            },
-            [dispatch, debounceFetchData],
-        );
-
-        const onChangeSort = useCallback(
-            (newSort: ArticleSortField) => {
-                dispatch(articlesPageActions.setSort(newSort));
-                dispatch(articlesPageActions.setPage(1));
-                debounceFetchData();
-            },
-            [dispatch, debounceFetchData],
-        );
-
-        const onChangeSearch = useCallback(
-            (newSearch: string) => {
-                dispatch(articlesPageActions.setSearch(newSearch));
-                dispatch(articlesPageActions.setPage(1));
-                debounceFetchData();
-            },
-            [dispatch, debounceFetchData],
-        );
-
         return (
             <div
                 className={classNames(cls.ArticlesPageFilter, {}, [className])}
@@ -86,20 +57,21 @@ export const ArticlesPageFilter = memo(
                         view={view}
                         onViewClick={onChangeView}
                     />
+                    <ArticlesTypeTabs
+                        type={type}
+                        debounce={debounceFetchData}
+                    />
                     <ArticlesSortSelected
                         sort={sort}
                         order={order}
-                        onChangeOrder={onChangeOrder}
-                        onChangeSort={onChangeSort}
+                        debounce={debounceFetchData}
                     />
                 </div>
-                <Card className={cls.Card}>
-                    <Input
-                        onChange={onChangeSearch}
-                        value={search}
-                        placeholder={t('Поиск')}
-                    />
-                </Card>
+                <ArticlesSearch
+                    className={cls.Card}
+                    debounce={debounceFetchData}
+                    search={search}
+                />
             </div>
         );
     },

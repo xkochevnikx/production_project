@@ -38,6 +38,7 @@ export type ArticleBlock =
     | IArticleTextBlock;
 
 export enum ArticleType {
+    ALL = 'ALL',
     IT = 'IT',
     SIENCE = 'SIENCE',
     ECONOMICS = 'ECONOMICS',

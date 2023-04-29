@@ -27,7 +27,6 @@ export const loginByUserName = createAsyncThunk<
         dispatch(userActions.setAuthData(response.data));
         return response.data;
     } catch (error) {
-        console.log(error);
         return rejectWithValue('error');
     }
 });

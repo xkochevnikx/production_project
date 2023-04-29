@@ -6,7 +6,10 @@ import {
 import { IStateSchema } from 'app/providers/StoreProviders';
 import { ArticleView, IArticle } from 'entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/consts/localstorage';
-import { ArticleSortField } from 'entities/Article/modal/types/article';
+import {
+    ArticleSortField,
+    ArticleType,
+} from 'entities/Article/modal/types/article';
 import { SortOrder } from 'shared/types';
 import { IArticlesPageSchema } from '../types/articlePageSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
@@ -34,6 +37,7 @@ const articlesPageSlice = createSlice({
         order: 'asc',
         search: '',
         sort: ArticleSortField.CREATED,
+        type: ArticleType.ALL,
     }),
 
     reducers: {
@@ -60,6 +64,9 @@ const articlesPageSlice = createSlice({
         setSort: (state, action: PayloadAction<ArticleSortField>) => {
             state.sort = action.payload;
         },
+        setType: (state, action: PayloadAction<ArticleType>) => {
+            state.type = action.payload;
+        },
 
         initState: (state) => {
             const view = localStorage.getItem(
@@ -82,7 +89,7 @@ const articlesPageSlice = createSlice({
             .addCase(fetchArticlesList.fulfilled, (state, action) => {
                 state.isLoading = false;
                 articlesAdapter.setMany(state, action.payload);
-                state.hasMore = action.payload.length > 0;
+                state.hasMore = action.payload.length >= state.limit;
 
                 if (action.meta.arg.replace) {
                     articlesAdapter.setAll(state, action.payload);

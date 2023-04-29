@@ -22,6 +22,7 @@ import {
 
 import { fetchNextArticlesPage } from '../../modal/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../modal/services/initArticlesPage/initArticlesPage';
+// import {  useSearchParams } from 'react-router-dom';
 
 interface ArticlesPageProps {
     className?: string;
@@ -34,6 +35,10 @@ const reducers: ReducersList = {
 export const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
 
+    // let [searchParams] = useSearchParams(); или олдскул ниже
+
+    const searchParams = new URLSearchParams(window.location.search);
+
     const view = useSelector(getArticlesPageView);
 
     const articles = useSelector(getArticles.selectAll);
@@ -45,7 +50,7 @@ export const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
 
     return (

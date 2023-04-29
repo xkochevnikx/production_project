@@ -4,21 +4,25 @@ import { useTranslation } from 'react-i18next';
 import { Select } from 'shared/UI/Select/Select';
 import { SortOrder } from 'shared/types';
 import { ArticleSortField } from 'entities/Article';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { articlesPageActions } from 'pages/ArticlePage';
 import cls from './ArticlesSortSelected.module.scss';
 
 interface ArticlesSortSelectedProps {
     className?: string;
     sort: ArticleSortField;
     order: SortOrder;
-    onChangeOrder: (newOrder: SortOrder) => void;
-    onChangeSort: (newSort: ArticleSortField) => void;
+    debounce: () => void;
 }
 
 export const ArticlesSortSelected = memo((props: ArticlesSortSelectedProps) => {
     const {
-        className, onChangeOrder, onChangeSort, order, sort,
+        className, debounce, order, sort,
     } = props;
+
     const { t } = useTranslation();
+
+    const dispatch = useAppDispatch();
 
     const orderOptions = useMemo(
         () => [
@@ -52,24 +56,28 @@ export const ArticlesSortSelected = memo((props: ArticlesSortSelectedProps) => {
         [t],
     );
 
-    const onChangeSortHandler = useCallback(
-        (newSort: string) => {
-            onChangeSort(newSort as ArticleSortField);
+    const onChangeOrder = useCallback(
+        (newOrder: string) => {
+            dispatch(articlesPageActions.setOrder(newOrder as SortOrder));
+            dispatch(articlesPageActions.setPage(1));
+            debounce();
         },
-        [onChangeSort],
+        [dispatch, debounce],
     );
 
-    const onChangeOrderHandler = useCallback(
-        (newOrder: string) => {
-            onChangeOrder(newOrder as SortOrder);
+    const onChangeSort = useCallback(
+        (newSort: string) => {
+            dispatch(articlesPageActions.setSort(newSort as ArticleSortField));
+            dispatch(articlesPageActions.setPage(1));
+            debounce();
         },
-        [onChangeOrder],
+        [dispatch, debounce],
     );
 
     return (
         <div className={classNames(cls.ArticlesSortSelected, {}, [className])}>
             <Select
-                onChange={onChangeSortHandler}
+                onChange={onChangeSort}
                 options={sortFieldOptions}
                 label={t('Сортировать по')}
                 value={sort}
@@ -78,7 +86,7 @@ export const ArticlesSortSelected = memo((props: ArticlesSortSelectedProps) => {
                 options={orderOptions}
                 label={t('по')}
                 value={order}
-                onChange={onChangeOrderHandler}
+                onChange={onChangeOrder}
             />
         </div>
     );

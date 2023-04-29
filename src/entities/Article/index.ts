@@ -11,4 +11,4 @@ export { getArticleDetailsData } from './modal/selectors/getAllArticleDetails';
 
 export { ArticlesList } from './ui/ArticleList/ArticlesList';
 
-export { ArticleSortField } from './modal/types/article';
+export { ArticleSortField, ArticleType } from './modal/types/article';
