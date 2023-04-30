@@ -14,7 +14,7 @@ interface ArticlesSearchProps {
 
 export const ArticlesSearch = memo(
     ({ className, search, debounce }: ArticlesSearchProps) => {
-        const { t } = useTranslation();
+        const { t } = useTranslation('articles');
 
         const dispatch = useAppDispatch();
 

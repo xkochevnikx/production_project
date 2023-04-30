@@ -10,7 +10,7 @@ import { ILoginSchema } from 'features/AuthByUsername';
 import { AxiosInstance } from 'axios';
 import { IProfileSchema } from 'features/EditableProfileCard/modal/types/profile';
 import { IArticleDetailsSchema } from 'entities/Article';
-import { IArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { IAddCommentFormSchema } from 'features/AddCommentForm';
 import { IArticlesPageSchema } from 'pages/ArticlePage';
 import { iScrollSaveSchema } from 'widgets/ScrollSave';
@@ -23,9 +23,9 @@ export interface IStateSchema {
     loginForm?: ILoginSchema;
     profile?: IProfileSchema;
     articleDetails?: IArticleDetailsSchema;
-    articleDetailsComments?: IArticleDetailsCommentsSchema;
     addCommentForm?: IAddCommentFormSchema;
     articlesPage?: IArticlesPageSchema;
+    articleDetailsPage?: IArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof IStateSchema;

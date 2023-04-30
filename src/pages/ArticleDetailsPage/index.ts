@@ -1,1 +1,1 @@
-export { IArticleDetailsCommentsSchema } from './modal/types/ArticleDetailsCommentsSchema';
+export { IArticleDetailsPageSchema } from './modal/types/index';

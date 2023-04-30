@@ -15,7 +15,6 @@ export const initArticlesPage = createAsyncThunk<
 
     if (!inited) {
         searchParams.forEach((value, key) => {
-            console.log(`${key}/${value}`);
             switch (key) {
             case 'order':
                 thunkApi.dispatch(

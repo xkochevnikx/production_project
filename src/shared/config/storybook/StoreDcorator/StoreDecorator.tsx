@@ -4,7 +4,7 @@ import { ArticleDetailsReducer } from 'entities/Article/modal/slice/ArticleDetai
 import { addCommentFormReducer } from 'features/AddCommentForm/modal/slice/addCommentFormSlice';
 import { loginReducer } from 'features/AuthByUsername/modal/slice/loginSlice';
 import { ProfileReducer } from 'features/EditableProfileCard/modal/slice/ProfileSlice';
-import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/modal/slice/articleDetailsCommentsSlice';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/modal/slice';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducer: ReducersList = {
@@ -12,7 +12,7 @@ const defaultAsyncReducer: ReducersList = {
     profile: ProfileReducer,
     articleDetails: ArticleDetailsReducer,
     addCommentForm: addCommentFormReducer,
-    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 export const StoreDecorator = (state: DeepPartial<IStateSchema>, asyncReducers?: ReducersList) => (StoryComponent: Story) => (

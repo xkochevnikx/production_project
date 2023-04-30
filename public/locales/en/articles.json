@@ -5,5 +5,17 @@
     "Произошла ошибка при подгрузке статьи": "An error occurred while loading the article",
     "Комментарии": "Comments",
     "Комментарии отсутствуют": "No comments",
-    "Назад к списку": "Back to list"
+    "Назад к списку": "Back to list",
+    "Статей с такой категорией не найдено": "No articles found with this category",
+    "Поиск": "Search",
+    "По возрастанию": "Ascending",
+    "По убыванию": "Descending",
+    "По созданию": "By creation",
+    "По названию": "By name",
+    "По просмотрам": "By views",
+    "Все статьи": "All articles",
+    "Айти": "IT",
+    "Экономика": "Economics",
+    "Наука": "Sience",
+    "Рекомендуем": "Recommended"
 }

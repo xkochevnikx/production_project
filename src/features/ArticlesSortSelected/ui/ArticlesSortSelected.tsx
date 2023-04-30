@@ -20,7 +20,7 @@ export const ArticlesSortSelected = memo((props: ArticlesSortSelectedProps) => {
         className, debounce, order, sort,
     } = props;
 
-    const { t } = useTranslation();
+    const { t } = useTranslation('articles');
 
     const dispatch = useAppDispatch();
 

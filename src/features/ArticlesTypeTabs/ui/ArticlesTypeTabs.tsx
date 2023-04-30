@@ -19,7 +19,7 @@ export const ArticlesTypeTabs = memo((props: IArticlesTypeTabsProps) => {
 
     const dispatch = useAppDispatch();
 
-    const { t } = useTranslation();
+    const { t } = useTranslation('articles');
 
     const onChangeType = useCallback(
         (tab: IArticleTypeBtnItem) => {
