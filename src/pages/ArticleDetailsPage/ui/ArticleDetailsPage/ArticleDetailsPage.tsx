@@ -13,9 +13,8 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
-import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
+import { ArticleDetailsPageHeader } from 'features/ArticleDetailsPageHeader';
 import { addCommentForArticle } from '../../modal/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../modal/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleCommentsIsLoading } from '../../modal/selectors/comments';
@@ -46,12 +45,6 @@ export const ArticleDetailsPage = memo(
             },
             [dispatch],
         );
-
-        const navigate = useNavigate();
-
-        const onBackToList = useCallback(() => {
-            navigate(RoutePath.articles);
-        }, [navigate]);
 
         const { id } = useParams<{ id: string }>();
 
@@ -92,9 +85,7 @@ export const ArticleDetailsPage = memo(
                         className,
                     ])}
                 >
-                    <Button onClick={onBackToList} theme={ThemeButton.OUTLINE}>
-                        {t('Назад к списку')}
-                    </Button>
+                    <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     <Text
                         size={TextSize.L}

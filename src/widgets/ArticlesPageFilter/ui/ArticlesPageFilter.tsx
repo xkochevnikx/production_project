@@ -16,7 +16,7 @@ import {
 import { fetchArticlesList } from 'pages/ArticlePage/modal/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { ArticlesTypeTabs } from 'features/ArticlesTypeTabs';
-import { ArticlesSearch } from 'features/ArticlesSearch/ArticlesSearch';
+import { ArticlesSearch } from 'features/ArticlesSearch';
 import cls from './ArticlesPageFilter.module.scss';
 
 interface ArticlesPageFilterProps {

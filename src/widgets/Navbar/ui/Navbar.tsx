@@ -5,6 +5,9 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
+import { Text, TextTheme } from 'shared/UI/Text/ui/Text';
+import { AppLink, AppLinkTheme } from 'shared/UI/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -33,10 +36,22 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (isAuth) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
+                <Text
+                    className={cls.appName}
+                    title={t('svyat app')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    to={RoutePath.article_create}
+                    theme={AppLinkTheme.PRIMARY}
+                    className={cls.createLink}
+                >
+                    {t('Создать статью')}
+                </AppLink>
                 <Button
                     onClick={onLogout}
                     theme={ThemeButton.CLEAR_INVERTED}
-                    className={cls.links}
+                    className={cls.btnLog}
                 >
                     {t('Выйти')}
                 </Button>
