@@ -4,6 +4,7 @@ import MiniCssExtractPlagin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { IBuildOptions } from './types/config';
+import CopyPlugin from 'copy-webpack-plugin';
 
 export function buildPlagins({
     paths,
@@ -25,6 +26,9 @@ export function buildPlagins({
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
         }),
+        new CopyPlugin({
+            patterns: [{ from: paths.locales, to: paths.buildLocales }],
+        }),
     ];
 
     if (isDev) {
@@ -33,7 +37,7 @@ export function buildPlagins({
         plugins.push(
             new BundleAnalyzerPlugin({
                 openAnalyzer: false,
-            }),
+            })
         );
     }
 
