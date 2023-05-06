@@ -19,7 +19,7 @@ export const fetchArticlesList = createAsyncThunk<
     IArticle[],
     IFetchArticleListProps,
     IThunkConfig<string>
->('articlesPage/fetchArticlesList', async (replace, thunkApi) => {
+>('articlesPage/fetchArticlesList', async (_, thunkApi) => {
     const limit = getArticlesPageLimit(thunkApi.getState());
     const sort = getArticlesPageSort(thunkApi.getState());
     const order = getArticlesPageOrder(thunkApi.getState());
@@ -30,7 +30,10 @@ export const fetchArticlesList = createAsyncThunk<
     const { extra, rejectWithValue } = thunkApi;
 
     addQueryParams({
-        sort, order, search, type,
+        sort,
+        order,
+        search,
+        type,
     });
 
     try {
