@@ -8,7 +8,7 @@ interface IErrorBoundaryProps {
 interface IErrorBoundaryState {
     hasError: boolean;
 }
-
+//! компонент ловит ошибки кроме ошибок в Обработчиках событий, Асинхронном коде, Рендеринг на стороне сервера ,Ошибки, возникающие в самой границе ошибки (а не в ее дочерних элементах)
 class ErrorBoundary extends React.Component<
     IErrorBoundaryProps,
     IErrorBoundaryState
@@ -19,12 +19,10 @@ class ErrorBoundary extends React.Component<
     }
 
     static getDerivedStateFromError(error: Error) {
-        // Update state so the next render will show the fallback UI.
         return { hasError: true };
     }
 
     componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-        // You can also log the error to an error reporting service
         console.log(error, errorInfo);
     }
 
@@ -33,8 +31,9 @@ class ErrorBoundary extends React.Component<
         const { children } = this.props;
         if (hasError) {
             // You can render any custom fallback UI
+            //! в саспенсе тут компонент потому что там есть переводы
             return (
-                <Suspense fallback="">
+                <Suspense fallback=''>
                     <PageError />
                 </Suspense>
             );

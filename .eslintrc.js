@@ -15,32 +15,25 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint', 'react-hooks'],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
+        'react/jsx-indent': [2, 4], //! правило отступов. 2 - правило работает. 4 - кол-во отсупов
+        'react/jsx-indent-props': [2, 4], //! отступы для кода с пропсами
+        indent: [2, 4], //! отступы для всех файлов кроме jsx
         'react/jsx-filename-extension': [
             2,
             { extensions: ['.js', '.jsx', '.tsx'] },
-        ],
-        'import/no-unresolved': 'off',
-        'import/prefer-default-export': 'off',
-        'no-unused-vars': 'warn',
-        'react/require-default-props': 'off',
-        'react/react-in-jsx-scope': 'off',
-        'react/jsx-props-no-spreading': 'warn',
-        'react/function-component-definition': 'off',
-        'no-shadow': 'off',
-        'import/extensions': 'off',
-        'import/no-extraneous-dependencies': 'off',
-        'no-underscore-dangle': 'off',
-        // 'i18next/no-literal-string': [
-        //     'warn',
-        //     {
-        //         markupOnly: true,
-        //         ignoreAttribute: ['data-testid', 'to'],
-        //     },
-        // ],
-        'max-len': ['error', { ignoreComments: true, code: 150 }],
+        ], //! странное свойство которое разрешает использование jsx в файлах с разным расширением
+        'import/no-unresolved': 'off', //! отключаем правило которое ругалось на абсолютные пути
+        'import/prefer-default-export': 'off', //! отключаем правило которое советует использовать дефолтный экспорт хотя лучше использовать именованный
+        'no-unused-vars': 'warn', //! ругаемся на наличие неиспользуемых переменных
+        'react/require-default-props': 'off', //! отключаем свойство которое требует везде в необязательных пропсах ставить дефолтное значение
+        'react/react-in-jsx-scope': 'off', //! отключаем свойство которое требует импортировать в jsx - react хотя с 17 версии это делать не обязательно
+        'react/jsx-props-no-spreading': 'warn', //! что бы можно использовать спред оператор в пропсах НО ТОЛЬКО В UI компонентах
+        'react/function-component-definition': 'off', //! отключаем правило которое ругается на использование фанкшн экспрешн, сам эслинт хочет видеть факнш декларейшн
+        'no-shadow': 'off', //! отключаем свойство которое хочет видеть enum в области компонета
+        'import/extensions': 'off', //! отключаем свойство которое ругается что в импортах не указываю расширения но для этого у меня уже настроен билдрезолвер
+        'import/no-extraneous-dependencies': 'off', //! это что то связано с импортом девзависмостей
+        'no-underscore-dangle': 'off', //! оключаем запрет на нижние подчёркивания
+        'max-len': ['error', { ignoreComments: true, code: 150 }], //! ошибку если строчка длинная
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
@@ -54,16 +47,18 @@ module.exports = {
         'react/jsx-no-useless-fragment': 'off',
     },
     globals: {
+        //! что бы не ругался на глобальные переменные
         __IS_DEV__: true,
         __API__: true,
         __PROJECT__: true,
     },
+    //! позволяет для каких то файлов переопределить правила
     overrides: [
         {
             files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
-                'i18next/no-literal-string': 'off',
-                'max-len': 'off',
+                'i18next/no-literal-string': 'off', //! в тестовых файлах отключаем переводы
+                'max-len': 'off', //! и длинну отключаем
             },
         },
     ],

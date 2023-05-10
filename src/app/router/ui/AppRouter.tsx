@@ -27,7 +27,7 @@ export function AppRouter() {
     // }, []);
 
     // return <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>;
-
+    //! тут саспенс потому что среди путей есть ленивые компоненты которые надо оборачивать
     return (
         <Suspense fallback={<PageLoader />}>
             <Routes>

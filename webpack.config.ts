@@ -4,6 +4,7 @@ import webpack from 'webpack';
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 import { IBuildEnv, IBuildPath } from './config/build/types/config';
 
+//! аргументом принимаем переменные  откружения для которых тоже заранее прописываем типы. При выполнении скрипта запуска или сборки передаём переменную env. При сборки в первую очередь пытаемся получить переменные но если они не заданы берём дефолтное значение
 export default (env: IBuildEnv) => {
     const paths: IBuildPath = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
