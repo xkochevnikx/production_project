@@ -14,6 +14,7 @@ declare module '*.jpeg';
 //! это глобальный тип применяемый ко всем файлам svg то есть этот тип импортируют все эти файлы
 declare module '*.svg' {
     import React from 'react';
+
     const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
     export default SVG;
 }

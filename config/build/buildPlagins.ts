@@ -43,7 +43,7 @@ export function buildPlagins({
         plugins.push(
             new BundleAnalyzerPlugin({
                 openAnalyzer: false,
-            })
+            }),
         );
     }
 

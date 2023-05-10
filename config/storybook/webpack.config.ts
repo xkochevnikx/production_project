@@ -22,9 +22,9 @@ export default ({ config }: { config: WebpackConfiguration }) => {
     config!.resolve!.modules!.push(paths.src);
     //! это поле говорит что при импорте можно не указывать расширение
     config!.resolve!.extensions!.push('ts', 'tsx');
-
+    //! дисайблить и костовать в конфиге допустимо.
     //! есть массив дефолтных лоудеров, проходимся по нему мапом и если в одном из них есть в обработке свг мы возвращаем обратно в этот дефолтный массив элементы не содержащие обработку этих файлов. И дальше ниже пушим в него новый лоудер
-    // eslint-disable-next-line no-param-reassign //! дисайблить и костовать в конфиге допустимо.
+    // eslint-disable-next-line no-param-reassign
     config!.module!.rules = config.module!.rules!.map((rule: any) => {
         if (/svg/.test(rule.test as string)) {
             return { ...rule, exclude: /\.svg$/i };
@@ -43,7 +43,7 @@ export default ({ config }: { config: WebpackConfiguration }) => {
             __IS_DEV__: true,
             __API__: JSON.stringify(''),
             __PROJECT__: JSON.stringify('storybook'),
-        })
+        }),
     );
 
     return config;

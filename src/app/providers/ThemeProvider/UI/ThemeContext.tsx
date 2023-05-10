@@ -1,4 +1,6 @@
-import { createContext, FC, useMemo, useState } from 'react';
+import {
+    createContext, FC, useMemo, useState,
+} from 'react';
 
 export enum Theme {
     LIGHT = 'app_light_theme',
@@ -20,8 +22,7 @@ interface IThemeProviderProps {
 }
 
 //! это значение дефолтной темы его получаем из локал если его там нет по умолчанию ставим светлую. *as преобразование к типу THEME делается потому что в локале лежит json формат
-const defaultTheme =
-    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
+const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
 //! это функция обертка которая обортивает компонент и которому становится доступен функционал переключения тем. Для доступа к чидренам нужно поставить тип functional components FC
 export const ThemeProvider: FC<IThemeProviderProps> = (props) => {
@@ -36,7 +37,7 @@ export const ThemeProvider: FC<IThemeProviderProps> = (props) => {
             theme,
             setTheme,
         }),
-        [theme]
+        [theme],
     );
 
     return (

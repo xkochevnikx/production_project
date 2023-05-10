@@ -33,7 +33,7 @@ class ErrorBoundary extends React.Component<
             // You can render any custom fallback UI
             //! в саспенсе тут компонент потому что там есть переводы
             return (
-                <Suspense fallback=''>
+                <Suspense fallback="">
                     <PageError />
                 </Suspense>
             );

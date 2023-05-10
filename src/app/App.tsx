@@ -24,9 +24,9 @@ function App() {
     //! в саспенс оборачиваем всё потому что переводы подгружаются асинхронно в том числе их чанки для отдельных страниц
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback=''>
+            <Suspense fallback="">
                 <Navbar />
-                <div className='content-page'>
+                <div className="content-page">
                     <Sidebar />
                     {inited && <AppRouter />}
                 </div>

@@ -19,5 +19,5 @@ render(
             </ErrorBoundary>
         </StoreProvider>
     </BrowserRouter>,
-    document.getElementById('root')
+    document.getElementById('root'),
 );
