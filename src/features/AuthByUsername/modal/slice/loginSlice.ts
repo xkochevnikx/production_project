@@ -9,6 +9,7 @@ const initialState: ILoginSchema = {
     error: '',
 };
 
+//! логика регистрации такая - thunk loginByUserName берёт от сюда значения инпутов и отправляет их на сервер дальше если ответ положительный те данные об авторизации пользователя добавляю в локал и диспатчю прямо из фанка в userSlice.
 export const loginSlice = createSlice({
     name: 'login',
     initialState,

@@ -5,25 +5,22 @@ import { Button, ThemeButton } from '../../../shared/UI/Button/ui/Button';
 
 interface LangSwitcherProps {
     className?: string;
-    short?: boolean;
 }
 
-export const LanguageSwitcher = memo(
-    ({ className, short }: LangSwitcherProps) => {
-        const { t, i18n } = useTranslation();
+export const LanguageSwitcher = memo(({ className }: LangSwitcherProps) => {
+    const { t, i18n } = useTranslation();
 
-        const toggle = useCallback(async () => {
-            i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-        }, [i18n]);
+    const toggle = useCallback(async () => {
+        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+    }, [i18n]);
 
-        return (
-            <Button
-                className={classNames('', {}, [className])}
-                theme={ThemeButton.CLEAR}
-                onClick={toggle}
-            >
-                {t(short ? 'Язык' : 'Короткий язык')}
-            </Button>
-        );
-    },
-);
+    return (
+        <Button
+            className={classNames('', {}, [className])}
+            theme={ThemeButton.CLEAR}
+            onClick={toggle}
+        >
+            {t('RU')}
+        </Button>
+    );
+});

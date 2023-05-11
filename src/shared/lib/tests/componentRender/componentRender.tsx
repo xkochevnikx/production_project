@@ -10,6 +10,7 @@ export interface IComponentRender {
     initialState?: DeepPartial<IStateSchema>;
 }
 
+//! универсальный хелпер для UI тестирования компонентов
 export function componentRender(
     component: ReactNode,
     options: IComponentRender = {},

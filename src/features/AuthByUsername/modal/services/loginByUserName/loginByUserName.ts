@@ -19,7 +19,7 @@ export const loginByUserName = createAsyncThunk<
         if (!response.data) {
             throw new Error();
         }
-
+        //! данные об успешной авторизации добавлям в локал и диспатчик в стейт
         localStorage.setItem(
             USER_LOCALSTORAGE_KEY,
             JSON.stringify(response.data),

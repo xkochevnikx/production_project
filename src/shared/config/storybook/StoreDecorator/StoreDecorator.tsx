@@ -7,6 +7,7 @@ import { ProfileReducer } from 'features/EditableProfileCard/modal/slice/Profile
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/modal/slice';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
+//! поскольку эти слайсы асинхронные их надо отдельно добавлять для тестирования компонентов но так же можно еще дополнительно передавать слайсы в стор провайдер.
 const defaultAsyncReducer: ReducersList = {
     loginForm: loginReducer,
     profile: ProfileReducer,

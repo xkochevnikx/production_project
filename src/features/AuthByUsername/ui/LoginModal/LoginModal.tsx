@@ -10,6 +10,8 @@ interface LoginModalProps {
     onClose: () => void;
 }
 
+//! все ленивые компоненты должны быть обёрнуты в саспенс потому что под капотом они на промисах.
+//! тут при нажатии на модалку срабатывает функция закрытия но не срабатывает на вложенный в неё компонент так задумано в самом модал
 export function LoginModal({ className, isOpen, onClose }: LoginModalProps) {
     return (
         <Modal

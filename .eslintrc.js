@@ -34,13 +34,12 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off', //! это что то связано с импортом девзависмостей
         'no-underscore-dangle': 'off', //! оключаем запрет на нижние подчёркивания
         'max-len': ['error', { ignoreComments: true, code: 150 }], //! ошибку если строчка длинная
-        'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/no-static-element-interactions': 'off', //! отключаем правило сематники когда например еслинт ругается на онклик у блока див
         'jsx-a11y/click-events-have-key-events': 'off',
-        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-        'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies,
-        'no-param-reassign': 'off',
+        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks //! это и правило ниже устанавливается от плагина react-hooks которое так же наверху нужно добавить в раздел plugins.
+        'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies, //! что бы не забывать указывать зависимости
+        'no-param-reassign': 'off', //! внутри редакса есть библиотека позволяющая менять аргументы функции напрямую. а это правило такое запрещает поэтому конфликт отключаем
         // 'react/jsx-no-bind': ['warn', { ignoreDOMComponents: true }],
-        'no-param-reassign': 'off',
         'linebreak-style': ['error', 'windows'],
         'no-undef': 'off',
         'react/no-array-index-key': 'off',

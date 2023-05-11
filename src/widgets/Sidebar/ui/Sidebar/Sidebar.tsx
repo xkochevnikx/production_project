@@ -50,7 +50,7 @@ export function Sidebar({ className }: SidebarProps) {
             </Button>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LanguageSwitcher short={collapsed} className={cls.lang} />
+                <LanguageSwitcher className={cls.lang} />
             </div>
         </aside>
     );

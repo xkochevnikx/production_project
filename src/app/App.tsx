@@ -11,11 +11,13 @@ function App() {
     //! хук переключения темы
     const { theme } = useTheme();
 
+    //! это флаг получаем после проверки авторизованности и передаём в роуты для разрешения отрисовки приватных маршрутов
     const inited = useSelector(getUserInited);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
+        //! при первом рендере берём данные из локала если пользователь ранее логинился. это делается что бы не терять авторизацию после закрытия страинцы
         dispatch(userActions.initAuthData());
     }, [dispatch]);
 

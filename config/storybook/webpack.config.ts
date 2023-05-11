@@ -38,6 +38,7 @@ export default ({ config }: { config: WebpackConfiguration }) => {
     //! определяем плагин для обработки css файлов потому что по умолчанию сторибук ничего про их обработку не знает
     config!.module!.rules.push(buildCssLoaders(true));
 
+    //! плагин для прокидывания глобальных переменных в приложение что бы они были везде доступны.
     config!.plugins!.push(
         new DefinePlugin({
             __IS_DEV__: true,

@@ -55,6 +55,7 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
 
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUserName({ username, password }));
+        //! когда запрос выполнен успешно вызываем функцию закрытия модального окна которую спускаем сюда пропсами из навбара
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess();
         }

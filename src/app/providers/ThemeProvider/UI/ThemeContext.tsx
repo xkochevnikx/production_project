@@ -28,7 +28,7 @@ const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) ||
 export const ThemeProvider: FC<IThemeProviderProps> = (props) => {
     const { initialTheme, children } = props;
 
-    //! тут храним состояние темы и инициализируем его или дефолтным значением из локал или
+    //! тут храним состояние темы и инициализируем его или переданным в initialTheme или берём из локала. Передавать нужно только для декакораторов сторибука
     const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
     //! тут мы передаём мемоизированное состояние и функцию его изменения в провайдер. а делаем мы это для того что бы при перерисовки компонента ссылка на объект не менялась если не изменилось ничего из массвива зависимостей

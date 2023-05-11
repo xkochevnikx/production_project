@@ -11,9 +11,11 @@ export const userSlice = createSlice({
     initialState,
 
     reducers: {
+        //! сюда прилетают данные об авторизации от фанка loginByUserName
         setAuthData: (state, action: PayloadAction<IUser>) => {
             state.authData = action.payload;
         },
+        //! при обновлении страницы из локала берём данные и записываем сюда снова. и меняем флаг который говорит что мы авторизованы
         initAuthData: (state) => {
             const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
             if (user) {
@@ -21,6 +23,7 @@ export const userSlice = createSlice({
             }
             state._inited = true;
         },
+        //! при разлогинивании затираем записи везде.
         logout: (state) => {
             state.authData = undefined;
             localStorage.removeItem(USER_LOCALSTORAGE_KEY);

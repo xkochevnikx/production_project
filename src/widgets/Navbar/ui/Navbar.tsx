@@ -20,7 +20,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const isAuth = useSelector(getUserAuthData);
     const [isAuthModal, setIsAuthModal] = useState(false);
 
-    // ? при изменении любого пропса компонерт перерисовывается поэтому сохраняем функции которые передаём пропсами в юзколлбэк чтобы ссылка не менялась
+    //! при изменении любого пропса компонерт перерисовывается поэтому сохраняем функции которые передаём пропсами в юзколлбэк чтобы ссылка не менялась
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
     }, []);
@@ -30,6 +30,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     }, []);
 
     const onLogout = useCallback(() => {
+        //! кнопка с этой функцией доступна если пользователь авторизован и после нажатия стираем все данные об авторизации
         dispatch(userActions.logout());
     }, [dispatch]);
 
