@@ -1,4 +1,4 @@
-import { AsyncThunkAction, DeepPartial } from '@reduxjs/toolkit';
+import { AsyncThunkAction, DeepPartial, Dispatch } from '@reduxjs/toolkit';
 import { IStateSchema } from 'app/providers/StoreProviders';
 import axios, { AxiosStatic } from 'axios';
 
@@ -7,38 +7,26 @@ type ActionCreatorType<Return, Arg, RejectedValue> = (
 ) => AsyncThunkAction<Return, Arg, { rejectValue: RejectedValue }>;
 
 jest.mock('axios');
-
 const mockedAxios = jest.mocked(axios, true);
 
-export class TestAsyncThunk<Return, Arg, RejectedValue> {
-    dispatch: jest.MockedFn<any>;
+export function TestAsyncThunk<Return, Arg, RejectedValue>(
+    actionCreator: ActionCreatorType<Return, Arg, RejectedValue>,
+    state?: DeepPartial<IStateSchema>,
+) {
+    //! типизируем функции возвращаемые экшеном
+    const dispatch: Dispatch = jest.fn();
+    const getState: () => IStateSchema = jest.fn(() => state as IStateSchema);
+    const api: jest.MockedFunctionDeep<AxiosStatic> = mockedAxios;
 
-    getState: () => IStateSchema;
-
-    actionCreator: ActionCreatorType<Return, Arg, RejectedValue>;
-
-    api: jest.MockedFunctionDeep<AxiosStatic>;
-
-    navigate: jest.MockedFn<any>;
-
-    constructor(
-        actionCreator: ActionCreatorType<Return, Arg, RejectedValue>,
-        state?: DeepPartial<IStateSchema>,
-    ) {
-        this.actionCreator = actionCreator;
-        this.dispatch = jest.fn();
-        this.getState = jest.fn(() => state as IStateSchema);
-        this.api = mockedAxios;
-        this.navigate = jest.fn();
-    }
-
-    async callThunk(arg: Arg) {
-        const action = this.actionCreator(arg);
-        const result = await action(this.dispatch, this.getState, {
-            api: this.api,
-            navigate: this.navigate,
-        });
+    //! возвращаем эту функцию которая принимает для вызова данные и вызывает асинк фанк возвращая экшн криэйтер в котором уже замоканные функции
+    const callThunk = async (arg: Arg) => {
+        const action = actionCreator(arg);
+        const result = await action(dispatch, getState, { api });
 
         return result;
-    }
+    };
+
+    return {
+        dispatch, getState, api, callThunk,
+    };
 }

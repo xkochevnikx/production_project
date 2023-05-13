@@ -11,7 +11,7 @@ jest.mock('../fetchArticlesList/fetchArticlesList');
 
 describe('fetchNextArticlesPage.test', () => {
     test('success', async () => {
-        const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
+        const thunk = TestAsyncThunk(fetchNextArticlesPage, {
             articlesPage: {
                 error: '',
                 view: ArticleView.SMALL,
@@ -34,7 +34,7 @@ describe('fetchNextArticlesPage.test', () => {
     });
 
     test('fetchArticlesList not called', async () => {
-        const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
+        const thunk = TestAsyncThunk(fetchNextArticlesPage, {
             articlesPage: {
                 error: '',
                 view: ArticleView.SMALL,
@@ -58,7 +58,7 @@ describe('fetchNextArticlesPage.test', () => {
     });
 
     test('fetchArticlesList not called isLoading', async () => {
-        const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
+        const thunk = TestAsyncThunk(fetchNextArticlesPage, {
             articlesPage: {
                 error: '',
                 view: ArticleView.SMALL,

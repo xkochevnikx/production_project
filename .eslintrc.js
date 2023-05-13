@@ -36,8 +36,8 @@ module.exports = {
         'max-len': ['error', { ignoreComments: true, code: 150 }], //! ошибку если строчка длинная
         'jsx-a11y/no-static-element-interactions': 'off', //! отключаем правило сематники когда например еслинт ругается на онклик у блока див
         'jsx-a11y/click-events-have-key-events': 'off',
-        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks //! это и правило ниже устанавливается от плагина react-hooks которое так же наверху нужно добавить в раздел plugins.
-        'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies, //! что бы не забывать указывать зависимости
+        'react-hooks/rules-of-hooks': 'error', //! это и правило ниже устанавливается от плагина react-hooks которое так же наверху нужно добавить в раздел plugins.
+        'react-hooks/exhaustive-deps': 'error', //! что бы не забывать указывать зависимости
         'no-param-reassign': 'off', //! внутри редакса есть библиотека позволяющая менять аргументы функции напрямую. а это правило такое запрещает поэтому конфликт отключаем
         // 'react/jsx-no-bind': ['warn', { ignoreDOMComponents: true }],
         'linebreak-style': ['error', 'windows'],

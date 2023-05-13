@@ -8,20 +8,18 @@ const data = {
 
 describe('fetchArticleById.test', () => {
     test('get article', async () => {
-        const thunk = new TestAsyncThunk(fetchArticleById);
+        const thunk = TestAsyncThunk(fetchArticleById);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
         const result = await thunk.callThunk('');
-
         expect(thunk.api.get).toBeCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual(data);
     });
 
     test('error article', async () => {
-        const thunk = new TestAsyncThunk(fetchArticleById);
+        const thunk = TestAsyncThunk(fetchArticleById);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk('');
-
         expect(result.meta.requestStatus).toBe('rejected');
     });
 });
