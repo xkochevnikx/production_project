@@ -7,6 +7,7 @@ import AboutIcon from '../../../../shared/assets/icons/about.svg';
 import ProfileIcon from '../../../../shared/assets/icons/profile.svg';
 import ArticlesIcon from '../../../../shared/assets/icons/articles.svg';
 
+//! это список ссылок для отрисовки на сайдбаре. в селекторе изолирум логику по его формирвоанию в зависимости от авторизации добавлям приватные ссылки
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     const sidebarItemList: ISidebarItemType[] = [
         {

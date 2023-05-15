@@ -20,6 +20,7 @@ export const ProfileSlice = createSlice({
         setReadonly: (state, action: PayloadAction<boolean>) => {
             state.readonly = action.payload;
         },
+        //! отменяем редактирование
         cancelEdit: (state) => {
             state.readonly = true;
             state.validateErrors = undefined;
@@ -39,6 +40,7 @@ export const ProfileSlice = createSlice({
                 state.error = undefined;
             })
             .addCase(
+                //! при первой подгрузке данные распихиваем по двум полям. дубликат дата нужен для отмены редактирования и возвращение к старым данным.. в поле форм данные, поля в которых меняются при изменении в любом инпуте и выводятся на странице
                 fetchProfileData.fulfilled,
                 (state, action: PayloadAction<IProfile>) => {
                     state.isLoading = false;
@@ -56,6 +58,7 @@ export const ProfileSlice = createSlice({
                 state.validateErrors = undefined;
             })
             .addCase(
+                //! при нажатии сохранить фанк берёт данные из поля форм и отправляет на сервер запрос на изменение данных. потом резултат так же как и при первом рендеринге распихивает в обе формы
                 updateProfileData.fulfilled,
                 (state, action: PayloadAction<IProfile>) => {
                     state.isLoading = false;
@@ -67,6 +70,7 @@ export const ProfileSlice = createSlice({
             )
             .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false;
+                //! в случае ошибки фанк возвращет массив определённых полей и этот массив записываем в поле слайса и далее в компоненте через селектор его вытаскиваем и отрисовываем
                 state.validateErrors = action.payload;
             });
     },

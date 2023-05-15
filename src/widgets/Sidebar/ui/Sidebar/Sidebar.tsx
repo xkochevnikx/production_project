@@ -15,6 +15,7 @@ interface SidebarProps {
 export function Sidebar({ className }: SidebarProps) {
     const [collapsed, setCollapsed] = useState(false);
 
+    //! получаем список из селектора уже сформированный на основании авторизации и в компоненте отрисовываем
     const sidebarItemList = useSelector(getSidebarItems);
 
     const toggleOn = useCallback(() => {

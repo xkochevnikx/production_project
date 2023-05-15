@@ -5,7 +5,7 @@ import {
     ArticleBlockType,
     ArticleType,
 } from '../../../../entities/Article/modal/types/article';
-import { ArticleDetailsPage } from './ArticleDetailsPage';
+import ArticleDetailsPage from './ArticleDetailsPage';
 
 export default {
     title: 'pages/ArticleDetailsPage',

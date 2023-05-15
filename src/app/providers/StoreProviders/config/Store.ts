@@ -48,4 +48,5 @@ export function createReduxStore(
     return store;
 }
 
+//! типизируем тип диспатча что бы использовать его в хуке useAppDispatch. это делается что автокоплита тайпскрипта что бы он подхватывал типы возвращаемые диспатчем потому что по умолчанию диспатч не типизирован
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

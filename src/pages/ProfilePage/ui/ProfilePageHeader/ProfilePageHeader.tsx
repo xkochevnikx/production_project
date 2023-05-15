@@ -4,7 +4,6 @@ import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/UI/Text/ui/Text';
 import { useSelector } from 'react-redux';
-
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getProfileReadonly } from 'features/EditableProfileCard/modal/selectors/getProfileReadonly/getProfileReadonly';
 import { ProfileActions } from 'features/EditableProfileCard/modal/slice/ProfileSlice';
@@ -27,8 +26,9 @@ export const ProfilePageHeader = memo(
 
         const profile = useSelector(getProfileData);
 
+        //! редактирование доступно по этому флагу.
         const canEdit = userData?.id === profile?.id;
-
+        //! по умолчанию в слайсе поле редонли тру, это поле вытаскиваем тут и на этом основании отрисовываем разные кнопки
         const onEdit = useCallback(() => {
             dispatch(ProfileActions.setReadonly(false));
         }, [dispatch]);
@@ -37,6 +37,7 @@ export const ProfilePageHeader = memo(
             dispatch(updateProfileData());
         }, [dispatch]);
 
+        //! вызываем экшн отмены редактирования
         const onCancelEdit = useCallback(() => {
             dispatch(ProfileActions.cancelEdit());
         }, [dispatch]);

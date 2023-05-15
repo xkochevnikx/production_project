@@ -1,5 +1,3 @@
-export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
-
 export { IArticleDetailsSchema } from './modal/types/articleDetailsSchema';
 
 export {
@@ -12,3 +10,5 @@ export { getArticleDetailsData } from './modal/selectors/getAllArticleDetails';
 export { ArticlesList } from './ui/ArticleList/ArticlesList';
 
 export { ArticleSortField, ArticleType } from './modal/types/article';
+
+export { ArticleDetailsAsync as ArticleDetails } from './ui/ArticleDetails/ArticleDetails.async';

@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -40,7 +40,7 @@ const reducers: ReducersList = {
     articleDetails: ArticleDetailsReducer,
 };
 
-export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
+const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     const dispatch = useAppDispatch();
 
     const { t } = useTranslation('articles');
@@ -140,3 +140,5 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         </DynamicModuleLoader>
     );
 });
+
+export default ArticleDetails;

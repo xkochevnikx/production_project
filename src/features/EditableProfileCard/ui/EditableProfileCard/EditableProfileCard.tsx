@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ProfileActions } from 'features/EditableProfileCard/modal/slice/ProfileSlice';
@@ -9,20 +9,23 @@ import { useTranslation } from 'react-i18next';
 import { ValidateProfileError } from 'features/EditableProfileCard/modal/types/profile';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { ProfileCard } from 'entities/ProfileCard/ui/ProfileCard';
 import { getProfileValidateErrors } from '../../modal/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../modal/services/fetchProfileData/fetchProfileData';
 import { getProfileReadonly } from '../../modal/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileIsLoading } from '../../modal/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../modal/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../modal/selectors/getProfileForm/getProfileForm';
-import { ProfileCard } from '../ProfileCard/ProfileCard';
 
 export const EditableProfileCard = memo(() => {
     const { t } = useTranslation('profile');
+    //! на отрисовку идут данные из поля форм
     const form = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
+    //! прокидываем в карточку редонли и далее в инпутах навешиваем класс по условию.
     const readonly = useSelector(getProfileReadonly);
+    //! при обновлении фанк может вернуть ошибку из фунгкции валидации, массив этих ошибок помещаем в стейт и тут над карточкой отрисовывам
     const validateErrors = useSelector(getProfileValidateErrors);
 
     const validateErrorTranslates = {
@@ -34,13 +37,14 @@ export const EditableProfileCard = memo(() => {
 
     const dispatch = useAppDispatch();
 
+    //! при первом рендеринге компонента на странице смотрим если есть айди то запрашиваем данные
     const { id } = useParams<{ id: string }>();
-
     useInitialEffect(() => {
         if (id) {
             dispatch(fetchProfileData(id));
         }
     });
+
     const onChangeFirstname = useCallback(
         (value?: string) => {
             dispatch(ProfileActions.updateProfile({ first: value || '' }));

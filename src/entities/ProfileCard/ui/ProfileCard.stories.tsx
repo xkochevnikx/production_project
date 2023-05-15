@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 import { ProfileCard } from './ProfileCard';
-import Avatar from '../../../../shared/assets/test/крош.jpg';
+import AvatarImg from '../../../shared/assets/test/крош.jpg';
 
 export default {
     title: 'feature/ProfileCard',
@@ -24,7 +24,7 @@ Primary.args = {
         lastname: 'qwe',
         age: 123,
         city: 'qwer',
-        avatar: Avatar,
+        avatar: AvatarImg,
     },
 };
 
@@ -36,6 +36,7 @@ Dark.args = {
         lastname: 'qwe',
         age: 123,
         city: 'qwer',
+        avatar: AvatarImg,
     },
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

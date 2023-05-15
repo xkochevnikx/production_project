@@ -1,5 +1,5 @@
 import { IProfile, ValidateProfileError } from '../../types/profile';
-
+//! функция валидации. принимает данные и валидирует строки , это простенькая валидация на несколько полей. функция возращает массив ошибок перечисленных в типах профайла
 export const validateProfileData = (profile?: IProfile) => {
     if (!profile) {
         return [ValidateProfileError.NO_DATA];

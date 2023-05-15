@@ -4,7 +4,7 @@ import {
     ArticleBlockType,
     ArticleType,
 } from 'entities/Article/modal/types/article';
-import { ArticleDetails } from './ArticleDetails';
+import { ArticleDetails } from 'entities/Article';
 
 export default {
     title: 'entities/ArticleDetails',

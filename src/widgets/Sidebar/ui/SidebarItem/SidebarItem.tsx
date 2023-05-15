@@ -19,10 +19,12 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
 
     const { path, text, Icon } = item;
 
+    //! доп проверка на авторизацию
     if (item.isAuthOnly && !isAuth) {
         return null;
     }
 
+    //! отрисовка в зависимости от флага открытия и закрытия сайдбара, при отсутсвии класса текст ссылки становиться невидимым и сжатым
     return (
         <AppLink
             className={classNames(cls.item, { [cls.collapsed]: collapsed })}

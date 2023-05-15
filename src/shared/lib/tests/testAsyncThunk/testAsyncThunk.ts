@@ -18,7 +18,7 @@ export function TestAsyncThunk<Return, Arg, RejectedValue>(
     const getState: () => IStateSchema = jest.fn(() => state as IStateSchema);
     const api: jest.MockedFunctionDeep<AxiosStatic> = mockedAxios;
 
-    //! возвращаем эту функцию которая принимает для вызова данные и вызывает асинк фанк возвращая экшн криэйтер в котором уже замоканные функции
+    //! возвращаем эту функцию которая принимает для вызова данные и вызывает асинк фанк возвращая экшн криэйтер в котором уже замоканные функции и в тесте их вытаскиваем
     const callThunk = async (arg: Arg) => {
         const action = actionCreator(arg);
         const result = await action(dispatch, getState, { api });
@@ -27,6 +27,9 @@ export function TestAsyncThunk<Return, Arg, RejectedValue>(
     };
 
     return {
-        dispatch, getState, api, callThunk,
+        dispatch,
+        getState,
+        api,
+        callThunk,
     };
 }

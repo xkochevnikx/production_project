@@ -32,7 +32,7 @@ const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
 };
 
-export const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
+const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
 
     // let [searchParams] = useSearchParams(); или олдскул ниже
@@ -69,3 +69,5 @@ export const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
         </DynamicModuleLoader>
     );
 });
+
+export default ArticlesPage;
