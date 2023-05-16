@@ -12,11 +12,9 @@ import { useTranslation } from 'react-i18next';
 import { Skeleton } from 'shared/UI/Skeleton/Skeleton';
 import { Avatar } from 'shared/UI/Avatar/Avatar';
 import { Icon } from 'shared/UI/Icon/Icon';
-import {
-    ArticleBlock,
-    ArticleBlockType,
-} from 'entities/Article/modal/types/article';
+
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { renderBlock } from 'entities/Article/modal/lib/renderBlock/renderBlock';
 import { ArticleDetailsReducer } from '../../modal/slice/ArticleDetailsSlice';
 import { fetchArticleById } from '../../modal/services/fetchArticleById';
 import cls from './ArticleDetails.module.scss';
@@ -27,9 +25,6 @@ import {
 } from '../../modal/selectors/getAllArticleDetails';
 import EyeIcon from '../../../../shared/assets/icons/eye.svg';
 import CalendarIcon from '../../../../shared/assets/icons/calendar.svg';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponents/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface ArticleDetailsProps {
     className?: string;
@@ -52,39 +47,8 @@ const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
     useInitialEffect(() => dispatch(fetchArticleById(id)));
 
-    const renderBlock = (block: ArticleBlock) => {
-        switch (block.type) {
-        case ArticleBlockType.CODE:
-            return (
-                <ArticleCodeBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cls.block}
-                />
-            );
-        case ArticleBlockType.IMAGE:
-            return (
-                <ArticleImageBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cls.block}
-                />
-            );
-        case ArticleBlockType.TEXT:
-            return (
-                <ArticleTextBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cls.block}
-                />
-            );
-        default:
-            return null;
-        }
-    };
-
+    //! тут динамическое содержимое контента на отрисовку. внизу проходимся по блокам статьи и на каждый тип возвращам свой компонент с помощью функции хелпера
     let content;
-
     if (isLoading) {
         content = (
             <div>

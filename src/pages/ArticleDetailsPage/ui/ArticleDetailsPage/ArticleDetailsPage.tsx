@@ -58,12 +58,13 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
     const recommendationsIsLoading = useSelector(
         getArticleRecommendationsIsLoading,
     );
-
+    //! получаем список комментариев и рекомендованные статьи
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
         dispatch(fetchArticleRecommendations());
     });
 
+    //! если нет айди то алес
     if (!id) {
         return (
             <Page
@@ -74,7 +75,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
         );
     }
     return (
-        <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers}>
             <Page
                 className={classNames(cls.ArticleDetailsPage, {}, [className])}
             >
