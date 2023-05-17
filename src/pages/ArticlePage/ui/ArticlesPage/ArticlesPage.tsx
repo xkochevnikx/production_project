@@ -35,8 +35,7 @@ const reducers: ReducersList = {
 const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
 
-    // let [searchParams] = useSearchParams(); или олдскул ниже
-
+    //! let [searchParams] = useSearchParams(); или олдскул ниже
     const searchParams = new URLSearchParams(window.location.search);
 
     const view = useSelector(getArticlesPageView);

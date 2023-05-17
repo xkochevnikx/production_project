@@ -14,6 +14,7 @@ export const addCommentForArticle = createAsyncThunk<
         extra, rejectWithValue, getState, dispatch,
     } = thunkApi;
 
+    //! принимаем коммент строкой получаем айди статьи и юзера и отправляем
     const userData = getUserAuthData(getState());
     const article = getArticleDetailsData(getState());
 
@@ -30,7 +31,7 @@ export const addCommentForArticle = createAsyncThunk<
         if (!response.data) {
             throw new Error();
         }
-
+        //! после отправка нового комментария заново запрашиваем обновленный список
         dispatch(fetchCommentsByArticleId(article.id));
 
         return response.data;

@@ -17,11 +17,15 @@ import { Page } from 'widgets/Page/Page';
 import { ArticleDetailsPageHeader } from 'features/ArticleDetailsPageHeader';
 import { addCommentForArticle } from '../../modal/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../modal/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { getArticleCommentsIsLoading } from '../../modal/selectors/comments';
-import { getArticleComments } from '../../modal/slice/articleDetailsCommentsSlice';
+import {
+    getArticleComments,
+    getArticleCommentsIsLoading,
+} from '../../modal/selectors/comments';
 import cls from './ArticleDetailsPage.module.scss';
-import { getArticleRecommendations } from '../../modal/slice/articleDetailsPageRecommendationsSlice';
-import { getArticleRecommendationsIsLoading } from '../../modal/selectors/recommendations';
+import {
+    getArticleRecommendations,
+    getArticleRecommendationsIsLoading,
+} from '../../modal/selectors/recommendations';
 import { fetchArticleRecommendations } from '../../modal/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { articleDetailsPageReducer } from '../../modal/slice';
 
@@ -36,6 +40,7 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
     const dispatch = useAppDispatch();
 
+    //! в AddCommentForm передаём функцию добавления комментария к статье и в ней дёргам фанк
     const onSendComment = useCallback(
         (text: string) => {
             if (text) {
@@ -58,6 +63,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
     const recommendationsIsLoading = useSelector(
         getArticleRecommendationsIsLoading,
     );
+
     //! получаем список комментариев и рекомендованные статьи
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));

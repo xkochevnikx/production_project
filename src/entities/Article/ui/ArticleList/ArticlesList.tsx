@@ -28,6 +28,7 @@ export const ArticlesList = memo(
         target,
     }: ArticlesListProps) => {
         const { t } = useTranslation('articles');
+
         const renderArticle = (article: IArticle) => (
             <ArticleListItem
                 target={target}
@@ -58,7 +59,9 @@ export const ArticlesList = memo(
                     cls[view],
                 ])}
             >
-                {articles.length > 0 ? articles.map(renderArticle) : null}
+                {articles.length > 0
+                    ? articles.map((article) => renderArticle(article))
+                    : null}
                 {isLoading && getSkeletons(view)}
             </div>
         );

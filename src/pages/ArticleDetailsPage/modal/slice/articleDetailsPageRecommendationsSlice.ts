@@ -8,26 +8,22 @@ import { IArticle } from 'entities/Article';
 import { IArticleDetailsRecommendationsSchema } from '../types/ArticleDetailsRecommendationsSchema';
 import { fetchArticleRecommendations } from '../services/fetchArticleRecommendations/fetchArticleRecommendations';
 
-const recommendationsAdapter = createEntityAdapter<IArticle>({
+export const recommendationsAdapter = createEntityAdapter<IArticle>({
     selectId: (article) => article.id,
 });
 
-export const getArticleRecommendations = recommendationsAdapter.getSelectors<IStateSchema>(
-    (state) => state.articleDetailsPage?.recommendations
-            || recommendationsAdapter.getInitialState(),
+const initialState = recommendationsAdapter.getInitialState<IArticleDetailsRecommendationsSchema>(
+    {
+        isLoading: false,
+        error: undefined,
+        ids: [],
+        entities: {},
+    },
 );
 
 const articleDetailsPageRecommendationsSlice = createSlice({
     name: 'articleDetailsPageRecommendationsSlice',
-    initialState:
-        recommendationsAdapter.getInitialState<IArticleDetailsRecommendationsSchema>(
-            {
-                isLoading: false,
-                error: undefined,
-                ids: [],
-                entities: {},
-            },
-        ),
+    initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder

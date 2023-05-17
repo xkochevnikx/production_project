@@ -3,28 +3,27 @@ import {
     createEntityAdapter,
     createSlice,
 } from '@reduxjs/toolkit';
-import { IStateSchema } from 'app/providers/StoreProviders';
 import { IComment } from 'entities/Comment';
 import { IArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-const commentsAdapter = createEntityAdapter<IComment>({
+//! создаём адаптер и задаём функцию получения ключей. Ключём будет comment.id. ОН после запроса получает массив комментариев и создаёт свой стейт
+export const commentsAdapter = createEntityAdapter<IComment>({
     selectId: (comment) => comment.id,
 });
 
-export const getArticleComments = commentsAdapter.getSelectors<IStateSchema>(
-    (state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
-);
+//! по умолчению адаптер возвращает entities и ids расширяю его доп типом с ошибкой и загрузкой
+const initialState =
+    commentsAdapter.getInitialState<IArticleDetailsCommentsSchema>({
+        isLoading: false,
+        error: undefined,
+        ids: [], //! ключи это ссылки на объекты где значение это сам объект
+        entities: {}, //! сами объекты айди которых становятся ключами
+    });
 
 const articleDetailsCommentsSlice = createSlice({
     name: 'articleDetailsCommentsSlice',
-    initialState:
-        commentsAdapter.getInitialState<IArticleDetailsCommentsSchema>({
-            isLoading: false,
-            error: undefined,
-            ids: [],
-            entities: {},
-        }),
+    initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
@@ -36,8 +35,9 @@ const articleDetailsCommentsSlice = createSlice({
                 fetchCommentsByArticleId.fulfilled,
                 (state, action: PayloadAction<IComment[]>) => {
                     state.isLoading = false;
+                    //! в адаптер помешаем массив функций который адаптер фильтрует и превращает в стейт с полями entities и ids
                     commentsAdapter.setAll(state, action.payload);
-                },
+                }
             )
             .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
                 state.isLoading = false;
@@ -45,4 +45,5 @@ const articleDetailsCommentsSlice = createSlice({
             });
     },
 });
-export const { reducer: articleDetailsCommentsReducer } = articleDetailsCommentsSlice;
+export const { reducer: articleDetailsCommentsReducer } =
+    articleDetailsCommentsSlice;

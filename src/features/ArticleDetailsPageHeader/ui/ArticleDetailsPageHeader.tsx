@@ -17,14 +17,15 @@ export const ArticleDetailsPageHeader = memo(
     ({ className }: ArticleDetailsPageHeaderProps) => {
         const navigate = useNavigate();
 
+        //! флаг разрешения на редактирование статьи возвращется из createSelector который проверяет совпадает ли айди автора с айди текущего пользователя
         const canEdit = useSelector(getCanEditArticle);
 
         const article = useSelector(getArticleDetailsData);
-
+        //! обратно на список
         const onBackToList = useCallback(() => {
             navigate(RoutePath.articles);
         }, [navigate]);
-
+        //! на страницу редактирования если canEdit
         const onEditToList = useCallback(() => {
             navigate(`${RoutePath.articles}/${article?.id}/edit`);
         }, [navigate, article?.id]);

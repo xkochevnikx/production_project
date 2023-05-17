@@ -33,6 +33,7 @@ const AddCommentForm = memo(
 
         const text = useSelector(getCommentFormText);
 
+        //! это функция на инпуте принимает строку и добавляет ей в слайс комментов который не привязан к бизнес логике(сущностям) и выше мы сразу достаём эту строку из слайса и подставляем в функцию которая передаст её выше в вызванную onSendComment спущенную пропсом. и дальше очищаем стей путсыми кавычками
         const onCommentChangeText = useCallback(
             (value: string) => {
                 dispatch(addCommentFormActions.setText(value));

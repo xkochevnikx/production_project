@@ -24,6 +24,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     if (userData) {
         sidebarItemList.push(
             {
+                //! так же для перехода на нужный профиль переходим на адрес использую данные об активном пользователе
                 path: `${RoutePath.profile}${userData?.id}`,
                 Icon: ProfileIcon,
                 text: 'Профиль',
