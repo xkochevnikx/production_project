@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    MutableRefObject, ReactNode, useRef, UIEvent, useMemo,
+    MutableRefObject, ReactNode, useRef, UIEvent,
 } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -30,6 +30,7 @@ export const Page = ({ className, children, onScrollEnd }: PageProps) => {
 
     const scrollPosition = useSelector((state: IStateSchema) => getScrollByPath(state, pathname));
 
+    //! хук подгрузки на скролл.
     useInfiniteScroll({
         wrapperRef,
         triggerRef,
@@ -48,6 +49,8 @@ export const Page = ({ className, children, onScrollEnd }: PageProps) => {
             }),
         );
     }, 300);
+
+    //! если приняли пропсом со страницы onScrollEnd то внизу под компонентом добавляем див и сохраняем его в triggerRef
 
     return (
         <section

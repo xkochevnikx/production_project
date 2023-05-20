@@ -42,7 +42,7 @@ module.exports = {
         // 'react/jsx-no-bind': ['warn', { ignoreDOMComponents: true }],
         'linebreak-style': ['error', 'windows'],
         'no-undef': 'off',
-        'react/no-array-index-key': 'off',
+        'react/no-array-index-key': 'off', //! отключаем правило запрещающее использование индекса в качестве ключа. Если у нас массив не изменяемый то индекс использовать можно
         'react/jsx-no-useless-fragment': 'off',
     },
     globals: {

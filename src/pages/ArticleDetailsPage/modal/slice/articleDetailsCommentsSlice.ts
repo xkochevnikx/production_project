@@ -13,13 +13,12 @@ export const commentsAdapter = createEntityAdapter<IComment>({
 });
 
 //! по умолчению адаптер возвращает entities и ids расширяю его доп типом с ошибкой и загрузкой
-const initialState =
-    commentsAdapter.getInitialState<IArticleDetailsCommentsSchema>({
-        isLoading: false,
-        error: undefined,
-        ids: [], //! ключи это ссылки на объекты где значение это сам объект
-        entities: {}, //! сами объекты айди которых становятся ключами
-    });
+const initialState = commentsAdapter.getInitialState<IArticleDetailsCommentsSchema>({
+    isLoading: false,
+    error: undefined,
+    ids: [], //! ключи это ссылки на объекты где значение это сам объект
+    entities: {}, //! сами объекты айди которых становятся ключами
+});
 
 const articleDetailsCommentsSlice = createSlice({
     name: 'articleDetailsCommentsSlice',
@@ -37,7 +36,7 @@ const articleDetailsCommentsSlice = createSlice({
                     state.isLoading = false;
                     //! в адаптер помешаем массив функций который адаптер фильтрует и превращает в стейт с полями entities и ids
                     commentsAdapter.setAll(state, action.payload);
-                }
+                },
             )
             .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
                 state.isLoading = false;
@@ -45,5 +44,4 @@ const articleDetailsCommentsSlice = createSlice({
             });
     },
 });
-export const { reducer: articleDetailsCommentsReducer } =
-    articleDetailsCommentsSlice;
+export const { reducer: articleDetailsCommentsReducer } = articleDetailsCommentsSlice;

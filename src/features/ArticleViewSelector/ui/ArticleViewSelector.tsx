@@ -26,6 +26,7 @@ const viewTypes = [
 
 export const ArticleViewSelector = memo(
     ({ className, view, onViewClick }: ArticleViewSelectorProps) => {
+        //! своего рода замыкание. есть внешняя функция которая изменяет отображение и внутренняя которая стоит на слушателе события онклик и при вызове возвращает внешнюю функцию с новым значением
         const onClick = (newView: ArticleView) => () => onViewClick?.(newView);
 
         return (

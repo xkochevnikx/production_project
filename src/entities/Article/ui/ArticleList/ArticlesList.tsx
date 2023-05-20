@@ -15,6 +15,7 @@ interface ArticlesListProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
+//! в зависимости от view массив скелетонов возвращаемых функцией имеет определённую длинну, специально для страницы статей. он  ждёт когда будет isLoading
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
     .map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);

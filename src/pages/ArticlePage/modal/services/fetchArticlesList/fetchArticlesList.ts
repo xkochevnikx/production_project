@@ -11,6 +11,7 @@ import {
     getArticlesPageType,
 } from '../../selectors/getArticlesPageSelectors';
 
+//! этот флаг нужен для видимости в метаданных на обработке состояния фанка. если при вызове replace:true то это значит что это первый запрос и номер страницы 1 если не тру то значит в фанке fetchNextArticlesPage номер страницы увеличил и articlesAdapter будет добавлять новую порцию статей в конец уже отрисованных.
 export interface IFetchArticleListProps {
     replace?: boolean;
 }

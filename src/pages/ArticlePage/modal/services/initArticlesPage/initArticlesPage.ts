@@ -14,8 +14,9 @@ export const initArticlesPage = createAsyncThunk<
 >(
     'articlesPage/initArticlesPage',
     async (searchParams: URLSearchParams, thunkApi) => {
+        //! флаг инитед говорит что страница статей уже инициализирована, первый запрос сделан, и делать его при каждом посещении страницы не нужно
         const inited = getArticlesPageInited(thunkApi.getState());
-
+        //! после инициализации проходимся циклом по данным из адресной строки и обновляем поля. После уже в fetchArticlesList на основании этих полей делаем запрос данных на сервер
         if (!inited) {
             searchParams.forEach((value, key) => {
                 switch (key) {
@@ -45,7 +46,7 @@ export const initArticlesPage = createAsyncThunk<
             });
 
             thunkApi.dispatch(articlesPageActions.initState());
-            thunkApi.dispatch(fetchArticlesList({}));
+            thunkApi.dispatch(fetchArticlesList({ replace: true }));
         }
     },
 );

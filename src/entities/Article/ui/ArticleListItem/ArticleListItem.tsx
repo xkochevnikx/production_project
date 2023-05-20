@@ -31,10 +31,10 @@ export const ArticleListItem = memo(
     }: ArticleListItemProps) => {
         const { t } = useTranslation();
 
+        //! элементы на отрисовку вынесли в переиспользуемые для убобства потому что повторяются в обеих видах карточки
         const types = (
             <Text text={article.type.join(', ')} className={cls.types} />
         );
-
         const views = (
             <>
                 <Text text={String(article.views)} className={cls.views} />

@@ -44,10 +44,12 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
 
     const isLoading = useSelector(getArticlesPageIsLoading);
 
+    //! фанк для подгрузки новой порции статей спускам в компонет page
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
+    //! при первом рендере вызываем фанк который передаёт данные из адресной строки в слайс, инициализирует вид и делает первый запрос на получение статей
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));
     });
