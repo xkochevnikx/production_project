@@ -44,7 +44,7 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
 
     const isLoading = useSelector(getArticlesPageIsLoading);
 
-    //! фанк для подгрузки новой порции статей спускам в компонет page
+    //! фанк для подгрузки новой порции статей спускаем в компонет page
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);

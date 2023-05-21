@@ -6,7 +6,7 @@ import {
 } from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
-import { scrollSaveSliceReducer } from 'widgets/ScrollSave';
+import { scrollSaveSliceReducer } from 'features/ScrollSave';
 import { createReducerManager } from './ReducerManager';
 import { IStateSchema, IThunkExtraArg } from './StateSchema';
 

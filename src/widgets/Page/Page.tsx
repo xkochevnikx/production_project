@@ -4,13 +4,13 @@ import {
 } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { scrollSaveSliceActions } from 'widgets/ScrollSave/modal/slice/scrollSaveSlice';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { getScrollByPath } from 'widgets/ScrollSave/modal/selectors/getScrollSaveSelectors';
 import { IStateSchema } from 'app/providers/StoreProviders';
 import { useTrottle } from 'shared/lib/hooks/useTrottle/useTrottle';
+import { scrollSaveSliceActions } from 'features/ScrollSave/modal/slice/scrollSaveSlice';
+import { getScrollByPath } from 'features/ScrollSave';
 import cls from './Page.module.scss';
 
 interface PageProps {

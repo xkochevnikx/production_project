@@ -13,7 +13,7 @@ import { IArticleDetailsSchema } from 'entities/Article';
 import { IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { IAddCommentFormSchema } from 'features/AddCommentForm';
 import { IArticlesPageSchema } from 'pages/ArticlePage';
-import { iScrollSaveSchema } from 'widgets/ScrollSave';
+import { iScrollSaveSchema } from 'features/ScrollSave';
 
 export interface IStateSchema {
     user: IUserSchema;
