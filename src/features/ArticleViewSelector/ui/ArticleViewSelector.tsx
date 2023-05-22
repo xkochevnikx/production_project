@@ -1,16 +1,18 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { ArticleView } from 'entities/Article';
 import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { Icon } from 'shared/UI/Icon/Icon';
 import tiledIcon from '../../../shared/assets/icons/articlesSwitcher1.svg';
 import listIcon from '../../../shared/assets/icons/articlesSwitcher2.svg';
 import cls from './ArticleViewSelector.module.scss';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { articlesPageActions } from 'pages/ArticlePage';
 
 interface ArticleViewSelectorProps {
     className?: string;
     view: ArticleView;
-    onViewClick?: (view: ArticleView) => void;
+    debounce: () => void;
 }
 
 const viewTypes = [
@@ -25,16 +27,24 @@ const viewTypes = [
 ];
 
 export const ArticleViewSelector = memo(
-    ({ className, view, onViewClick }: ArticleViewSelectorProps) => {
-        //! своего рода замыкание. есть внешняя функция которая изменяет отображение и внутренняя которая стоит на слушателе события онклик и при вызове возвращает внешнюю функцию с новым значением
-        const onClick = (newView: ArticleView) => () => onViewClick?.(newView);
+    ({ className, view, debounce }: ArticleViewSelectorProps) => {
+        const dispatch = useAppDispatch();
+
+        const onChangeView = useCallback(
+            (view: ArticleView) => {
+                dispatch(articlesPageActions.setView(view));
+                dispatch(articlesPageActions.setPage(1));
+                debounce();
+            },
+            [dispatch, debounce]
+        );
 
         return (
             <div className={cls.ArticleViewSelector}>
                 {viewTypes.map((viewItem) => (
                     <Button
                         key={viewItem.view}
-                        onClick={onClick(viewItem.view)}
+                        onClick={() => onChangeView(viewItem.view)}
                         theme={ThemeButton.CLEAR}
                     >
                         <Icon
@@ -42,12 +52,12 @@ export const ArticleViewSelector = memo(
                             className={classNames(
                                 '',
                                 { [cls.notSelected]: viewItem.view !== view },
-                                [className],
+                                [className]
                             )}
                         />
                     </Button>
                 ))}
             </div>
         );
-    },
+    }
 );

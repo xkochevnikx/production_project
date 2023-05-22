@@ -12,13 +12,15 @@ interface ArticlesListProps {
     articles: IArticle[];
     view?: ArticleView;
     isLoading?: boolean;
+    //! это атрибут которые передаётся ссылке в самый низ для того что бы она открывалась в новом окне
     target?: HTMLAttributeAnchorTarget;
 }
 
 //! в зависимости от view массив скелетонов возвращаемых функцией имеет определённую длинну, специально для страницы статей. он  ждёт когда будет isLoading
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
-    .fill(0)
-    .map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === ArticleView.SMALL ? 9 : 3)
+        .fill(0)
+        .map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
 export const ArticlesList = memo(
     ({
@@ -66,5 +68,5 @@ export const ArticlesList = memo(
                 {isLoading && getSkeletons(view)}
             </div>
         );
-    },
+    }
 );

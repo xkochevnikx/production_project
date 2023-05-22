@@ -1,3 +1,4 @@
+//! функуция принимает объект из параметров которые получили из полей. создаём экземпляр класса по работе с адресной строкой.
 export function getQueryParams(params: OptionalRecord<string, string>) {
     const searchParams = new URLSearchParams();
     Object.entries(params).forEach(([name, value]) => {
@@ -13,6 +14,7 @@ export function getQueryParams(params: OptionalRecord<string, string>) {
  * Функция добавления параметров строки запроса в URL
  * @param params
  */
+
 export function addQueryParams(params: OptionalRecord<string, string>) {
     window.history.pushState(null, '', getQueryParams(params));
 }

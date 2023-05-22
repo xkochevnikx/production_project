@@ -1,12 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ArticleView } from 'entities/Article';
 import { ArticlesSortSelected } from 'features/ArticlesSortSelected';
 import {
-    articlesPageActions,
     getArticlesPageOrder,
     getArticlesPageSearch,
     getArticlesPageSort,
@@ -33,20 +31,14 @@ export const ArticlesPageFilter = memo(
         const order = useSelector(getArticlesPageOrder);
         const search = useSelector(getArticlesPageSearch);
 
+        //! после изменения в каом либо из поисковых критериев состояние этих поисковых полей меняется на новое, номер страницы изменяется на первую и дергается запрос на сервер в флагом replace тру что бы запросить полностью новую пачку чтатей по заданным параметрам поиска. но дергаем запрос через хук дебаунс
+
         const fetchData = useCallback(() => {
             dispatch(fetchArticlesList({ replace: true }));
         }, [dispatch]);
 
+        //! сохраняем вызов хука в переменную что бы передать в компоненты
         const debounceFetchData = useDebounce(fetchData, 500);
-
-        const onChangeView = useCallback(
-            (view: ArticleView) => {
-                dispatch(articlesPageActions.setView(view));
-                dispatch(articlesPageActions.setPage(1));
-                debounceFetchData();
-            },
-            [dispatch, debounceFetchData],
-        );
 
         return (
             <div
@@ -55,7 +47,7 @@ export const ArticlesPageFilter = memo(
                 <div className={cls.sortWrapper}>
                     <ArticleViewSelector
                         view={view}
-                        onViewClick={onChangeView}
+                        debounce={debounceFetchData}
                     />
                     <ArticlesTypeTabs
                         type={type}
@@ -74,5 +66,5 @@ export const ArticlesPageFilter = memo(
                 />
             </div>
         );
-    },
+    }
 );

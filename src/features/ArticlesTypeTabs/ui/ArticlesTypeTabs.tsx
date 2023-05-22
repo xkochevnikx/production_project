@@ -24,10 +24,11 @@ export const ArticlesTypeTabs = memo((props: IArticlesTypeTabsProps) => {
     const onChangeType = useCallback(
         (tab: IArticleTypeBtnItem) => {
             dispatch(articlesPageActions.setType(tab.value as ArticleType));
+            //! страницу сбрасываем что бы поиск происходит сначала с первой страницы то есть в первой партии подгруженных статей. если этого не сделать будет фильтрация по типам начиная с места где находимся
             dispatch(articlesPageActions.setPage(1));
             debounce();
         },
-        [dispatch, debounce],
+        [dispatch, debounce]
     );
 
     const typeBtn = useMemo<IArticleTypeBtnItem[]>(
@@ -37,7 +38,7 @@ export const ArticlesTypeTabs = memo((props: IArticlesTypeTabsProps) => {
             { value: ArticleType.ECONOMICS, content: t('Экономика') },
             { value: ArticleType.SIENCE, content: t('Наука') },
         ],
-        [t],
+        [t]
     );
 
     return (

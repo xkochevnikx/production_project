@@ -53,10 +53,11 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));
     });
-
+    //! сохраняю скролл только там где это нужно по флагу  isSaveScroll
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
+                isSaveScroll
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.ArticlesPage, {}, [className])}
             >

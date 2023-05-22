@@ -34,6 +34,7 @@ interface ArticleDetailsPageProps {
 }
 
 const reducers: ReducersList = {
+    //! тут два редюсера сразу, на комментарии и на рекомендации, создаётся с помощью combineReducers под редюсерами в отдельном индекс файле
     articleDetailsPage: articleDetailsPageReducer,
 };
 
@@ -47,7 +48,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
                 dispatch(addCommentForArticle(text));
             }
         },
-        [dispatch],
+        [dispatch]
     );
 
     const { id } = useParams<{ id: string }>();
@@ -61,7 +62,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
     const recommendations = useSelector(getArticleRecommendations.selectAll);
 
     const recommendationsIsLoading = useSelector(
-        getArticleRecommendationsIsLoading,
+        getArticleRecommendationsIsLoading
     );
 
     //! получаем список комментариев и рекомендованные статьи
@@ -96,7 +97,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
                     articles={recommendations}
                     isLoading={recommendationsIsLoading}
                     className={cls.recommendations}
-                    target="_blank"
+                    target='_blank'
                 />
                 <Text
                     size={TextSize.L}

@@ -25,6 +25,7 @@ export interface IStateSchema {
     articleDetails?: IArticleDetailsSchema;
     addCommentForm?: IAddCommentFormSchema;
     articlesPage?: IArticlesPageSchema;
+    // тут ниже сгруппированы два редюсера в один
     articleDetailsPage?: IArticleDetailsPageSchema;
 }
 

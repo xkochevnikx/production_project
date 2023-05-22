@@ -7,7 +7,7 @@ import { Page } from 'widgets/Page/Page';
 export interface IArticleEditPageProps {
     className?: string;
 }
-
+//! это пример того как можно испоользовать один и тот же компонент.но лучше делать отдельные страницы
 const ArticleEditPage = memo(({ className }: IArticleEditPageProps) => {
     const { id } = useParams<{ id: string }>();
 

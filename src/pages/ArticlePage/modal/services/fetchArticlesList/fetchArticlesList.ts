@@ -30,6 +30,7 @@ export const fetchArticlesList = createAsyncThunk<
 
     const { extra, rejectWithValue } = thunkApi;
 
+    //! функуция принимает объект из параметров которые получили из полей
     addQueryParams({
         sort,
         order,
