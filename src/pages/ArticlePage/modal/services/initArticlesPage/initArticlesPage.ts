@@ -20,33 +20,33 @@ export const initArticlesPage = createAsyncThunk<
         if (!inited) {
             searchParams.forEach((value, key) => {
                 switch (key) {
-                    case 'order':
-                        thunkApi.dispatch(
-                            articlesPageActions.setOrder(value as SortOrder)
-                        );
-                        break;
-                    case 'sort':
-                        thunkApi.dispatch(
-                            articlesPageActions.setSort(
-                                value as ArticleSortField
-                            )
-                        );
-                        break;
-                    case 'search':
-                        thunkApi.dispatch(articlesPageActions.setSearch(value));
-                        break;
-                    case 'type':
-                        thunkApi.dispatch(
-                            articlesPageActions.setType(value as ArticleType)
-                        );
-                        break;
-                    default:
-                        throw new Error('Ошибка типов');
+                case 'order':
+                    thunkApi.dispatch(
+                        articlesPageActions.setOrder(value as SortOrder),
+                    );
+                    break;
+                case 'sort':
+                    thunkApi.dispatch(
+                        articlesPageActions.setSort(
+                                value as ArticleSortField,
+                        ),
+                    );
+                    break;
+                case 'search':
+                    thunkApi.dispatch(articlesPageActions.setSearch(value));
+                    break;
+                case 'type':
+                    thunkApi.dispatch(
+                        articlesPageActions.setType(value as ArticleType),
+                    );
+                    break;
+                default:
+                    throw new Error('Ошибка типов');
                 }
             });
             //! обновили данные в полях и дальше инициалзируем вид из локала этим редюсером и дергаем запрос на статьи
             thunkApi.dispatch(articlesPageActions.initState());
             thunkApi.dispatch(fetchArticlesList({ replace: true }));
         }
-    }
+    },
 );

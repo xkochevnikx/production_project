@@ -3,11 +3,11 @@ import { memo, useCallback } from 'react';
 import { ArticleView } from 'entities/Article';
 import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { Icon } from 'shared/UI/Icon/Icon';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { articlesPageActions } from 'pages/ArticlePage';
 import tiledIcon from '../../../shared/assets/icons/articlesSwitcher1.svg';
 import listIcon from '../../../shared/assets/icons/articlesSwitcher2.svg';
 import cls from './ArticleViewSelector.module.scss';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { articlesPageActions } from 'pages/ArticlePage';
 
 interface ArticleViewSelectorProps {
     className?: string;
@@ -36,7 +36,7 @@ export const ArticleViewSelector = memo(
                 dispatch(articlesPageActions.setPage(1));
                 debounce();
             },
-            [dispatch, debounce]
+            [dispatch, debounce],
         );
 
         return (
@@ -52,12 +52,12 @@ export const ArticleViewSelector = memo(
                             className={classNames(
                                 '',
                                 { [cls.notSelected]: viewItem.view !== view },
-                                [className]
+                                [className],
                             )}
                         />
                     </Button>
                 ))}
             </div>
         );
-    }
+    },
 );

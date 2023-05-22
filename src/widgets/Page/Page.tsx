@@ -1,5 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
+import {
+    MutableRefObject, ReactNode, useRef, UIEvent,
+} from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useLocation } from 'react-router-dom';
@@ -7,8 +9,8 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useTrottle } from 'shared/lib/hooks/useTrottle/useTrottle';
 import { scrollSaveSliceActions } from 'features/ScrollSave/modal/slice/scrollSaveSlice';
-import cls from './Page.module.scss';
 import { getScrollSaveSelectors } from 'features/ScrollSave';
+import cls from './Page.module.scss';
 
 interface PageProps {
     className?: string;
@@ -34,7 +36,7 @@ export const Page = ({
 
     //! в селектор который вытаскивает объект с текущим положением скролла где ключ это адрес а значение это положение. вытаскиваю из него значение в массиве и преобразовываю его в число которое передаю ниже в wrapperRef.current.scrollTop при каждом рендере
     const scrollPosition = Number(
-        Object.values(useSelector(getScrollSaveSelectors))
+        Object.values(useSelector(getScrollSaveSelectors)),
     );
 
     //! хук подгрузки на скролл.
@@ -55,7 +57,7 @@ export const Page = ({
                     //! e.currentTarget.scrollTop возвращает сколько отмотали от верхней точки страницы в пикселях
                     position: e.currentTarget.scrollTop,
                     path: pathname,
-                })
+                }),
             );
         }
     }, 200);
