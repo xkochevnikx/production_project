@@ -9,7 +9,7 @@ type ActionCreatorType<Return, Arg, RejectedValue> = (
 jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);
 
-export function TestAsyncThunk<Return, Arg, RejectedValue>(
+export function testAsyncThunk<Return, Arg, RejectedValue>(
     actionCreator: ActionCreatorType<Return, Arg, RejectedValue>,
     state?: DeepPartial<IStateSchema>,
 ) {

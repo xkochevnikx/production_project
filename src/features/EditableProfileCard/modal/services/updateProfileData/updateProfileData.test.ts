@@ -1,6 +1,6 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Current';
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk';
+import { testAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { ValidateProfileError } from '../../types/profile';
 import { updateProfileData } from './updateProfileData';
 
@@ -17,7 +17,7 @@ const data = {
 
 describe('updateProfileData.test', () => {
     test('success', async () => {
-        const thunk = TestAsyncThunk(updateProfileData, {
+        const thunk = testAsyncThunk(updateProfileData, {
             profile: {
                 form: data,
             },
@@ -30,7 +30,7 @@ describe('updateProfileData.test', () => {
     });
 
     test('error', async () => {
-        const thunk = TestAsyncThunk(updateProfileData, {
+        const thunk = testAsyncThunk(updateProfileData, {
             profile: {
                 form: data,
             },
@@ -42,7 +42,7 @@ describe('updateProfileData.test', () => {
     });
 
     test('validate error', async () => {
-        const thunk = TestAsyncThunk(updateProfileData, {
+        const thunk = testAsyncThunk(updateProfileData, {
             profile: {
                 form: { ...data, lastname: '' },
             },

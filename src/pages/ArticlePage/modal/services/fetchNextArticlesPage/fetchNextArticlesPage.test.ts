@@ -1,4 +1,4 @@
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk';
+import { testAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { ArticleView } from 'entities/Article';
 import {
     ArticleSortField,
@@ -11,7 +11,7 @@ jest.mock('../fetchArticlesList/fetchArticlesList');
 
 describe('fetchNextArticlesPage.test', () => {
     test('success', async () => {
-        const thunk = TestAsyncThunk(fetchNextArticlesPage, {
+        const thunk = testAsyncThunk(fetchNextArticlesPage, {
             articlesPage: {
                 error: '',
                 view: ArticleView.SMALL,
@@ -34,7 +34,7 @@ describe('fetchNextArticlesPage.test', () => {
     });
 
     test('fetchArticlesList not called', async () => {
-        const thunk = TestAsyncThunk(fetchNextArticlesPage, {
+        const thunk = testAsyncThunk(fetchNextArticlesPage, {
             articlesPage: {
                 error: '',
                 view: ArticleView.SMALL,
@@ -58,7 +58,7 @@ describe('fetchNextArticlesPage.test', () => {
     });
 
     test('fetchArticlesList not called isLoading', async () => {
-        const thunk = TestAsyncThunk(fetchNextArticlesPage, {
+        const thunk = testAsyncThunk(fetchNextArticlesPage, {
             articlesPage: {
                 error: '',
                 view: ArticleView.SMALL,

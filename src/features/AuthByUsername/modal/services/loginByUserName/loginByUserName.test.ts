@@ -1,5 +1,5 @@
 import { userActions } from 'entities/User';
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk';
+import { testAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { loginByUserName } from './loginByUserName';
 
 describe('loginByUserName.test', () => {
@@ -7,7 +7,7 @@ describe('loginByUserName.test', () => {
         //! тут фейковые ожидаемые нами данные от метода пост
         const userValue = { username: 'qwe', id: '1' };
         //! тут результат вызова фанка который вызывается с помощью функции хелпера. он возвращаем все замоканные внутри хелпера функции
-        const thunk = TestAsyncThunk(loginByUserName);
+        const thunk = testAsyncThunk(loginByUserName);
         //! тут мы из возвращаемых хелпером функций вытаскиваем из екстра метод пост и мокаем его, по сути перехватываем вызов и говорим что ПОСЛЕ ВЫЗОВА callThunk с данными для регистрации в ответ ожидаем промис с моими фейковыми данными.
         thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
         //! ниже вызываем уже сам фанк
@@ -30,7 +30,7 @@ describe('loginByUserName.test', () => {
     });
 
     test('error login', async () => {
-        const thunk = TestAsyncThunk(loginByUserName);
+        const thunk = testAsyncThunk(loginByUserName);
         thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
         const action = await thunk.callThunk({
             username: '123',

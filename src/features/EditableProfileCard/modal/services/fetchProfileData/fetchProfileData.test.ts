@@ -1,4 +1,4 @@
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk';
+import { testAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { fetchProfileData } from './fetchProfileData';
 
 const data = {
@@ -11,7 +11,7 @@ const data = {
 
 describe('fetchProfileData.test', () => {
     test('get profile', async () => {
-        const thunk = TestAsyncThunk(fetchProfileData);
+        const thunk = testAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
         const result = await thunk.callThunk('1');
 
@@ -21,7 +21,7 @@ describe('fetchProfileData.test', () => {
     });
 
     test('error profile', async () => {
-        const thunk = TestAsyncThunk(fetchProfileData);
+        const thunk = testAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk('1');
 
