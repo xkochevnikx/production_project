@@ -1,12 +1,12 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 import {
     ArticleBlockType,
     ArticleType,
     ArticleView,
     IArticle,
-} from 'entities/Article/modal/types/article';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+} from '../../modal/types/article';
 import { ArticleListItem } from './ArticleListItem';
 
 const article = {

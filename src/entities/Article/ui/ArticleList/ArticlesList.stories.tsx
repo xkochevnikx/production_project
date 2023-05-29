@@ -4,7 +4,7 @@ import {
     ArticleType,
     ArticleView,
     IArticle,
-} from 'entities/Article/modal/types/article';
+} from '../../modal/types/article';
 import { ArticlesList } from './ArticlesList';
 
 const article = {
