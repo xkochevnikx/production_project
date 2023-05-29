@@ -1,11 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import {
-    ArticleBlockType,
-    ArticleView,
-    IArticle,
-    IArticleTextBlock,
-} from 'entities/Article/modal/types/article';
 import { Text } from 'shared/UI/Text/ui/Text';
 import { Icon } from 'shared/UI/Icon/Icon';
 import { Card } from 'shared/UI/Card/Card';
@@ -14,6 +8,12 @@ import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/UI/AppLink/AppLink';
+import {
+    ArticleBlockType,
+    ArticleView,
+    IArticle,
+    IArticleTextBlock,
+} from '../../modal/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import IconEye from '../../../../shared/assets/icons/eye.svg';
 import cls from './ArticleListItem.module.scss';

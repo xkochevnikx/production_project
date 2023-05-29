@@ -1,12 +1,3 @@
-import { getLoginError } from 'features/AuthByUsername/modal/selectors/getLoginError/getLoginError';
-import { getLoginIsLoading } from 'features/AuthByUsername/modal/selectors/getLoginIsLoading/getLoginIsLoading';
-import { getLoginPassword } from 'features/AuthByUsername/modal/selectors/getLoginPassword/getLoginPassword';
-import { getLoginUsername } from 'features/AuthByUsername/modal/selectors/getLoginUsername/getLoginUsername';
-import { loginByUserName } from 'features/AuthByUsername/modal/services/loginByUserName/loginByUserName';
-import {
-    loginActions,
-    loginReducer,
-} from 'features/AuthByUsername/modal/slice/loginSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -20,6 +11,12 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { Input } from 'shared/UI/Input/UI/Input';
 import { Text, TextTheme } from 'shared/UI/Text/ui/Text';
+import { loginActions, loginReducer } from '../../modal/slice/loginSlice';
+import { loginByUserName } from '../../modal/services/loginByUserName/loginByUserName';
+import { getLoginUsername } from '../../modal/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from '../../modal/selectors/getLoginPassword/getLoginPassword';
+import { getLoginIsLoading } from '../../modal/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginError } from '../../modal/selectors/getLoginError/getLoginError';
 import cls from './LoginForm.module.scss';
 
 export interface ILoginFormProps {

@@ -60,6 +60,7 @@ module.exports = {
             rules: {
                 'i18next/no-literal-string': 'off', //! в тестовых файлах отключаем переводы
                 'max-len': 'off', //! и длинну отключаем
+                'fsd-path/path-checker': 'off',
             },
         },
     ],

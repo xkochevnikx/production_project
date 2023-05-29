@@ -14,7 +14,7 @@ import { Avatar } from 'shared/UI/Avatar/Avatar';
 import { Icon } from 'shared/UI/Icon/Icon';
 
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { renderBlock } from 'entities/Article/modal/lib/renderBlock/renderBlock';
+import { renderBlock } from '../../modal/lib/renderBlock/renderBlock';
 import { ArticleDetailsReducer } from '../../modal/slice/ArticleDetailsSlice';
 import { fetchArticleById } from '../../modal/services/fetchArticleById';
 import cls from './ArticleDetails.module.scss';

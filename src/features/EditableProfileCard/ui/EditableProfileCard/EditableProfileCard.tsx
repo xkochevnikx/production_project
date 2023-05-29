@@ -1,15 +1,15 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ProfileActions } from 'features/EditableProfileCard/modal/slice/ProfileSlice';
 import { Currency } from 'entities/Current';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/UI/Text/ui/Text';
 import { useTranslation } from 'react-i18next';
-import { ValidateProfileError } from 'features/EditableProfileCard/modal/types/profile';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { ProfileCard } from 'entities/ProfileCard/ui/ProfileCard';
+import { ValidateProfileError } from '../../modal/types/profile';
+import { ProfileActions } from '../../modal/slice/ProfileSlice';
 import { getProfileValidateErrors } from '../../modal/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../modal/services/fetchProfileData/fetchProfileData';
 import { getProfileReadonly } from '../../modal/selectors/getProfileReadonly/getProfileReadonly';
