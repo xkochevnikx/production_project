@@ -1,21 +1,19 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback, useMemo } from 'react';
 import { ArticleType } from 'entities/Article';
 import { useTranslation } from 'react-i18next';
 import { articlesPageActions } from 'pages/ArticlePage';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
-import cls from './ArticlesTypeTabs.module.scss';
+import { HStack } from 'shared/UI/Stack/HStack/HStack';
 import { IArticleTypeBtnItem } from '../modal/types/articleTypeTabItem';
 
 export interface IArticlesTypeTabsProps {
-    className?: string;
     debounce: () => void;
     type: string;
 }
 
 export const ArticlesTypeTabs = memo((props: IArticlesTypeTabsProps) => {
-    const { className, debounce, type } = props;
+    const { debounce, type } = props;
 
     const dispatch = useAppDispatch();
 
@@ -42,7 +40,7 @@ export const ArticlesTypeTabs = memo((props: IArticlesTypeTabsProps) => {
     );
 
     return (
-        <div className={classNames(cls.Tabs, {}, [className])}>
+        <HStack gap="8">
             {typeBtn.map((tab) => (
                 <Button
                     onClick={() => onChangeType(tab)}
@@ -51,12 +49,11 @@ export const ArticlesTypeTabs = memo((props: IArticlesTypeTabsProps) => {
                             ? ThemeButton.BACKGROUND_INVERTED
                             : ThemeButton.OUTLINE
                     }
-                    className={cls.tab}
                     key={tab.value}
                 >
                     {tab.content}
                 </Button>
             ))}
-        </div>
+        </HStack>
     );
 });

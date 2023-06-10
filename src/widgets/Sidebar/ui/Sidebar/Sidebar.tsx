@@ -4,6 +4,7 @@ import { Button, ButtonSize, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { useSelector } from 'react-redux';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
+import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 import { getSidebarItems } from '../../modal/selectors/getSidebarItems';
@@ -29,14 +30,16 @@ export function Sidebar({ className }: SidebarProps) {
                 className,
             ])}
         >
-            <nav className={cls.items}>
-                {sidebarItemList.map((item) => (
-                    <SidebarItem
-                        item={item}
-                        collapsed={collapsed}
-                        key={item.path}
-                    />
-                ))}
+            <nav>
+                <VStack className={cls.items} align="start" gap="16">
+                    {sidebarItemList.map((item) => (
+                        <SidebarItem
+                            item={item}
+                            collapsed={collapsed}
+                            key={item.path}
+                        />
+                    ))}
+                </VStack>
             </nav>
             <Button
                 theme={ThemeButton.BACKGROUND_INVERTED}

@@ -5,6 +5,7 @@ import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { Icon } from 'shared/UI/Icon/Icon';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { articlesPageActions } from 'pages/ArticlePage';
+import { HStack } from 'shared/UI/Stack/HStack/HStack';
 import tiledIcon from '../../../shared/assets/icons/articlesSwitcher1.svg';
 import listIcon from '../../../shared/assets/icons/articlesSwitcher2.svg';
 import cls from './ArticleViewSelector.module.scss';
@@ -40,7 +41,7 @@ export const ArticleViewSelector = memo(
         );
 
         return (
-            <div className={cls.ArticleViewSelector}>
+            <HStack align="center" gap="8" className={cls.ArticleViewSelector}>
                 {viewTypes.map((viewItem) => (
                     <Button
                         key={viewItem.view}
@@ -57,7 +58,7 @@ export const ArticleViewSelector = memo(
                         />
                     </Button>
                 ))}
-            </div>
+            </HStack>
         );
     },
 );

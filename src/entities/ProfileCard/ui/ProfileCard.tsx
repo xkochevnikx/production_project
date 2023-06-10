@@ -8,6 +8,8 @@ import { Loader } from 'shared/UI/Loader/Loader';
 import { Avatar } from 'shared/UI/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Current';
 import { Country, CountrySelect } from 'entities/Country';
+import { VStack } from 'shared/UI/Stack/VStack/VStack';
+import { HStack } from 'shared/UI/Stack/HStack/HStack';
 import cls from './ProfileCard.module.scss';
 
 interface IProfileCardProps {
@@ -47,20 +49,24 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div
+            <HStack
+                justify="center"
+                max
                 className={classNames(cls.ProfileCard, {}, [
                     className,
                     cls.loading,
                 ])}
             >
                 <Loader />
-            </div>
+            </HStack>
         );
     }
 
     if (error) {
         return (
-            <div
+            <HStack
+                justify="center"
+                max
                 className={classNames(cls.ProfileCard, {}, [
                     className,
                     cls.error,
@@ -72,7 +78,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                     text={t('Попробуйте перезагрузить страницу')}
                     align={TextAlign.CENTER}
                 />
-            </div>
+            </HStack>
         );
     }
 
@@ -81,11 +87,16 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
     };
 
     return (
-        <div className={classNames(cls.ProfileCard, mods, [className])}>
+        <VStack
+            gap="8"
+            max
+            align="start"
+            className={classNames(cls.ProfileCard, mods, [className])}
+        >
             {data?.avatar && (
-                <div className={cls.avatarWrapper}>
+                <HStack justify="center" className={cls.avatarWrapper}>
                     <Avatar src={data?.avatar} />
-                </div>
+                </HStack>
             )}
 
             <Input
@@ -151,6 +162,6 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 readonly={readonly}
                 label={t('Укажите страну_')}
             />
-        </div>
+        </VStack>
     );
 });

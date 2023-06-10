@@ -1,13 +1,4 @@
 .BIG {
-    .header {
-        display: flex;
-        align-items: center;
-    }
-
-    .card {
-        margin-top: 20px;
-    }
-
     .username {
         margin-left: 8px;
     }
@@ -26,12 +17,6 @@
         width: 100%;
         max-height: 250px;
         object-fit: cover;
-    }
-
-    .footer {
-        display: flex;
-        align-items: center;
-        margin-top: 15px;
     }
 
     .views {

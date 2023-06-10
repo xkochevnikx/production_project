@@ -2,7 +2,6 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import i18n from 'shared/config/i18n/i18n';
-import { classNames } from 'shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -11,13 +10,13 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { Input } from 'shared/UI/Input/UI/Input';
 import { Text, TextTheme } from 'shared/UI/Text/ui/Text';
+import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import { loginActions, loginReducer } from '../../modal/slice/loginSlice';
 import { loginByUserName } from '../../modal/services/loginByUserName/loginByUserName';
 import { getLoginUsername } from '../../modal/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../modal/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../modal/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../modal/selectors/getLoginError/getLoginError';
-import cls from './LoginForm.module.scss';
 
 export interface ILoginFormProps {
     className?: string;
@@ -61,7 +60,7 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
     const { t } = useTranslation('loginform');
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-            <div className={classNames(cls.LoginForm, {}, [className])}>
+            <VStack gap="8" align="start">
                 <Text title={t('Форма авторизации')} />
 
                 {error && (
@@ -74,14 +73,12 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
                 <Input
                     onChange={onChangeUserName}
                     type="text"
-                    className={cls.input}
                     placeholder={t('Введите имя')}
                     value={username}
                 />
                 <Input
                     onChange={onChangePassword}
                     type="text"
-                    className={cls.input}
                     placeholder={t('Введите пароль')}
                     value={password}
                 />
@@ -89,11 +86,10 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
                     disabled={isLoading}
                     onClick={onLoginClick}
                     theme={ThemeButton.OUTLINE}
-                    className={cls.loginBtn}
                 >
                     {t('Войти')}
                 </Button>
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 });

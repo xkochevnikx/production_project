@@ -32,13 +32,14 @@ const directionClasses: Record<FlexDirection, string> = {
     column: cls.directionColumn,
 };
 
-interface FlexProps {
+export interface FlexProps {
     className?: string;
     children: ReactNode;
     justify?: FlexJustify;
     align?: FlexAlign;
     direction: FlexDirection;
     gap?: FlexGap;
+    max?: boolean;
 }
 
 // todo - це дизайн обёртка для элементов задающая для элементов внутри флекс параметры расположения в контейнере. на вход принимаем пропсы и в зависимости от типа (значения) пропса подставляем это значение в качетсве ключа в массив классов. Не которые имеют уже дефолтные значнеия на случай если ничего не передано.
@@ -51,9 +52,11 @@ export const Flex = memo((props: FlexProps) => {
         children,
         className,
         gap,
+        max,
     } = props;
 
     //! в зависмости от переданных пропсов навешиваем класс с помощью индексной нотации обращаяс к объекту по динамическому ключу достаём нужный класс. Выше в пропсах у нас есть некоторые дефолтные значения на случай если значения не заданы пропсами сверху.
+
     const classes = [
         className,
         justifyClasses[justify],
@@ -62,5 +65,9 @@ export const Flex = memo((props: FlexProps) => {
         gap && gapClasses[gap],
     ];
 
-    return <div className={classNames(cls.Flex, {}, classes)}>{children}</div>;
+    return (
+        <div className={classNames(cls.Flex, { [cls.max]: max }, classes)}>
+            {children}
+        </div>
+    );
 });

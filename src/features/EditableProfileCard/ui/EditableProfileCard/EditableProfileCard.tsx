@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { ProfileCard } from 'entities/ProfileCard/ui/ProfileCard';
+import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import { ValidateProfileError } from '../../modal/types/profile';
 import { ProfileActions } from '../../modal/slice/ProfileSlice';
 import { getProfileValidateErrors } from '../../modal/selectors/getProfileValidateErrors/getProfileValidateErrors';
@@ -105,7 +106,7 @@ export const EditableProfileCard = memo(() => {
         [dispatch],
     );
     return (
-        <div>
+        <VStack max>
             {validateErrors?.length
                 && validateErrors.map((error) => (
                     <Text
@@ -128,6 +129,6 @@ export const EditableProfileCard = memo(() => {
                 onChangeCountry={onChangeCountry}
                 readonly={readonly}
             />
-        </div>
+        </VStack>
     );
 });

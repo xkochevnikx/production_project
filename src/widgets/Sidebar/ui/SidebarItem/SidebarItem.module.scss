@@ -1,5 +1,4 @@
 .item {
-    margin-top: 10px;
     display: flex;
     align-items: center;
 }
@@ -12,6 +11,7 @@
 }
 
 .icon {
+    flex-shrink: 0;
     fill: var(--inverted-primary-color);
 }
 

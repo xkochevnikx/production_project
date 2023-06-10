@@ -8,6 +8,7 @@ import {
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from 'widgets/Page/Page';
+import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -18,8 +19,10 @@ function ProfilePage() {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page>
-                <ProfilePageHeader />
-                <EditableProfileCard />
+                <VStack gap="16" max>
+                    <ProfilePageHeader />
+                    <EditableProfileCard />
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     );

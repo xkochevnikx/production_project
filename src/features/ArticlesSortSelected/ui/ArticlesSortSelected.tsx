@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Select } from 'shared/UI/Select/Select';
@@ -6,19 +5,16 @@ import { SortOrder } from 'shared/types';
 import { ArticleSortField } from 'entities/Article';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { articlesPageActions } from 'pages/ArticlePage';
-import cls from './ArticlesSortSelected.module.scss';
+import { HStack } from 'shared/UI/Stack/HStack/HStack';
 
 interface ArticlesSortSelectedProps {
-    className?: string;
     sort: ArticleSortField;
     order: SortOrder;
     debounce: () => void;
 }
 
 export const ArticlesSortSelected = memo((props: ArticlesSortSelectedProps) => {
-    const {
-        className, debounce, order, sort,
-    } = props;
+    const { debounce, order, sort } = props;
 
     const { t } = useTranslation('articles');
 
@@ -75,7 +71,7 @@ export const ArticlesSortSelected = memo((props: ArticlesSortSelectedProps) => {
     );
 
     return (
-        <div className={classNames(cls.ArticlesSortSelected, {}, [className])}>
+        <HStack gap="16">
             <Select
                 onChange={onChangeSort}
                 options={sortFieldOptions}
@@ -88,6 +84,6 @@ export const ArticlesSortSelected = memo((props: ArticlesSortSelectedProps) => {
                 value={order}
                 onChange={onChangeOrder}
             />
-        </div>
+        </HStack>
     );
 });

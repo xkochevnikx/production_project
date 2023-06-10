@@ -8,6 +8,8 @@ import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/UI/AppLink/AppLink';
+import { HStack } from 'shared/UI/Stack/HStack/HStack';
+import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import {
     ArticleBlockType,
     ArticleView,
@@ -55,7 +57,7 @@ export const ArticleListItem = memo(
                     ])}
                 >
                     <Card>
-                        <div className={cls.header}>
+                        <HStack align="center">
                             <Avatar size={30} src={article.user.avatar} />
                             <Text
                                 text={article.user.username}
@@ -65,7 +67,8 @@ export const ArticleListItem = memo(
                                 text={article.createdAt}
                                 className={cls.data}
                             />
-                        </div>
+                        </HStack>
+
                         <Text text={article.title} className={cls.title} />
                         {types}
                         <img
@@ -73,23 +76,25 @@ export const ArticleListItem = memo(
                             alt={article.title}
                             className={cls.img}
                         />
-                        {textBlock && (
-                            <ArticleTextBlockComponent
-                                block={textBlock}
-                                className={cls.textBlock}
-                            />
-                        )}
-                        <div className={cls.footer}>
-                            <AppLink
-                                target={target}
-                                to={RoutePath.article_details + article.id}
-                            >
-                                <Button theme={ThemeButton.OUTLINE}>
-                                    {t('Читать далее')}
-                                </Button>
-                            </AppLink>
-                            {views}
-                        </div>
+                        <VStack gap="16" align="start">
+                            {textBlock && (
+                                <ArticleTextBlockComponent
+                                    block={textBlock}
+                                    className={cls.textBlock}
+                                />
+                            )}
+                            <HStack align="center" justify="between" max>
+                                <AppLink
+                                    target={target}
+                                    to={RoutePath.article_details + article.id}
+                                >
+                                    <Button theme={ThemeButton.OUTLINE}>
+                                        {t('Читать далее')}
+                                    </Button>
+                                </AppLink>
+                                {views}
+                            </HStack>
+                        </VStack>
                     </Card>
                 </div>
             );
