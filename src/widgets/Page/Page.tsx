@@ -65,13 +65,13 @@ export const Page = ({
     //! если приняли пропсом со страницы onScrollEnd то внизу под компонентом добавляем див и сохраняем его в triggerRef
     //! вешаем на section onScroll который возвращаем объект события UIEvent
     return (
-        <section
+        <main
             onScroll={onScroll}
             ref={wrapperRef}
             className={classNames(cls.Page, {}, [className])}
         >
             {children}
             {onScrollEnd && <div ref={triggerRef} className={cls.triggerDiv} />}
-        </section>
+        </main>
     );
 };

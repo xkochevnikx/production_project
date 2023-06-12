@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { Select } from 'shared/UI/Select/Select';
+import { ListBox } from 'shared/ListBox/ListBox';
 import { Currency } from '../../modal/types/currency';
 
 interface CurrencySelectProps {
@@ -8,7 +8,6 @@ interface CurrencySelectProps {
     value?: Currency;
     onChange?: (value: Currency) => void;
     readonly?: boolean;
-    label?: string;
 }
 
 const options = [
@@ -28,7 +27,7 @@ const options = [
 
 export const CurrencySelect = memo(
     ({
-        className, value, onChange, readonly, label,
+        className, value, onChange, readonly,
     }: CurrencySelectProps) => {
         const onChangeHandler = useCallback(
             (value: string) => {
@@ -38,11 +37,10 @@ export const CurrencySelect = memo(
         );
 
         return (
-            <Select
+            <ListBox
                 readonly={readonly}
                 className={classNames('', {}, [className])}
-                label={label}
-                options={options}
+                items={options}
                 value={value}
                 onChange={onChangeHandler}
             />

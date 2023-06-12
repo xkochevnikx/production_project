@@ -87,14 +87,10 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
             <Page
                 className={classNames(cls.ArticleDetailsPage, {}, [className])}
             >
-                <VStack gap="8" max align="start">
+                <VStack gap="16" max align="start">
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    <Text
-                        size={TextSize.L}
-                        title={t('Рекомендуем')}
-                        className={cls.recommedationsTitle}
-                    />
+                    <Text size={TextSize.L} title={t('Рекомендуем')} />
                     <ArticlesList
                         articles={recommendations}
                         isLoading={recommendationsIsLoading}

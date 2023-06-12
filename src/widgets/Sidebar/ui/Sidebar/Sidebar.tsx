@@ -30,17 +30,16 @@ export function Sidebar({ className }: SidebarProps) {
                 className,
             ])}
         >
-            <nav>
-                <VStack className={cls.items} align="start" gap="16">
-                    {sidebarItemList.map((item) => (
-                        <SidebarItem
-                            item={item}
-                            collapsed={collapsed}
-                            key={item.path}
-                        />
-                    ))}
-                </VStack>
-            </nav>
+            <VStack className={cls.items} align="start" gap="16">
+                {sidebarItemList.map((item) => (
+                    <SidebarItem
+                        item={item}
+                        collapsed={collapsed}
+                        key={item.path}
+                    />
+                ))}
+            </VStack>
+
             <Button
                 theme={ThemeButton.BACKGROUND_INVERTED}
                 className={cls.collapseBtn}

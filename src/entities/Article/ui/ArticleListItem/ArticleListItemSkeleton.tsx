@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { Card } from 'shared/UI/Card/Card';
 import { Skeleton } from 'shared/UI/Skeleton/Skeleton';
-import { VStack } from 'shared/UI/Stack/VStack/VStack';
+import { HStack } from 'shared/UI/Stack/HStack/HStack';
 import { ArticleView } from '../../modal/types/article';
 import cls from './ArticleListItem.module.scss';
 
@@ -22,7 +22,7 @@ export const ArticleListItemSkeleton = memo(
                     ])}
                 >
                     <Card className={cls.card}>
-                        <VStack align="start" gap="8">
+                        <HStack>
                             <Skeleton border="50%" width={30} height={30} />
                             <Skeleton
                                 width={150}
@@ -34,15 +34,16 @@ export const ArticleListItemSkeleton = memo(
                                 height={16}
                                 className={cls.data}
                             />
-                            <Skeleton
-                                width={250}
-                                height={24}
-                                className={cls.title}
-                            />
-                            <Skeleton height={200} className={cls.img} />
+                        </HStack>
 
-                            <Skeleton width={200} height={36} />
-                        </VStack>
+                        <Skeleton
+                            width={250}
+                            height={24}
+                            className={cls.title}
+                        />
+                        <Skeleton height={200} className={cls.img} />
+
+                        <Skeleton width={200} height={36} />
                     </Card>
                 </div>
             );

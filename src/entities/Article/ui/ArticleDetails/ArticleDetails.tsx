@@ -40,6 +40,7 @@ const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
     const article = useSelector(getArticleDetailsData);
 
     const error = useSelector(getArticleDetailsError);
+
     const isLoading = useSelector(getArticleDetailsIsLoading);
 
     useInitialEffect(() => dispatch(fetchArticleById(id)));
@@ -48,7 +49,7 @@ const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
     let content;
     if (isLoading) {
         content = (
-            <HStack justify="center">
+            <HStack>
                 <Skeleton border="50%" width={200} height={200} />
             </HStack>
         );
@@ -61,7 +62,7 @@ const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
         );
     } else {
         content = (
-            <>
+            <VStack gap="16" align="start">
                 <HStack max>
                     <Avatar size={200} src={article?.img} />
                 </HStack>
@@ -82,7 +83,7 @@ const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
                 </HStack>
 
                 {article?.blocks.map((b) => renderBlock(b))}
-            </>
+            </VStack>
         );
     }
 

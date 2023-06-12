@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback, useMemo } from 'react';
-import { Select } from 'shared/UI/Select/Select';
+import { ListBox } from 'shared/ListBox/ListBox';
 import { Country } from '../modal/types/country';
 
 interface CountrySelectProps {
@@ -8,12 +8,11 @@ interface CountrySelectProps {
     value?: Country;
     onChange?: (value: Country) => void;
     readonly?: boolean;
-    label?: string;
 }
 
 export const CountrySelect = memo(
     ({
-        className, value, onChange, readonly, label,
+        className, value, onChange, readonly,
     }: CountrySelectProps) => {
         const options = useMemo(
             () => [
@@ -40,11 +39,10 @@ export const CountrySelect = memo(
         );
 
         return (
-            <Select
+            <ListBox
                 readonly={readonly}
                 className={classNames('', {}, [className])}
-                label={label}
-                options={options}
+                items={options}
                 value={value}
                 onChange={onChangeHandler}
             />

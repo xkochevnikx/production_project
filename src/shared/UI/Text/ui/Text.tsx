@@ -9,6 +9,7 @@ export enum TextTheme {
 }
 
 export enum TextSize {
+    S = 'size_s',
     M = 'size_m',
     L = 'size_l',
 }
@@ -24,9 +25,17 @@ interface ITextProps {
     title?: string;
     text?: string;
     theme?: TextTheme;
-    align?: TextAlign.CENTER;
+    align?: TextAlign;
     size?: TextSize;
 }
+
+type HeaderTagType = 'h1' | 'h2' | 'h3';
+
+const mapSizeHeaderTag: Record<TextSize, HeaderTagType> = {
+    [TextSize.S]: 'h3',
+    [TextSize.M]: 'h2',
+    [TextSize.L]: 'h1',
+};
 
 export const Text = memo((props: ITextProps) => {
     const {
@@ -38,15 +47,18 @@ export const Text = memo((props: ITextProps) => {
         size = TextSize.M,
     } = props;
 
+    // todo - в зависимости от пропса size с помощью мапера из объекта достаём нужный нам тег для верной семантики заголовка. если возвращаем текст то там обычный параграф размеры которого задаются в стилях тоже исходя из принимаемого пропса size, класс навешивается в модах по условию его наличия. если ничего не передано дефолтно используем размер М.
+    const HeaderTag = mapSizeHeaderTag[size];
+
     return (
         <div
             className={classNames(
                 cls.Text,
-                { [cls[theme]]: true, [cls[size]]: true },
-                [className, cls.align],
+                { [cls[theme]]: true, [cls[size]]: true, [cls[align]]: true },
+                [className],
             )}
         >
-            {title && <p className={cls.title}>{title}</p>}
+            {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
             {text && <p className={cls.text}>{text}</p>}
         </div>
     );

@@ -1,7 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Text, TextSize, TextTheme } from './Text';
+import {
+    Text, TextAlign, TextSize, TextTheme,
+} from './Text';
 
 export default {
     title: 'shared/Text',
@@ -43,8 +45,24 @@ PrimaryDark.args = {
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const SizeS = Template.bind({});
+SizeS.args = {
+    align: TextAlign.RIGHT,
+    text: 'text',
+    title: 'title',
+    size: TextSize.S,
+};
+export const SizeM = Template.bind({});
+SizeM.args = {
+    text: 'text',
+    title: 'title',
+
+    size: TextSize.M,
+};
 export const SizeL = Template.bind({});
 SizeL.args = {
     text: 'text',
+    title: 'title',
+
     size: TextSize.L,
 };

@@ -45,6 +45,8 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
         onChangeCurrency,
     } = props;
 
+    console.log(data);
+
     const { t } = useTranslation('profile');
 
     if (isLoading) {
@@ -146,22 +148,21 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 placeholder={t('Введите ссылку на аватар_')}
                 readonly={readonly}
             />
+            <HStack gap="8">
+                <CurrencySelect
+                    className={cls.input}
+                    value={data?.currency}
+                    onChange={onChangeCurrency}
+                    readonly={readonly}
+                />
 
-            <CurrencySelect
-                className={cls.input}
-                value={data?.currency}
-                onChange={onChangeCurrency}
-                readonly={readonly}
-                label={t('Укажите валюту_')}
-            />
-
-            <CountrySelect
-                className={cls.input}
-                value={data?.country}
-                onChange={onChangeCountry}
-                readonly={readonly}
-                label={t('Укажите страну_')}
-            />
+                <CountrySelect
+                    className={cls.input}
+                    value={data?.country}
+                    onChange={onChangeCountry}
+                    readonly={readonly}
+                />
+            </HStack>
         </VStack>
     );
 });
