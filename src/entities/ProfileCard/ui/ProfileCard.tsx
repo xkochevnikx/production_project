@@ -45,8 +45,6 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
         onChangeCurrency,
     } = props;
 
-    console.log(data);
-
     const { t } = useTranslation('profile');
 
     if (isLoading) {

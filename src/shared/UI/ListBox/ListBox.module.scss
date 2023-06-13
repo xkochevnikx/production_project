@@ -13,17 +13,38 @@
 .options {
     background-color: var(--list-bg);
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     border-radius: 10px;
     box-shadow: 4px 4px 8px var(--list-bg);
-    min-width: 100%;
+}
+
+.topRight {
+    bottom: 110%;
+    right: 10%;
+}
+
+.bottomLeft {
+    top: 80%;
+    right: 80%;
+}
+
+.bottomRight {
+    top: 80%;
+    left: 80%;
+}
+
+.topLeft {
+    bottom: 110%;
+    left: 10%;
 }
 
 .item {
-    padding: 10px 20px;
+    padding: 10px 24px;
+    width: 100%;
 }
 
 .active {
+    border-radius: 10px;
     background-color: var(--inverted-primary-color);
 }
 

@@ -11,5 +11,11 @@ export default {
 
 const Template: ComponentStory<typeof ListBox> = (arg) => <ListBox {...arg} />;
 
-export const Row16 = Template.bind({});
-Row16.args = {};
+export const Primary = Template.bind({});
+Primary.args = {
+    value: 'qwerty',
+    items: [
+        { value: '123', content: '123', disabled: true },
+        { value: '123', content: '123', disabled: false },
+    ],
+};
