@@ -9,8 +9,12 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useParams } from 'react-router-dom';
 import { ProfileCard } from 'entities/ProfileCard/ui/ProfileCard';
 import { VStack } from 'shared/UI/Stack/VStack/VStack';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ValidateProfileError } from '../../modal/types/profile';
-import { ProfileActions } from '../../modal/slice/ProfileSlice';
+import { ProfileActions, ProfileReducer } from '../../modal/slice/ProfileSlice';
 import { getProfileValidateErrors } from '../../modal/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../modal/services/fetchProfileData/fetchProfileData';
 import { getProfileReadonly } from '../../modal/selectors/getProfileReadonly/getProfileReadonly';
@@ -19,6 +23,9 @@ import { getProfileError } from '../../modal/selectors/getProfileError/getProfil
 import { getProfileForm } from '../../modal/selectors/getProfileForm/getProfileForm';
 
 export const EditableProfileCard = memo(() => {
+    const reducers: ReducersList = {
+        profile: ProfileReducer,
+    };
     const { t } = useTranslation('profile');
     //! на отрисовку идут данные из поля форм
     const form = useSelector(getProfileForm);
@@ -106,29 +113,31 @@ export const EditableProfileCard = memo(() => {
         [dispatch],
     );
     return (
-        <VStack max>
-            {validateErrors?.length
-                && validateErrors.map((error) => (
-                    <Text
-                        theme={TextTheme.ERROR}
-                        text={validateErrorTranslates[error]}
-                        key={error}
-                    />
-                ))}
-            <ProfileCard
-                data={form}
-                isLoading={isLoading}
-                error={error}
-                onChangeFirstname={onChangeFirstname}
-                onChangeLastname={onChangeLastname}
-                onChangeAge={onChangeAge}
-                onChangeCity={onChangeCity}
-                onChangeUsername={onChangeUsername}
-                onChangeAvatar={onChangeAvatar}
-                onChangeCurrency={onChangeCurrency}
-                onChangeCountry={onChangeCountry}
-                readonly={readonly}
-            />
-        </VStack>
+        <DynamicModuleLoader reducers={reducers}>
+            <VStack max>
+                {validateErrors?.length
+                    && validateErrors.map((error) => (
+                        <Text
+                            theme={TextTheme.ERROR}
+                            text={validateErrorTranslates[error]}
+                            key={error}
+                        />
+                    ))}
+                <ProfileCard
+                    data={form}
+                    isLoading={isLoading}
+                    error={error}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
+                    readonly={readonly}
+                />
+            </VStack>
+        </DynamicModuleLoader>
     );
 });
