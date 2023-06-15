@@ -27,7 +27,7 @@ export const articleCommentsSlice = createSlice({
                 (state, action: PayloadAction<any>) => {
                     state.isLoading = false;
                     state.data = action.payload;
-                }
+                },
             )
             .addCase(fetchArticleComments.rejected, (state, action) => {
                 state.isLoading = false;

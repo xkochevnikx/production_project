@@ -1,13 +1,13 @@
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import cls from './ArticleComments.module.scss';
 import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import { Text, TextSize } from 'shared/UI/Text/ui/Text';
 import { CommentList } from 'entities/Comment';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/modal/services/addCommentForArticle/addCommentForArticle';
 import { useSelector } from 'react-redux';
+import cls from './ArticleComments.module.scss';
 
 export interface IArticleCommentsProps {
     className?: string;
@@ -28,12 +28,12 @@ export const ArticleComments = memo((props: IArticleCommentsProps) => {
                 dispatch(addCommentForArticle(text));
             }
         },
-        [dispatch]
+        [dispatch],
     );
 
     return (
         <VStack
-            gap='16'
+            gap="16"
             className={classNames(cls.ArticleComments, {}, [className])}
         >
             {/* <AddCommentForm onSendComment={onSendComment} /> */}

@@ -17,6 +17,7 @@ import { Page } from 'widgets/Page/Page';
 import { ArticleDetailsPageHeader } from 'features/ArticleDetailsPageHeader';
 import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList/ui/ArticleRecommendationsList';
+import { ArticleComments } from 'features/ArticleComments';
 import { addCommentForArticle } from '../../modal/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../modal/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import {
@@ -26,7 +27,6 @@ import {
 import cls from './ArticleDetailsPage.module.scss';
 
 import { articleDetailsPageReducer } from '../../modal/slice';
-import { ArticleComments } from 'features/ArticleComments';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -64,7 +64,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
             <Page
                 className={classNames(cls.ArticleDetailsPage, {}, [className])}
             >
-                <VStack gap='16' max align='start'>
+                <VStack gap="16" max align="start">
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     <ArticleRecommendationsList />

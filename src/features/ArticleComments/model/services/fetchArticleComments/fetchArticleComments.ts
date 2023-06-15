@@ -7,7 +7,9 @@ export const fetchArticleComments = createAsyncThunk<
     IArticleCommentsProps,
     IThunkConfig<string>
 >('***/articleComments', async (_, thunkApi) => {
-    const { dispatch, extra, rejectWithValue, getState } = thunkApi;
+    const {
+        dispatch, extra, rejectWithValue, getState,
+    } = thunkApi;
 
     try {
         const response = await extra.api.post<any>('/***', {});
