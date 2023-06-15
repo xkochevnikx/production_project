@@ -6,7 +6,6 @@ import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/UI/Text/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useParams } from 'react-router-dom';
 import { ProfileCard } from 'entities/ProfileCard/ui/ProfileCard';
 import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import {
@@ -22,11 +21,18 @@ import { getProfileIsLoading } from '../../modal/selectors/getProfileIsLoading/g
 import { getProfileError } from '../../modal/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../modal/selectors/getProfileForm/getProfileForm';
 
-export const EditableProfileCard = memo(() => {
+interface IEditableProfileProps {
+    id: string;
+}
+
+export const EditableProfileCard = memo((props: IEditableProfileProps) => {
+    const { id } = props;
+
+    const { t } = useTranslation('profile');
+
     const reducers: ReducersList = {
         profile: ProfileReducer,
     };
-    const { t } = useTranslation('profile');
     //! на отрисовку идут данные из поля форм
     const form = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
@@ -45,8 +51,6 @@ export const EditableProfileCard = memo(() => {
 
     const dispatch = useAppDispatch();
 
-    //! при первом рендеринге компонента на странице смотрим если есть айди то запрашиваем данные
-    const { id } = useParams<{ id: string }>();
     useInitialEffect(() => {
         if (id) {
             dispatch(fetchProfileData(id));
