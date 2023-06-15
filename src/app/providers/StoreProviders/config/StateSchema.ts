@@ -14,10 +14,12 @@ import { IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { IAddCommentFormSchema } from 'features/AddCommentForm';
 import { IArticlesPageSchema } from 'pages/ArticlePage';
 import { iScrollSaveSchema } from 'features/ScrollSave';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface IStateSchema {
     user: IUserSchema;
     scrollSave: iScrollSaveSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // async reducers
     loginForm?: ILoginSchema;

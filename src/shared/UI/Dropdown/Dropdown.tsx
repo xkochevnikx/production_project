@@ -48,7 +48,6 @@ export function Dropdown(props: IDropdownProps) {
                 {items.map((item, index) => {
                     const content = ({ active }: { active: boolean }) => (
                         <button
-                            key={index}
                             type="button"
                             disabled={item.disabled}
                             onClick={item.onClick}

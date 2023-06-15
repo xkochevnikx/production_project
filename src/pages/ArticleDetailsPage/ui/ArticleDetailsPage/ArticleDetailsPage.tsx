@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails, ArticlesList } from 'entities/Article';
+import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { Text, TextSize } from 'shared/UI/Text/ui/Text';
 import { CommentList } from 'entities/Comment';
@@ -16,6 +16,7 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { Page } from 'widgets/Page/Page';
 import { ArticleDetailsPageHeader } from 'features/ArticleDetailsPageHeader';
 import { VStack } from 'shared/UI/Stack/VStack/VStack';
+import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList/ui/ArticleRecommendationsList';
 import { addCommentForArticle } from '../../modal/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../modal/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import {
@@ -23,11 +24,7 @@ import {
     getArticleCommentsIsLoading,
 } from '../../modal/selectors/comments';
 import cls from './ArticleDetailsPage.module.scss';
-import {
-    getArticleRecommendations,
-    getArticleRecommendationsIsLoading,
-} from '../../modal/selectors/recommendations';
-import { fetchArticleRecommendations } from '../../modal/services/fetchArticleRecommendations/fetchArticleRecommendations';
+
 import { articleDetailsPageReducer } from '../../modal/slice';
 
 interface ArticleDetailsPageProps {
@@ -60,16 +57,9 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
 
     const isLoading = useSelector(getArticleCommentsIsLoading);
 
-    const recommendations = useSelector(getArticleRecommendations.selectAll);
-
-    const recommendationsIsLoading = useSelector(
-        getArticleRecommendationsIsLoading,
-    );
-
-    //! получаем список комментариев и рекомендованные статьи
+    //! получаем список комментариев
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
-        dispatch(fetchArticleRecommendations());
     });
 
     //! если нет айди то алес
@@ -90,21 +80,13 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
                 <VStack gap="16" max align="start">
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    <Text size={TextSize.L} title={t('Рекомендуем')} />
-                    <ArticlesList
-                        articles={recommendations}
-                        isLoading={recommendationsIsLoading}
-                        className={cls.recommendations}
-                        target="_blank"
-                    />
+                    <ArticleRecommendationsList />
+                    <AddCommentForm onSendComment={onSendComment} />
                     <Text
                         size={TextSize.L}
                         title={t('Комментарии')}
                         className={cls.commentTitle}
                     />
-
-                    <AddCommentForm onSendComment={onSendComment} />
-
                     <CommentList isLoading={isLoading} comments={comments} />
                 </VStack>
             </Page>

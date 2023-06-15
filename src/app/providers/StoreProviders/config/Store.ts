@@ -7,6 +7,7 @@ import {
 import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
 import { scrollSaveSliceReducer } from 'features/ScrollSave';
+import { rtkApi } from 'shared/api/rtkApi';
 import { createReducerManager } from './ReducerManager';
 import { IStateSchema, IThunkExtraArg } from './StateSchema';
 
@@ -19,6 +20,7 @@ export function createReduxStore(
         ...asyncReducers,
         user: userReducer,
         scrollSave: scrollSaveSliceReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
     //! в корневой редюсере передаём только обязательные
@@ -40,7 +42,7 @@ export function createReduxStore(
             thunk: {
                 extraArgument: extraArg,
             },
-        }),
+        }).concat(rtkApi.middleware),
     });
     // @ts-ignore
     store.reducerManager = reducerManager;
