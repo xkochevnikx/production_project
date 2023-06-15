@@ -26,6 +26,7 @@ import {
 import cls from './ArticleDetailsPage.module.scss';
 
 import { articleDetailsPageReducer } from '../../modal/slice';
+import { ArticleComments } from 'features/ArticleComments';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -39,23 +40,9 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
     const dispatch = useAppDispatch();
 
-    //! в AddCommentForm передаём функцию добавления комментария к статье и в ней дёргам фанк
-    const onSendComment = useCallback(
-        (text: string) => {
-            if (text) {
-                dispatch(addCommentForArticle(text));
-            }
-        },
-        [dispatch],
-    );
-
     const { id } = useParams<{ id: string }>();
 
     const { t } = useTranslation('articles');
-
-    const comments = useSelector(getArticleComments.selectAll);
-
-    const isLoading = useSelector(getArticleCommentsIsLoading);
 
     //! получаем список комментариев
     useInitialEffect(() => {
@@ -77,17 +64,11 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
             <Page
                 className={classNames(cls.ArticleDetailsPage, {}, [className])}
             >
-                <VStack gap="16" max align="start">
+                <VStack gap='16' max align='start'>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     <ArticleRecommendationsList />
-                    <AddCommentForm onSendComment={onSendComment} />
-                    <Text
-                        size={TextSize.L}
-                        title={t('Комментарии')}
-                        className={cls.commentTitle}
-                    />
-                    <CommentList isLoading={isLoading} comments={comments} />
+                    <ArticleComments />
                 </VStack>
             </Page>
         </DynamicModuleLoader>

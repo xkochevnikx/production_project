@@ -39,7 +39,7 @@ const AddCommentForm = memo(
             (value: string) => {
                 dispatch(addCommentFormActions.setText(value));
             },
-            [dispatch],
+            [dispatch]
         );
 
         const onSendHandler = useCallback(() => {
@@ -51,7 +51,7 @@ const AddCommentForm = memo(
             <DynamicModuleLoader reducers={reducers}>
                 <HStack
                     max
-                    justify="between"
+                    justify='between'
                     className={classNames(cls.AddCommentForm, {}, [className])}
                 >
                     <Input
@@ -64,7 +64,7 @@ const AddCommentForm = memo(
                 </HStack>
             </DynamicModuleLoader>
         );
-    },
+    }
 );
 
 export default AddCommentForm;
