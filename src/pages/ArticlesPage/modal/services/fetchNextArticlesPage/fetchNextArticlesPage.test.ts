@@ -4,10 +4,12 @@ import {
     ArticleSortField,
     ArticleType,
 } from 'entities/Article/modal/types/article';
+import { fetchArticlesList } from 'features/ArticlesInfiniteList/modal/services/fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
-import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
-jest.mock('../fetchArticlesList/fetchArticlesList');
+jest.mock(
+    'features/ArticlesInfiniteList/modal/services/fetchArticlesList/fetchArticlesList',
+);
 
 describe('fetchNextArticlesPage.test', () => {
     test('success', async () => {

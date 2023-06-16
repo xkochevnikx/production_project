@@ -1,48 +1,24 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { ArticlesList } from 'entities/Article';
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page/Page';
 import { ArticlesPageFilter } from 'widgets/ArticlesPageFilter';
-import {
-    articlesPageReducer,
-    getArticles,
-} from '../../modal/slice/articlesPageSlice';
+import { ArticlesInfitineList } from 'features/ArticlesInfiniteList/ui/ArticlesInfitineList';
+import { initArticlesPage } from 'features/ArticlesInfiniteList/modal/services/initArticlesPage/initArticlesPage';
 import cls from './ArticlesPage.module.scss';
-import {
-    getArticlesPageIsLoading,
-    getArticlesPageView,
-} from '../../modal/selectors/getArticlesPageSelectors';
-
 import { fetchNextArticlesPage } from '../../modal/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { initArticlesPage } from '../../modal/services/initArticlesPage/initArticlesPage';
 // import {  useSearchParams } from 'react-router-dom';
 
 interface ArticlesPageProps {
     className?: string;
 }
 
-const reducers: ReducersList = {
-    articlesPage: articlesPageReducer,
-};
-
 const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
 
     //! let [searchParams] = useSearchParams(); или олдскул ниже
     const searchParams = new URLSearchParams(window.location.search);
-
-    const view = useSelector(getArticlesPageView);
-
-    const articles = useSelector(getArticles.selectAll);
-
-    const isLoading = useSelector(getArticlesPageIsLoading);
 
     //! фанк для подгрузки новой порции статей спускаем в компонет page
     const onLoadNextPart = useCallback(() => {
@@ -55,20 +31,14 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     });
     //! сохраняю скролл только там где это нужно по флагу  isSaveScroll
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page
-                isSaveScroll
-                onScrollEnd={onLoadNextPart}
-                className={classNames(cls.ArticlesPage, {}, [className])}
-            >
-                <ArticlesPageFilter />
-                <ArticlesList
-                    articles={articles}
-                    isLoading={isLoading}
-                    view={view}
-                />
-            </Page>
-        </DynamicModuleLoader>
+        <Page
+            isSaveScroll
+            onScrollEnd={onLoadNextPart}
+            className={classNames(cls.ArticlesPage, {}, [className])}
+        >
+            <ArticlesPageFilter />
+            <ArticlesInfitineList />
+        </Page>
     );
 });
 

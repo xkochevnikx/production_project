@@ -11,10 +11,10 @@ import { AxiosInstance } from 'axios';
 import { IProfileSchema } from 'features/EditableProfileCard/modal/types/profile';
 import { IArticleDetailsSchema } from 'entities/Article';
 import { ICommentFormSchema } from 'entities/CommentForm';
-import { IArticlesPageSchema } from 'pages/ArticlePage';
 import { iScrollSaveSchema } from 'features/ScrollSave';
 import { rtkApi } from 'shared/api/rtkApi';
 import { IArticleDetailsCommentsSchema } from 'features/ArticleComments/model/types/ArticleDetailsCommentsSchema';
+import { IArticlesPageSchema } from 'features/ArticlesInfiniteList';
 
 export interface IStateSchema {
     user: IUserSchema;

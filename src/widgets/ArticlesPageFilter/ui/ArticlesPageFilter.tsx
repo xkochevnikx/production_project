@@ -4,17 +4,17 @@ import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ArticlesSortSelected } from 'features/ArticlesSortSelected';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { ArticlesTypeTabs } from 'features/ArticlesTypeTabs';
+import { ArticlesSearch } from 'features/ArticlesSearch';
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
     getArticlesPageSort,
     getArticlesPageType,
     getArticlesPageView,
-} from 'pages/ArticlePage';
-import { fetchArticlesList } from 'pages/ArticlePage/modal/services/fetchArticlesList/fetchArticlesList';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { ArticlesTypeTabs } from 'features/ArticlesTypeTabs';
-import { ArticlesSearch } from 'features/ArticlesSearch';
+} from 'features/ArticlesInfiniteList';
+import { fetchArticlesList } from 'features/ArticlesInfiniteList/modal/services/fetchArticlesList/fetchArticlesList';
 import cls from './ArticlesPageFilter.module.scss';
 
 interface ArticlesPageFilterProps {

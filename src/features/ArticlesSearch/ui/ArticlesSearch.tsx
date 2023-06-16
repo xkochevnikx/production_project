@@ -3,8 +3,8 @@ import { Card } from 'shared/UI/Card/Card';
 import { Input } from 'shared/UI/Input/UI/Input';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { articlesPageActions } from 'pages/ArticlePage';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { articlesPageActions } from 'features/ArticlesInfiniteList';
 
 interface ArticlesSearchProps {
     className?: string;
