@@ -11,4 +11,4 @@ export { ArticlesList } from './ui/ArticleList/ArticlesList';
 
 export { ArticleSortField, ArticleType } from './modal/types/article';
 
-export { ArticleDetailsAsync as ArticleDetails } from './ui/ArticleDetails/ArticleDetails.async';
+export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';

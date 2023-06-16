@@ -6,7 +6,6 @@ import { IComment } from '../../modal/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
 
 interface CommentListProps {
-    className?: string;
     comments?: IComment[];
     isLoading?: boolean;
 }

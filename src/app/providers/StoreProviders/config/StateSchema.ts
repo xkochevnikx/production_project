@@ -10,11 +10,11 @@ import { ILoginSchema } from 'features/AuthByUsername';
 import { AxiosInstance } from 'axios';
 import { IProfileSchema } from 'features/EditableProfileCard/modal/types/profile';
 import { IArticleDetailsSchema } from 'entities/Article';
-import { IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
-import { IAddCommentFormSchema } from 'features/AddCommentForm';
+import { ICommentFormSchema } from 'entities/CommentForm';
 import { IArticlesPageSchema } from 'pages/ArticlePage';
 import { iScrollSaveSchema } from 'features/ScrollSave';
 import { rtkApi } from 'shared/api/rtkApi';
+import { IArticleDetailsCommentsSchema } from 'features/ArticleComments/model/types/ArticleDetailsCommentsSchema';
 
 export interface IStateSchema {
     user: IUserSchema;
@@ -25,10 +25,9 @@ export interface IStateSchema {
     loginForm?: ILoginSchema;
     profile?: IProfileSchema;
     articleDetails?: IArticleDetailsSchema;
-    addCommentForm?: IAddCommentFormSchema;
+    commentForm?: ICommentFormSchema;
     articlesPage?: IArticlesPageSchema;
-    // тут ниже сгруппированы два редюсера в один
-    articleDetailsPage?: IArticleDetailsPageSchema;
+    articleDetailsComments?: IArticleDetailsCommentsSchema;
 }
 
 export type StateSchemaKey = keyof IStateSchema;

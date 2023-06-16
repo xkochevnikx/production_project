@@ -32,7 +32,7 @@ const reducers: ReducersList = {
     articleDetails: ArticleDetailsReducer,
 };
 
-const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
+export const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
     const dispatch = useAppDispatch();
 
     const { t } = useTranslation('articles');
@@ -95,5 +95,3 @@ const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
         </DynamicModuleLoader>
     );
 });
-
-export default ArticleDetails;

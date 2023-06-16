@@ -10,24 +10,25 @@ import {
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { HStack } from 'shared/UI/Stack/HStack/HStack';
-import {
-    addCommentFormActions,
-    addCommentFormReducer,
-} from '../../modal/slice/addCommentFormSlice';
-import { getCommentFormText } from '../../modal/selectors/getCommentFormSelectors';
-import cls from './AddCommentForm.module.scss';
 
-export interface IAddCommentFormProps {
+import {
+    CommentFormActions,
+    CommentFormReducer,
+} from 'entities/CommentForm/modal/slice/CommentFormSlice';
+import { getCommentFormText } from '../../modal/selectors/getCommentFormSelectors';
+import cls from './CommentForm.module.scss';
+
+export interface ICommentFormProps {
     className?: string;
     onSendComment: (text: string) => void;
 }
 
 const reducers: ReducersList = {
-    addCommentForm: addCommentFormReducer,
+    commentForm: CommentFormReducer,
 };
 
 const AddCommentForm = memo(
-    ({ className, onSendComment }: IAddCommentFormProps) => {
+    ({ className, onSendComment }: ICommentFormProps) => {
         const { t } = useTranslation();
 
         const dispatch = useAppDispatch();
@@ -37,7 +38,7 @@ const AddCommentForm = memo(
         //! это функция на инпуте принимает строку и добавляет ей в слайс комментов который не привязан к бизнес логике(сущностям) и выше мы сразу достаём эту строку из слайса и подставляем в функцию которая передаст её выше в вызванную onSendComment спущенную пропсом. и дальше очищаем стей путсыми кавычками
         const onCommentChangeText = useCallback(
             (value: string) => {
-                dispatch(addCommentFormActions.setText(value));
+                dispatch(CommentFormActions.setText(value));
             },
             [dispatch],
         );
@@ -52,7 +53,7 @@ const AddCommentForm = memo(
                 <HStack
                     max
                     justify="between"
-                    className={classNames(cls.AddCommentForm, {}, [className])}
+                    className={classNames(cls.CommentForm, {}, [className])}
                 >
                     <Input
                         className={cls.input}

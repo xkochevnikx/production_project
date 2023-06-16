@@ -4,15 +4,15 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 export default {
-    title: '***/ArticleRecommendationsList',
+    title: 'feature/ArticleRecommendationsList',
     component: ArticleRecommendationsList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof ArticleRecommendationsList>;
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (arg) => (
-    <ArticleRecommendationsList {...arg} />
+const Template: ComponentStory<typeof ArticleRecommendationsList> = () => (
+    <ArticleRecommendationsList />
 );
 
 export const Normal = Template.bind({});

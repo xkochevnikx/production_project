@@ -4,8 +4,8 @@ import {
     createSlice,
 } from '@reduxjs/toolkit';
 import { IComment } from 'entities/Comment';
-import { IArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { IArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
 
 //! создаём адаптер и задаём функцию получения ключей. Ключём будет comment.id. ОН после запроса получает массив комментариев и создаёт свой стейт
 export const commentsAdapter = createEntityAdapter<IComment>({
