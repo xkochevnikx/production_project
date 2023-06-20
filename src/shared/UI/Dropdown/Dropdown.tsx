@@ -47,6 +47,7 @@ export function Dropdown(props: IDropdownProps) {
                     function content({ active }: { active: boolean }) {
                         return (
                             <button
+                                key={String(item.content)}
                                 type='button'
                                 disabled={item.disabled}
                                 onClick={item.onClick}

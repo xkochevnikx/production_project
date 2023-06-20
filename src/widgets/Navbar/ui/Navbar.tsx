@@ -1,8 +1,11 @@
-import { getUserAuthData, userActions } from 'entities/User';
-import { LoginModal } from 'features/AuthByUsername';
 import {
-    memo, useCallback, useEffect, useState,
-} from 'react';
+    UserRoles,
+    getIsRole,
+    getUserAuthData,
+    userActions,
+} from 'entities/User';
+import { LoginModal } from 'features/AuthByUsername';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -22,8 +25,13 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const isAuth = useSelector(getUserAuthData);
-
     const [isAuthModal, setIsAuthModal] = useState(false);
+    const isRole = useSelector(getIsRole);
+    //todo - достаю флаги ролей пользователя. в селекторе через createSelector не получилось, делаю тут в лоб
+    const isManager = Boolean(isRole?.includes(UserRoles.MANAGER));
+    const isAdmin = Boolean(isRole?.includes(UserRoles.ADMIN));
+    // ниже проверяю наличие оснований в ролях для доступа к кнопке перехода на админ панель
+    const isAdminPanelAvailable = isAdmin || isManager;
 
     //! при изменении любого пропса компонерт перерисовывается поэтому сохраняем функции которые передаём пропсами в юзколлбэк чтобы ссылка не менялась
     const onCloseModal = useCallback(() => {
@@ -39,6 +47,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         dispatch(userActions.logout());
     }, [dispatch]);
 
+    //todo - в итемс по условию isAdminPanelAvailable добавляю еще один объект. Там у меня основной массвив и внутри него есть другой массив который разворачивается деструктуризацией в основной по условию. Если условие верно разворачиваю массив с одним объектом в основной, если не верно разворачиваю пустой массив в основной, соответственно ничего не происходит
     if (isAuth) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
@@ -58,6 +67,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     className={cls.btnLog}
                     trigger={<Avatar size={30} src={isAuth.avatar} />}
                     items={[
+                        ...(isAdminPanelAvailable
+                            ? [
+                                  {
+                                      content: t('Админка'),
+                                      href: RoutePath.admin_panel,
+                                  },
+                              ]
+                            : []),
                         {
                             content: t('Выйти'),
                             onClick: onLogout,
@@ -65,10 +82,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                         {
                             content: t('Аккаунт'),
                             href: RoutePath.profile + isAuth.id,
-                        },
-                        {
-                            content: t('Админка'),
-                            href: RoutePath.admin_page,
                         },
                     ]}
                 />

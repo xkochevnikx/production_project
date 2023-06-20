@@ -22,7 +22,7 @@ export enum AppRoutes {
     ARTICLE_DETAILS = 'article_details',
     ARTICLE_CREATE = 'article_create',
     ARTICLE_EDIT = 'article_edit',
-    ADMIN_PAGE = 'admin_page',
+    ADMIN_PAGE = 'admin_panel',
     NOT_FOUND = 'not_found',
 }
 
@@ -85,7 +85,7 @@ export const routeConfig: Record<AppRoutes, AppRouterProps> = {
         authOnly: true,
     },
     [AppRoutes.ADMIN_PAGE]: {
-        path: `${RoutePath.admin_page}`,
+        path: `${RoutePath.admin_panel}`,
         element: <AdminPanelPage />,
         authOnly: true,
         roles: [UserRoles.ADMIN, UserRoles.MANAGER],

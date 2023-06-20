@@ -19,7 +19,7 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
 
     const { path, text, Icon } = item;
 
-    //! доп проверка на авторизацию
+    //! доп проверка на авторизацию - если в объекте есть поле которое говорит о необходимости регистрации и этой регистрации нет то ничего не отрисоываем. хотя в селекторе getSidebarItems который возвращает массив sidebarItemList уже есть эта проверка
     if (item.isAuthOnly && !isAuth) {
         return null;
     }
