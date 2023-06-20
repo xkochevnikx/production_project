@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { USER_LOCALSTORAGE_KEY } from 'shared/consts/localstorage';
 
+// todo - это нечто вроде корневого стора но для rtk
 export const rtkApi = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({

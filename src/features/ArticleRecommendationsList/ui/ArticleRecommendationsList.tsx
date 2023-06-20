@@ -7,9 +7,13 @@ import cls from './ArticleRecommendationsList.module.scss';
 import { useArticleRecommendationsList } from '../api/ArticleRecommendationsApi';
 
 export const ArticleRecommendationsList = memo(() => {
-    const { data, isLoading } = useArticleRecommendationsList(6);
-
     const { t } = useTranslation();
+
+    const { data, isLoading } = useArticleRecommendationsList(6);
+    // todo - если запрос не вернул статьи то ничего не отрисовываем
+    if (!data) {
+        return null;
+    }
 
     return (
         <VStack gap="16" align="start">

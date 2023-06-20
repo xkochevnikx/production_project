@@ -20,6 +20,7 @@ import { getProfileReadonly } from '../../modal/selectors/getProfileReadonly/get
 import { getProfileIsLoading } from '../../modal/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../modal/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../modal/selectors/getProfileForm/getProfileForm';
+import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
 
 interface IEditableProfileProps {
     id: string;
@@ -116,15 +117,19 @@ export const EditableProfileCard = memo((props: IEditableProfileProps) => {
         },
         [dispatch],
     );
+
+    // todo - для тестирования того что в случае  ошибки отрисовывается компоент текст вешаю на него дататестайди
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <VStack max>
+            <VStack max gap="16">
+                <ProfilePageHeader />
                 {validateErrors?.length
                     && validateErrors.map((error) => (
                         <Text
                             theme={TextTheme.ERROR}
                             text={validateErrorTranslates[error]}
                             key={error}
+                            data-testid="EditableProfileCard.Error"
                         />
                     ))}
                 <ProfileCard

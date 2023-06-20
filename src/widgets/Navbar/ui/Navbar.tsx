@@ -1,6 +1,8 @@
 import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
-import { memo, useCallback, useState } from 'react';
+import {
+    memo, useCallback, useEffect, useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -20,6 +22,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const isAuth = useSelector(getUserAuthData);
+
     const [isAuthModal, setIsAuthModal] = useState(false);
 
     //! при изменении любого пропса компонерт перерисовывается поэтому сохраняем функции которые передаём пропсами в юзколлбэк чтобы ссылка не менялась
@@ -62,6 +65,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                         {
                             content: t('Аккаунт'),
                             href: RoutePath.profile + isAuth.id,
+                        },
+                        {
+                            content: t('Админка'),
+                            href: RoutePath.admin_page,
                         },
                     ]}
                 />

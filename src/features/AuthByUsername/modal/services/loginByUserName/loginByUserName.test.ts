@@ -1,11 +1,15 @@
-import { userActions } from 'entities/User';
+import { UserRoles, userActions } from 'entities/User';
 import { testAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { loginByUserName } from './loginByUserName';
 
 describe('loginByUserName.test', () => {
     test('fake succes login', async () => {
         //! тут фейковые ожидаемые нами данные от метода пост
-        const userValue = { username: 'qwe', id: '1' };
+        const userValue = {
+            username: 'qwe',
+            id: '1',
+            roles: [UserRoles.ADMIN],
+        };
         //! тут результат вызова фанка который вызывается с помощью функции хелпера. он возвращаем все замоканные внутри хелпера функции
         const thunk = testAsyncThunk(loginByUserName);
         //! тут мы из возвращаемых хелпером функций вытаскиваем из екстра метод пост и мокаем его, по сути перехватываем вызов и говорим что ПОСЛЕ ВЫЗОВА callThunk с данными для регистрации в ответ ожидаем промис с моими фейковыми данными.

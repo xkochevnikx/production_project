@@ -45,6 +45,7 @@ export const Input = memo((props: InputProps) => {
                 onChange={onChangeHandler}
                 readOnly={readonly}
                 className={cls.input}
+                {...otherProps}
             />
         </div>
     );

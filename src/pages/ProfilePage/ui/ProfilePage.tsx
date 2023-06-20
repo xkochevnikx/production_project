@@ -4,7 +4,6 @@ import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import { useParams } from 'react-router-dom';
 import { Text } from 'shared/UI/Text/ui/Text';
 import { useTranslation } from 'react-i18next';
-import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 function ProfilePage() {
     //! при первом рендеринге компонента на странице смотрим если есть айди то запрашиваем данные
@@ -18,7 +17,6 @@ function ProfilePage() {
     return (
         <Page>
             <VStack gap="16" max>
-                <ProfilePageHeader />
                 <EditableProfileCard id={id} />
             </VStack>
         </Page>

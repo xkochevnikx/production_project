@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { UserRoles } from 'entities/User';
 import { CommentCard } from './CommentCard';
 
 export default {
@@ -24,6 +25,7 @@ Primary.args = {
         user: {
             id: '1',
             username: 'svyat',
+            roles: [UserRoles.ADMIN],
         },
     },
 };

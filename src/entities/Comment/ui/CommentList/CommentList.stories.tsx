@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { UserRoles } from 'entities/User';
 import { CommentList } from './CommentList';
 
 export default {
@@ -23,6 +24,7 @@ Primary.args = {
             user: {
                 id: '1',
                 username: 'svyat',
+                roles: [UserRoles.ADMIN],
             },
         },
         {
@@ -31,6 +33,7 @@ Primary.args = {
             user: {
                 id: '2',
                 username: 'sssss',
+                roles: [UserRoles.USER],
             },
         },
     ],
@@ -46,6 +49,7 @@ Loading.args = {
             user: {
                 id: '1',
                 username: 'svyat',
+                roles: [UserRoles.ADMIN],
             },
         },
         {
@@ -54,6 +58,7 @@ Loading.args = {
             user: {
                 id: '2',
                 username: 'sssss',
+                roles: [UserRoles.MANAGER],
             },
         },
     ],

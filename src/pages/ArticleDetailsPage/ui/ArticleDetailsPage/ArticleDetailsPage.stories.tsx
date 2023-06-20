@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { UserRoles } from 'entities/User';
 import { IArticle } from '../../../../entities/Article/index';
 import {
     ArticleBlockType,
@@ -28,6 +29,7 @@ const article: IArticle = {
     user: {
         id: '1',
         username: 'svyat',
+        roles: [UserRoles.ADMIN],
     },
     createdAt: '26.02.2022',
     type: [ArticleType.IT],

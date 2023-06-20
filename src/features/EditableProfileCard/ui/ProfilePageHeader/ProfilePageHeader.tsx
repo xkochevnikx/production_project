@@ -43,6 +43,7 @@ export const ProfilePageHeader = memo(
 
         const { t } = useTranslation('profile');
 
+        // todo - на кнопках тестовые айди для тестирования editableProfileCard, на них буду наживать в тестах
         return (
             <HStack justify="between" max>
                 <Text title={t('Профиль')} />
@@ -52,6 +53,7 @@ export const ProfilePageHeader = memo(
                             <Button
                                 onClick={onEdit}
                                 theme={ThemeButton.OUTLINE}
+                                data-testid="EditableProfileCardHeader.EditButton"
                             >
                                 {t('Редактировать')}
                             </Button>
@@ -60,12 +62,14 @@ export const ProfilePageHeader = memo(
                                 <Button
                                     onClick={onCancelEdit}
                                     theme={ThemeButton.OUTLINE_RED}
+                                    data-testid="EditableProfileCardHeader.CancelButton"
                                 >
                                     {t('Отменить')}
                                 </Button>
                                 <Button
                                     onClick={onSave}
                                     theme={ThemeButton.OUTLINE}
+                                    data-testid="EditableProfileCardHeader.SaveButton"
                                 >
                                     {t('Сохранить')}
                                 </Button>

@@ -86,6 +86,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
         [cls.editing]: !readonly,
     };
 
+    // todo - на первых двух инпутах тестовые айди для тестирования отработки валидационых ошибок в компоненте editableProfileCard
     return (
         <VStack
             gap="8"
@@ -105,6 +106,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 value={data?.first}
                 placeholder={t('Ваше имя_')}
                 readonly={readonly}
+                data-testid="ProfileCard.firstname"
             />
 
             <Input
@@ -113,6 +115,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 value={data?.lastname}
                 placeholder={t('Ваше фамилия_')}
                 readonly={readonly}
+                data-testid="ProfileCard.lastname"
             />
 
             <Input

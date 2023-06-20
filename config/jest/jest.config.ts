@@ -23,6 +23,7 @@ export default {
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         '^axios$': require.resolve('axios'),
     },
+    //! настойки пакета генерации отчетов по темстам. сформированные отчёты автоматически сохраняются в publicPath: '<rootDir>/reports/unit'
     reporters: [
         'default',
         [
