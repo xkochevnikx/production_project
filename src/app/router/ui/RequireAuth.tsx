@@ -31,7 +31,16 @@ export function RequireAuth({ children, roles }: IRequireAuthProps) {
         });
     }, [roles, isRole]);
 
-    if (!auth || !hasRequiredRoles) {
+    if (!hasRequiredRoles) {
+        return (
+            <Navigate
+                to={RoutePath.forbidden_page}
+                state={{ from: location }}
+                replace
+            />
+        );
+    }
+    if (!auth) {
         return (
             <Navigate to={RoutePath.main} state={{ from: location }} replace />
         );
