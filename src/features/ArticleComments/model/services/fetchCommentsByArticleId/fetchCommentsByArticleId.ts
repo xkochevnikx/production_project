@@ -4,14 +4,11 @@ import { IComment } from 'entities/Comment';
 
 export const fetchCommentsByArticleId = createAsyncThunk<
     IComment[],
-    string | undefined,
+    string,
     IThunkConfig<string>
 >('articleDetails/fetchCommentsByArticleId', async (articleId, thunkApi) => {
     const { extra, rejectWithValue } = thunkApi;
 
-    if (!articleId) {
-        return rejectWithValue('error');
-    }
     try {
         const response = await extra.api.get<IComment[]>('/comments/', {
             params: {
@@ -21,7 +18,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<
         });
 
         if (!response.data) {
-            throw new Error();
+            throw new Error('Ошибка при подгрузки комментариев для статьи');
         }
 
         return response.data;

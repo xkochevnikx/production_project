@@ -43,20 +43,18 @@ export function Dropdown(props: IDropdownProps) {
                     []
                 )}
             >
-                {items.map((item) => {
+                {items.map((item, index) => {
                     function content({ active }: { active: boolean }) {
                         return (
-                            <button
-                                key={String(item.content)}
-                                type='button'
-                                disabled={item.disabled}
+                            <div
+                                key={index}
                                 onClick={item.onClick}
                                 className={classNames(cls.item, {
                                     [cls.active]: active,
                                 })}
                             >
                                 {item.content}
-                            </button>
+                            </div>
                         );
                     }
 

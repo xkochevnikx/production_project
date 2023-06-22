@@ -27,7 +27,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const isAuth = useSelector(getUserAuthData);
     const [isAuthModal, setIsAuthModal] = useState(false);
     const isRole = useSelector(getIsRole);
-    //todo - достаю флаги ролей пользователя. в селекторе через createSelector не получилось, делаю тут в лоб
+    // todo - достаю флаги ролей пользователя. в селекторе через createSelector не получилось, делаю тут в лоб
     const isManager = Boolean(isRole?.includes(UserRoles.MANAGER));
     const isAdmin = Boolean(isRole?.includes(UserRoles.ADMIN));
     // ниже проверяю наличие оснований в ролях для доступа к кнопке перехода на админ панель
@@ -47,7 +47,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         dispatch(userActions.logout());
     }, [dispatch]);
 
-    //todo - в итемс по условию isAdminPanelAvailable добавляю еще один объект. Там у меня основной массвив и внутри него есть другой массив который разворачивается деструктуризацией в основной по условию. Если условие верно разворачиваю массив с одним объектом в основной, если не верно разворачиваю пустой массив в основной, соответственно ничего не происходит
+    // todo - в итемс по условию isAdminPanelAvailable добавляю еще один объект. Там у меня основной массвив и внутри него есть другой массив который разворачивается деструктуризацией в основной по условию. Если условие верно разворачиваю массив с одним объектом в основной, если не верно разворачиваю пустой массив в основной, соответственно ничего не происходит
     if (isAuth) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
@@ -69,11 +69,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     items={[
                         ...(isAdminPanelAvailable
                             ? [
-                                  {
-                                      content: t('Админка'),
-                                      href: RoutePath.admin_panel,
-                                  },
-                              ]
+                                {
+                                    content: t('Админка'),
+                                    href: RoutePath.admin_panel,
+                                },
+                            ]
                             : []),
                         {
                             content: t('Выйти'),

@@ -3,18 +3,18 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { action } from '@storybook/addon-actions';
-import AddCommentForm from './CommentForm';
+import CommentForm from './CommentForm';
 
 export default {
-    title: 'feature/AddCommentForm',
-    component: AddCommentForm,
+    title: 'features/CommentForm',
+    component: CommentForm,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof AddCommentForm>;
+} as ComponentMeta<typeof CommentForm>;
 
-const Template: ComponentStory<typeof AddCommentForm> = (args) => (
-    <AddCommentForm {...args} />
+const Template: ComponentStory<typeof CommentForm> = (args) => (
+    <CommentForm {...args} />
 );
 
 export const Primary = Template.bind({});

@@ -27,45 +27,43 @@ const reducers: ReducersList = {
     commentForm: CommentFormReducer,
 };
 
-const AddCommentForm = memo(
-    ({ className, onSendComment }: ICommentFormProps) => {
-        const { t } = useTranslation();
+const CommentForm = memo(({ className, onSendComment }: ICommentFormProps) => {
+    const { t } = useTranslation();
 
-        const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
 
-        const text = useSelector(getCommentFormText);
+    const text = useSelector(getCommentFormText);
 
-        //! это функция на инпуте принимает строку и добавляет ей в слайс комментов который не привязан к бизнес логике(сущностям) и выше мы сразу достаём эту строку из слайса и подставляем в функцию которая передаст её выше в вызванную onSendComment спущенную пропсом. и дальше очищаем стей путсыми кавычками
-        const onCommentChangeText = useCallback(
-            (value: string) => {
-                dispatch(CommentFormActions.setText(value));
-            },
-            [dispatch],
-        );
+    //! это функция на инпуте принимает строку и добавляет ей в слайс комментов который не привязан к бизнес логике(сущностям) и выше мы сразу достаём эту строку из слайса и подставляем в функцию которая передаст её выше в вызванную onSendComment спущенную пропсом. и дальше очищаем стей путсыми кавычками
+    const onCommentChangeText = useCallback(
+        (value: string) => {
+            dispatch(CommentFormActions.setText(value));
+        },
+        [dispatch],
+    );
 
-        const onSendHandler = useCallback(() => {
-            onSendComment(text || '');
-            onCommentChangeText('');
-        }, [text, onSendComment, onCommentChangeText]);
+    const onSendHandler = useCallback(() => {
+        onSendComment(text || '');
+        onCommentChangeText('');
+    }, [text, onSendComment, onCommentChangeText]);
 
-        return (
-            <DynamicModuleLoader reducers={reducers}>
-                <HStack
-                    max
-                    justify="between"
-                    className={classNames(cls.CommentForm, {}, [className])}
-                >
-                    <Input
-                        className={cls.input}
-                        placeholder={t('Введите текст')}
-                        value={text}
-                        onChange={onCommentChangeText}
-                    />
-                    <Button onClick={onSendHandler}>{t('Отправить')}</Button>
-                </HStack>
-            </DynamicModuleLoader>
-        );
-    },
-);
+    return (
+        <DynamicModuleLoader reducers={reducers}>
+            <HStack
+                max
+                justify="between"
+                className={classNames(cls.CommentForm, {}, [className])}
+            >
+                <Input
+                    className={cls.input}
+                    placeholder={t('Введите текст')}
+                    value={text}
+                    onChange={onCommentChangeText}
+                />
+                <Button onClick={onSendHandler}>{t('Отправить')}</Button>
+            </HStack>
+        </DynamicModuleLoader>
+    );
+});
 
-export default AddCommentForm;
+export default CommentForm;

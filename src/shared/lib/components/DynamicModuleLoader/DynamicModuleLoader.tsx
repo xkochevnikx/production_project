@@ -4,7 +4,7 @@ import {
     IStateSchema,
     StateSchemaKey,
 } from 'app/providers/StoreProviders/config/StateSchema';
-import { FC, useEffect } from 'react';
+import { FC, ReactNode, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 
 export type ReducersList = {
@@ -14,10 +14,11 @@ export type ReducersList = {
 interface IDynamicModuleLoaderProps {
     reducers: ReducersList;
     removeAfterUnmount?: boolean;
+    children: ReactNode;
 }
 
 //! все это вмонтирование имеет смысл только когда компонент в котором лежит это асинхронный редюсер является ленивым. То есть подгружается отдельным чанком и тогда в момент монтирования подгруженного чанка добавляется асинхронный редюсер
-export const DynamicModuleLoader: FC<IDynamicModuleLoaderProps> = (props) => {
+export const DynamicModuleLoader = (props: IDynamicModuleLoaderProps) => {
     const store = useStore() as IReduxStoreWithManager;
 
     const dispatch = useDispatch();

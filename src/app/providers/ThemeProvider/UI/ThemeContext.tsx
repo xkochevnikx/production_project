@@ -1,5 +1,5 @@
 import {
-    createContext, FC, useMemo, useState,
+    createContext, FC, ReactNode, useMemo, useState,
 } from 'react';
 
 export enum Theme {
@@ -19,13 +19,14 @@ export const ThemeContext = createContext<IThemeContextProps>({});
 export const LOCAL_STORAGE_THEME_KEY = 'theme';
 interface IThemeProviderProps {
     initialTheme?: Theme;
+    children: ReactNode;
 }
 
 //! это значение дефолтной темы его получаем из локал если его там нет по умолчанию ставим светлую. *as преобразование к типу THEME делается потому что в локале лежит json формат
 const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
 //! это функция обертка которая обортивает компонент и которому становится доступен функционал переключения тем. Для доступа к чидренам нужно поставить тип functional components FC
-export const ThemeProvider: FC<IThemeProviderProps> = (props) => {
+export const ThemeProvider = (props: IThemeProviderProps) => {
     const { initialTheme, children } = props;
 
     //! тут храним состояние темы и инициализируем его или переданным в initialTheme или берём из локала. Передавать нужно только для декакораторов сторибука

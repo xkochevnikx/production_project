@@ -25,7 +25,7 @@ import EyeIcon from '../../../../shared/assets/icons/eye.svg';
 import CalendarIcon from '../../../../shared/assets/icons/calendar.svg';
 
 interface ArticleDetailsProps {
-    id: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {
@@ -43,7 +43,11 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
 
     const isLoading = useSelector(getArticleDetailsIsLoading);
 
-    useInitialEffect(() => dispatch(fetchArticleById(id)));
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchArticleById(id));
+        }
+    });
 
     //! тут динамическое содержимое контента на отрисовку. внизу проходимся по блокам статьи и на каждый тип возвращам свой компонент с помощью функции хелпера
     let content;

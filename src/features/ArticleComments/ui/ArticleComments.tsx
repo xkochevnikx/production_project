@@ -20,7 +20,7 @@ import {
 import { articleDetailsCommentsReducer } from '../model/slice/articleDetailsCommentsSlice';
 
 export interface IArticleCommentsProps {
-    id: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {
@@ -40,7 +40,9 @@ export const ArticleComments = memo((props: IArticleCommentsProps) => {
 
     //! получаем список комментариев
     useInitialEffect(() => {
-        dispatch(fetchCommentsByArticleId(id));
+        if (id) {
+            dispatch(fetchCommentsByArticleId(id));
+        }
     });
 
     //! в AddCommentForm передаём функцию добавления комментария к статье и в ней дёргам фанк

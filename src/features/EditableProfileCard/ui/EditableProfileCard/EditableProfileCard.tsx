@@ -23,7 +23,7 @@ import { getProfileForm } from '../../modal/selectors/getProfileForm/getProfileF
 import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
 
 interface IEditableProfileProps {
-    id: string;
+    id?: string;
 }
 
 export const EditableProfileCard = memo((props: IEditableProfileProps) => {
