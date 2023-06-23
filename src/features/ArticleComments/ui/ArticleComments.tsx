@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { VStack } from 'shared/UI/Stack/VStack/VStack';
-import { Text, TextSize } from 'shared/UI/Text/ui/Text';
+import { Text, TextSize } from 'shared/UI/Text/Text';
 import { CommentList } from 'entities/Comment';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentForArticle } from 'features/ArticleComments/model/services/addCommentForArticle/addCommentForArticle';
@@ -52,12 +52,12 @@ export const ArticleComments = memo((props: IArticleCommentsProps) => {
                 dispatch(addCommentForArticle(text));
             }
         },
-        [dispatch],
+        [dispatch]
     );
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <VStack max gap="16" align="start">
+            <VStack max gap='16' align='start'>
                 <Text size={TextSize.L} title={t('Комментарии')} />
                 <CommentForm onSendComment={onSendComment} />
                 <CommentList isLoading={isLoading} comments={comments} />

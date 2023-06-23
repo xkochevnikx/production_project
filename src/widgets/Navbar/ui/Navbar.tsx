@@ -4,8 +4,8 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
-import { Text, TextTheme } from 'shared/UI/Text/ui/Text';
+import { Button, ThemeButton } from 'shared/UI/Button/Button';
+import { Text, TextTheme } from 'shared/UI/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/UI/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Dropdown } from 'shared/UI/Dropdown/Dropdown';
@@ -65,11 +65,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     items={[
                         ...(isAdminPanelAvailable
                             ? [
-                                {
-                                    content: t('Админка'),
-                                    href: RoutePath.admin_panel,
-                                },
-                            ]
+                                  {
+                                      content: t('Админка'),
+                                      href: RoutePath.admin_panel,
+                                  },
+                              ]
                             : []),
                         {
                             content: t('Выйти'),

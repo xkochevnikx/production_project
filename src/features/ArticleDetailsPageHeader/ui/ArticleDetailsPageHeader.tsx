@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
+import { Button, ThemeButton } from 'shared/UI/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
@@ -27,7 +27,7 @@ export const ArticleDetailsPageHeader = memo(() => {
     const { t } = useTranslation('articles');
 
     return (
-        <HStack justify="between" max>
+        <HStack justify='between' max>
             <Button onClick={onBackToList} theme={ThemeButton.OUTLINE}>
                 {t('Назад к списку')}
             </Button>

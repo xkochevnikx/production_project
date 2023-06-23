@@ -7,9 +7,9 @@ import {
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
-import { Input } from 'shared/UI/Input/UI/Input';
-import { Text, TextTheme } from 'shared/UI/Text/ui/Text';
+import { Button, ThemeButton } from 'shared/UI/Button/Button';
+import { Input } from 'shared/UI/Input/Input';
+import { Text, TextTheme } from 'shared/UI/Text/Text';
 import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import { loginActions, loginReducer } from '../../modal/slice/loginSlice';
 import { loginByUserName } from '../../modal/services/loginByUserName/loginByUserName';
@@ -39,14 +39,14 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
         (value: string) => {
             dispatch(loginActions.setUsername(value));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangePassword = useCallback(
         (value: string) => {
             dispatch(loginActions.setPassword(value));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onLoginClick = useCallback(async () => {
@@ -60,7 +60,7 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
     const { t } = useTranslation('loginform');
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-            <VStack gap="8" align="start">
+            <VStack gap='8' align='start'>
                 <Text title={t('Форма авторизации')} />
 
                 {error && (
@@ -72,13 +72,13 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
 
                 <Input
                     onChange={onChangeUserName}
-                    type="text"
+                    type='text'
                     placeholder={t('Введите имя')}
                     value={username}
                 />
                 <Input
                     onChange={onChangePassword}
-                    type="text"
+                    type='text'
                     placeholder={t('Введите пароль')}
                     value={password}
                 />

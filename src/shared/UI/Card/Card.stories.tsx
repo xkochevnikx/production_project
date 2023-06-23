@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Card } from './Card';
-import { Text } from '../Text/ui/Text';
+import { Text } from '../Text/Text';
 
 export default {
     title: 'shared/Card',
@@ -14,5 +14,5 @@ const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    children: <Text text="qwertytrewqwerty" />,
+    children: <Text text='qwertytrewqwerty' />,
 };

@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Text, TextAlign, TextTheme } from 'shared/UI/Text/ui/Text';
+import { Text, TextAlign, TextTheme } from 'shared/UI/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { Input } from 'shared/UI/Input/UI/Input';
+import { Input } from 'shared/UI/Input/Input';
 import { Loader } from 'shared/UI/Loader/Loader';
 import { Avatar } from 'shared/UI/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Current';
@@ -50,7 +50,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
     if (isLoading) {
         return (
             <HStack
-                justify="center"
+                justify='center'
                 max
                 className={classNames(cls.ProfileCard, {}, [
                     className,
@@ -65,7 +65,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
     if (error) {
         return (
             <HStack
-                justify="center"
+                justify='center'
                 max
                 className={classNames(cls.ProfileCard, {}, [
                     className,
@@ -89,13 +89,13 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
     // todo - на первых двух инпутах тестовые айди для тестирования отработки валидационых ошибок в компоненте editableProfileCard
     return (
         <VStack
-            gap="8"
+            gap='8'
             max
-            align="start"
+            align='start'
             className={classNames(cls.ProfileCard, mods, [className])}
         >
             {data?.avatar && (
-                <HStack justify="center" className={cls.avatarWrapper}>
+                <HStack justify='center' className={cls.avatarWrapper}>
                     <Avatar src={data?.avatar} />
                 </HStack>
             )}
@@ -106,7 +106,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 value={data?.first}
                 placeholder={t('Ваше имя_')}
                 readonly={readonly}
-                data-testid="ProfileCard.firstname"
+                data-testid='ProfileCard.firstname'
             />
 
             <Input
@@ -115,7 +115,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 value={data?.lastname}
                 placeholder={t('Ваше фамилия_')}
                 readonly={readonly}
-                data-testid="ProfileCard.lastname"
+                data-testid='ProfileCard.lastname'
             />
 
             <Input
@@ -149,7 +149,7 @@ export const ProfileCard = memo((props: IProfileCardProps) => {
                 placeholder={t('Введите ссылку на аватар_')}
                 readonly={readonly}
             />
-            <HStack gap="8">
+            <HStack gap='8'>
                 <CurrencySelect
                     className={cls.input}
                     value={data?.currency}

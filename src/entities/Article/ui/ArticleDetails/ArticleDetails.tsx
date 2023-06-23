@@ -5,7 +5,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Text, TextAlign, TextSize } from 'shared/UI/Text/ui/Text';
+import { Text, TextAlign, TextSize } from 'shared/UI/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { Skeleton } from 'shared/UI/Skeleton/Skeleton';
 import { Avatar } from 'shared/UI/Avatar/Avatar';
@@ -54,7 +54,7 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
     if (isLoading) {
         content = (
             <HStack>
-                <Skeleton border="50%" width={200} height={200} />
+                <Skeleton border='50%' width={200} height={200} />
             </HStack>
         );
     } else if (error) {
@@ -66,7 +66,7 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
         );
     } else {
         content = (
-            <VStack gap="16" align="start">
+            <VStack gap='16' align='start'>
                 <HStack max>
                     <Avatar size={200} src={article?.img} />
                 </HStack>
@@ -76,12 +76,12 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
                     text={article?.subtitle}
                     size={TextSize.L}
                 />
-                <HStack gap="8" justify="start">
+                <HStack gap='8' justify='start'>
                     <Icon Svg={EyeIcon} />
                     <Text text={String(article?.views)} />
                 </HStack>
 
-                <HStack align="start" gap="8" justify="start">
+                <HStack align='start' gap='8' justify='start'>
                     <Icon Svg={CalendarIcon} />
                     <Text text={article?.createdAt} />
                 </HStack>
@@ -93,7 +93,7 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <VStack gap="8" align="start">
+            <VStack gap='8' align='start'>
                 {content}
             </VStack>
         </DynamicModuleLoader>

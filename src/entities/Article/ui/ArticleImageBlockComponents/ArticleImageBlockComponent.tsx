@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Text } from 'shared/UI/Text/ui/Text';
+import { Text } from 'shared/UI/Text/Text';
 import cls from './ArticleImageBlockComponent.module.scss';
 import { IArticleImageBlock } from '../../modal/types/article';
 
@@ -19,5 +19,5 @@ export const ArticleImageBlockComponent = memo(
             <img src={block.src} className={cls.img} alt={block.title} />
             {block.title && <Text text={block.title} />}
         </div>
-    ),
+    )
 );

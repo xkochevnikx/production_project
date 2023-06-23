@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Card } from 'shared/UI/Card/Card';
-import { Input } from 'shared/UI/Input/UI/Input';
+import { Input } from 'shared/UI/Input/Input';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -24,7 +24,7 @@ export const ArticlesSearch = memo(
                 dispatch(articlesPageActions.setPage(1));
                 debounce();
             },
-            [dispatch, debounce],
+            [dispatch, debounce]
         );
 
         return (
@@ -36,5 +36,5 @@ export const ArticlesSearch = memo(
                 />
             </Card>
         );
-    },
+    }
 );

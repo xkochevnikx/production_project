@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { ArticleType } from 'entities/Article';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
+import { Button, ThemeButton } from 'shared/UI/Button/Button';
 import { HStack } from 'shared/UI/Stack/HStack/HStack';
 import { articlesPageActions } from 'features/ArticlesInfiniteList';
 import { IArticleTypeBtnItem } from '../modal/types/articleTypeTabItem';
@@ -26,7 +26,7 @@ export const ArticlesTypeTabs = memo((props: IArticlesTypeTabsProps) => {
             dispatch(articlesPageActions.setPage(1));
             debounce();
         },
-        [dispatch, debounce],
+        [dispatch, debounce]
     );
 
     const typeBtn = useMemo<IArticleTypeBtnItem[]>(
@@ -36,11 +36,11 @@ export const ArticlesTypeTabs = memo((props: IArticlesTypeTabsProps) => {
             { value: ArticleType.ECONOMICS, content: t('Экономика') },
             { value: ArticleType.SIENCE, content: t('Наука') },
         ],
-        [t],
+        [t]
     );
 
     return (
-        <HStack gap="8">
+        <HStack gap='8'>
             {typeBtn.map((tab) => (
                 <Button
                     onClick={() => onChangeType(tab)}

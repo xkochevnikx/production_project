@@ -5,6 +5,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import { IBuildOptions } from './types/config';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 
 export function buildPlagins({
     paths,
@@ -35,6 +36,10 @@ export function buildPlagins({
         new CopyPlugin({
             patterns: [{ from: paths.locales, to: paths.buildLocales }],
         }),
+        new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
+        }),
     ];
 
     //! эти два плагина добавляем только в режиме сборки
@@ -44,7 +49,7 @@ export function buildPlagins({
         plugins.push(
             new BundleAnalyzerPlugin({
                 openAnalyzer: false,
-            }),
+            })
         );
     }
 

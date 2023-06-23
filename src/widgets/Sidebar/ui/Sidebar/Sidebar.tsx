@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonSize, ThemeButton } from 'shared/UI/Button/ui/Button';
+import { Button, ButtonSize, ThemeButton } from 'shared/UI/Button/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { useSelector } from 'react-redux';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
@@ -25,12 +25,12 @@ export function Sidebar({ className }: SidebarProps) {
 
     return (
         <aside
-            data-testid="sidebar"
+            data-testid='sidebar'
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
                 className,
             ])}
         >
-            <VStack className={cls.items} align="start" gap="16">
+            <VStack className={cls.items} align='start' gap='16'>
                 {sidebarItemList.map((item) => (
                     <SidebarItem
                         item={item}
@@ -43,8 +43,8 @@ export function Sidebar({ className }: SidebarProps) {
             <Button
                 theme={ThemeButton.BACKGROUND_INVERTED}
                 className={cls.collapseBtn}
-                data-testid="sideToggle"
-                type="button"
+                data-testid='sideToggle'
+                type='button'
                 onClick={toggleOn}
                 square
                 size={ButtonSize.L}

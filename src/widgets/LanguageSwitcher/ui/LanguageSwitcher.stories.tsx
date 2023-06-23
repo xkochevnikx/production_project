@@ -2,18 +2,18 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ArticlesPageFilter } from './ArticlesPageFilter';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export default {
-    title: 'widget/ArticlesPageFilter',
-    component: ArticlesPageFilter,
+    title: 'widget/LanguageSwitcher',
+    component: LanguageSwitcher,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticlesPageFilter>;
+} as ComponentMeta<typeof LanguageSwitcher>;
 
-const Template: ComponentStory<typeof ArticlesPageFilter> = (args) => (
-    <ArticlesPageFilter {...args} />
+const Template: ComponentStory<typeof LanguageSwitcher> = (args) => (
+    <LanguageSwitcher {...args} />
 );
 
 export const Light = Template.bind({});
@@ -23,3 +23,4 @@ Light.decorators = [StoreDecorator({})];
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
+LanguageSwitcher;

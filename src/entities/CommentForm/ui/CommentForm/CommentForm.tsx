@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { Input } from 'shared/UI/Input/UI/Input';
+import { Input } from 'shared/UI/Input/Input';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/UI/Button/ui/Button';
+import { Button } from 'shared/UI/Button/Button';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -39,7 +39,7 @@ const CommentForm = memo(({ className, onSendComment }: ICommentFormProps) => {
         (value: string) => {
             dispatch(CommentFormActions.setText(value));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onSendHandler = useCallback(() => {
@@ -51,7 +51,7 @@ const CommentForm = memo(({ className, onSendComment }: ICommentFormProps) => {
         <DynamicModuleLoader reducers={reducers}>
             <HStack
                 max
-                justify="between"
+                justify='between'
                 className={classNames(cls.CommentForm, {}, [className])}
             >
                 <Input

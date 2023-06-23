@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Page } from 'widgets/Page/Page';
+import { Page } from 'widgets/Page/ui/Page';
 import { ArticleDetailsPageHeader } from 'features/ArticleDetailsPageHeader';
 import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList/ui/ArticleRecommendationsList';
@@ -17,7 +17,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
     const { id } = useParams<{ id: string }>();
     return (
         <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            <VStack gap="16" max>
+            <VStack gap='16' max>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <ArticleRecommendationsList />

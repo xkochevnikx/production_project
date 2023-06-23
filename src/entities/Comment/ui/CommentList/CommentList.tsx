@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/UI/Text/ui/Text';
+import { Text } from 'shared/UI/Text/Text';
 import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import { IComment } from '../../modal/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
@@ -15,7 +15,7 @@ export const CommentList = memo(({ comments, isLoading }: CommentListProps) => {
 
     if (isLoading) {
         return (
-            <VStack max gap="16">
+            <VStack max gap='16'>
                 <CommentCard isLoading />
                 <CommentCard isLoading />
                 <CommentCard isLoading />
@@ -24,7 +24,7 @@ export const CommentList = memo(({ comments, isLoading }: CommentListProps) => {
     }
 
     return (
-        <VStack gap="8" max>
+        <VStack gap='8' max>
             {comments?.length ? (
                 comments.map((comment) => (
                     <CommentCard

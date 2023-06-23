@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
-import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
+import { Button, ThemeButton } from 'shared/UI/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/UI/Text/ui/Text';
+import { Text } from 'shared/UI/Text/Text';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getProfileReadonly } from 'features/EditableProfileCard/modal/selectors/getProfileReadonly/getProfileReadonly';
@@ -45,7 +45,7 @@ export const ProfilePageHeader = memo(
 
         // todo - на кнопках тестовые айди для тестирования editableProfileCard, на них буду наживать в тестах
         return (
-            <HStack justify="between" max>
+            <HStack justify='between' max>
                 <Text title={t('Профиль')} />
                 {canEdit && (
                     <>
@@ -53,23 +53,23 @@ export const ProfilePageHeader = memo(
                             <Button
                                 onClick={onEdit}
                                 theme={ThemeButton.OUTLINE}
-                                data-testid="EditableProfileCardHeader.EditButton"
+                                data-testid='EditableProfileCardHeader.EditButton'
                             >
                                 {t('Редактировать')}
                             </Button>
                         ) : (
-                            <HStack gap="8">
+                            <HStack gap='8'>
                                 <Button
                                     onClick={onCancelEdit}
                                     theme={ThemeButton.OUTLINE_RED}
-                                    data-testid="EditableProfileCardHeader.CancelButton"
+                                    data-testid='EditableProfileCardHeader.CancelButton'
                                 >
                                     {t('Отменить')}
                                 </Button>
                                 <Button
                                     onClick={onSave}
                                     theme={ThemeButton.OUTLINE}
-                                    data-testid="EditableProfileCardHeader.SaveButton"
+                                    data-testid='EditableProfileCardHeader.SaveButton'
                                 >
                                     {t('Сохранить')}
                                 </Button>
@@ -79,5 +79,5 @@ export const ProfilePageHeader = memo(
                 )}
             </HStack>
         );
-    },
+    }
 );

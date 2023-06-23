@@ -1,12 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { Text } from 'shared/UI/Text/ui/Text';
+import { Text } from 'shared/UI/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { ArticleView } from 'entities/Article/modal/consts/consts';
 import cls from './ArticlesList.module.scss';
 import { IArticle } from '../../modal/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { ArticleView } from '../../modal/consts/consts';
 
 interface ArticlesListProps {
     className?: string;
@@ -18,9 +18,10 @@ interface ArticlesListProps {
 }
 
 //! в зависимости от view массив скелетонов возвращаемых функцией имеет определённую длинну, специально для страницы статей. он  ждёт когда будет isLoading
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
-    .fill(0)
-    .map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === ArticleView.SMALL ? 9 : 3)
+        .fill(0)
+        .map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
 export const ArticlesList = memo(
     ({
@@ -68,5 +69,5 @@ export const ArticlesList = memo(
                 {isLoading && getSkeletons(view)}
             </div>
         );
-    },
+    }
 );

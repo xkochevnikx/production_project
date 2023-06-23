@@ -2,7 +2,7 @@ import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import LightTheme from 'shared/assets/icons/lightTheme.svg';
 import DarkTheme from 'shared/assets/icons/darkTheme.svg';
-import { Button, ThemeButton } from 'shared/UI/Button/ui/Button';
+import { Button, ThemeButton } from 'shared/UI/Button/Button';
 import { memo } from 'react';
 
 interface ThemeSwitcherProps {
