@@ -36,10 +36,6 @@ export function buildPlagins({
         new CopyPlugin({
             patterns: [{ from: paths.locales, to: paths.buildLocales }],
         }),
-        new CircularDependencyPlugin({
-            exclude: /node_modules/,
-            failOnError: true,
-        }),
     ];
 
     //! эти два плагина добавляем только в режиме сборки
@@ -49,6 +45,12 @@ export function buildPlagins({
         plugins.push(
             new BundleAnalyzerPlugin({
                 openAnalyzer: false,
+            })
+        );
+        plugins.push(
+            new CircularDependencyPlugin({
+                exclude: /node_modules/,
+                failOnError: true,
             })
         );
     }
