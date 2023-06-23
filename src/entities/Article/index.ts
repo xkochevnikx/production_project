@@ -1,14 +1,14 @@
-export { IArticleDetailsSchema } from './modal/types/articleDetailsSchema';
+export type { IArticleDetailsSchema } from './modal/types/articleDetailsSchema';
+export type { IArticle } from './modal/types/article';
 
 export {
-    IArticle,
     ArticleView,
-} from '../../entities/Article/modal/types/article';
+    ArticleSortField,
+    ArticleType,
+} from './modal/consts/consts';
 
 export { getArticleDetailsData } from './modal/selectors/getAllArticleDetails';
 
 export { ArticlesList } from './ui/ArticleList/ArticlesList';
-
-export { ArticleSortField, ArticleType } from './modal/types/article';
 
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';

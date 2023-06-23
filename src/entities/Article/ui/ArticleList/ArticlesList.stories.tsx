@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ArticlesList } from './ArticlesList';
 import {
     ArticleBlockType,
     ArticleType,
     ArticleView,
-    IArticle,
-} from '../../modal/types/article';
-import { ArticlesList } from './ArticlesList';
+} from '../../modal/consts/consts';
+import { IArticle } from '../../modal/types/article';
 
 const article = {
     id: '1',

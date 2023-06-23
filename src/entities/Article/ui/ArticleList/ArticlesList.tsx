@@ -2,8 +2,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Text } from 'shared/UI/Text/ui/Text';
 import { useTranslation } from 'react-i18next';
+import { ArticleView } from 'entities/Article/modal/consts/consts';
 import cls from './ArticlesList.module.scss';
-import { ArticleView, IArticle } from '../../modal/types/article';
+import { IArticle } from '../../modal/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 

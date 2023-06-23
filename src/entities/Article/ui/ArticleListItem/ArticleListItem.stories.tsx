@@ -1,13 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { IArticle } from '../../modal/types/article';
+import { ArticleListItem } from './ArticleListItem';
 import {
     ArticleBlockType,
     ArticleType,
     ArticleView,
-    IArticle,
-} from '../../modal/types/article';
-import { ArticleListItem } from './ArticleListItem';
+} from '../../modal/consts/consts';
 
 const article = {
     id: '1',

@@ -6,13 +6,12 @@ import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/UI/Text/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { ProfileCard } from 'entities/ProfileCard/ui/ProfileCard';
 import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ValidateProfileError } from '../../modal/types/profile';
+import { ProfileCard } from 'entities/ProfileCard';
 import { ProfileActions, ProfileReducer } from '../../modal/slice/ProfileSlice';
 import { getProfileValidateErrors } from '../../modal/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../modal/services/fetchProfileData/fetchProfileData';
@@ -21,6 +20,7 @@ import { getProfileIsLoading } from '../../modal/selectors/getProfileIsLoading/g
 import { getProfileError } from '../../modal/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../modal/selectors/getProfileForm/getProfileForm';
 import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
+import { ValidateProfileError } from '../../modal/consts/consts';
 
 interface IEditableProfileProps {
     id?: string;

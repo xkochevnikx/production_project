@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { Card } from 'shared/UI/Card/Card';
 import { Skeleton } from 'shared/UI/Skeleton/Skeleton';
 import { HStack } from 'shared/UI/Stack/HStack/HStack';
-import { ArticleView } from '../../modal/types/article';
+import { ArticleView } from 'entities/Article/modal/consts/consts';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {

@@ -1,4 +1,4 @@
-import { UserRoles } from 'entities/User';
+import { UserRoles } from 'entities/User/modal/consts/consts';
 import { AboutPage } from 'pages/AboutPage';
 import { AdminPanelPage } from 'pages/AdminPanelPage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';

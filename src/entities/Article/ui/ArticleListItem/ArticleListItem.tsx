@@ -13,9 +13,8 @@ import { VStack } from 'shared/UI/Stack/VStack/VStack';
 import {
     ArticleBlockType,
     ArticleView,
-    IArticle,
-    IArticleTextBlock,
-} from '../../modal/types/article';
+} from 'entities/Article/modal/consts/consts';
+import { IArticle, IArticleTextBlock } from '../../modal/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import IconEye from '../../../../shared/assets/icons/eye.svg';
 import cls from './ArticleListItem.module.scss';

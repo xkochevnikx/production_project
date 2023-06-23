@@ -1,9 +1,4 @@
-import {
-    UserRoles,
-    getIsRole,
-    getUserAuthData,
-    userActions,
-} from 'entities/User';
+import { getIsRole, getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +10,7 @@ import { AppLink, AppLinkTheme } from 'shared/UI/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Dropdown } from 'shared/UI/Dropdown/Dropdown';
 import { Avatar } from 'shared/UI/Avatar/Avatar';
+import { UserRoles } from 'entities/User/modal/consts/consts';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

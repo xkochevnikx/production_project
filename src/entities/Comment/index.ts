@@ -1,3 +1,3 @@
 export { CommentList } from './ui/CommentList/CommentList';
 
-export { IComment } from './modal/types/comment';
+export type { IComment } from './modal/types/comment';

@@ -1,6 +1,6 @@
 import { IStateSchema } from 'app/providers/StoreProviders';
-import { ValidateProfileError } from '../../types/profile';
 import { getProfileValidateErrors } from './getProfileValidateErrors';
+import { ValidateProfileError } from '../../consts/consts';
 
 describe('getProfileValidateErrors.test', () => {
     test('validateErrors', () => {

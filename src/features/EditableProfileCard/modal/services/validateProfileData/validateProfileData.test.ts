@@ -1,4 +1,4 @@
-import { ValidateProfileError } from '../../types/profile';
+import { ValidateProfileError } from '../../consts/consts';
 import { validateProfileData } from './validateProfileData';
 
 const data = {

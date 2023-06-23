@@ -1,4 +1,4 @@
-export { IArticlesPageSchema } from '../../features/ArticlesInfiniteList/modal/types/articlePageSchema';
+export type { IArticlesPageSchema } from '../../features/ArticlesInfiniteList/modal/types/articlePageSchema';
 export { articlesPageActions } from './modal/slice/articlesPageSlice';
 export { getArticlesPageSort } from '../../features/ArticlesInfiniteList/modal/selectors/getArticlesPageSelectors';
 export { getArticlesPageOrder } from '../../features/ArticlesInfiniteList/modal/selectors/getArticlesPageSelectors';

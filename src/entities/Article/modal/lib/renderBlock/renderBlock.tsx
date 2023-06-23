@@ -1,7 +1,8 @@
 import { ArticleImageBlockComponent } from '../../../ui/ArticleImageBlockComponents/ArticleImageBlockComponent';
-import { ArticleBlock, ArticleBlockType } from '../../types/article';
+import { ArticleBlock } from '../../types/article';
 import { ArticleCodeBlockComponent } from '../../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleTextBlockComponent } from '../../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleBlockType } from '../../consts/consts';
 
 //! функция для отрисовки блоков, она принимает блок смотрит тип и на этом основании возвращает компонент
 export const renderBlock = (block: ArticleBlock) => {

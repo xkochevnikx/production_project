@@ -1,10 +1,10 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
 import userEvent from '@testing-library/user-event';
-import { $api } from 'shared/api/api';
+// import { $api } from 'shared/api/api';
 import { ProfileReducer } from 'features/EditableProfileCard/modal/slice/ProfileSlice';
-import { IProfile } from 'features/EditableProfileCard/modal/types/profile';
 import { EditableProfileCard } from './EditableProfileCard';
+import { IProfile } from '../../modal/types/profile';
 
 const profile: IProfile = {
     id: '1',

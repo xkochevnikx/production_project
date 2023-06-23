@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IThunkConfig } from 'app/providers/StoreProviders';
-import { IProfile, ValidateProfileError } from '../../types/profile';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
+import { ValidateProfileError } from '../../consts/consts';
+import { IProfile } from '../../types/profile';
 //! фанк обновления данных, достаёт из поля форм обновлённые данные помешает их функцию валидации и если там есть ошибки прерывает выполенение и возвращает массив ошибок
 export const updateProfileData = createAsyncThunk<
     IProfile,
