@@ -1,9 +1,10 @@
+import babelRemovePropsPlugin from '../babelRemovePropsPlugin/babelRemovePropsPlugin';
 import { IBuildOptions } from '../types/config';
 
 interface IBabelLoaderProps extends IBuildOptions {
     isTsx?: boolean;
 }
-export function buildBabelLoaders({ isTsx }: IBabelLoaderProps) {
+export function buildBabelLoaders({ isDev, isTsx }: IBabelLoaderProps) {
     //! preset-env преобразовывает новые стандарты языка в старые
     return {
         test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
@@ -20,6 +21,17 @@ export function buildBabelLoaders({ isTsx }: IBabelLoaderProps) {
                         },
                     ],
                     '@babel/plugin-transform-runtime',
+
+                    ...(isTsx && !isDev
+                        ? [
+                              [
+                                  babelRemovePropsPlugin,
+                                  {
+                                      props: ['data-testid'],
+                                  },
+                              ],
+                          ]
+                        : []),
                 ],
             },
         },

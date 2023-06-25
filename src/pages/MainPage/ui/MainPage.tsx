@@ -7,7 +7,7 @@ export function MainPage() {
     const { t } = useTranslation('main');
     return (
         <Page>
-            <HStack gap="8">
+            <HStack gap='8'>
                 <h2>{t('Главная')}</h2>
                 <BugButton />
             </HStack>

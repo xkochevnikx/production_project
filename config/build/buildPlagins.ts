@@ -6,6 +6,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 import { IBuildOptions } from './types/config';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 export function buildPlagins({
     paths,
@@ -36,6 +37,16 @@ export function buildPlagins({
         new CopyPlugin({
             patterns: [{ from: paths.locales, to: paths.buildLocales }],
         }),
+        //! плагин для проверки типов. проверка не влияет на скорость сборки основного кода
+        new ForkTsCheckerWebpackPlugin({
+            typescript: {
+                diagnosticOptions: {
+                    semantic: true,
+                    syntactic: true,
+                },
+                mode: 'write-references',
+            },
+        }),
     ];
 
     //! эти два плагина добавляем только в режиме сборки
@@ -45,14 +56,14 @@ export function buildPlagins({
         plugins.push(
             new BundleAnalyzerPlugin({
                 openAnalyzer: false,
-            }),
+            })
         );
         //! плагин выкидывающий ошибку при сборке на кольцевые зависимости
         plugins.push(
             new CircularDependencyPlugin({
                 exclude: /node_modules/,
                 failOnError: true,
-            }),
+            })
         );
     }
 

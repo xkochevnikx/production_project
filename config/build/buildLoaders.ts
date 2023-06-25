@@ -18,7 +18,7 @@ export function buildLoaders(options: IBuildOptions): webpack.RuleSetRule[] {
 
     const svgLoader = buildSvgLoader();
 
-    //!
+    //! сперва обработавываем tsx/jsx потом ts/js
     const codeBabelLoader = buildBabelLoaders({ ...options, isTsx: false });
     const tsxCodeBabelLoader = buildBabelLoaders({ ...options, isTsx: true });
 
