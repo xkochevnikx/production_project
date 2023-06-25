@@ -24,7 +24,7 @@ export const ArticlesSearch = memo(
                 dispatch(articlesPageActions.setPage(1));
                 debounce();
             },
-            [dispatch, debounce]
+            [dispatch, debounce],
         );
 
         return (
@@ -36,5 +36,5 @@ export const ArticlesSearch = memo(
                 />
             </Card>
         );
-    }
+    },
 );

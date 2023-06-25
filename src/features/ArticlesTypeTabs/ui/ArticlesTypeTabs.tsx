@@ -26,7 +26,7 @@ export const ArticlesTypeTabs = memo((props: IArticlesTypeTabsProps) => {
             dispatch(articlesPageActions.setPage(1));
             debounce();
         },
-        [dispatch, debounce]
+        [dispatch, debounce],
     );
 
     const typeBtn = useMemo<IArticleTypeBtnItem[]>(
@@ -36,11 +36,11 @@ export const ArticlesTypeTabs = memo((props: IArticlesTypeTabsProps) => {
             { value: ArticleType.ECONOMICS, content: t('Экономика') },
             { value: ArticleType.SIENCE, content: t('Наука') },
         ],
-        [t]
+        [t],
     );
 
     return (
-        <HStack gap='8'>
+        <HStack gap="8">
             {typeBtn.map((tab) => (
                 <Button
                     onClick={() => onChangeType(tab)}

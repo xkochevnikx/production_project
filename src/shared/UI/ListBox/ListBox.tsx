@@ -41,19 +41,19 @@ export function ListBox(props: IListBoxProps) {
     return (
         <HListbox
             disabled={readonly}
-            as='div'
+            as="div"
             className={classNames(cls.ListBox, {}, [className])}
             value={value}
             onChange={onChange}
         >
-            <HListbox.Button as='div' className={cls.trigger}>
+            <HListbox.Button as="div" className={cls.trigger}>
                 <Button disabled={readonly}>{value}</Button>
             </HListbox.Button>
             <HListbox.Options
                 className={classNames(
                     cls.options,
                     { [mapDirectionClass[direction]]: true },
-                    []
+                    [],
                 )}
             >
                 {items?.map((item) => (
@@ -71,7 +71,7 @@ export function ListBox(props: IListBoxProps) {
                                         [cls.active]: active,
                                         [cls.disabled]: item.disabled,
                                     },
-                                    []
+                                    [],
                                 )}
                             >
                                 {selected && '✔ '}

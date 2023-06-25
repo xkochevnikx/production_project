@@ -19,5 +19,5 @@ export const ArticleImageBlockComponent = memo(
             <img src={block.src} className={cls.img} alt={block.title} />
             {block.title && <Text text={block.title} />}
         </div>
-    )
+    ),
 );

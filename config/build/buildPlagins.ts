@@ -4,8 +4,8 @@ import MiniCssExtractPlagin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
-import { IBuildOptions } from './types/config';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
+import { IBuildOptions } from './types/config';
 
 export function buildPlagins({
     paths,
@@ -45,13 +45,14 @@ export function buildPlagins({
         plugins.push(
             new BundleAnalyzerPlugin({
                 openAnalyzer: false,
-            })
+            }),
         );
+        //! плагин выкидывающий ошибку при сборке на кольцевые зависимости
         plugins.push(
             new CircularDependencyPlugin({
                 exclude: /node_modules/,
                 failOnError: true,
-            })
+            }),
         );
     }
 

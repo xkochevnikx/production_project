@@ -52,12 +52,12 @@ export const ArticleComments = memo((props: IArticleCommentsProps) => {
                 dispatch(addCommentForArticle(text));
             }
         },
-        [dispatch]
+        [dispatch],
     );
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <VStack max gap='16' align='start'>
+            <VStack max gap="16" align="start">
                 <Text size={TextSize.L} title={t('Комментарии')} />
                 <CommentForm onSendComment={onSendComment} />
                 <CommentList isLoading={isLoading} comments={comments} />

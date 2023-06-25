@@ -21,5 +21,5 @@ export const ArticleTextBlockComponent = memo(
                 <Text key={p} text={p} className={cls.paragraph} />
             ))}
         </div>
-    )
+    ),
 );

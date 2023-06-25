@@ -65,11 +65,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     items={[
                         ...(isAdminPanelAvailable
                             ? [
-                                  {
-                                      content: t('Админка'),
-                                      href: RoutePath.admin_panel,
-                                  },
-                              ]
+                                {
+                                    content: t('Админка'),
+                                    href: RoutePath.admin_panel,
+                                },
+                            ]
                             : []),
                         {
                             content: t('Выйти'),

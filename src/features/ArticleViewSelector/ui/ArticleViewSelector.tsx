@@ -37,11 +37,11 @@ export const ArticleViewSelector = memo(
                 dispatch(articlesPageActions.setPage(1));
                 debounce();
             },
-            [dispatch, debounce]
+            [dispatch, debounce],
         );
 
         return (
-            <HStack align='center' gap='8' className={cls.ArticleViewSelector}>
+            <HStack align="center" gap="8" className={cls.ArticleViewSelector}>
                 {viewTypes.map((viewItem) => (
                     <Button
                         key={viewItem.view}
@@ -53,12 +53,12 @@ export const ArticleViewSelector = memo(
                             className={classNames(
                                 '',
                                 { [cls.notSelected]: viewItem.view !== view },
-                                [className]
+                                [className],
                             )}
                         />
                     </Button>
                 ))}
             </HStack>
         );
-    }
+    },
 );

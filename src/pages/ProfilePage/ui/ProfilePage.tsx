@@ -9,7 +9,7 @@ function ProfilePage() {
 
     return (
         <Page>
-            <VStack gap='16' max>
+            <VStack gap="16" max>
                 <EditableProfileCard id={id} />
             </VStack>
         </Page>
