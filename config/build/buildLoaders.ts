@@ -18,19 +18,24 @@ export function buildLoaders(options: IBuildOptions): webpack.RuleSetRule[] {
 
     const svgLoader = buildSvgLoader();
 
-    //! изначально был добавлен для обработки переводов и запиливания их в отдельную папку но мне это не нужно
-    const babelLoader = buildBabelLoaders(options);
+    //!
+    const codeBabelLoader = buildBabelLoaders({ ...options, isTsx: false });
+    const tsxCodeBabelLoader = buildBabelLoaders({ ...options, isTsx: true });
 
     const cssLoader = buildCssLoaders(isDev);
 
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        //! исключаем папку
-        exclude: /node_modules/,
-    };
+    //! перенес обработку ts файлов в бейбл
+    // const typescriptLoader = {
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/,
+    // };
 
-    //!
-
-    return [babelLoader, typescriptLoader, cssLoader, fileLoader, svgLoader];
+    return [
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        cssLoader,
+        fileLoader,
+        svgLoader,
+    ];
 }

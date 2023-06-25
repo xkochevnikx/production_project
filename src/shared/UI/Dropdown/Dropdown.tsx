@@ -46,6 +46,7 @@ export function Dropdown(props: IDropdownProps) {
                 )}
             >
                 {items.map((item, index) => {
+                    // eslint-disable-next-line
                     function content({ active }: { active: boolean }) {
                         return (
                             <div
