@@ -5,8 +5,8 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
-import { IBuildOptions } from './types/config';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import { IBuildOptions } from './types/config';
 
 export function buildPlagins({
     paths,
@@ -53,17 +53,17 @@ export function buildPlagins({
     if (isDev) {
         //! плагин для мгновенной перерисовки после изменений
         plugins.push(new ReactRefreshWebpackPlugin());
-        plugins.push(
-            new BundleAnalyzerPlugin({
-                openAnalyzer: false,
-            })
-        );
+        // plugins.push(
+        //     new BundleAnalyzerPlugin({
+        //         openAnalyzer: false,
+        //     })
+        // );
         //! плагин выкидывающий ошибку при сборке на кольцевые зависимости
         plugins.push(
             new CircularDependencyPlugin({
                 exclude: /node_modules/,
                 failOnError: true,
-            })
+            }),
         );
     }
 

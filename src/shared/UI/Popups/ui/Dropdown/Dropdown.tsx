@@ -3,7 +3,11 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import React, { ReactNode } from 'react';
 import { DropDownDirection } from 'shared/types/ui';
 import cls from './Dropdown.module.scss';
-import { AppLink } from '../AppLink/AppLink';
+//! общие стили вынес в отдельный файл
+import popupCls from '../../styles/popup.module.scss';
+import { AppLink } from '../../../AppLink/AppLink';
+//! мапер вынесен в отдельный файл
+import { mapDirectionClass } from '../../styles/consts';
 
 export interface IDropdownItem {
     content?: ReactNode;
@@ -29,15 +33,15 @@ export function Dropdown(props: IDropdownProps) {
 
     // const directions = mapDirectionClass[direction];
 
-    const mapDirectionClass: Record<DropDownDirection, string> = {
-        'bottom left': cls.bottomLeft,
-        'bottom right': cls.bottomRight,
-        'top left': cls.topLeft,
-        'top right': cls.topRight,
-    };
     return (
-        <Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
-            <Menu.Button className={cls.btn}>{trigger}</Menu.Button>
+        <Menu
+            as="div"
+            className={classNames(cls.Dropdown, {}, [
+                className,
+                popupCls.popup,
+            ])}
+        >
+            <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
             <Menu.Items
                 className={classNames(
                     cls.menu,
@@ -53,7 +57,7 @@ export function Dropdown(props: IDropdownProps) {
                                 key={index}
                                 onClick={item.onClick}
                                 className={classNames(cls.item, {
-                                    [cls.active]: active,
+                                    [popupCls.active]: active,
                                 })}
                             >
                                 {item.content}

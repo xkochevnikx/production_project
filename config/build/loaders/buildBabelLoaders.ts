@@ -24,13 +24,13 @@ export function buildBabelLoaders({ isDev, isTsx }: IBabelLoaderProps) {
 
                     ...(isTsx && !isDev
                         ? [
-                              [
-                                  babelRemovePropsPlugin,
-                                  {
-                                      props: ['data-testid'],
-                                  },
-                              ],
-                          ]
+                            [
+                                babelRemovePropsPlugin,
+                                {
+                                    props: ['data-testid'],
+                                },
+                            ],
+                        ]
                         : []),
                 ],
             },
