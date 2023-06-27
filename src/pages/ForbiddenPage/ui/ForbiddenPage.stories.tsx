@@ -1,20 +1,18 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { NotFoundPage } from './NotFoundPage';
+import { ForbiddenPage } from './ForbiddenPage';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-    title: 'pages/NotFoundPage',
-    component: NotFoundPage,
+    title: 'pages/ForbiddenPage',
+    component: ForbiddenPage,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof NotFoundPage>;
+} as ComponentMeta<typeof ForbiddenPage>;
 
-const Template: ComponentStory<typeof NotFoundPage> = (args) => (
-    <NotFoundPage {...args} />
-);
+const Template: ComponentStory<typeof ForbiddenPage> = () => <ForbiddenPage />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

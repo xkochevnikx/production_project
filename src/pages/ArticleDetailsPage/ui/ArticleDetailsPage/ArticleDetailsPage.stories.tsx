@@ -4,6 +4,8 @@ import { UserRoles } from 'entities/User/modal/consts/consts';
 import { ArticleBlockType } from 'entities/Article/modal/consts/consts';
 import { ArticleType, IArticle } from '../../../../entities/Article/index';
 import ArticleDetailsPage from './ArticleDetailsPage';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 
 export default {
     title: 'pages/ArticleDetailsPage',
@@ -58,12 +60,34 @@ const article: IArticle = {
     ],
 };
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [
+export const Primary = Template.bind({});
+Primary.args = {};
+Primary.decorators = [
     StoreDecorator({
         articleDetails: {
             data: article,
         },
     }),
+];
+
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+    }),
+    ThemeDecorator(Theme.DARK),
+];
+
+export const Orange = Template.bind({});
+Orange.args = {};
+Orange.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+    }),
+    ThemeDecorator(Theme.ORANGE),
 ];

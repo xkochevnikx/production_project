@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Krochik from './крош.jpg';
-import { Avatar } from '../../assets/icons/крош.jpg';
+import Krochik from '../../assets/icons/крош.jpg';
+import { Avatar } from './Avatar';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 

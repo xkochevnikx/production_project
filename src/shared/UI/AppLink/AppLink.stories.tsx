@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { AppLink, AppLinkTheme } from './AppLink';
+import { Button } from '../Button/Button';
 
 export default {
     title: 'shared/AppLink',
@@ -21,7 +22,11 @@ const Template: ComponentStory<typeof AppLink> = (args) => (
 export const Primary = Template.bind({});
 Primary.args = {
     children: 'qwerty',
-    theme: AppLinkTheme.PRIMARY,
+};
+
+export const PrimaryChildrenNode = Template.bind({});
+PrimaryChildrenNode.args = {
+    children: <Button>кусь</Button>,
 };
 
 export const Secondary = Template.bind({});
@@ -37,9 +42,9 @@ PrimaryDark.args = {
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const SecondaryDark = Template.bind({});
-SecondaryDark.args = {
+export const SecondaryOrange = Template.bind({});
+SecondaryOrange.args = {
     children: 'qwerty',
     theme: AppLinkTheme.SECONDARY,
 };
-SecondaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+SecondaryOrange.decorators = [ThemeDecorator(Theme.ORANGE)];
