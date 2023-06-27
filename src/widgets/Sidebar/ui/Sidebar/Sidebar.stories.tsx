@@ -16,9 +16,9 @@ const Template: ComponentStory<typeof Sidebar> = (args) => (
     <Sidebar {...args} />
 );
 
-export const Light = Template.bind({});
-Light.args = {};
-Light.decorators = [
+export const Primary = Template.bind({});
+Primary.args = {};
+Primary.decorators = [
     StoreDecorator({
         user: {
             authData: {},
@@ -30,6 +30,17 @@ export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [
     ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+        user: {
+            authData: {},
+        },
+    }),
+];
+
+export const Orange = Template.bind({});
+Orange.args = {};
+Orange.decorators = [
+    ThemeDecorator(Theme.ORANGE),
     StoreDecorator({
         user: {
             authData: {},
