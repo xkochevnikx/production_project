@@ -1,28 +1,31 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { ArticlesSearch } from './ArticlesSearch';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { action } from '@storybook/addon-actions';
-import CommentForm from './CommentForm';
 
 export default {
-    title: 'entities/CommentForm',
-    component: CommentForm,
+    title: 'features/ArticlesSearch',
+    component: ArticlesSearch,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof CommentForm>;
+} as ComponentMeta<typeof ArticlesSearch>;
 
-const Template: ComponentStory<typeof CommentForm> = (args) => (
-    <CommentForm {...args} />
+const Template: ComponentStory<typeof ArticlesSearch> = (args) => (
+    <ArticlesSearch {...args} />
 );
 
 export const Primary = Template.bind({});
 Primary.args = {
-    onSendComment: action('onSendComment'),
+    search: 'кусь',
 };
 Primary.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
+
+export const Orange = Template.bind({});
+Orange.args = {};
+Orange.decorators = [ThemeDecorator(Theme.ORANGE), StoreDecorator({})];

@@ -1,29 +1,29 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleComments } from './ArticleComments';
+import { ArticleViewSelector } from './ArticleViewSelector';
 
 export default {
-    title: 'features/ArticleComments',
-    component: ArticleComments,
+    title: 'features/ArticleViewSelector',
+    component: ArticleViewSelector,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticleComments>;
+} as ComponentMeta<typeof ArticleViewSelector>;
 
-const Template: ComponentStory<typeof ArticleComments> = (arg) => (
-    <ArticleComments {...arg} />
+const Template: ComponentStory<typeof ArticleViewSelector> = (args) => (
+    <ArticleViewSelector {...args} />
 );
 
 export const Primary = Template.bind({});
-Primary.args = { id: '1' };
+Primary.args = {};
 Primary.decorators = [StoreDecorator({})];
 
-export const Dark = Template.bind({});
-Dark.args = { id: '1' };
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
-
 export const Orange = Template.bind({});
-Orange.args = { id: '1' };
+Orange.args = {};
 Orange.decorators = [ThemeDecorator(Theme.ORANGE), StoreDecorator({})];
+
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

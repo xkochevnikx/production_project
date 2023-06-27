@@ -31,10 +31,30 @@ const Template: ComponentStory<typeof ArticleRecommendationsList> = () => (
     <ArticleRecommendationsList />
 );
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [StoreDecorator({})];
-Normal.parameters = {
+export const Primary = Template.bind({});
+Primary.args = {};
+Primary.decorators = [StoreDecorator({})];
+Primary.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/articles?_limit=3`,
+            method: 'GET',
+            status: 200,
+            response: [
+                { ...article, id: '1' },
+                { ...article, id: '2' },
+                { ...article, id: '3' },
+                { ...article, id: '4' },
+                { ...article, id: '5' },
+            ],
+        },
+    ],
+};
+
+export const Orange = Template.bind({});
+Orange.args = {};
+Orange.decorators = [StoreDecorator({}), ThemeDecorator(Theme.ORANGE)];
+Orange.parameters = {
     mockData: [
         {
             url: `${__API__}/articles?_limit=3`,
