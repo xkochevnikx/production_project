@@ -1,19 +1,30 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Flex } from './Flex';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 
 export default {
     title: 'shared/Flex',
     component: Flex,
+
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        (Story) => (
+            <div style={{ display: 'flex', height: '100vh', width: '100%' }}>
+                <Story />
+            </div>
+        ),
+    ],
 } as ComponentMeta<typeof Flex>;
 
 const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args} />;
 
-export const Row16 = Template.bind({});
-Row16.args = {
-    gap: '16',
+export const JustifyRowStart = Template.bind({});
+JustifyRowStart.args = {
+    justify: 'start',
+    max: true,
     children: (
         <>
             <div>qwerty</div>
@@ -22,11 +33,37 @@ Row16.args = {
         </>
     ),
 };
-export const Column4 = Template.bind({});
-Column4.args = {
-    direction: 'column',
+
+export const JustifyRowStartDark = Template.bind({});
+JustifyRowStartDark.args = {
+    justify: 'start',
+    max: true,
+    children: (
+        <>
+            <div>qwerty</div>
+            <div>qwerty</div>
+            <div>qwerty</div>
+        </>
+    ),
+};
+JustifyRowStartDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const JustifyRowCenter = Template.bind({});
+JustifyRowCenter.args = {
+    max: true,
+    children: (
+        <>
+            <div>qwerty</div>
+            <div>qwerty</div>
+            <div>qwerty</div>
+        </>
+    ),
+};
+
+export const JustifyRowCenter4 = Template.bind({});
+JustifyRowCenter4.args = {
+    max: true,
     gap: '4',
-    align: 'end',
     children: (
         <>
             <div>qwerty</div>
@@ -35,9 +72,23 @@ Column4.args = {
         </>
     ),
 };
-export const RowJustify16 = Template.bind({});
-RowJustify16.args = {
-    justify: 'between',
+
+export const JustifyRowCenter8 = Template.bind({});
+JustifyRowCenter8.args = {
+    gap: '8',
+    max: true,
+    children: (
+        <>
+            <div>qwerty</div>
+            <div>qwerty</div>
+            <div>qwerty</div>
+        </>
+    ),
+};
+
+export const JustifyRowCenter16 = Template.bind({});
+JustifyRowCenter16.args = {
+    max: true,
     gap: '16',
     children: (
         <>
@@ -47,10 +98,10 @@ RowJustify16.args = {
         </>
     ),
 };
-export const ColumnJustify32 = Template.bind({});
-ColumnJustify32.args = {
-    direction: 'column',
-    justify: 'end',
+
+export const JustifyRowCenter32 = Template.bind({});
+JustifyRowCenter32.args = {
+    max: true,
     gap: '32',
     children: (
         <>
@@ -61,9 +112,64 @@ ColumnJustify32.args = {
     ),
 };
 
-export const RowBetween = Template.bind({});
-RowBetween.args = {
+export const JustifyRowEnd = Template.bind({});
+JustifyRowEnd.args = {
+    max: true,
+    justify: 'end',
+    children: (
+        <>
+            <div>qwerty</div>
+            <div>qwerty</div>
+            <div>qwerty</div>
+        </>
+    ),
+};
+
+export const JustifyRowBetween = Template.bind({});
+JustifyRowBetween.args = {
     justify: 'between',
+    max: true,
+    children: (
+        <>
+            <div>qwerty</div>
+            <div>qwerty</div>
+            <div>qwerty</div>
+        </>
+    ),
+};
+
+export const Column = Template.bind({});
+Column.args = {
+    direction: 'column',
+    max: true,
+    children: (
+        <>
+            <div>qwerty</div>
+            <div>qwerty</div>
+            <div>qwerty</div>
+        </>
+    ),
+};
+
+export const ColumnAlignStart = Template.bind({});
+ColumnAlignStart.args = {
+    align: 'start',
+    direction: 'column',
+    max: true,
+    children: (
+        <>
+            <div>qwerty</div>
+            <div>qwerty</div>
+            <div>qwerty</div>
+        </>
+    ),
+};
+
+export const ColumnAlignEnd = Template.bind({});
+ColumnAlignEnd.args = {
+    align: 'end',
+    direction: 'column',
+    max: true,
     children: (
         <>
             <div>qwerty</div>

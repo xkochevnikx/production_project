@@ -58,7 +58,7 @@ export const Text = memo((props: ITextProps) => {
             className={classNames(
                 cls.Text,
                 { [cls[theme]]: true, [cls[size]]: true, [cls[align]]: true },
-                [className],
+                [className]
             )}
         >
             {title && (

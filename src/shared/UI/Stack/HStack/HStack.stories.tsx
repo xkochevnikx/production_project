@@ -7,9 +7,25 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        (Story) => (
+            <div style={{ display: 'flex', height: '100vh', width: '100%' }}>
+                <Story />
+            </div>
+        ),
+    ],
 } as ComponentMeta<typeof HStack>;
 
 const Template: ComponentStory<typeof HStack> = (args) => <HStack {...args} />;
 
-export const Row16 = Template.bind({});
-Row16.args = {};
+export const Row = Template.bind({});
+Row.args = {
+    max: true,
+    children: (
+        <>
+            <div>qwerty</div>
+            <div>qwerty</div>
+            <div>qwerty</div>
+        </>
+    ),
+};
