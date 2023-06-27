@@ -15,9 +15,7 @@ interface IPopoverProps {
 }
 
 export function Popover(props: IPopoverProps) {
-    const {
-        className, direction = 'top left', trigger, children,
-    } = props;
+    const { className, direction = 'bottom left', trigger, children } = props;
 
     const directions = mapDirectionClass[direction];
 
