@@ -13,41 +13,10 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    children: 'Text',
-};
-
-export const Clear = Template.bind({});
-Clear.args = {
-    children: 'Text',
-    theme: ThemeButton.CLEAR,
-};
-
-export const ClearInverted = Template.bind({});
-ClearInverted.args = {
-    children: 'Text',
-    theme: ThemeButton.CLEAR_INVERTED,
-};
-
+// theme
 export const Outline = Template.bind({});
 Outline.args = {
-    children: 'Text',
-    theme: ThemeButton.OUTLINE,
-};
-
-export const OutlineSizeL = Template.bind({});
-OutlineSizeL.args = {
-    children: 'Text',
-    theme: ThemeButton.OUTLINE,
-    size: ButtonSize.L,
-};
-
-export const OutlineSizeXL = Template.bind({});
-OutlineSizeXL.args = {
-    children: 'Text',
-    theme: ThemeButton.OUTLINE,
-    size: ButtonSize.XL,
+    children: 'кусь',
 };
 
 export const OutlineDark = Template.bind({});
@@ -57,16 +26,50 @@ OutlineDark.args = {
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const BackgroundTheme = Template.bind({});
-BackgroundTheme.args = {
+export const OutlineOrange = Template.bind({});
+OutlineOrange.args = {
     children: 'Text',
+    theme: ThemeButton.OUTLINE,
+};
+OutlineOrange.decorators = [ThemeDecorator(Theme.ORANGE)];
+
+export const Clear = Template.bind({});
+Clear.args = {
+    children: 'кусь',
+    theme: ThemeButton.CLEAR,
+};
+
+export const ClearInverted = Template.bind({});
+ClearInverted.args = {
+    children: 'кусь',
+    theme: ThemeButton.CLEAR_INVERTED,
+};
+
+export const OutlineRed = Template.bind({});
+OutlineRed.args = {
+    children: 'кусь',
+    theme: ThemeButton.OUTLINE_RED,
+};
+
+export const Background = Template.bind({});
+Background.args = {
+    children: 'кусь',
     theme: ThemeButton.BACKGROUND,
 };
 
 export const BackgroundInverted = Template.bind({});
 BackgroundInverted.args = {
-    children: 'Text',
+    children: 'кусь',
     theme: ThemeButton.BACKGROUND_INVERTED,
+};
+
+//size
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    children: '>',
+    theme: ThemeButton.OUTLINE,
+    disabled: true,
 };
 
 export const Square = Template.bind({});
@@ -92,9 +95,16 @@ SquareSizeXL.args = {
     size: ButtonSize.XL,
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-    children: '>',
+export const OutlineSizeL = Template.bind({});
+OutlineSizeL.args = {
+    children: 'Text',
     theme: ThemeButton.OUTLINE,
-    disabled: true,
+    size: ButtonSize.L,
+};
+
+export const OutlineSizeXL = Template.bind({});
+OutlineSizeXL.args = {
+    children: 'Text',
+    theme: ThemeButton.OUTLINE,
+    size: ButtonSize.XL,
 };
