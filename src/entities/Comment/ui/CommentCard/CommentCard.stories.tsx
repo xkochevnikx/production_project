@@ -23,6 +23,7 @@ Primary.args = {
         id: '1',
         text: 'qwerty',
         user: {
+            avatar: 'https://chudo-prirody.com/uploads/posts/2023-04/1682586022_chudo-prirody-com-p-nerpi-baikalskie-foto-19.jpg',
             id: '1',
             username: 'svyat',
             roles: [UserRoles.ADMIN],
@@ -31,14 +32,19 @@ Primary.args = {
 };
 Primary.decorators = [StoreDecorator({})];
 
-export const Loading = Template.bind({});
-Loading.args = {
+export const isLoading = Template.bind({});
+isLoading.args = {
     isLoading: true,
 };
-Primary.decorators = [StoreDecorator({})];
 
-export const LoadingDark = Template.bind({});
-LoadingDark.args = {
+export const isLoadingDark = Template.bind({});
+isLoadingDark.args = {
     isLoading: true,
 };
-LoadingDark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
+isLoadingDark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
+
+export const isLoadingOrange = Template.bind({});
+isLoadingOrange.args = {
+    isLoading: true,
+};
+isLoadingOrange.decorators = [StoreDecorator({}), ThemeDecorator(Theme.ORANGE)];

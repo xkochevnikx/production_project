@@ -96,21 +96,42 @@ const Template: ComponentStory<typeof ArticleListItem> = (args) => (
     <ArticleListItem {...args} />
 );
 
-export const ListItemBig = Template.bind({});
-ListItemBig.args = {
+export const PrimaryItemBig = Template.bind({});
+PrimaryItemBig.args = {
     article,
     view: ArticleView.BIG,
 };
 
-export const ListItemSmall = Template.bind({});
-ListItemSmall.args = {
+export const DarkItemBig = Template.bind({});
+DarkItemBig.args = {
+    article,
+    view: ArticleView.BIG,
+};
+DarkItemBig.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const OrangeItemBig = Template.bind({});
+OrangeItemBig.args = {
+    article,
+    view: ArticleView.BIG,
+};
+OrangeItemBig.decorators = [ThemeDecorator(Theme.ORANGE)];
+
+export const PrimaryItemSmall = Template.bind({});
+PrimaryItemSmall.args = {
     article,
     view: ArticleView.SMALL,
 };
 
-export const ListItemSmallDark = Template.bind({});
-ListItemSmallDark.args = {
+export const ItemSmallDark = Template.bind({});
+ItemSmallDark.args = {
     article,
     view: ArticleView.SMALL,
 };
-ListItemSmallDark.decorators = [ThemeDecorator(Theme.DARK)];
+ItemSmallDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const ItemSmallOrange = Template.bind({});
+ItemSmallOrange.args = {
+    article,
+    view: ArticleView.SMALL,
+};
+ItemSmallOrange.decorators = [ThemeDecorator(Theme.ORANGE)];

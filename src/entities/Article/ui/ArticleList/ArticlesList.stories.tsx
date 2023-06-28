@@ -94,15 +94,8 @@ const Template: ComponentStory<typeof ArticlesList> = (args) => (
     <ArticlesList {...args} />
 );
 
-export const ListBigisLoading = Template.bind({});
-ListBigisLoading.args = {
-    articles: [],
-    isLoading: true,
-    view: ArticleView.BIG,
-};
-
-export const ListBig = Template.bind({});
-ListBig.args = {
+export const PrimaryBig = Template.bind({});
+PrimaryBig.args = {
     articles: new Array(16).fill(0).map((_, index) => ({
         ...article,
         id: String(index),
@@ -111,19 +104,26 @@ ListBig.args = {
     view: ArticleView.BIG,
 };
 
-export const ListSmallisLoading = Template.bind({});
-ListSmallisLoading.args = {
+export const PrimaryBigIsLoading = Template.bind({});
+PrimaryBigIsLoading.args = {
     articles: [],
     isLoading: true,
+    view: ArticleView.BIG,
+};
+
+export const PrimarySmall = Template.bind({});
+PrimarySmall.args = {
+    articles: new Array(16).fill(0).map((_, index) => ({
+        ...article,
+        id: String(index),
+    })),
+    isLoading: false,
     view: ArticleView.SMALL,
 };
 
-export const ListSmall = Template.bind({});
-ListSmall.args = {
-    articles: new Array(16).fill(0).map((_, index) => ({
-        ...article,
-        id: String(index),
-    })),
-    isLoading: false,
+export const PrimarySmallIsLoading = Template.bind({});
+PrimarySmallIsLoading.args = {
+    articles: [],
+    isLoading: true,
     view: ArticleView.SMALL,
 };

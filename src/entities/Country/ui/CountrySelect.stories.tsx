@@ -1,12 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { CurrencySelect } from './CurrencySelect';
-import { Currency } from 'entities/Current/modal/types/currency';
+import { CountrySelect } from './CountrySelect';
+import { Country } from '../modal/types/country';
 
 export default {
-    title: 'entities/CurrencySelect',
-    component: CurrencySelect,
+    title: 'entities/CountrySelect',
+    component: CountrySelect,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
@@ -25,21 +25,21 @@ export default {
             </div>
         ),
     ],
-} as ComponentMeta<typeof CurrencySelect>;
+} as ComponentMeta<typeof CountrySelect>;
 
-const Template: ComponentStory<typeof CurrencySelect> = (args) => (
-    <CurrencySelect {...args} />
+const Template: ComponentStory<typeof CountrySelect> = (args) => (
+    <CountrySelect {...args} />
 );
 
 export const PrimaryReadonly = Template.bind({});
 PrimaryReadonly.args = {
-    value: Currency.EUR,
+    value: Country.Ingermanland,
     readonly: true,
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
-    value: Currency.RUB,
+    value: Country.Ingermanland,
 };
 Dark.decorators = [
     (Story) => (
@@ -60,7 +60,7 @@ Dark.decorators = [
 
 export const Orange = Template.bind({});
 Orange.args = {
-    value: Currency.EUR,
+    value: Country.Ingermanland,
 };
 Orange.decorators = [
     (Story) => (

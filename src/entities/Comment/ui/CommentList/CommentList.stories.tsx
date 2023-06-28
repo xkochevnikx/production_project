@@ -2,6 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { UserRoles } from 'entities/User/modal/consts/consts';
 import { CommentList } from './CommentList';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 
 export default {
     title: 'entities/Comment/CommentList',
@@ -22,6 +24,7 @@ Primary.args = {
             id: '1',
             text: 'qwerty',
             user: {
+                avatar: 'https://chudo-prirody.com/uploads/posts/2023-04/1682586022_chudo-prirody-com-p-nerpi-baikalskie-foto-19.jpg',
                 id: '1',
                 username: 'svyat',
                 roles: [UserRoles.ADMIN],
@@ -31,6 +34,7 @@ Primary.args = {
             id: '2',
             text: 'asdfg',
             user: {
+                avatar: 'https://chudo-prirody.com/uploads/posts/2023-04/1682586022_chudo-prirody-com-p-nerpi-baikalskie-foto-19.jpg',
                 id: '2',
                 username: 'sssss',
                 roles: [UserRoles.USER],
@@ -39,6 +43,60 @@ Primary.args = {
     ],
 };
 Primary.decorators = [StoreDecorator({})];
+
+export const Dark = Template.bind({});
+Dark.args = {
+    comments: [
+        {
+            id: '1',
+            text: 'qwerty',
+            user: {
+                avatar: 'https://chudo-prirody.com/uploads/posts/2023-04/1682586022_chudo-prirody-com-p-nerpi-baikalskie-foto-19.jpg',
+                id: '1',
+                username: 'svyat',
+                roles: [UserRoles.ADMIN],
+            },
+        },
+        {
+            id: '2',
+            text: 'asdfg',
+            user: {
+                avatar: 'https://chudo-prirody.com/uploads/posts/2023-04/1682586022_chudo-prirody-com-p-nerpi-baikalskie-foto-19.jpg',
+                id: '2',
+                username: 'sssss',
+                roles: [UserRoles.USER],
+            },
+        },
+    ],
+};
+Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
+
+export const Orange = Template.bind({});
+Orange.args = {
+    comments: [
+        {
+            id: '1',
+            text: 'qwerty',
+            user: {
+                avatar: 'https://chudo-prirody.com/uploads/posts/2023-04/1682586022_chudo-prirody-com-p-nerpi-baikalskie-foto-19.jpg',
+                id: '1',
+                username: 'svyat',
+                roles: [UserRoles.ADMIN],
+            },
+        },
+        {
+            id: '2',
+            text: 'asdfg',
+            user: {
+                avatar: 'https://chudo-prirody.com/uploads/posts/2023-04/1682586022_chudo-prirody-com-p-nerpi-baikalskie-foto-19.jpg',
+                id: '2',
+                username: 'sssss',
+                roles: [UserRoles.USER],
+            },
+        },
+    ],
+};
+Orange.decorators = [StoreDecorator({}), ThemeDecorator(Theme.ORANGE)];
 
 export const Loading = Template.bind({});
 Loading.args = {
