@@ -28,6 +28,19 @@ Primary.args = {
     },
 };
 
+export const PrimaryReadonly = Template.bind({});
+PrimaryReadonly.args = {
+    readonly: true,
+    data: {
+        username: 'qwe',
+        first: 'qwe',
+        lastname: 'qwe',
+        age: 123,
+        city: 'qwer',
+        avatar: AvatarImg,
+    },
+};
+
 export const Dark = Template.bind({});
 Dark.args = {
     data: {
