@@ -41,12 +41,25 @@ Dark.args = {
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const Orange = Template.bind({});
+Orange.args = {
+    data: {
+        username: 'qwe',
+        first: 'qwe',
+        lastname: 'qwe',
+        age: 123,
+        city: 'qwer',
+        avatar: AvatarImg,
+    },
+};
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
+
 export const Error = Template.bind({});
 Error.args = {
     error: 'error',
 };
 
-export const Loading = Template.bind({});
-Loading.args = {
+export const isLoading = Template.bind({});
+isLoading.args = {
     isLoading: true,
 };
