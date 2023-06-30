@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ListBox } from './ListBox';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { ListBox } from './ListBox';
 
 export default {
     title: 'shared/ListBox',
@@ -36,20 +36,20 @@ const items = [
 export const Primary = Template.bind({});
 Primary.args = {
     value: 'qwerty',
-    items: items,
+    items,
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
     value: 'qwerty',
-    items: items,
+    items,
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Orange = Template.bind({});
 Orange.args = {
     value: 'qwerty',
-    items: items,
+    items,
 };
 Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
 
@@ -57,26 +57,26 @@ export const PrimaryTopRight = Template.bind({});
 PrimaryTopRight.args = {
     direction: 'top right',
     value: 'qwerty',
-    items: items,
+    items,
 };
 
 export const PrimaryBottomLeft = Template.bind({});
 PrimaryBottomLeft.args = {
     direction: 'bottom left',
     value: 'qwerty',
-    items: items,
+    items,
 };
 
 export const PrimaryBottomRight = Template.bind({});
 PrimaryBottomRight.args = {
     direction: 'bottom right',
     value: 'qwerty',
-    items: items,
+    items,
 };
 
 export const PrimaryDisabled = Template.bind({});
 PrimaryDisabled.args = {
     readonly: true,
     value: 'qwerty',
-    items: items,
+    items,
 };

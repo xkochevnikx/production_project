@@ -3,10 +3,10 @@ import { Popover } from 'shared/UI/Popups';
 import { Button, ThemeButton } from 'shared/UI/Button/Button';
 import { Icon } from 'shared/UI/Icon/Icon';
 import { NotificationList } from 'entities/Notification';
-import cls from './NotificationButton.module.scss';
-import Alert from '../../../shared/assets/icons/alert.svg';
 import { Drawer } from 'shared/UI/Drawer/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
+import cls from './NotificationButton.module.scss';
+import Alert from '../../../shared/assets/icons/alert.svg';
 
 interface NotificationButtonProps {
     className?: string;
@@ -31,7 +31,7 @@ export const NotificationButton = memo(
         return (
             <div>
                 <BrowserView>
-                    <Popover trigger={trigger} direction='bottom left'>
+                    <Popover trigger={trigger} direction="bottom left">
                         <NotificationList className={cls.notification} />
                     </Popover>
                 </BrowserView>
@@ -43,5 +43,5 @@ export const NotificationButton = memo(
                 </MobileView>
             </div>
         );
-    }
+    },
 );

@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Drawer.module.scss';
 import { ReactNode, memo } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
+import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
 
@@ -13,7 +13,9 @@ interface IDrawerProps {
 }
 
 export const Drawer = memo((props: IDrawerProps) => {
-    const { children, isClose, isOpen, className } = props;
+    const {
+        children, isClose, isOpen, className,
+    } = props;
 
     const { theme } = useTheme();
 
@@ -27,7 +29,10 @@ export const Drawer = memo((props: IDrawerProps) => {
                 ])}
             >
                 <Overlay onClick={isClose} />
-                <div className={cls.content}> {children}</div>
+                <div className={cls.content}>
+                    {' '}
+                    {children}
+                </div>
             </div>
         </Portal>
     );

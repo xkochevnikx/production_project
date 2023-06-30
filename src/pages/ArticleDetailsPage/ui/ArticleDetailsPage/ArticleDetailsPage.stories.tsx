@@ -2,10 +2,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { UserRoles } from 'entities/User/modal/consts/consts';
 import { ArticleBlockType } from 'entities/Article/modal/consts/consts';
-import { ArticleType, IArticle } from '../../../../entities/Article/index';
-import ArticleDetailsPage from './ArticleDetailsPage';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { ArticleType, IArticle } from '../../../../entities/Article/index';
+import ArticleDetailsPage from './ArticleDetailsPage';
 
 export default {
     title: 'pages/ArticleDetailsPage',

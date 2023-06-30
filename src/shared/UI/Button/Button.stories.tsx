@@ -63,7 +63,7 @@ BackgroundInverted.args = {
     theme: ThemeButton.BACKGROUND_INVERTED,
 };
 
-//size
+// size
 
 export const Disabled = Template.bind({});
 Disabled.args = {
