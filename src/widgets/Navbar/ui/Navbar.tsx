@@ -21,13 +21,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const isAuth = useSelector(getUserAuthData);
 
     const { t } = useTranslation();
-    const [isAuthModal, setIsAuthModal] = useState(false);
 
-    //! при изменении любого пропса компонерт перерисовывается поэтому сохраняем функции которые передаём пропсами в юзколлбэк чтобы ссылка не менялась
+    //todo - это состояние , функция закрытия и изменения состояние для открытия нужны для отрисовки компонента loginModal который условно отрисовывается по условию состояния флага isAuthModal ,изначально это сстояние false. это состояние и функцию закрытия прокидываю в компонент. loginModal содержит в себе переиспользуемый компонент модального окна и внутри него асинхроный лази компонент который при монтировании поверх модального окна и подложки с затемнением будет рендерить форму регистрации и монтировать асинхронный редюсер
+    const [isAuthModal, setIsAuthModal] = useState(false);
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
     }, []);
-
     const onShowModal = useCallback(() => {
         setIsAuthModal(true);
     }, []);
@@ -48,7 +47,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <HStack gap="32" className={cls.actions}>
+                <HStack gap='32' className={cls.actions}>
                     <NotificationButton />
                     <AvatarDropdown />
                 </HStack>

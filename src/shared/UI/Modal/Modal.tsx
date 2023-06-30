@@ -1,4 +1,4 @@
-import React, {
+import {
     MutableRefObject,
     ReactNode,
     useCallback,
@@ -9,6 +9,7 @@ import React, {
 import { classNames, Mode } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
+import { Overlay } from '../Overlay/Overlay';
 
 interface ModalProps {
     className?: string;
@@ -17,6 +18,7 @@ interface ModalProps {
     onClose?: () => void;
 }
 
+//todo - компонент модального окна принимает состояние функцию закрытия и ноду на отрисовку. модалка изначально имеет ряд стилей, зафиксирована на весь экран, прозрачна и скрыта z index -1. после получения состояния об открытии на неё навештвается дополнительный класс который переопределяет эти стили и портал монтирует этот компонент в боди поверх всего. В себе модалка содержит переиспользуемый компонет подложку с затемненным фоном имеющий индекс меньше контентного поэтому контент лежит поверх подложки которая растянута на всю видимую область экрана. так же на подложку навешиваю функцю закрытия
 export function Modal(props: ModalProps) {
     const [isClosing, setIsClosing] = useState(false);
 
@@ -24,11 +26,9 @@ export function Modal(props: ModalProps) {
         ReturnType<typeof setTimeout>
     >;
 
-    const {
-        className, children, isOpen, onClose,
-    } = props;
+    const { className, children, isOpen, onClose } = props;
 
-    //! логика открытия такая - модалка скрыта и вызывается в набаре и у неё есть уже ряд стилей, в том числе контентная часть маленькая.Когда навешиваем спускаемый сверху isOpen оно появляется из потрала и у контентной части становиться больше размер при этом есть задержка в анимации для плавности. После нажатия на любую часть кроме контентной срабатывает функция закрытия и сначала идёт проверка если эту функцию закрытия передали (она в конце возвращает модалку к первоначальным стилям когда она скрыта), дальше при помощи локального стейте мы навешиваем дополнительный класс, который делает плавным закрытие контентной части уменьшая её размер. Дальше через 300мс меняем основные стили на первоначальные и убираем класс закрытия контентой части потому что он уже не нужен окно скрыто. Ниже в юзэффекте очищаем таймер
+    //todo - функция хендлер сначала проверяет передана ли сверху функция закрытия и изменяет локальное состояние которое нужно для навешивания доп класса для анимации по закрытию окна. в момент навешивания класса окно уменьшается, вызывается функция закрытия которая изменяет прокинутый сверху флаг и модалка исчезает возвращая свои дефлтные стили скрывающие её. таймаут сохранён в реф что бы в эффекте при размонтировании очистить его.
     const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
@@ -45,7 +45,7 @@ export function Modal(props: ModalProps) {
                 closeHandler();
             }
         },
-        [closeHandler],
+        [closeHandler]
     );
     //! если модалка открыта, флаг передан, на глобальное окно навешиваем слушатель событий который будет запускать функцию которая проверяем если нажали escape то вызываем функцию закрытия модалки и в конце очищаем таймер и очищаем событие
     useEffect(() => {
@@ -59,9 +59,9 @@ export function Modal(props: ModalProps) {
     }, [isOpen, onKeyDown]);
 
     //! поскольку события всплывают с родительсткого элемента, на дочернем отменяем вызов функции закрытия модалки
-    function onContentClick(e: React.MouseEvent): void {
-        e.stopPropagation();
-    }
+    // function onContentClick(e: React.MouseEvent): void {
+    //     e.stopPropagation();
+    // }
 
     const mods: Mode = {
         [cls.opened]: isOpen,
@@ -76,11 +76,9 @@ export function Modal(props: ModalProps) {
                     'app_modal',
                 ])}
             >
-                <div className={cls.overlay} onClick={closeHandler}>
-                    <div onClick={onContentClick} className={cls.content}>
-                        {children}
-                    </div>
-                </div>
+                <Overlay onClick={closeHandler} />
+
+                <div className={cls.content}>{children}</div>
             </div>
         </Portal>
     );
