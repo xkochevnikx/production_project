@@ -42,7 +42,7 @@ export function useModal({ onClose, isOpen, animationDelay }: useModalProps) {
                 closeHandler();
             }
         },
-        [closeHandler]
+        [closeHandler],
     );
     //! если модалка открыта, флаг передан, на глобальное окно навешиваем слушатель событий который будет запускать функцию которая проверяем если нажали escape то вызываем функцию закрытия модалки и в конце очищаем таймер и очищаем событие
     useEffect(() => {
