@@ -9,16 +9,20 @@ import {
 interface useModalProps {
     onClose?: () => void;
     isOpen?: boolean;
-    animationDelay: number;
+    animationDelay?: number;
 }
 
-export function useModal({ onClose, isOpen, animationDelay }: useModalProps) {
+export function useModal({
+    onClose,
+    isOpen,
+    animationDelay = 300,
+}: useModalProps) {
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
         if (isOpen) {
-            setIsMounted(isOpen);
+            setIsMounted(true);
         }
     }, [isOpen]);
 
@@ -55,5 +59,5 @@ export function useModal({ onClose, isOpen, animationDelay }: useModalProps) {
         };
     }, [isOpen, onKeyDown]);
 
-    return { closeHandler, isClosing, isMounted };
+    return { isMounted, isClosing, closeHandler };
 }
