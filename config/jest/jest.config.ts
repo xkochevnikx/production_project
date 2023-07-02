@@ -22,6 +22,7 @@ export default {
         //! это мапер для компонентов с расширение свг
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         '^axios$': require.resolve('axios'),
+        '^@/(.*)$': '<rootDir>/src/$1',
     },
     //! настойки пакета генерации отчетов по темстам. сформированные отчёты автоматически сохраняются в publicPath: '<rootDir>/reports/unit'
     reporters: [

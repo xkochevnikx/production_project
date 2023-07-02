@@ -19,7 +19,7 @@ export default ({ config }: { config: WebpackConfiguration }) => {
     };
 
     //! а тут уже этот путь пушу в массив
-    config!.resolve!.modules!.push(paths.src);
+    config!.resolve!.alias = { '@': paths.src };
     //! это поле говорит что при импорте можно не указывать расширение
     config!.resolve!.extensions!.push('ts', 'tsx');
     //! дисайблить и костовать в конфиге допустимо.
