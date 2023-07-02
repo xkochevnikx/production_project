@@ -10,7 +10,9 @@ export function buildResolvers(options: IBuildOptions): ResolveOptions {
         modules: [options.paths.src, 'node_modules'],
         //! явно указываем что в каждом модуле это главный файл
         // mainFiles: ['index'],
-        alias: {},
+        alias: {
+            '@': options.paths.src,
+        },
     };
     return typescriptResolvers;
 }
