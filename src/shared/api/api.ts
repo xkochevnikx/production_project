@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { USER_LOCALSTORAGE_KEY } from 'shared/consts/localstorage';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
 
 //! это инстанс для работы с url что бы каждый раз не тащить в асинкфанк аксиос и не писать адрес с заголовком. его мы передадим в глобальный стор и будем получать через эекстра аргументы и подставлять в запрос на бэк
 export const $api = axios.create({

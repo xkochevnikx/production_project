@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { ListBox } from 'shared/UI/Popups/ui/ListBox/ListBox';
+import { ListBox } from '@/shared/UI/Popups/ui/ListBox/ListBox';
 import { Currency } from '../../modal/types/currency';
 
 interface CurrencySelectProps {

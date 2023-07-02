@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { getArticleDetailsData } from 'entities/Article';
-import { getUserAuthData } from 'entities/User';
+import { getArticleDetailsData } from '@/entities/Article';
+import { getUserAuthData } from '@/entities/User';
 
 //! селектор сразу в себе проверяет совпадает пользователь и автор статьи и возвращает булеан флаг
 export const getCanEditArticle = createSelector(

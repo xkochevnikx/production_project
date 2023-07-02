@@ -1,4 +1,4 @@
-import { IStateSchema } from 'app/providers/StoreProviders';
+import { IStateSchema } from '@/app/providers/StoreProviders';
 import { commentsAdapter } from '../../slice/articleDetailsCommentsSlice';
 
 export const getArticleCommentsIsLoading = (state: IStateSchema) => state.articleDetailsComments?.isLoading;

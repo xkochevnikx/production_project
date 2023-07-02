@@ -1,7 +1,7 @@
 import { Menu } from '@headlessui/react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import React, { ReactNode } from 'react';
-import { DropDownDirection } from 'shared/types/ui';
+import { DropDownDirection } from '@/shared/types/ui';
 import cls from './Dropdown.module.scss';
 //! общие стили вынес в отдельный файл
 import popupCls from '../../styles/popup.module.scss';

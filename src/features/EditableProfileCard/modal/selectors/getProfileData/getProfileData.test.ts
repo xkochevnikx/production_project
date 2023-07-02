@@ -1,4 +1,4 @@
-import { IStateSchema } from 'app/providers/StoreProviders';
+import { IStateSchema } from '@/app/providers/StoreProviders';
 import { getProfileData } from './getProfileData';
 
 describe('getProfileData.test', () => {

@@ -1,11 +1,11 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/UI/Select/Select';
-import { SortOrder } from 'shared/types';
-import { ArticleSortField } from 'entities/Article';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { HStack } from 'shared/UI/Stack/HStack/HStack';
-import { articlesPageActions } from 'features/ArticlesInfiniteList';
+import { Select } from '@/shared/UI/Select/Select';
+import { SortOrder } from '@/shared/types';
+import { ArticleSortField } from '@/entities/Article';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { HStack } from '@/shared/UI/Stack/HStack/HStack';
+import { articlesPageActions } from '@/features/ArticlesInfiniteList';
 
 interface ArticlesSortSelectedProps {
     sort: ArticleSortField;

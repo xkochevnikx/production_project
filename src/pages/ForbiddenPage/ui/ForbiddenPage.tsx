@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Page } from 'widgets/Page/ui/Page';
+import { Page } from '@/widgets/Page/ui/Page';
 import { useTranslation } from 'react-i18next';
 
 interface ForbiddenPageProps {

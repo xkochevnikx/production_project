@@ -1,4 +1,4 @@
-import { IStateSchema } from 'app/providers/StoreProviders';
+import { IStateSchema } from '@/app/providers/StoreProviders';
 import { getLoginIsLoading } from './getLoginIsLoading';
 
 describe('getLoginIsLoading.test', () => {

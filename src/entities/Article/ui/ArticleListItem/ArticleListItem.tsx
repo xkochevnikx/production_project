@@ -1,19 +1,19 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { Text } from 'shared/UI/Text/Text';
-import { Icon } from 'shared/UI/Icon/Icon';
-import { Card } from 'shared/UI/Card/Card';
-import { Avatar } from 'shared/UI/Avatar/Avatar';
-import { Button, ThemeButton } from 'shared/UI/Button/Button';
+import { Text } from '@/shared/UI/Text/Text';
+import { Icon } from '@/shared/UI/Icon/Icon';
+import { Card } from '@/shared/UI/Card/Card';
+import { Avatar } from '@/shared/UI/Avatar/Avatar';
+import { Button, ThemeButton } from '@/shared/UI/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { AppLink } from 'shared/UI/AppLink/AppLink';
-import { HStack } from 'shared/UI/Stack/HStack/HStack';
-import { VStack } from 'shared/UI/Stack/VStack/VStack';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { AppLink } from '@/shared/UI/AppLink/AppLink';
+import { HStack } from '@/shared/UI/Stack/HStack/HStack';
+import { VStack } from '@/shared/UI/Stack/VStack/VStack';
 import {
     ArticleBlockType,
     ArticleView,
-} from 'entities/Article/modal/consts/consts';
+} from '@/entities/Article/modal/consts/consts';
 import { IArticle, IArticleTextBlock } from '../../modal/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import IconEye from '../../../../shared/assets/icons/eye.svg';

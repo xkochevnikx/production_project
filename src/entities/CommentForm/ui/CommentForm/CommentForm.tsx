@@ -1,20 +1,20 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { Input } from 'shared/UI/Input/Input';
+import { Input } from '@/shared/UI/Input/Input';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/UI/Button/Button';
+import { Button } from '@/shared/UI/Button/Button';
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { HStack } from 'shared/UI/Stack/HStack/HStack';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { HStack } from '@/shared/UI/Stack/HStack/HStack';
 
 import {
     CommentFormActions,
     CommentFormReducer,
-} from 'entities/CommentForm/modal/slice/CommentFormSlice';
+} from '@/entities/CommentForm/modal/slice/CommentFormSlice';
 import { getCommentFormText } from '../../modal/selectors/getCommentFormSelectors';
 import cls from './CommentForm.module.scss';
 

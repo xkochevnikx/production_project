@@ -1,10 +1,10 @@
 import { memo, useCallback, useMemo } from 'react';
-import { ArticleType } from 'entities/Article';
+import { ArticleType } from '@/entities/Article';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ThemeButton } from 'shared/UI/Button/Button';
-import { HStack } from 'shared/UI/Stack/HStack/HStack';
-import { articlesPageActions } from 'features/ArticlesInfiniteList';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button, ThemeButton } from '@/shared/UI/Button/Button';
+import { HStack } from '@/shared/UI/Stack/HStack/HStack';
+import { articlesPageActions } from '@/features/ArticlesInfiniteList';
 import { IArticleTypeBtnItem } from '../modal/types/articleTypeTabItem';
 
 export interface IArticlesTypeTabsProps {

@@ -1,8 +1,8 @@
 import { screen } from '@testing-library/react';
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import userEvent from '@testing-library/user-event';
 // import { $api } from 'shared/api/api';
-import { ProfileReducer } from 'features/EditableProfileCard/modal/slice/ProfileSlice';
+import { ProfileReducer } from '@/features/EditableProfileCard/modal/slice/ProfileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
 import { IProfile } from '../../modal/types/profile';
 

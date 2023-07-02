@@ -1,10 +1,10 @@
 import { memo } from 'react';
-import { ArticlesList } from 'entities/Article';
+import { ArticlesList } from '@/entities/Article';
 import { useSelector } from 'react-redux';
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     articlesPageReducer,
     getArticles,

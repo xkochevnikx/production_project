@@ -5,16 +5,16 @@ import {
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { IUserSchema } from 'entities/User';
-import { ILoginSchema } from 'features/AuthByUsername';
+import { IUserSchema } from '@/entities/User';
+import { ILoginSchema } from '@/features/AuthByUsername';
 import { AxiosInstance } from 'axios';
-import { IArticleDetailsSchema } from 'entities/Article';
-import { ICommentFormSchema } from 'entities/CommentForm';
-import { iScrollSaveSchema } from 'features/ScrollSave';
-import { rtkApi } from 'shared/api/rtkApi';
-import { IArticleDetailsCommentsSchema } from 'features/ArticleComments/model/types/ArticleDetailsCommentsSchema';
-import { IArticlesPageSchema } from 'features/ArticlesInfiniteList';
-import { IProfileSchema } from 'features/EditableProfileCard';
+import { IArticleDetailsSchema } from '@/entities/Article';
+import { ICommentFormSchema } from '@/entities/CommentForm';
+import { iScrollSaveSchema } from '@/features/ScrollSave';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { IArticleDetailsCommentsSchema } from '@/features/ArticleComments/model/types/ArticleDetailsCommentsSchema';
+import { IArticlesPageSchema } from '@/features/ArticlesInfiniteList';
+import { IProfileSchema } from '@/features/EditableProfileCard';
 
 export interface IStateSchema {
     user: IUserSchema;

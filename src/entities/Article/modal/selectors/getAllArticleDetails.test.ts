@@ -1,4 +1,4 @@
-import { IStateSchema } from 'app/providers/StoreProviders';
+import { IStateSchema } from '@/app/providers/StoreProviders';
 import {
     getArticleDetailsData,
     getArticleDetailsError,

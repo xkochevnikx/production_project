@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonSize } from 'shared/UI/Button/Button';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonSize } from '@/shared/UI/Button/Button';
 import cls from './PageError.module.scss';
 
 interface PageErrorProps {

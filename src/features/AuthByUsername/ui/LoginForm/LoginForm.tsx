@@ -1,16 +1,16 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import i18n from 'shared/config/i18n/i18n';
+import i18n from '@/shared/config/i18n/i18n';
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ThemeButton } from 'shared/UI/Button/Button';
-import { Input } from 'shared/UI/Input/Input';
-import { Text, TextTheme } from 'shared/UI/Text/Text';
-import { VStack } from 'shared/UI/Stack/VStack/VStack';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button, ThemeButton } from '@/shared/UI/Button/Button';
+import { Input } from '@/shared/UI/Input/Input';
+import { Text, TextTheme } from '@/shared/UI/Text/Text';
+import { VStack } from '@/shared/UI/Stack/VStack/VStack';
 import { loginActions, loginReducer } from '../../modal/slice/loginSlice';
 import { loginByUserName } from '../../modal/services/loginByUserName/loginByUserName';
 import { getLoginUsername } from '../../modal/selectors/getLoginUsername/getLoginUsername';

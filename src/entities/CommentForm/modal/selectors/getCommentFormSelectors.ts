@@ -1,4 +1,4 @@
-import { IStateSchema } from 'app/providers/StoreProviders';
+import { IStateSchema } from '@/app/providers/StoreProviders';
 
 export const getCommentFormText = (state: IStateSchema) => state.commentForm?.text ?? '';
 export const getCommentFormError = (state: IStateSchema) => state.commentForm?.error;

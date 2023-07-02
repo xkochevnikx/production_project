@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { NotificationList } from 'entities/Notification';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { NotificationList } from '@/entities/Notification';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import withMock from 'storybook-addon-mock';
-import { INotification } from 'entities/Notification/modal/types/notification';
-import { Button, ThemeButton } from 'shared/UI/Button/Button';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { INotification } from '@/entities/Notification/modal/types/notification';
+import { Button, ThemeButton } from '@/shared/UI/Button/Button';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 import { Popover } from './Popover';
 
 export default {

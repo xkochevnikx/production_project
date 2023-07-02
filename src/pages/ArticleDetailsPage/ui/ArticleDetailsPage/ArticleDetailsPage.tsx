@@ -1,12 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Page } from 'widgets/Page/ui/Page';
-import { ArticleDetailsPageHeader } from 'features/ArticleDetailsPageHeader';
-import { VStack } from 'shared/UI/Stack/VStack/VStack';
-import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList/ui/ArticleRecommendationsList';
-import { ArticleComments } from 'features/ArticleComments';
-import { ArticleDetails } from 'entities/Article';
+import { Page } from '@/widgets/Page/ui/Page';
+import { ArticleDetailsPageHeader } from '@/features/ArticleDetailsPageHeader';
+import { VStack } from '@/shared/UI/Stack/VStack/VStack';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList/ui/ArticleRecommendationsList';
+import { ArticleComments } from '@/features/ArticleComments';
+import { ArticleDetails } from '@/entities/Article';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {

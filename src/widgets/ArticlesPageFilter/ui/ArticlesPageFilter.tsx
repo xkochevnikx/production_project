@@ -1,20 +1,20 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ArticlesSortSelected } from 'features/ArticlesSortSelected';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { ArticlesTypeTabs } from 'features/ArticlesTypeTabs';
-import { ArticlesSearch } from 'features/ArticlesSearch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ArticlesSortSelected } from '@/features/ArticlesSortSelected';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { ArticlesTypeTabs } from '@/features/ArticlesTypeTabs';
+import { ArticlesSearch } from '@/features/ArticlesSearch';
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
     getArticlesPageSort,
     getArticlesPageType,
     getArticlesPageView,
-} from 'features/ArticlesInfiniteList';
-import { fetchArticlesList } from 'features/ArticlesInfiniteList/modal/services/fetchArticlesList/fetchArticlesList';
+} from '@/features/ArticlesInfiniteList';
+import { fetchArticlesList } from '@/features/ArticlesInfiniteList/modal/services/fetchArticlesList/fetchArticlesList';
 import cls from './ArticlesPageFilter.module.scss';
 
 interface ArticlesPageFilterProps {

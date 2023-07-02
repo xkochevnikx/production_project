@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { useNotifications } from 'entities/Notification/api/notificationApi';
-import { VStack } from 'shared/UI/Stack/VStack/VStack';
-import { Skeleton } from 'shared/UI/Skeleton/Skeleton';
+import { useNotifications } from '@/entities/Notification/api/notificationApi';
+import { VStack } from '@/shared/UI/Stack/VStack/VStack';
+import { Skeleton } from '@/shared/UI/Skeleton/Skeleton';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 interface NotificationListProps {

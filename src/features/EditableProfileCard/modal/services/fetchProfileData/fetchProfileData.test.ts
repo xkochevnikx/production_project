@@ -1,4 +1,4 @@
-import { testAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
+import { testAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { fetchProfileData } from './fetchProfileData';
 
 const data = {

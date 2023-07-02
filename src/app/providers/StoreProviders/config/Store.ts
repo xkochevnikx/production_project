@@ -4,10 +4,10 @@ import {
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { userReducer } from 'entities/User';
-import { $api } from 'shared/api/api';
-import { scrollSaveSliceReducer } from 'features/ScrollSave';
-import { rtkApi } from 'shared/api/rtkApi';
+import { userReducer } from '@/entities/User';
+import { $api } from '@/shared/api/api';
+import { scrollSaveSliceReducer } from '@/features/ScrollSave';
+import { rtkApi } from '@/shared/api/rtkApi';
 import { createReducerManager } from './ReducerManager';
 import { IStateSchema, IThunkExtraArg } from './StateSchema';
 

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IThunkConfig } from 'app/providers/StoreProviders';
-import { articlesPageActions } from 'features/ArticlesInfiniteList';
-import { fetchArticlesList } from 'features/ArticlesInfiniteList/modal/services/fetchArticlesList/fetchArticlesList';
+import { IThunkConfig } from '@/app/providers/StoreProviders';
+import { articlesPageActions } from '@/features/ArticlesInfiniteList';
+import { fetchArticlesList } from '@/features/ArticlesInfiniteList/modal/services/fetchArticlesList/fetchArticlesList';
 import {
     getArticlesPageHasMore,
     getArticlesPageIsLoading,

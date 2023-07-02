@@ -1,5 +1,5 @@
-import { IArticle } from 'entities/Article';
-import { rtkApi } from 'shared/api/rtkApi';
+import { IArticle } from '@/entities/Article';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 // todo - добавляем асинхронный эндпоинт который принимает число и подставляем его в лимит и возвращает массив статей
 const recommendationsApi = rtkApi.injectEndpoints({

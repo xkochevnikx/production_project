@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { IStateSchema, StoreProvider } from 'app/providers/StoreProviders';
+import { IStateSchema, StoreProvider } from '@/app/providers/StoreProviders';
 import { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';

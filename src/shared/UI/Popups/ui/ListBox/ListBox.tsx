@@ -1,7 +1,7 @@
 import { Listbox as HListbox } from '@headlessui/react';
 import React, { ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DropDownDirection } from 'shared/types/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DropDownDirection } from '@/shared/types/ui';
 import cls from './ListBox.module.scss';
 import popupCls from '../../styles/popup.module.scss';
 import { Button } from '../../../Button/Button';
