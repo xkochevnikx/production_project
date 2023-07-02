@@ -31,7 +31,7 @@ export const NotificationButton = memo(
         return (
             <div>
                 <BrowserView>
-                    <Popover trigger={trigger} direction='bottom left'>
+                    <Popover trigger={trigger} direction="bottom left">
                         <NotificationList className={cls.notification} />
                     </Popover>
                 </BrowserView>
@@ -44,5 +44,5 @@ export const NotificationButton = memo(
                 </MobileView>
             </div>
         );
-    }
+    },
 );

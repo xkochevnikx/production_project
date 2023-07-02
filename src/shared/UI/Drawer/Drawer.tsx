@@ -1,4 +1,6 @@
-import { memo, ReactNode, useCallback, useEffect } from 'react';
+import {
+    memo, ReactNode, useCallback, useEffect,
+} from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import {
@@ -24,7 +26,9 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
     const { theme } = useTheme();
-    const { className, children, onClose, isOpen, lazy } = props;
+    const {
+        className, children, onClose, isOpen, lazy,
+    } = props;
 
     const openDrawer = useCallback(() => {
         api.start({ y: 0, immediate: false });
@@ -70,7 +74,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
             filterTaps: true,
             bounds: { top: 0 },
             rubberband: true,
-        }
+        },
     );
 
     if (!isOpen) {
@@ -115,10 +119,8 @@ const DrawerAsync = (props: DrawerProps) => {
     return <DrawerContent {...props} />;
 };
 
-export const Drawer = (props: DrawerProps) => {
-    return (
-        <AnimationProvider>
-            <DrawerAsync {...props} />
-        </AnimationProvider>
-    );
-};
+export const Drawer = (props: DrawerProps) => (
+    <AnimationProvider>
+        <DrawerAsync {...props} />
+    </AnimationProvider>
+);
