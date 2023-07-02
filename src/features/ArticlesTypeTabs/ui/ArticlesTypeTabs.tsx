@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo } from 'react';
-import { ArticleType } from '@/entities/Article';
 import { useTranslation } from 'react-i18next';
+import { ArticleType } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ThemeButton } from '@/shared/UI/Button/Button';
 import { HStack } from '@/shared/UI/Stack/HStack/HStack';

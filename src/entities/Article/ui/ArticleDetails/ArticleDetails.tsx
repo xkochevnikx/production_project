@@ -1,12 +1,12 @@
 import { memo } from 'react';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useSelector } from 'react-redux';
 import { Text, TextAlign, TextSize } from '@/shared/UI/Text/Text';
-import { useTranslation } from 'react-i18next';
 import { Skeleton } from '@/shared/UI/Skeleton/Skeleton';
 import { Avatar } from '@/shared/UI/Avatar/Avatar';
 import { Icon } from '@/shared/UI/Icon/Icon';

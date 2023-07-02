@@ -1,11 +1,11 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/UI/Text/Text';
 import { Icon } from '@/shared/UI/Icon/Icon';
 import { Card } from '@/shared/UI/Card/Card';
 import { Avatar } from '@/shared/UI/Avatar/Avatar';
 import { Button, ThemeButton } from '@/shared/UI/Button/Button';
-import { useTranslation } from 'react-i18next';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { AppLink } from '@/shared/UI/AppLink/AppLink';
 import { HStack } from '@/shared/UI/Stack/HStack/HStack';

@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { ArticlesList } from '@/entities/Article';
 import { useSelector } from 'react-redux';
+import { ArticlesList } from '@/entities/Article';
 import {
     DynamicModuleLoader,
     ReducersList,

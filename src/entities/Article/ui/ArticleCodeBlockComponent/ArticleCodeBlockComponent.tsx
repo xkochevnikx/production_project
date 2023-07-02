@@ -1,5 +1,5 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Code } from '@/shared/UI/Code/Code';
 import { IArticleCodeBlock } from '../../modal/types/article';
 import cls from './ArticleCodeBlockComponent.module.scss';

@@ -1,11 +1,11 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { VStack } from '@/shared/UI/Stack/VStack/VStack';
 import { Text, TextSize } from '@/shared/UI/Text/Text';
 import { CommentList } from '@/entities/Comment';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentForArticle } from '@/features/ArticleComments/model/services/addCommentForArticle/addCommentForArticle';
-import { useSelector } from 'react-redux';
 import { CommentForm } from '@/entities/CommentForm';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {

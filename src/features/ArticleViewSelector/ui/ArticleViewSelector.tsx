@@ -1,5 +1,5 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleView } from '@/entities/Article';
 import { Button, ThemeButton } from '@/shared/UI/Button/Button';
 import { Icon } from '@/shared/UI/Icon/Icon';

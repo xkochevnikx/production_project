@@ -1,6 +1,6 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page/ui/Page';
 import { ArticleDetailsPageHeader } from '@/features/ArticleDetailsPageHeader';
 import { VStack } from '@/shared/UI/Stack/VStack/VStack';

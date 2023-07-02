@@ -5,9 +5,9 @@ import {
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
 import { IUserSchema } from '@/entities/User';
 import { ILoginSchema } from '@/features/AuthByUsername';
-import { AxiosInstance } from 'axios';
 import { IArticleDetailsSchema } from '@/entities/Article';
 import { ICommentFormSchema } from '@/entities/CommentForm';
 import { iScrollSaveSchema } from '@/features/ScrollSave';

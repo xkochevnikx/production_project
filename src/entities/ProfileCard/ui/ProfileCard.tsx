@@ -1,7 +1,7 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Text, TextAlign, TextTheme } from '@/shared/UI/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextAlign, TextTheme } from '@/shared/UI/Text/Text';
 import { Input } from '@/shared/UI/Input/Input';
 import { Loader } from '@/shared/UI/Loader/Loader';
 import { Avatar } from '@/shared/UI/Avatar/Avatar';

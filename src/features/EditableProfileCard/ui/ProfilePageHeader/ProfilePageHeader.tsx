@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react';
-import { Button, ThemeButton } from '@/shared/UI/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { Text } from '@/shared/UI/Text/Text';
 import { useSelector } from 'react-redux';
+import { Button, ThemeButton } from '@/shared/UI/Button/Button';
+import { Text } from '@/shared/UI/Text/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getProfileReadonly } from '@/features/EditableProfileCard/modal/selectors/getProfileReadonly/getProfileReadonly';
 import { ProfileActions } from '@/features/EditableProfileCard/modal/slice/ProfileSlice';

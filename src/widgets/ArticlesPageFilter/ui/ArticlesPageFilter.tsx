@@ -1,7 +1,7 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ArticlesSortSelected } from '@/features/ArticlesSortSelected';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';

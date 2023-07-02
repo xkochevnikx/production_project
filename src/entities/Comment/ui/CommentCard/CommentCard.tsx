@@ -1,5 +1,5 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/UI/Avatar/Avatar';
 import { Text } from '@/shared/UI/Text/Text';
 import { Skeleton } from '@/shared/UI/Skeleton/Skeleton';

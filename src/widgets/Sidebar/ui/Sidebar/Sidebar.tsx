@@ -1,8 +1,8 @@
 import { useCallback, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ThemeButton } from '@/shared/UI/Button/Button';
 import { LanguageSwitcher } from '@/widgets/LanguageSwitcher';
-import { useSelector } from 'react-redux';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { VStack } from '@/shared/UI/Stack/VStack/VStack';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
