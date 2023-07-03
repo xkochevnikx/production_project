@@ -1,16 +1,16 @@
+import { memo, useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Raiting.module.scss';
-import { memo, useCallback, useState } from 'react';
 import { Card } from '@/shared/UI/Card/Card';
 import { Text } from '@/shared/UI/Text/Text';
 import { StarRaiting } from '@/shared/UI/StarRaiting/StarRaiting';
 import { VStack } from '@/shared/UI/Stack/VStack/VStack';
 import { Modal } from '@/shared/UI/Modal/Modal';
 import { Input } from '@/shared/UI/Input/Input';
-import { useTranslation } from 'react-i18next';
 import { HStack } from '@/shared/UI/Stack/HStack/HStack';
 import { Button, ThemeButton } from '@/shared/UI/Button/Button';
-import { BrowserView, MobileView } from 'react-device-detect';
 import { Drawer } from '@/shared/UI/Drawer/Drawer';
 
 interface RaitingProps {
@@ -23,8 +23,9 @@ interface RaitingProps {
 }
 
 export const Raiting = memo((props: RaitingProps) => {
-    const { className, feedbackTitle, hasFeedback, onAccept, onCancel, title } =
-        props;
+    const {
+        className, feedbackTitle, hasFeedback, onAccept, onCancel, title,
+    } = props;
     const { t } = useTranslation();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,7 +43,7 @@ export const Raiting = memo((props: RaitingProps) => {
                 onAccept?.(selectedStarsCount);
             }
         },
-        [hasFeedback, onAccept]
+        [hasFeedback, onAccept],
     );
 
     const onAcceptHandler = useCallback(() => {
@@ -63,17 +64,17 @@ export const Raiting = memo((props: RaitingProps) => {
     );
 
     return (
-        <Card className={classNames(cls.Raiting, {}, [className])}>
-            <VStack gap='16'>
+        <Card className={classNames('', {}, [className])}>
+            <VStack gap="16">
                 <Text title={title} />
                 <StarRaiting onSelect={onSelectStars} />
             </VStack>
 
             <BrowserView>
                 <Modal isOpen={isModalOpen}>
-                    <VStack max gap='16'>
+                    <VStack max gap="16">
                         {modalContent}
-                        <HStack max gap='16' justify='end'>
+                        <HStack max gap="16" justify="end">
                             <Button
                                 onClick={onCancelHandler}
                                 theme={ThemeButton.OUTLINE_RED}
@@ -89,7 +90,7 @@ export const Raiting = memo((props: RaitingProps) => {
             </BrowserView>
             <MobileView>
                 <Drawer isOpen={isModalOpen} onClose={onCancelHandler}>
-                    <VStack gap='32'>
+                    <VStack gap="32">
                         {modalContent}
                         <Button fullWidth onClick={onAcceptHandler}>
                             {t('Отправить')}
