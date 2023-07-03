@@ -2,7 +2,6 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './Raiting.module.scss';
 import { Card } from '@/shared/UI/Card/Card';
 import { Text } from '@/shared/UI/Text/Text';
 import { StarRaiting } from '@/shared/UI/StarRaiting/StarRaiting';
@@ -23,9 +22,8 @@ interface RaitingProps {
 }
 
 export const Raiting = memo((props: RaitingProps) => {
-    const {
-        className, feedbackTitle, hasFeedback, onAccept, onCancel, title,
-    } = props;
+    const { className, feedbackTitle, hasFeedback, onAccept, onCancel, title } =
+        props;
     const { t } = useTranslation();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,7 +41,7 @@ export const Raiting = memo((props: RaitingProps) => {
                 onAccept?.(selectedStarsCount);
             }
         },
-        [hasFeedback, onAccept],
+        [hasFeedback, onAccept]
     );
 
     const onAcceptHandler = useCallback(() => {
@@ -65,16 +63,16 @@ export const Raiting = memo((props: RaitingProps) => {
 
     return (
         <Card className={classNames('', {}, [className])}>
-            <VStack gap="16">
+            <VStack gap='16'>
                 <Text title={title} />
                 <StarRaiting onSelect={onSelectStars} />
             </VStack>
 
             <BrowserView>
                 <Modal isOpen={isModalOpen}>
-                    <VStack max gap="16">
+                    <VStack max gap='16'>
                         {modalContent}
-                        <HStack max gap="16" justify="end">
+                        <HStack max gap='16' justify='end'>
                             <Button
                                 onClick={onCancelHandler}
                                 theme={ThemeButton.OUTLINE_RED}
@@ -90,7 +88,7 @@ export const Raiting = memo((props: RaitingProps) => {
             </BrowserView>
             <MobileView>
                 <Drawer isOpen={isModalOpen} onClose={onCancelHandler}>
-                    <VStack gap="32">
+                    <VStack gap='32'>
                         {modalContent}
                         <Button fullWidth onClick={onAcceptHandler}>
                             {t('Отправить')}
