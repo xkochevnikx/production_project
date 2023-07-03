@@ -1,4 +1,4 @@
-import { ReactNode, useEffect } from 'react';
+import { ReactNode } from 'react';
 import { classNames, Mode } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { Portal } from '../Portal/Portal';
@@ -8,15 +8,13 @@ import { Overlay } from '../Overlay/Overlay';
 interface ModalProps {
     className?: string;
     children?: ReactNode;
-    isOpen?: boolean;
+    isOpen: boolean;
     onClose?: () => void;
 }
 
 // todo - компонент модального окна принимает состояние функцию закрытия и ноду на отрисовку и передаёт в хук. модалка изначально имеет ряд стилей, зафиксирована на весь экран, прозрачна и скрыта z index -1. после получения состояния об открытии на неё навештвается дополнительный класс который переопределяет эти стили и портал монтирует этот компонент в боди поверх всего. В себе модалка содержит переиспользуемый компонет подложку с затемненным фоном имеющий индекс меньше контентного поэтому контент лежит поверх подложки которая растянута на всю видимую область экрана. так же на подложку навешиваю функцю закрытия. СОСТОЯНИЕ, ФУНКЦИЮ ЗАКРЫТИЯ И ЗАДЕРЖКУ ДЛЯ АНИМАЦИИ ПРИНИМАЕТ СНАЧАЛА ХУК КОТОРЫЙ СОДЕРЖИТ В СЕБЕ ПЕРЕИСПОЛЬЗУЕМУЮ В ДВУХ КОМПОНЕНТАХ ЛОГИКУ И ВОЗВРАЩАЕТ СОСТОЯНИЕ ДЛЯ АНИМАЦИИ ЗАКРЫТИЯ ФУНКЦИЮ ЗАКРЫТИЯ И ТЕКУЩЕЕ СОСТОЯНИЕ.
 export function Modal(props: ModalProps) {
-    const {
-        className, children, isOpen, onClose,
-    } = props;
+    const { className, children, isOpen, onClose } = props;
 
     const { closeHandler, isClosing, isMounted } = useModal({
         isOpen,
@@ -24,13 +22,8 @@ export function Modal(props: ModalProps) {
         animationDelay: 300,
     });
 
-    //! поскольку события всплывают с родительсткого элемента, на дочернем отменяем вызов функции закрытия модалки
-    // function onContentClick(e: React.MouseEvent): void {
-    //     e.stopPropagation();
-    // }
-
     const mods: Mode = {
-        [cls.opened]: isMounted,
+        [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
 
