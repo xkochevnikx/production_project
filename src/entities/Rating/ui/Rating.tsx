@@ -51,7 +51,7 @@ export const Rating = memo((props: RatingProps) => {
                 onAccept?.(selectedStarsCount);
             }
         },
-        [hasFeedback, onAccept]
+        [hasFeedback, onAccept],
     );
     // todo - если флаг hasFeedback передан открывается модалка или дроп для мобилок в которром у пользователя есть два варианта действий, либо написать отзыв и отправить либо просто закрыть модалку и предать число звезды
     const onAcceptHandler = useCallback(() => {
@@ -77,16 +77,16 @@ export const Rating = memo((props: RatingProps) => {
 
     return (
         <Card className={classNames('', {}, [className])}>
-            <VStack gap='16'>
+            <VStack gap="16">
                 <Text title={starsCount ? t('Оценка статьи') : title} />
                 <StarRating onSelect={onSelectStars} selectedStars={rate} />
             </VStack>
 
             <BrowserView>
                 <Modal isOpen={isModalOpen}>
-                    <VStack max gap='16'>
+                    <VStack max gap="16">
                         {modalContent}
-                        <HStack max gap='16' justify='end'>
+                        <HStack max gap="16" justify="end">
                             <Button
                                 onClick={onCancelHandler}
                                 theme={ThemeButton.OUTLINE_RED}
@@ -102,7 +102,7 @@ export const Rating = memo((props: RatingProps) => {
             </BrowserView>
             <MobileView>
                 <Drawer isOpen={isModalOpen} onClose={onCancelHandler}>
-                    <VStack gap='32'>
+                    <VStack gap="32">
                         {modalContent}
                         <Button fullWidth onClick={onAcceptHandler}>
                             {t('Отправить')}

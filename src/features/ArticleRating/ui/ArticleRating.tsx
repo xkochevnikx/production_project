@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { Card } from '@/shared/UI/Card/Card';
 import { Rating } from '@/entities/Rating';
-import { useTranslation } from 'react-i18next';
 import { useArticleRating, useRateArticle } from '../modal/api/api';
-import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/UI/Skeleton/Skeleton';
 
@@ -38,19 +38,25 @@ const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
                 console.log(e);
             }
         },
-        []
+        [articleId, userData?.id, rateArticleMutation],
     );
 
-    const onAccept = useCallback((starsCount: number, feedback?: string) => {
-        handleRateArticle(starsCount, feedback);
-    }, []);
+    const onAccept = useCallback(
+        (starsCount: number, feedback?: string) => {
+            handleRateArticle(starsCount, feedback);
+        },
+        [handleRateArticle],
+    );
 
-    const onCancel = useCallback((starsCount: number) => {
-        handleRateArticle(starsCount);
-    }, []);
+    const onCancel = useCallback(
+        (starsCount: number) => {
+            handleRateArticle(starsCount);
+        },
+        [handleRateArticle],
+    );
 
     if (isLoading) {
-        return <Skeleton width={'100%'} height={'120px'} />;
+        return <Skeleton width="100%" height="120px" />;
     }
 
     return (

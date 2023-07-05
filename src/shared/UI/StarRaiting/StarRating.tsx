@@ -22,8 +22,7 @@ export const StarRating = memo(
         selectedStars = 0,
         onSelect,
     }: StarRatingProps) => {
-        const [currentStarsCount, setCurrentStarsCurrent] =
-            useState(selectedStars);
+        const [currentStarsCount, setCurrentStarsCurrent] = useState(selectedStars);
         // todo - если с бэка прилетает выбранное колличество звезд то сюда прилетить число которое преобразуестя с булеан и флаг isSelected становиться тру что не даст обрабатывать сообытия выбора на элементах и просто захардкодит стили
         const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
@@ -60,7 +59,7 @@ export const StarRating = memo(
                                 currentStarsCount >= star
                                     ? cls.hovered
                                     : cls.normal,
-                            ]
+                            ],
                         )}
                         Svg={Star}
                         key={star}
@@ -73,5 +72,5 @@ export const StarRating = memo(
                 ))}
             </div>
         );
-    }
+    },
 );
