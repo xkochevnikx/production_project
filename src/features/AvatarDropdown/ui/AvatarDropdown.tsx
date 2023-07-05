@@ -48,7 +48,7 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
                     onClick: onLogout,
                 },
                 {
-                    content: t('Аккаунт'),
+                    content: t('Профиль'),
                     href: RoutePath.profile + isAuth.id,
                 },
             ]}
