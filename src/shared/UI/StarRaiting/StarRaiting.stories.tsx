@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
-import { StarRaiting } from './StarRaiting';
+import { StarRating } from './StarRating';
 
 export default {
     title: 'shared/StarRaiting',
-    component: StarRaiting,
+    component: StarRating,
 
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -17,10 +17,10 @@ export default {
             </div>
         ),
     ],
-} as ComponentMeta<typeof StarRaiting>;
+} as ComponentMeta<typeof StarRating>;
 
-const Template: ComponentStory<typeof StarRaiting> = (args) => (
-    <StarRaiting {...args} />
+const Template: ComponentStory<typeof StarRating> = (args) => (
+    <StarRating {...args} />
 );
 
 export const JustifyRowStart = Template.bind({});

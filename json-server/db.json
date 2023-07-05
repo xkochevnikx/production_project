@@ -2536,5 +2536,25 @@
             "currency": "EUR",
             "country": "Ingermanland"
         }
+    ],
+    "article-rating": [
+        {
+            "userId": "1",
+            "articleId": "1",
+            "feedback": "string",
+            "rate": 1
+        },
+        {
+            "userId": "2",
+            "articleId": "2",
+            "feedback": "string",
+            "rate": 2
+        },
+        {
+            "userId": "2",
+            "articleId": "3",
+            "feedback": "string",
+            "rate": 3
+        }
     ]
 }

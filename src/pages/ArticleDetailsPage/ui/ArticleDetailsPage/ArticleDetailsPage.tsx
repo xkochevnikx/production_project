@@ -8,6 +8,7 @@ import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsLis
 import { ArticleComments } from '@/features/ArticleComments';
 import { ArticleDetails } from '@/entities/Article';
 import cls from './ArticleDetailsPage.module.scss';
+import ArticleRating from '@/features/ArticleRating/ui/ArticleRating';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -15,13 +16,16 @@ interface ArticleDetailsPageProps {
 
 const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
     const { id } = useParams<{ id: string }>();
+    if (!id) {
+        return null;
+    }
     return (
         <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            <VStack gap="16" max>
+            <VStack gap='16' max>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
+                <ArticleRating articleId={id} />
                 <ArticleRecommendationsList />
-
                 <ArticleComments id={id} />
             </VStack>
         </Page>
