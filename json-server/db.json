@@ -2627,6 +2627,34 @@
       "articleId": "3",
       "feedback": "string",
       "rate": 3
+    },
+    {
+      "id": "8",
+      "articleId": "8",
+      "rate": 4,
+      "userId": "1",
+      "feedback": ""
+    },
+    {
+      "articleId": "10",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "",
+      "id": "w1YG0D7"
+    },
+    {
+      "articleId": "11",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "",
+      "id": "YQTAvre"
+    },
+    {
+      "articleId": "9",
+      "rate": 4,
+      "userId": "1",
+      "feedback": "",
+      "id": "VnsRc6l"
     }
   ]
 }

@@ -1,5 +1,5 @@
 import {
-    createContext, FC, ReactNode, useMemo, useState,
+    createContext, ReactNode, useMemo, useState,
 } from 'react';
 
 export enum Theme {
