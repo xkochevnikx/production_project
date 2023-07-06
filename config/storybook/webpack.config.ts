@@ -19,10 +19,10 @@ export default ({ config }: { config: WebpackConfiguration }) => {
     };
 
     //! а тут уже этот путь пушу в массив
-    config!.resolve!.alias = {
-        ...config!.resolve!.alias,
-        '@': paths.src,
-    };
+    // config!.resolve!.alias = {
+    //     // ...config!.resolve!.alias,
+    //     '@': paths.src,
+    // };
     //! это поле говорит что при импорте можно не указывать расширение
     config!.resolve!.extensions!.push('ts', 'tsx');
     //! дисайблить и костовать в конфиге допустимо.
@@ -49,7 +49,7 @@ export default ({ config }: { config: WebpackConfiguration }) => {
             __API__: JSON.stringify('https://qwerty.ru'), // апи для мокания возвращаемых "сервером данных" например для компонента articleRecommendationsList
             //! эта переменная нужна для того что бы в глобальной области задавать характер сборки. В Конфиге вебпака эта переменная задана как фронетнд, и это позволяет задавать условия что бы при рендеринге компонента он например юзеффект отправлял запрос на сервер для получения данных НО В СТОРИБУКЕ это делать не нужно
             __PROJECT__: JSON.stringify('storybook'),
-        }),
+        })
     );
 
     return config;
