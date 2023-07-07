@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 import { Button, ThemeButton } from '@/shared/UI/Button/Button';
 import { Text } from '@/shared/UI/Text/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getProfileReadonly } from '@/features/EditableProfileCard/modal/selectors/getProfileReadonly/getProfileReadonly';
-import { ProfileActions } from '@/features/EditableProfileCard/modal/slice/ProfileSlice';
-import { updateProfileData } from '@/features/EditableProfileCard/modal/services/updateProfileData/updateProfileData';
+import { getProfileReadonly } from '../../modal/selectors/getProfileReadonly/getProfileReadonly';
+import { ProfileActions } from '../../modal/slice/ProfileSlice';
+import { updateProfileData } from '../../modal/services/updateProfileData/updateProfileData';
 import { getUserAuthData } from '@/entities/User';
-import { getProfileData } from '@/features/EditableProfileCard/modal/selectors/getProfileData/getProfileData';
+import { getProfileData } from '../../modal/selectors/getProfileData/getProfileData';
 import { HStack } from '@/shared/UI/Stack/HStack/HStack';
 
 interface ProfilePageHeaderProps {

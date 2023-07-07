@@ -20,7 +20,7 @@ import {
     getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
-} from '@/entities/Article/modal/selectors/getAllArticleDetails';
+} from '../../modal/selectors/getAllArticleDetails';
 import EyeIcon from '../../../../shared/assets/icons/eye.svg';
 import CalendarIcon from '../../../../shared/assets/icons/calendar.svg';
 

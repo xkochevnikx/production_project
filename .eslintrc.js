@@ -44,7 +44,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off', //! отключаем правило запрещающее использование индекса в качестве ключа. Если у нас массив не изменяемый то индекс использовать можно
         'react/jsx-no-useless-fragment': 'off',
-        'fsd-path-svt/path-checker': ['error', { alias: '#' }],
+        'fsd-path-svt/path-checker': ['error', { alias: '@' }],
 
         // 'arrow-body-style': 'off',
     },

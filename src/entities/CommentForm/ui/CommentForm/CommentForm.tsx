@@ -14,7 +14,7 @@ import { HStack } from '@/shared/UI/Stack/HStack/HStack';
 import {
     CommentFormActions,
     CommentFormReducer,
-} from '@/entities/CommentForm/modal/slice/CommentFormSlice';
+} from '../../modal/slice/CommentFormSlice';
 import { getCommentFormText } from '../../modal/selectors/getCommentFormSelectors';
 import cls from './CommentForm.module.scss';
 

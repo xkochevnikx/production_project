@@ -10,10 +10,7 @@ import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { AppLink } from '@/shared/UI/AppLink/AppLink';
 import { HStack } from '@/shared/UI/Stack/HStack/HStack';
 import { VStack } from '@/shared/UI/Stack/VStack/VStack';
-import {
-    ArticleBlockType,
-    ArticleView,
-} from '@/entities/Article/modal/consts/consts';
+import { ArticleBlockType, ArticleView } from '../../modal/consts/consts';
 import { IArticle, IArticleTextBlock } from '../../modal/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import IconEye from '../../../../shared/assets/icons/eye.svg';

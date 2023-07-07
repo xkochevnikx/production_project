@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 // import { $api } from 'shared/api/api';
-import { ProfileReducer } from '@/features/EditableProfileCard/modal/slice/ProfileSlice';
+import { ProfileReducer } from '../../modal/slice/ProfileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
 import { IProfile } from '../../modal/types/profile';
 

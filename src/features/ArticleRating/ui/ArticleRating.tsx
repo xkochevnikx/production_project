@@ -3,10 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Card } from '@/shared/UI/Card/Card';
 import { Rating } from '@/entities/Rating';
-import {
-    useArticleRating,
-    useRateArticle,
-} from '@/features/ArticleRating/modal/api/api';
+import { useArticleRating, useRateArticle } from '../modal/api/api';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/UI/Skeleton/Skeleton';
 
