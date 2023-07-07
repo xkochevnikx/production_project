@@ -17,7 +17,7 @@ import {
     getArticleComments,
     getArticleCommentsIsLoading,
 } from '../model/selectors/getArticleComments/getArticleComments';
-import { articleDetailsCommentsReducer } from '../model/slice/articleDetailsCommentsSlice';
+import { articleDetailsCommentsReducer } from '@/features/ArticleComments/model/slice/articleDetailsCommentsSlice';
 
 export interface IArticleCommentsProps {
     id?: string;
