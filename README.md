@@ -48,9 +48,8 @@
 В проекте используется eslint для проверки typescript кода и stylelint для проверки файлов со стилями. </br>
 Также для строгого контроля главных архитектурных принципов используется два КАСТОМНЫХ плагина созданных мной на каркасе генератора плагинов [yo](https://github.com/eslint/generator-eslint) :</br>
 
-позже будут еще добавлены два :</br>
-layer-imports - проверяет корректность использования слоев с точки зрения FSD (например widgets нельзя использовать в features и entitites) </br>
-public-api-imports - разрешает импорт из других модулей только из public api. Имеет auto fix
+1. eslint plugin fsd-path-svt/path-checker - запрещает использовать абсолютные импорты в рамках одного модуля </br>
+2. eslint plugin fsd-path-svt/public-api-imports - разрешает импорт из других модулей только из public api (index.ts). </br>
 
 ---
 
