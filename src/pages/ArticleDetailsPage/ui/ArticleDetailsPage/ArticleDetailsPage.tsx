@@ -1,14 +1,14 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Page } from '@/widgets/Page/ui/Page';
 import { ArticleDetailsPageHeader } from '@/features/ArticleDetailsPageHeader';
 import { VStack } from '@/shared/UI/Stack/VStack/VStack';
-import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList/ui/ArticleRecommendationsList';
 import { ArticleComments } from '@/features/ArticleComments';
 import { ArticleDetails } from '@/entities/Article';
 import cls from './ArticleDetailsPage.module.scss';
-import ArticleRating from '@/features/ArticleRating/ui/ArticleRating';
+import { Page } from '@/widgets/Page';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
+import { ArticleRating } from '@/features/ArticleRating';
 
 interface ArticleDetailsPageProps {
     className?: string;

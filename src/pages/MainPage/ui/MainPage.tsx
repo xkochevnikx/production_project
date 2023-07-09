@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { BugButton } from '@/app/providers/ErrorBoundary';
 import { HStack } from '@/shared/UI/Stack/HStack/HStack';
-import { Page } from '@/widgets/Page/ui/Page';
+import { Page } from '@/widgets/Page';
 
 export function MainPage() {
     const { t } = useTranslation('main');

@@ -8,8 +8,10 @@ import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfin
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useTrottle } from '@/shared/lib/hooks/useTrottle/useTrottle';
-import { scrollSaveSliceActions } from '@/features/ScrollSave/modal/slice/scrollSaveSlice';
-import { getScrollSaveSelectors } from '@/features/ScrollSave';
+import {
+    getScrollSaveSelectors,
+    scrollSaveSliceActions,
+} from '@/features/ScrollSave';
 import cls from './Page.module.scss';
 
 interface PageProps {

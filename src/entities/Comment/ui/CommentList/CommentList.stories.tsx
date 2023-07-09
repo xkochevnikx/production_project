@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { UserRoles } from '@/entities/User/modal/consts/consts';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { CommentList } from './CommentList';
+import { UserRoles } from '@/entities/User';
 
 export default {
     title: 'entities/Comment/CommentList',

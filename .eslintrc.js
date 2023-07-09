@@ -13,7 +13,13 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['fsd-path-svt', 'react', '@typescript-eslint', 'react-hooks'],
+    plugins: [
+        'fsd-path-svt',
+        'api-imports-svt',
+        'react',
+        '@typescript-eslint',
+        'react-hooks',
+    ],
     rules: {
         'react/jsx-indent': [2, 4], //! правило отступов. 2 - правило работает. 4 - кол-во отсупов
         'react/jsx-indent-props': [2, 4], //! отступы для кода с пропсами
@@ -45,6 +51,7 @@ module.exports = {
         'react/no-array-index-key': 'off', //! отключаем правило запрещающее использование индекса в качестве ключа. Если у нас массив не изменяемый то индекс использовать можно
         'react/jsx-no-useless-fragment': 'off',
         'fsd-path-svt/path-checker': ['error', { alias: '@' }],
+        'api-imports-svt/api-imports': ['error', { alias: '@' }],
 
         // 'arrow-body-style': 'off',
     },

@@ -5,3 +5,6 @@ export { getArticlesPageOrder } from '../../features/ArticlesInfiniteList/modal/
 export { getArticlesPageSearch } from '../../features/ArticlesInfiniteList/modal/selectors/getArticlesPageSelectors';
 export { getArticlesPageView } from '../../features/ArticlesInfiniteList/modal/selectors/getArticlesPageSelectors';
 export { getArticlesPageType } from '../../features/ArticlesInfiniteList/modal/selectors/getArticlesPageSelectors';
+export { fetchArticlesList } from '../../features/ArticlesInfiniteList/modal/services/fetchArticlesList/fetchArticlesList';
+export { ArticlesInfitineList } from './ui/ArticlesInfitineList';
+export { initArticlesPage } from './modal/services/initArticlesPage/initArticlesPage';

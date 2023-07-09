@@ -8,13 +8,13 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { ArticlesTypeTabs } from '@/features/ArticlesTypeTabs';
 import { ArticlesSearch } from '@/features/ArticlesSearch';
 import {
+    fetchArticlesList,
     getArticlesPageOrder,
     getArticlesPageSearch,
     getArticlesPageSort,
     getArticlesPageType,
     getArticlesPageView,
 } from '@/features/ArticlesInfiniteList';
-import { fetchArticlesList } from '@/features/ArticlesInfiniteList/modal/services/fetchArticlesList/fetchArticlesList';
 import cls from './ArticlesPageFilter.module.scss';
 
 interface ArticlesPageFilterProps {
