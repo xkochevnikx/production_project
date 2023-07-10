@@ -1,11 +1,11 @@
 import { Story } from '@storybook/react';
 import { IStateSchema, StoreProvider } from '@/app/providers/StoreProviders';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsCommentsReducer } from '@/features/ArticleComments';
-import { ArticleDetailsReducer } from '@/entities/Article';
-import { loginReducer } from '@/features/AuthByUsername';
-import { ProfileReducer } from '@/features/EditableProfileCard';
-import { CommentFormReducer } from '@/entities/CommentForm';
+import { loginReducer } from '@/features/AuthByUsername/testing';
+import { ProfileReducer } from '@/features/EditableProfileCard/testing';
+import { ArticleDetailsReducer } from '@/entities/Article/testing';
+import { CommentFormReducer } from '@/entities/CommentForm/testing';
+import { articleDetailsCommentsReducer } from '@/features/ArticleComments/testing';
 
 //! поскольку эти слайсы асинхронные их надо отдельно добавлять для тестирования компонентов но так же можно еще дополнительно передавать слайсы в стор провайдер.
 const defaultAsyncReducer: ReducersList = {

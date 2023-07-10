@@ -51,7 +51,17 @@ module.exports = {
         'react/no-array-index-key': 'off', //! отключаем правило запрещающее использование индекса в качестве ключа. Если у нас массив не изменяемый то индекс использовать можно
         'react/jsx-no-useless-fragment': 'off',
         'fsd-path-svt/path-checker': ['error', { alias: '@' }],
-        'api-imports-svt/api-imports': ['error', { alias: '@' }],
+        'api-imports-svt/api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFiles: [
+                    '**/*.test.ts',
+                    '**/StoreDecorator.tsx',
+                    '**/*stories.tsx',
+                ],
+            },
+        ],
 
         // 'arrow-body-style': 'off',
     },
