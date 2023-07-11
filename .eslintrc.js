@@ -16,6 +16,7 @@ module.exports = {
     plugins: [
         'fsd-path-svt',
         'api-imports-svt',
+        'interface-prefix-control-svt',
         'react',
         '@typescript-eslint',
         'react-hooks',
@@ -50,7 +51,10 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off', //! отключаем правило запрещающее использование индекса в качестве ключа. Если у нас массив не изменяемый то индекс использовать можно
         'react/jsx-no-useless-fragment': 'off',
+        'no-console': 'warn', //ругаюсь на использование консоли в коде
+        'prefer-const': 'error', //ругаюсь на использование let переменных
         'fsd-path-svt/path-checker': ['error', { alias: '@' }],
+        'interface-prefix-control-svt/prefix-control': 'warn',
         'api-imports-svt/api-imports': [
             'error',
             {
