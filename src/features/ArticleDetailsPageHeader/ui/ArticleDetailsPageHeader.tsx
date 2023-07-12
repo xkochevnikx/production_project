@@ -27,7 +27,7 @@ export const ArticleDetailsPageHeader = memo(() => {
     const { t } = useTranslation('articles');
 
     return (
-        <HStack justify='between' max>
+        <HStack justify="between" max>
             <Button onClick={onBackToList} theme={ThemeButton.OUTLINE}>
                 {t('Назад к списку')}
             </Button>

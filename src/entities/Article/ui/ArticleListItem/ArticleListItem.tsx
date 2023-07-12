@@ -24,7 +24,9 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo(
-    ({ className, article, view, target }: ArticleListItemProps) => {
+    ({
+        className, article, view, target,
+    }: ArticleListItemProps) => {
         const { t } = useTranslation();
 
         //! элементы на отрисовку вынесли в переиспользуемые для удобства потому что повторяются в обеих видах карточки
@@ -40,7 +42,7 @@ export const ArticleListItem = memo(
 
         if (view === ArticleView.BIG) {
             const textBlock = article.blocks.find(
-                (block) => block.type === ArticleBlockType.TEXT
+                (block) => block.type === ArticleBlockType.TEXT,
             ) as IArticleTextBlock;
 
             return (
@@ -51,7 +53,7 @@ export const ArticleListItem = memo(
                     ])}
                 >
                     <Card>
-                        <HStack align='center'>
+                        <HStack align="center">
                             <Avatar size={30} src={article.user.avatar} />
                             <Text
                                 text={article.user.username}
@@ -70,14 +72,14 @@ export const ArticleListItem = memo(
                             alt={article.title}
                             className={cls.img}
                         />
-                        <VStack gap='16' align='start'>
+                        <VStack gap="16" align="start">
                             {textBlock && (
                                 <ArticleTextBlockComponent
                                     block={textBlock}
                                     className={cls.textBlock}
                                 />
                             )}
-                            <HStack align='center' justify='between' max>
+                            <HStack align="center" justify="between" max>
                                 <AppLink
                                     target={target}
                                     to={RoutePath.article_details + article.id}
@@ -120,5 +122,5 @@ export const ArticleListItem = memo(
                 </Card>
             </AppLink>
         );
-    }
+    },
 );
