@@ -11,7 +11,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ProfileCard } from '@/entities/ProfileCard';
+import { ProfileCard } from '@/entities/ProfileCard/ui/ProfileCard';
 import { ProfileActions, ProfileReducer } from '../../modal/slice/ProfileSlice';
 import { getProfileValidateErrors } from '../../modal/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../modal/services/fetchProfileData/fetchProfileData';
@@ -62,14 +62,14 @@ export const EditableProfileCard = memo((props: IEditableProfileProps) => {
         (value?: string) => {
             dispatch(ProfileActions.updateProfile({ first: value || '' }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeLastname = useCallback(
         (value?: string) => {
             dispatch(ProfileActions.updateProfile({ lastname: value || '' }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeAge = useCallback(
@@ -77,59 +77,59 @@ export const EditableProfileCard = memo((props: IEditableProfileProps) => {
             dispatch(
                 ProfileActions.updateProfile({
                     age: Number(value?.replace(/\D/gi, '') || 0),
-                }),
+                })
             );
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeCity = useCallback(
         (value?: string) => {
             dispatch(ProfileActions.updateProfile({ city: value || '' }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeUsername = useCallback(
         (value?: string) => {
             dispatch(ProfileActions.updateProfile({ username: value || '' }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeAvatar = useCallback(
         (value?: string) => {
             dispatch(ProfileActions.updateProfile({ avatar: value || '' }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeCurrency = useCallback(
         (currency: Currency) => {
             dispatch(ProfileActions.updateProfile({ currency }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeCountry = useCallback(
         (country: Country) => {
             dispatch(ProfileActions.updateProfile({ country }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     // todo - для тестирования того что в случае  ошибки отрисовывается компоент текст вешаю на него дататестайди
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <VStack max gap="16">
+            <VStack max gap='16'>
                 <ProfilePageHeader />
-                {validateErrors?.length
-                    && validateErrors.map((error) => (
+                {validateErrors?.length &&
+                    validateErrors.map((error) => (
                         <Text
                             theme={TextTheme.ERROR}
                             text={validateErrorTranslates[error]}
                             key={error}
-                            data-testid="EditableProfileCard.Error"
+                            data-testid='EditableProfileCard.Error'
                         />
                     ))}
                 <ProfileCard
