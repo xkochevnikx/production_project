@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ProfileCard } from './ProfileCard';
 import AvatarImg from '../../../shared/assets/test/крош.jpg';
+import { Theme } from '@/shared/consts/theme';
 
 export default {
     title: 'entities/ProfileCard',

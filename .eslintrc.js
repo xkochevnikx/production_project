@@ -66,6 +66,13 @@ module.exports = {
                 ],
             },
         ],
+        'api-imports-svt/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProviders', '**/testing'],
+            },
+        ],
 
         // 'arrow-body-style': 'off',
     },

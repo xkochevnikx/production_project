@@ -4,7 +4,7 @@ import { Card } from '@/shared/UI/Card/Card';
 import { Input } from '@/shared/UI/Input/Input';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { articlesPageActions } from '@/features/ArticlesInfiniteList';
+import { articlesPageActions } from '../../ArticlesInfiniteList';
 
 interface ArticlesSearchProps {
     className?: string;

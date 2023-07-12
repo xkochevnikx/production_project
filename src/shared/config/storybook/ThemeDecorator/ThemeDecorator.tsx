@@ -1,5 +1,6 @@
 import { Story } from '@storybook/react';
-import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/consts/theme';
+import { ThemeProvider } from '@/shared/lib/context/ThemeContext';
 
 export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) => (
     //! пропс initialTheme только тут для сториз в остальных случаях берём из локала при первом рендере

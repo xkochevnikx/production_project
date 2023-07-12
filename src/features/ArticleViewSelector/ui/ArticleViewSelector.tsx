@@ -5,7 +5,7 @@ import { Button, ThemeButton } from '@/shared/UI/Button/Button';
 import { Icon } from '@/shared/UI/Icon/Icon';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { HStack } from '@/shared/UI/Stack/HStack/HStack';
-import { articlesPageActions } from '@/features/ArticlesInfiniteList';
+import { articlesPageActions } from '../../ArticlesInfiniteList';
 import tiledIcon from '../../../shared/assets/icons/articlesSwitcher1.svg';
 import listIcon from '../../../shared/assets/icons/articlesSwitcher2.svg';
 import cls from './ArticleViewSelector.module.scss';

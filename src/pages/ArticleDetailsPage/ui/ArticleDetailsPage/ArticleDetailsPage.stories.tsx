@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import {
     ArticleBlockType,
     ArticleType,
@@ -9,6 +8,7 @@ import {
 } from '../../../../entities/Article/index';
 import ArticleDetailsPage from './ArticleDetailsPage';
 import { UserRoles } from '@/entities/User';
+import { Theme } from '@/shared/consts/theme';
 
 export default {
     title: 'pages/ArticleDetailsPage',

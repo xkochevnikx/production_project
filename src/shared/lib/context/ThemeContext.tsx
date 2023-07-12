@@ -1,12 +1,8 @@
 import {
     createContext, ReactNode, useMemo, useState,
 } from 'react';
-
-export enum Theme {
-    LIGHT = 'app_light_theme',
-    DARK = 'app_dark_theme',
-    ORANGE = 'app_orange_theme',
-}
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/consts/localstorage';
+import { Theme } from '@/shared/consts/theme';
 
 export interface IThemeContextProps {
     theme?: Theme;
@@ -16,7 +12,6 @@ export interface IThemeContextProps {
 export const ThemeContext = createContext<IThemeContextProps>({});
 
 //! это название ключа
-export const LOCAL_STORAGE_THEME_KEY = 'theme';
 interface IThemeProviderProps {
     initialTheme?: Theme;
     children: ReactNode;

@@ -1,11 +1,12 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
+// eslint-disable-next-line
 import { INotification, NotificationList } from '@/entities/Notification';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Button, ThemeButton } from '../../../Button/Button';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { Popover } from './Popover';
+import { Theme } from '@/shared/consts/theme';
 
 export default {
     title: 'shared/Popover',

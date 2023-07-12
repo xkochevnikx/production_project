@@ -4,7 +4,7 @@ import { ArticleType } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ThemeButton } from '@/shared/UI/Button/Button';
 import { HStack } from '@/shared/UI/Stack/HStack/HStack';
-import { articlesPageActions } from '@/features/ArticlesInfiniteList';
+import { articlesPageActions } from '../../ArticlesInfiniteList';
 import { IArticleTypeBtnItem } from '../modal/types/articleTypeTabItem';
 
 export interface IArticlesTypeTabsProps {

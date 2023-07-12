@@ -1,11 +1,9 @@
 //! это хук который фактически включает всю логику переключения темы за исключением контекста. При этом из него мы получаем всё что надо при этом нет необходимости знать о существовании контекста.
 
 import { useContext } from 'react';
-import {
-    LOCAL_STORAGE_THEME_KEY,
-    Theme,
-    ThemeContext,
-} from '../ThemeProvider/UI/ThemeContext';
+import { Theme } from '@/shared/consts/theme';
+import { ThemeContext } from '../../context/ThemeContext';
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/consts/localstorage';
 
 //! это типы которые хук возвращает
 interface UseThemeResult {

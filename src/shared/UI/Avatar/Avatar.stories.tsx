@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import Krochik from '../../assets/icons/крош.jpg';
 import { Avatar } from './Avatar';
+import { Theme } from '@/shared/consts/theme';
 
 export default {
     title: 'shared/Avatar',

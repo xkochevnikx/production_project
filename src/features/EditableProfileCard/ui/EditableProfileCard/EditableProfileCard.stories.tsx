@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Current';
 import { EditableProfileCard } from './EditableProfileCard';
 import Avatar from '../../../../shared/assets/icons/крош.jpg';
+import { Theme } from '@/shared/consts/theme';
 
 export default {
     title: 'features/EditableProfileCard',

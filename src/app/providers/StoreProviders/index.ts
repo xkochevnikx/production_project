@@ -3,6 +3,7 @@ export { createReduxStore } from './config/Store';
 export type { AppDispatch } from './config/Store';
 export type {
     IStateSchema,
+    StateSchemaKey,
     IThunkConfig,
     IThunkExtraArg,
     IReduxStoreWithManager,

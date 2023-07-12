@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Currency } from '../../modal/types/currency';
 import { CurrencySelect } from './CurrencySelect';
+import { Theme } from '@/shared/consts/theme';
 
 export default {
     title: 'entities/CurrencySelect',

@@ -9,6 +9,7 @@ import { Currency, CurrencySelect } from '@/entities/Current';
 import { Country, CountrySelect } from '@/entities/Country';
 import { VStack } from '@/shared/UI/Stack/VStack/VStack';
 import { HStack } from '@/shared/UI/Stack/HStack/HStack';
+// eslint-disable-next-line
 import { IProfile } from '@/features/EditableProfileCard';
 import cls from './ProfileCard.module.scss';
 

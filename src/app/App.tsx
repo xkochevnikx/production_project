@@ -5,7 +5,7 @@ import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { getUserInited, userActions } from '@/entities/User';
 import { AppRouter } from './router';
-import { useTheme } from './providers/lib/useTheme';
+import { useTheme } from '../shared/lib/hooks/useTheme/useTheme';
 
 function App() {
     //! хук переключения темы

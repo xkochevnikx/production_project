@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IThunkConfig } from '@/app/providers/StoreProviders/config/StateSchema';
+import { IThunkConfig } from '@/app/providers/StoreProviders';
 import { IComment } from '@/entities/Comment';
 import { getUserAuthData } from '@/entities/User';
 import { getArticleDetailsData } from '@/entities/Article';

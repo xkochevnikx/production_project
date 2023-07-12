@@ -5,7 +5,7 @@ import { SortOrder } from '@/shared/types';
 import { ArticleSortField } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { HStack } from '@/shared/UI/Stack/HStack/HStack';
-import { articlesPageActions } from '@/features/ArticlesInfiniteList';
+import { articlesPageActions } from '../../ArticlesInfiniteList';
 
 interface ArticlesSortSelectedProps {
     sort: ArticleSortField;

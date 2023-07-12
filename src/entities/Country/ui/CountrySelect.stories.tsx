@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { CountrySelect } from './CountrySelect';
 import { Country } from '../modal/types/country';
+import { Theme } from '@/shared/consts/theme';
 
 export default {
     title: 'entities/CountrySelect',
