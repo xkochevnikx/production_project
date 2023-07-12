@@ -7,11 +7,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ThemeButton } from '@/shared/UI/Button/Button';
 import { Text, TextTheme } from '@/shared/UI/Text/Text';
 import { AppLink, AppLinkTheme } from '@/shared/UI/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { HStack } from '@/shared/UI/Stack/HStack/HStack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import cls from './Navbar.module.scss';
+import { RoutePath } from '@/shared/consts/route';
 
 interface NavbarProps {
     className?: string;
@@ -47,7 +47,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <HStack gap="32" className={cls.actions}>
+                <HStack gap='32' className={cls.actions}>
                     <NotificationButton />
                     <AvatarDropdown />
                 </HStack>

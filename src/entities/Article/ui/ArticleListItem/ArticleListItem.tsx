@@ -6,7 +6,6 @@ import { Icon } from '@/shared/UI/Icon/Icon';
 import { Card } from '@/shared/UI/Card/Card';
 import { Avatar } from '@/shared/UI/Avatar/Avatar';
 import { Button, ThemeButton } from '@/shared/UI/Button/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { AppLink } from '@/shared/UI/AppLink/AppLink';
 import { HStack } from '@/shared/UI/Stack/HStack/HStack';
 import { VStack } from '@/shared/UI/Stack/VStack/VStack';
@@ -15,6 +14,7 @@ import { IArticle, IArticleTextBlock } from '../../modal/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import IconEye from '../../../../shared/assets/icons/eye.svg';
 import cls from './ArticleListItem.module.scss';
+import { RoutePath } from '@/shared/consts/route';
 
 interface ArticleListItemProps {
     className?: string;
@@ -24,9 +24,7 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo(
-    ({
-        className, article, view, target,
-    }: ArticleListItemProps) => {
+    ({ className, article, view, target }: ArticleListItemProps) => {
         const { t } = useTranslation();
 
         //! элементы на отрисовку вынесли в переиспользуемые для удобства потому что повторяются в обеих видах карточки
@@ -42,7 +40,7 @@ export const ArticleListItem = memo(
 
         if (view === ArticleView.BIG) {
             const textBlock = article.blocks.find(
-                (block) => block.type === ArticleBlockType.TEXT,
+                (block) => block.type === ArticleBlockType.TEXT
             ) as IArticleTextBlock;
 
             return (
@@ -53,7 +51,7 @@ export const ArticleListItem = memo(
                     ])}
                 >
                     <Card>
-                        <HStack align="center">
+                        <HStack align='center'>
                             <Avatar size={30} src={article.user.avatar} />
                             <Text
                                 text={article.user.username}
@@ -72,14 +70,14 @@ export const ArticleListItem = memo(
                             alt={article.title}
                             className={cls.img}
                         />
-                        <VStack gap="16" align="start">
+                        <VStack gap='16' align='start'>
                             {textBlock && (
                                 <ArticleTextBlockComponent
                                     block={textBlock}
                                     className={cls.textBlock}
                                 />
                             )}
-                            <HStack align="center" justify="between" max>
+                            <HStack align='center' justify='between' max>
                                 <AppLink
                                     target={target}
                                     to={RoutePath.article_details + article.id}
@@ -122,5 +120,5 @@ export const ArticleListItem = memo(
                 </Card>
             </AppLink>
         );
-    },
+    }
 );

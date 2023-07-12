@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button, ThemeButton } from '@/shared/UI/Button/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { getArticleDetailsData } from '@/entities/Article';
 import { HStack } from '@/shared/UI/Stack/HStack/HStack';
 import { getCanEditArticle } from '../modal/selectors/getCanEditArticle';
+import { RoutePath } from '@/shared/consts/route';
 
 export const ArticleDetailsPageHeader = memo(() => {
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ export const ArticleDetailsPageHeader = memo(() => {
     const { t } = useTranslation('articles');
 
     return (
-        <HStack justify="between" max>
+        <HStack justify='between' max>
             <Button onClick={onBackToList} theme={ThemeButton.OUTLINE}>
                 {t('Назад к списку')}
             </Button>
