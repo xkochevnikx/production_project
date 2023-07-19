@@ -20,6 +20,7 @@ module.exports = {
         'react',
         '@typescript-eslint',
         'react-hooks',
+        "unused-imports",
     ],
     rules: {
         'react/jsx-indent': [2, 4], //! правило отступов. 2 - правило работает. 4 - кол-во отсупов
@@ -73,6 +74,8 @@ module.exports = {
                 ignoreImportPatterns: ['**/StoreProviders', '**/testing'],
             },
         ],
+        "unused-imports/no-unused-imports": "error",
+
 
         // 'arrow-body-style': 'off',
     },
