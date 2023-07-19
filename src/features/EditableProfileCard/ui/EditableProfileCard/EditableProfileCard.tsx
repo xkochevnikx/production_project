@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Currency } from '@/entities/Current';
 import { Country } from '@/entities/Country';
-import { Text, TextTheme } from '@/shared/UI/Text/Text';
+import { Text, TextTheme } from '@/shared/UI/Text';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from '@/shared/UI/Stack/VStack/VStack';
+import { VStack } from '@/shared/UI/Stack';
 import {
     DynamicModuleLoader,
     ReducersList,

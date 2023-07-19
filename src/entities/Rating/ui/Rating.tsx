@@ -2,15 +2,15 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/UI/Card/Card';
-import { Text } from '@/shared/UI/Text/Text';
-import { VStack } from '@/shared/UI/Stack/VStack/VStack';
-import { Modal } from '@/shared/UI/Modal/Modal';
-import { Input } from '@/shared/UI/Input/Input';
-import { HStack } from '@/shared/UI/Stack/HStack/HStack';
-import { Button, ThemeButton } from '@/shared/UI/Button/Button';
-import { Drawer } from '@/shared/UI/Drawer/Drawer';
-import { StarRating } from '@/shared/UI/StarRaiting/StarRating';
+import { Card } from '@/shared/UI/Card';
+import { Text } from '@/shared/UI/Text';
+import { VStack, HStack } from '@/shared/UI/Stack';
+import { Modal } from '@/shared/UI/Modal';
+import { Input } from '@/shared/UI/Input';
+
+import { Button, ThemeButton } from '@/shared/UI/Button';
+import { Drawer } from '@/shared/UI/Drawer';
+import { StarRating } from '@/shared/UI/StarRaiting';
 
 interface RatingProps {
     className?: string;

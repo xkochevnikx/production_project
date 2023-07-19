@@ -31,7 +31,7 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));
     });
-    //! сохраняю скролл только там где это нужно по флагу  isSaveScroll
+    //! сохраняю скролл только там где это нужно по флагу isSaveScroll
     return (
         <Page
             isSaveScroll

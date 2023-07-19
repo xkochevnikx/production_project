@@ -1,10 +1,10 @@
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleView } from '@/entities/Article';
-import { Button, ThemeButton } from '@/shared/UI/Button/Button';
-import { Icon } from '@/shared/UI/Icon/Icon';
+import { Button, ThemeButton } from '@/shared/UI/Button';
+import { Icon } from '@/shared/UI/Icon';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { HStack } from '@/shared/UI/Stack/HStack/HStack';
+import { HStack } from '@/shared/UI/Stack';
 import { articlesPageActions } from '../../ArticlesInfiniteList';
 import tiledIcon from '../../../shared/assets/icons/articlesSwitcher1.svg';
 import listIcon from '../../../shared/assets/icons/articlesSwitcher2.svg';

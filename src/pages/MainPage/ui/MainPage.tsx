@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { HStack } from '@/shared/UI/Stack/HStack/HStack';
+import { HStack } from '@/shared/UI/Stack';
 import { Page } from '@/widgets/Page';
 
 export function MainPage() {

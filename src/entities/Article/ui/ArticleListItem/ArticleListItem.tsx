@@ -1,14 +1,14 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/UI/Text/Text';
-import { Icon } from '@/shared/UI/Icon/Icon';
-import { Card } from '@/shared/UI/Card/Card';
-import { Avatar } from '@/shared/UI/Avatar/Avatar';
-import { Button, ThemeButton } from '@/shared/UI/Button/Button';
-import { AppLink } from '@/shared/UI/AppLink/AppLink';
-import { HStack } from '@/shared/UI/Stack/HStack/HStack';
-import { VStack } from '@/shared/UI/Stack/VStack/VStack';
+import { Text } from '@/shared/UI/Text';
+import { Icon } from '@/shared/UI/Icon';
+import { Card } from '@/shared/UI/Card';
+import { Avatar } from '@/shared/UI/Avatar';
+import { Button, ThemeButton } from '@/shared/UI/Button';
+import { AppLink } from '@/shared/UI/AppLink';
+import { HStack, VStack } from '@/shared/UI/Stack';
+
 import { ArticleBlockType, ArticleView } from '../../modal/consts/consts';
 import { IArticle, IArticleTextBlock } from '../../modal/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';

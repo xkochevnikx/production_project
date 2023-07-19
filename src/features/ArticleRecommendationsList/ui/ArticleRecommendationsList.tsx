@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticlesList } from '@/entities/Article';
-import { Text, TextSize } from '@/shared/UI/Text/Text';
-import { VStack } from '@/shared/UI/Stack/VStack/VStack';
+import { Text, TextSize } from '@/shared/UI/Text';
+import { VStack } from '@/shared/UI/Stack';
 import { useArticleRecommendationsList } from '../api/ArticleRecommendationsApi';
 
 export const ArticleRecommendationsList = memo(() => {

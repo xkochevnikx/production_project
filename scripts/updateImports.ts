@@ -25,6 +25,7 @@ function isAbsolute(value: string) {
 // иду циклом по файлам, получаю импорты из каждого файла и сохраняю в переменную. далее иду циклом по полученным импорам и значение каждого сохраняю в переменную
 files.forEach((sourceFile) => {
     const importDeclarations = sourceFile.getImportDeclarations();
+    console.log(importDeclarations);
     importDeclarations.forEach((importDeclaration) => {
         const value = importDeclaration.getModuleSpecifierValue();
         // если нода проходит проверку на валидность изменяю её значение

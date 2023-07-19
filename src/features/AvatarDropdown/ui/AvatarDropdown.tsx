@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Dropdown } from '@/shared/UI/Popups';
-import { Avatar } from '@/shared/UI/Avatar/Avatar';
+import { Avatar } from '@/shared/UI/Avatar';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     UserRoles,

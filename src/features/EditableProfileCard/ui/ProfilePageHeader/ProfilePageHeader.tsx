@@ -1,15 +1,15 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Button, ThemeButton } from '@/shared/UI/Button/Button';
-import { Text } from '@/shared/UI/Text/Text';
+import { Button, ThemeButton } from '@/shared/UI/Button';
+import { Text } from '@/shared/UI/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getProfileReadonly } from '../../modal/selectors/getProfileReadonly/getProfileReadonly';
 import { ProfileActions } from '../../modal/slice/ProfileSlice';
 import { updateProfileData } from '../../modal/services/updateProfileData/updateProfileData';
 import { getUserAuthData } from '@/entities/User';
 import { getProfileData } from '../../modal/selectors/getProfileData/getProfileData';
-import { HStack } from '@/shared/UI/Stack/HStack/HStack';
+import { HStack } from '@/shared/UI/Stack';
 
 interface ProfilePageHeaderProps {
     className?: string;

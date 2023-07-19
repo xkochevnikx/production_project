@@ -2,9 +2,9 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Button, ThemeButton } from '@/shared/UI/Button/Button';
+import { Button, ThemeButton } from '@/shared/UI/Button';
 import { getArticleDetailsData } from '@/entities/Article';
-import { HStack } from '@/shared/UI/Stack/HStack/HStack';
+import { HStack } from '@/shared/UI/Stack';
 import { getCanEditArticle } from '../modal/selectors/getCanEditArticle';
 import { RoutePath } from '@/shared/consts/route';
 

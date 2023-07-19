@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleDetailsPageHeader } from '@/features/ArticleDetailsPageHeader';
-import { VStack } from '@/shared/UI/Stack/VStack/VStack';
+import { VStack } from '@/shared/UI/Stack';
 import { ArticleComments } from '@/features/ArticleComments';
 import { ArticleDetails } from '@/entities/Article';
 import cls from './ArticleDetailsPage.module.scss';

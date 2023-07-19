@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { EditableProfileCard } from '@/features/EditableProfileCard';
-import { VStack } from '@/shared/UI/Stack/VStack/VStack';
+import { VStack } from '@/shared/UI/Stack';
 import { Page } from '@/widgets/Page';
 
 function ProfilePage() {

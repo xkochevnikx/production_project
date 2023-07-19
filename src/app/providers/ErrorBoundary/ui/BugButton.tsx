@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/shared/UI/Button/Button';
+import { Button } from '@/shared/UI/Button';
 
 //! это учебный компонент для тестирования ErrorBoundary
 export function BugButton() {

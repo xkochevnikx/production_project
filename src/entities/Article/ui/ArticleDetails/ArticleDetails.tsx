@@ -6,13 +6,13 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextAlign, TextSize } from '@/shared/UI/Text/Text';
-import { Skeleton } from '@/shared/UI/Skeleton/Skeleton';
-import { Avatar } from '@/shared/UI/Avatar/Avatar';
-import { Icon } from '@/shared/UI/Icon/Icon';
+import { Text, TextAlign, TextSize } from '@/shared/UI/Text';
+import { Skeleton } from '@/shared/UI/Skeleton';
+import { Avatar } from '@/shared/UI/Avatar';
+import { Icon } from '@/shared/UI/Icon';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { HStack } from '@/shared/UI/Stack/HStack/HStack';
-import { VStack } from '@/shared/UI/Stack/VStack/VStack';
+import { HStack, VStack } from '@/shared/UI/Stack';
+
 import { renderBlock } from '../../modal/lib/renderBlock/renderBlock';
 import { ArticleDetailsReducer } from '../../modal/slice/ArticleDetailsSlice';
 import { fetchArticleById } from '../../modal/services/fetchArticleById';

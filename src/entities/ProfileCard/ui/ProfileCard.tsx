@@ -1,14 +1,14 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextAlign, TextTheme } from '@/shared/UI/Text/Text';
-import { Input } from '@/shared/UI/Input/Input';
-import { Loader } from '@/shared/UI/Loader/Loader';
-import { Avatar } from '@/shared/UI/Avatar/Avatar';
+import { Text, TextAlign, TextTheme } from '@/shared/UI/Text';
+import { Input } from '@/shared/UI/Input';
+import { Loader } from '@/shared/UI/Loader';
+import { Avatar } from '@/shared/UI/Avatar';
 import { Currency, CurrencySelect } from '@/entities/Current';
 import { Country, CountrySelect } from '@/entities/Country';
-import { VStack } from '@/shared/UI/Stack/VStack/VStack';
-import { HStack } from '@/shared/UI/Stack/HStack/HStack';
+import { VStack, HStack } from '@/shared/UI/Stack';
+
 // eslint-disable-next-line
 import { IProfile } from '@/features/EditableProfileCard';
 import cls from './ProfileCard.module.scss';

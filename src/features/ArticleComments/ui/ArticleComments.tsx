@@ -1,23 +1,23 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { VStack } from '@/shared/UI/Stack/VStack/VStack';
-import { Text, TextSize } from '@/shared/UI/Text/Text';
+import { VStack } from '@/shared/UI/Stack';
+import { Text, TextSize } from '@/shared/UI/Text';
 import { CommentList } from '@/entities/Comment';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
+import { addCommentForArticle } from '../modal/services/addCommentForArticle/addCommentForArticle';
 import { CommentForm } from '@/entities/CommentForm';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../modal/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import {
     getArticleComments,
     getArticleCommentsIsLoading,
-} from '../model/selectors/getArticleComments/getArticleComments';
-import { articleDetailsCommentsReducer } from '../model/slice/articleDetailsCommentsSlice';
+} from '../modal/selectors/getArticleComments/getArticleComments';
+import { articleDetailsCommentsReducer } from '../modal/slice/articleDetailsCommentsSlice';
 
 export interface IArticleCommentsProps {
     id?: string;

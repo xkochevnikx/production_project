@@ -7,10 +7,10 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ThemeButton } from '@/shared/UI/Button/Button';
-import { Input } from '@/shared/UI/Input/Input';
-import { Text, TextTheme } from '@/shared/UI/Text/Text';
-import { VStack } from '@/shared/UI/Stack/VStack/VStack';
+import { Button, ThemeButton } from '@/shared/UI/Button';
+import { Input } from '@/shared/UI/Input';
+import { Text, TextTheme } from '@/shared/UI/Text';
+import { VStack } from '@/shared/UI/Stack';
 import { loginActions, loginReducer } from '../../modal/slice/loginSlice';
 import { loginByUserName } from '../../modal/services/loginByUserName/loginByUserName';
 import { getLoginUsername } from '../../modal/selectors/getLoginUsername/getLoginUsername';
