@@ -208,28 +208,39 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 -   [Article](/src/entities/Article)
 -   [Comment](/src/entities/Comment)
+-   [CommentForm](/src/entities/CommentForm)
 -   [Counter](/src/entities/Counter)
 -   [Country](/src/entities/Country)
 -   [Currency](/src/entities/Currency)
 -   [Notification](/src/entities/Notification)
--   [Profile](/src/entities/Profile)
+-   [ProfileCard](/src/entities/ProfileCard)
 -   [Rating](/src/entities/Rating)
 -   [User](/src/entities/User)
 
 ## Фичи (features)
 
--   [addCommentForm](/src/features/addCommentForm)
--   [articleEditForm](/src/features/articleEditForm)
--   [articleRating](/src/features/articleRating)
--   [articleRecommendationsList](/src/features/articleRecommendationsList)
--   [AuthByUsername](/src/features/AuthByUsername)
--   [avatarDropdown](/src/features/avatarDropdown)
--   [editableProfileCard](/src/features/editableProfileCard)
--   [LangSwitcher](/src/features/LangSwitcher)
--   [notificationButton](/src/features/notificationButton)
--   [profileRating](/src/features/profileRating)
--   [UI](/src/features/UI)
--   [ThemeSwitcher](/src/features/ThemeSwitcher)
+-   [ArticleComments](/src/features/ArticleComments) 
+-   [ArticleRating](/src/features/ArticleRating) 
+-   [ArticlesInfiniteList](/src/features/ArticlesInfiniteList) 
+-   [ArticlesSearch](/src/features/ArticlesSearch) 
+-   [ArticlesSortSelected](/src/features/ArticlesSortSelected)  
+-   [ScrollSave](/src/features/ScrollSave)  
+-   [ArticlesTypeTabs](/src/features/ArticlesTypeTabs)  
+-   [ArticleViewSelector](/src/features/ArticleViewSelector) 
+-   [ArticleRecommendationsList](/src/features/ArticleRecommendationsList) 
+-   [AuthByUsername](/src/features/AuthByUsername) 
+-   [AvatarDropdown](/src/features/AvatarDropdown) 
+-   [EditableProfileCard](/src/features/EditableProfileCard) 
+-   [LanguageSwitcher](/src/features/LanguageSwitcher) 
+-   [NotificationButton](/src/features/NotificationButton) 
+-   [ProfileRating](/src/features/ProfileRating) 
+-   [ThemeSwitcher](/src/features/ThemeSwitcher) 
+-   
+
+  ## UI Kit
+  
+-   [Shared](/src/shared/UI)
+
 
 ## Команда проекта
 
