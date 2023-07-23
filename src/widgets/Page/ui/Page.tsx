@@ -18,7 +18,7 @@ interface PageProps {
     className?: string;
     children?: ReactNode;
     onScrollEnd?: () => void;
-    //! сохраняю скролл только там где это нужно по флагу isSaveScroll
+    // сохраняю скролл только там где это нужно по флагу isSaveScroll
     isSaveScroll?: boolean;
 }
 
@@ -36,12 +36,12 @@ export const Page = ({
 
     const { pathname } = useLocation();
 
-    //! в селектор который вытаскивает объект с текущим положением скролла где ключ это адрес а значение это положение. вытаскиваю из него значение в массиве и преобразовываю его в число которое передаю ниже в wrapperRef.current.scrollTop при каждом рендере
+    // в селектор который вытаскивает объект с текущим положением скролла где ключ это адрес а значение это положение. вытаскиваю из него значение в массиве и преобразовываю его в число которое передаю ниже в wrapperRef.current.scrollTop при каждом рендере
     const scrollPosition = Number(
         Object.values(useSelector(getScrollSaveSelectors)),
     );
 
-    //! хук подгрузки на скролл.
+    // хук подгрузки на скролл.
     useInfiniteScroll({
         wrapperRef,
         triggerRef,
