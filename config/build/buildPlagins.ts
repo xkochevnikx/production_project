@@ -55,7 +55,7 @@ export function buildPlagins({
             new CircularDependencyPlugin({
                 exclude: /node_modules/,
                 failOnError: true,
-            })
+            }),
         );
     }
 
@@ -66,7 +66,7 @@ export function buildPlagins({
                 filename: 'css/[name].[contenthash:8].css',
                 chunkFilename:
                     'css/[name].[contenthash:8].css',
-            })
+            }),
         );
         plugins.push(
             //! плагин для копирования чего то в сборку. в данном случае переводов
@@ -77,7 +77,7 @@ export function buildPlagins({
                         to: paths.buildLocales,
                     },
                 ],
-            })
+            }),
         );
     }
 
