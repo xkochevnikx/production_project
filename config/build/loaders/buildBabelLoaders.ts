@@ -4,7 +4,10 @@ import { IBuildOptions } from '../types/config';
 interface IBabelLoaderProps extends IBuildOptions {
     isTsx?: boolean;
 }
-export function buildBabelLoaders({ isDev, isTsx }: IBabelLoaderProps) {
+export function buildBabelLoaders({
+    isDev,
+    isTsx,
+}: IBabelLoaderProps) {
     //! preset-env преобразовывает новые стандарты языка в старые
     return {
         test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
@@ -12,6 +15,7 @@ export function buildBabelLoaders({ isDev, isTsx }: IBabelLoaderProps) {
         use: {
             loader: 'babel-loader',
             options: {
+                cacheDirectory: true,
                 presets: ['@babel/preset-env'],
                 plugins: [
                     [
@@ -24,13 +28,15 @@ export function buildBabelLoaders({ isDev, isTsx }: IBabelLoaderProps) {
 
                     ...(isTsx && !isDev
                         ? [
-                            [
-                                babelRemovePropsPlugin,
-                                {
-                                    props: ['data-testid'],
-                                },
-                            ],
-                        ]
+                              [
+                                  babelRemovePropsPlugin,
+                                  {
+                                      props: [
+                                          'data-testid',
+                                      ],
+                                  },
+                              ],
+                          ]
                         : []),
                 ],
             },
