@@ -1,4 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {
+    createSlice,
+    PayloadAction,
+} from '@reduxjs/toolkit';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
 import { IUser, IUserSchema } from '../types/user';
 
@@ -12,12 +15,17 @@ export const userSlice = createSlice({
 
     reducers: {
         //! сюда прилетают данные об авторизации от фанка loginByUserName
-        setAuthData: (state, action: PayloadAction<IUser>) => {
+        setAuthData: (
+            state,
+            action: PayloadAction<IUser>,
+        ) => {
             state.authData = action.payload;
         },
         //! при обновлении страницы из локала берём данные и записываем сюда снова. и меняем флаг который говорит что мы авторизованы, он нужен что бы впоследствии в app его передать и создавать маршруты уже на этом основании, поскольку если рендерить app без этого условия асинкфанк пришлёт сведения об авторизации позже создания маршрутов.
         initAuthData: (state) => {
-            const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
+            const user = localStorage.getItem(
+                USER_LOCALSTORAGE_KEY,
+            );
             if (user) {
                 state.authData = JSON.parse(user);
             }
