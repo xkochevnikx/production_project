@@ -28,15 +28,15 @@ export function buildBabelLoaders({
 
                     ...(isTsx && !isDev
                         ? [
-                            [
-                                babelRemovePropsPlugin,
-                                {
-                                    props: [
-                                        'data-testid',
-                                    ],
-                                },
-                            ],
-                        ]
+                              [
+                                  babelRemovePropsPlugin,
+                                  {
+                                      props: [
+                                          'data-testid',
+                                      ],
+                                  },
+                              ],
+                          ]
                         : []),
                 ],
             },
