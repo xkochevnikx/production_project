@@ -57,8 +57,7 @@ export const ArticleListItem = memo(
 
         if (view === ArticleView.BIG) {
             const textBlock = article.blocks.find(
-                (block) =>
-                    block.type === ArticleBlockType.TEXT
+                (block) => block.type === ArticleBlockType.TEXT,
             ) as IArticleTextBlock;
 
             return (
@@ -66,7 +65,7 @@ export const ArticleListItem = memo(
                     className={classNames(
                         cls.ArticleListItem,
                         {},
-                        [className, cls[view]]
+                        [className, cls[view]],
                     )}
                 >
                     <Card>
@@ -112,7 +111,7 @@ export const ArticleListItem = memo(
                                 <AppLink
                                     target={target}
                                     to={getRouteArticleDetails(
-                                        `${article.id}`
+                                        `${article.id}`,
                                     )}
                                 >
                                     <Button
@@ -138,7 +137,7 @@ export const ArticleListItem = memo(
                 className={classNames(
                     cls.ArticleListItem,
                     {},
-                    [className, cls[view]]
+                    [className, cls[view]],
                 )}
             >
                 <Card>
@@ -164,5 +163,5 @@ export const ArticleListItem = memo(
                 </Card>
             </AppLink>
         );
-    }
+    },
 );

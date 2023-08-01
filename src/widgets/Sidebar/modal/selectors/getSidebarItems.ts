@@ -42,10 +42,10 @@ export const getSidebarItems = createSelector(
                     Icon: ArticlesIcon,
                     text: 'Статьи',
                     isAuthOnly: true,
-                }
+                },
             );
         }
 
         return sidebarItemList;
-    }
+    },
 );

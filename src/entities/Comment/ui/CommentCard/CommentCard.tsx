@@ -30,7 +30,7 @@ export const CommentCard = memo(
                     className={classNames(
                         cls.CommentCard,
                         {},
-                        [className, cls.loading]
+                        [className, cls.loading],
                     )}
                 >
                     <div className={cls.header}>
@@ -66,7 +66,7 @@ export const CommentCard = memo(
                 <AppLink
                     className={cls.header}
                     to={getRouteProfile(
-                        `${comment.user.id}`
+                        `${comment.user.id}`,
                     )}
                 >
                     {comment?.user.avatar ? (
@@ -84,5 +84,5 @@ export const CommentCard = memo(
                 />
             </VStack>
         );
-    }
+    },
 );

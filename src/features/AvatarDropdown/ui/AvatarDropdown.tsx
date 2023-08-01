@@ -27,10 +27,10 @@ export const AvatarDropdown = memo(
         const isRole = useSelector(getIsRole);
         // todo - достаю флаги ролей пользователя. в селекторе через createSelector не получилось, делаю тут в лоб
         const isManager = Boolean(
-            isRole?.includes(UserRoles.MANAGER)
+            isRole?.includes(UserRoles.MANAGER),
         );
         const isAdmin = Boolean(
-            isRole?.includes(UserRoles.ADMIN)
+            isRole?.includes(UserRoles.ADMIN),
         );
         // ниже проверяю наличие оснований в ролях для доступа к кнопке перехода на админ панель
         const isAdminPanelAvailable = isAdmin || isManager;
@@ -51,11 +51,11 @@ export const AvatarDropdown = memo(
                 items={[
                     ...(isAdminPanelAvailable
                         ? [
-                              {
-                                  content: t('Админка'),
-                                  href: getRouteAdminPage(),
-                              },
-                          ]
+                            {
+                                content: t('Админка'),
+                                href: getRouteAdminPage(),
+                            },
+                        ]
                         : []),
                     {
                         content: t('Выйти'),
@@ -64,11 +64,11 @@ export const AvatarDropdown = memo(
                     {
                         content: t('Профиль'),
                         href: getRouteProfile(
-                            `${isAuth.id}`
+                            `${isAuth.id}`,
                         ),
                     },
                 ]}
             />
         );
-    }
+    },
 );
