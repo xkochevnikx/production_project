@@ -15,18 +15,18 @@ export default (env: IBuildEnv) => {
         html: path.resolve(
             __dirname,
             'public',
-            'index.html'
+            'index.html',
         ),
         src: path.resolve(__dirname, 'src'),
         locales: path.resolve(
             __dirname,
             'public',
-            'locales'
+            'locales',
         ),
         buildLocales: path.resolve(
             __dirname,
             'build',
-            'locales'
+            'locales',
         ),
     };
 
@@ -36,16 +36,15 @@ export default (env: IBuildEnv) => {
     const apiUrl = env.apiUrl || 'http://localhost:8000';
 
     //! конфигурационный файл
-    const config: webpack.Configuration =
-        buildWebpackConfig({
-            mode,
-            paths,
-            isDev,
-            port: PORT,
-            apiUrl,
-            //! у нас есть три среды и для каждой в конфиге мы задаём глобальный флаг переменную что бы исходя из характера сборки как то задать функционал. например при сторибучной сборки нам не надо делать запросы на сервер поэтому по условию при рендеринге компонета идёт проверка и если сборка сторибук выполенние запроса не происходит
-            project: 'frontend',
-        });
+    const config: webpack.Configuration = buildWebpackConfig({
+        mode,
+        paths,
+        isDev,
+        port: PORT,
+        apiUrl,
+        //! у нас есть три среды и для каждой в конфиге мы задаём глобальный флаг переменную что бы исходя из характера сборки как то задать функционал. например при сторибучной сборки нам не надо делать запросы на сервер поэтому по условию при рендеринге компонета идёт проверка и если сборка сторибук выполенние запроса не происходит
+        project: 'frontend',
+    });
 
     return config;
 };
