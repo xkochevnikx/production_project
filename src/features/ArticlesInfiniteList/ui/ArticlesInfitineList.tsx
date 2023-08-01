@@ -26,7 +26,10 @@ export const ArticlesInfitineList = memo(() => {
     const isLoading = useSelector(getArticlesPageIsLoading);
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+        <DynamicModuleLoader
+            reducers={reducers}
+            removeAfterUnmount={false}
+        >
             <ArticlesList
                 articles={articles}
                 isLoading={isLoading}

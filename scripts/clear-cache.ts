@@ -1,3 +1,4 @@
+// @ts-ignore
 const fs = require('fs');
 const { join: joinPath } = require('path');
 
@@ -7,4 +8,3 @@ const cacheDir = joinPath(
     'node_modules/.cache',
 );
 fs.rmSync(cacheDir, { recursive: true, force: true });
-export {};
