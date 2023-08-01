@@ -9,12 +9,18 @@ import { Button, ThemeButton } from '@/shared/UI/Button';
 import { AppLink } from '@/shared/UI/AppLink';
 import { HStack, VStack } from '@/shared/UI/Stack';
 
-import { ArticleBlockType, ArticleView } from '../../modal/consts/consts';
-import { IArticle, IArticleTextBlock } from '../../modal/types/article';
+import {
+    ArticleBlockType,
+    ArticleView,
+} from '../../modal/consts/consts';
+import {
+    IArticle,
+    IArticleTextBlock,
+} from '../../modal/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import IconEye from '../../../../shared/assets/icons/eye.svg';
 import cls from './ArticleListItem.module.scss';
-import { RoutePath } from '@/shared/consts/route';
+import { getRouteArticleDetails } from '@/shared/consts/route';
 
 interface ArticleListItemProps {
     className?: string;
@@ -25,36 +31,50 @@ interface ArticleListItemProps {
 
 export const ArticleListItem = memo(
     ({
-        className, article, view, target,
+        className,
+        article,
+        view,
+        target,
     }: ArticleListItemProps) => {
         const { t } = useTranslation();
 
         //! элементы на отрисовку вынесли в переиспользуемые для удобства потому что повторяются в обеих видах карточки
         const types = (
-            <Text text={article.type.join(', ')} className={cls.types} />
+            <Text
+                text={article.type.join(', ')}
+                className={cls.types}
+            />
         );
         const views = (
             <>
-                <Text text={String(article.views)} className={cls.views} />
+                <Text
+                    text={String(article.views)}
+                    className={cls.views}
+                />
                 <Icon Svg={IconEye} />
             </>
         );
 
         if (view === ArticleView.BIG) {
             const textBlock = article.blocks.find(
-                (block) => block.type === ArticleBlockType.TEXT,
+                (block) =>
+                    block.type === ArticleBlockType.TEXT
             ) as IArticleTextBlock;
 
             return (
                 <div
-                    className={classNames(cls.ArticleListItem, {}, [
-                        className,
-                        cls[view],
-                    ])}
+                    className={classNames(
+                        cls.ArticleListItem,
+                        {},
+                        [className, cls[view]]
+                    )}
                 >
                     <Card>
                         <HStack align="center">
-                            <Avatar size={30} src={article.user.avatar} />
+                            <Avatar
+                                size={30}
+                                src={article.user.avatar}
+                            />
                             <Text
                                 text={article.user.username}
                                 className={cls.username}
@@ -65,7 +85,10 @@ export const ArticleListItem = memo(
                             />
                         </HStack>
 
-                        <Text text={article.title} className={cls.title} />
+                        <Text
+                            text={article.title}
+                            className={cls.title}
+                        />
                         {types}
                         <img
                             src={article.img}
@@ -76,15 +99,27 @@ export const ArticleListItem = memo(
                             {textBlock && (
                                 <ArticleTextBlockComponent
                                     block={textBlock}
-                                    className={cls.textBlock}
+                                    className={
+                                        cls.textBlock
+                                    }
                                 />
                             )}
-                            <HStack align="center" justify="between" max>
+                            <HStack
+                                align="center"
+                                justify="between"
+                                max
+                            >
                                 <AppLink
                                     target={target}
-                                    to={RoutePath.article_details + article.id}
+                                    to={getRouteArticleDetails(
+                                        `${article.id}`
+                                    )}
                                 >
-                                    <Button theme={ThemeButton.OUTLINE}>
+                                    <Button
+                                        theme={
+                                            ThemeButton.OUTLINE
+                                        }
+                                    >
                                         {t('Читать далее')}
                                     </Button>
                                 </AppLink>
@@ -99,11 +134,12 @@ export const ArticleListItem = memo(
         return (
             <AppLink
                 target={target}
-                to={RoutePath.article_details + article.id}
-                className={classNames(cls.ArticleListItem, {}, [
-                    className,
-                    cls[view],
-                ])}
+                to={getRouteArticleDetails(`${article.id}`)}
+                className={classNames(
+                    cls.ArticleListItem,
+                    {},
+                    [className, cls[view]]
+                )}
             >
                 <Card>
                     <div className={cls.imageWrapper}>
@@ -112,15 +148,21 @@ export const ArticleListItem = memo(
                             alt={article.title}
                             className={cls.img}
                         />
-                        <Text text={article.createdAt} className={cls.date} />
+                        <Text
+                            text={article.createdAt}
+                            className={cls.date}
+                        />
                     </div>
                     <div className={cls.infoWrapper}>
                         {types}
                         {views}
                     </div>
-                    <Text text={article.title} className={cls.title} />
+                    <Text
+                        text={article.title}
+                        className={cls.title}
+                    />
                 </Card>
             </AppLink>
         );
-    },
+    }
 );

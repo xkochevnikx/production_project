@@ -6,7 +6,10 @@ import { Button, ThemeButton } from '@/shared/UI/Button';
 import { getArticleDetailsData } from '@/entities/Article';
 import { HStack } from '@/shared/UI/Stack';
 import { getCanEditArticle } from '../modal/selectors/getCanEditArticle';
-import { RoutePath } from '@/shared/consts/route';
+import {
+    getRouteArticleEdit,
+    getRouteArticles,
+} from '@/shared/consts/route';
 
 export const ArticleDetailsPageHeader = memo(() => {
     const navigate = useNavigate();
@@ -17,22 +20,28 @@ export const ArticleDetailsPageHeader = memo(() => {
     const article = useSelector(getArticleDetailsData);
     //! обратно на список
     const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
+        navigate(getRouteArticles());
     }, [navigate]);
     //! на страницу редактирования если canEdit
     const onEditToList = useCallback(() => {
-        navigate(`${RoutePath.articles}/${article?.id}/edit`);
+        navigate(getRouteArticleEdit(`${article?.id}`));
     }, [navigate, article?.id]);
 
     const { t } = useTranslation('articles');
 
     return (
         <HStack justify="between" max>
-            <Button onClick={onBackToList} theme={ThemeButton.OUTLINE}>
+            <Button
+                onClick={onBackToList}
+                theme={ThemeButton.OUTLINE}
+            >
                 {t('Назад к списку')}
             </Button>
             {canEdit && (
-                <Button onClick={onEditToList} theme={ThemeButton.OUTLINE}>
+                <Button
+                    onClick={onEditToList}
+                    theme={ThemeButton.OUTLINE}
+                >
                     {t('Редактировать')}
                 </Button>
             )}

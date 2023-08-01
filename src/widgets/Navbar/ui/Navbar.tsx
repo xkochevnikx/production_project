@@ -11,7 +11,7 @@ import { HStack } from '@/shared/UI/Stack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import cls from './Navbar.module.scss';
-import { RoutePath } from '@/shared/consts/route';
+import { getRouteArticleCreate } from '@/shared/consts/route';
 
 interface NavbarProps {
     className?: string;
@@ -34,14 +34,18 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     // todo - в итемс по условию isAdminPanelAvailable добавляю еще один объект. Там у меня основной массвив и внутри него есть другой массив который разворачивается деструктуризацией в основной по условию. Если условие верно разворачиваю массив с одним объектом в основной, если не верно разворачиваю пустой массив в основной, соответственно ничего не происходит
     if (isAuth) {
         return (
-            <header className={classNames(cls.Navbar, {}, [className])}>
+            <header
+                className={classNames(cls.Navbar, {}, [
+                    className,
+                ])}
+            >
                 <Text
                     className={cls.appName}
                     title={t('svyat app')}
                     theme={TextTheme.INVERTED}
                 />
                 <AppLink
-                    to={RoutePath.article_create}
+                    to={getRouteArticleCreate()}
                     theme={AppLinkTheme.PRIMARY}
                     className={cls.createLink}
                 >
@@ -52,13 +56,20 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     <AvatarDropdown />
                 </HStack>
 
-                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+                <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={onCloseModal}
+                />
             </header>
         );
     }
 
     return (
-        <header className={classNames(cls.Navbar, {}, [className])}>
+        <header
+            className={classNames(cls.Navbar, {}, [
+                className,
+            ])}
+        >
             <Button
                 onClick={onShowModal}
                 theme={ThemeButton.CLEAR_INVERTED}
@@ -67,7 +78,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 {t('Войти')}
             </Button>
             {isAuthModal && (
-                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+                <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={onCloseModal}
+                />
             )}
         </header>
     );

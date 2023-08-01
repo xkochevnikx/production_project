@@ -2543,6 +2543,12 @@
       "articleId": "33",
       "userId": "2",
       "id": "oF4S2eY"
+    },
+    {
+      "text": ";lk",
+      "articleId": "4",
+      "userId": "1",
+      "id": "Qu4pq_r"
     }
   ],
   "users": [
@@ -2655,6 +2661,13 @@
       "userId": "1",
       "feedback": "",
       "id": "VnsRc6l"
+    },
+    {
+      "articleId": "4",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "",
+      "id": "9UTmFzC"
     }
   ]
 }

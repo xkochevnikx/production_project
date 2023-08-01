@@ -1,8 +1,15 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { UserRoles, getIsRole, getUserAuthData } from '@/entities/User';
-import { RoutePath } from '@/shared/consts/route';
+import {
+    UserRoles,
+    getIsRole,
+    getUserAuthData,
+} from '@/entities/User';
+import {
+    getRouteForbiddenPage,
+    getRouteMain,
+} from '@/shared/consts/route';
 
 interface IRequireAuthProps {
     children: JSX.Element;
@@ -10,7 +17,10 @@ interface IRequireAuthProps {
 }
 // todo - функция проверки авторизации пользователя и нужных прав для определённых страниц. Функция оборачивает элементы на отрисовку у которых есть поле isAuth и принимает так же массив с ролями из этих элементов который хранит роли которым доступен конкретно этот путь\страница.
 
-export function RequireAuth({ children, roles }: IRequireAuthProps) {
+export function RequireAuth({
+    children,
+    roles,
+}: IRequireAuthProps) {
     // получаем данные о наличии регистрации пользователя
     const auth = useSelector(getUserAuthData);
     // получаем данные о ролях текущего авторизованного пользователя.
@@ -35,7 +45,7 @@ export function RequireAuth({ children, roles }: IRequireAuthProps) {
     if (!hasRequiredRoles) {
         return (
             <Navigate
-                to={RoutePath.forbidden_page}
+                to={getRouteForbiddenPage()}
                 state={{ from: location }}
                 replace
             />
@@ -43,7 +53,11 @@ export function RequireAuth({ children, roles }: IRequireAuthProps) {
     }
     if (!auth) {
         return (
-            <Navigate to={RoutePath.main} state={{ from: location }} replace />
+            <Navigate
+                to={getRouteMain()}
+                state={{ from: location }}
+                replace
+            />
         );
     }
     return children;
