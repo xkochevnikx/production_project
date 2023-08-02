@@ -45,9 +45,13 @@ export const AvatarDropdown = memo(
         }
         return (
             <Dropdown
-                trigger={
-                    <Avatar size={30} src={isAuth.avatar} />
-                }
+                trigger={(
+                    <Avatar
+                        size={30}
+                        src={isAuth.avatar}
+                        avatarInverted
+                    />
+                )}
                 items={[
                     ...(isAdminPanelAvailable
                         ? [
