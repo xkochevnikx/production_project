@@ -3,13 +3,17 @@ import { Avatar } from './Avatar';
 
 // тестирую компонент на предмет навершивания атрибута и класса
 describe('avatar', () => {
-    test('render avatar', () => {
+    test('render avatar', async () => {
         render(<Avatar alt="кусь" />);
-        expect(screen.getByAltText('кусь')).toBeInTheDocument();
+        expect(
+            screen.findAllByAltText('кусь'),
+        ).toBeInTheDocument();
         screen.debug();
     });
-    test('add class', () => {
+    test('add class', async () => {
         render(<Avatar alt="кусь" className="Krochik" />);
-        expect(screen.getByAltText('кусь')).toHaveClass('Krochik');
+        expect(screen.findByAltText('кусь')).toHaveClass(
+            'Krochik',
+        );
     });
 });

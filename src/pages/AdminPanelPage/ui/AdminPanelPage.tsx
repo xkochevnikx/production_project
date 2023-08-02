@@ -8,15 +8,24 @@ export interface IAdminPanelPageProps {
     className?: string;
 }
 
-const AdminPanelPage = memo((props: IAdminPanelPageProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
+const AdminPanelPage = memo(
+    (props: IAdminPanelPageProps) => {
+        const { className } = props;
+        const { t } = useTranslation();
 
-    return (
-        <Page className={classNames(cls.AdminPanelPage, {}, [className])}>
-            Admin Panel Page
-        </Page>
-    );
-});
+        return (
+            <Page
+                data-testid="AdminPanelPage"
+                className={classNames(
+                    cls.AdminPanelPage,
+                    {},
+                    [className],
+                )}
+            >
+                Admin Panel Page
+            </Page>
+        );
+    },
+);
 
 export default AdminPanelPage;

@@ -37,11 +37,7 @@ export const Avatar = memo((props: AvatarProps) => {
     );
 
     const fallback = (
-        <Skeleton
-            width={size}
-            height={size}
-            border="50%"
-        />
+        <Skeleton width={size} height={size} border="50%" />
     );
 
     return (

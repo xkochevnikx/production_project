@@ -5,7 +5,7 @@ export function AboutPage() {
     const { t } = useTranslation('about');
     // ? первым аргументом передаём название нэймспейса
     return (
-        <Page>
+        <Page data-testid="AboutPage">
             <h2>{t('О сайте')}</h2>
         </Page>
     );

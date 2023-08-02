@@ -7,11 +7,20 @@ interface ForbiddenPageProps {
     className?: string;
 }
 
-export const ForbiddenPage = memo(({ className }: ForbiddenPageProps) => {
-    const { t } = useTranslation();
-    return (
-        <Page className={classNames('', {}, [className])}>
-            <h2>{t('У Вас нет прав для доступа к этой странице')}</h2>
-        </Page>
-    );
-});
+export const ForbiddenPage = memo(
+    ({ className }: ForbiddenPageProps) => {
+        const { t } = useTranslation();
+        return (
+            <Page
+                data-testid="ForbiddenPage"
+                className={classNames('', {}, [className])}
+            >
+                <h2>
+                    {t(
+                        'У Вас нет прав для доступа к этой странице',
+                    )}
+                </h2>
+            </Page>
+        );
+    },
+);

@@ -5,7 +5,7 @@ import { Page } from '@/widgets/Page';
 export function MainPage() {
     const { t } = useTranslation('main');
     return (
-        <Page>
+        <Page data-testid="MainPage">
             <HStack gap="8" justify="start">
                 <h2>{t('Главная')}</h2>
             </HStack>
