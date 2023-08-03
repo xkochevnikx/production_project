@@ -16,7 +16,7 @@ import {
     scrollSaveSliceActions,
 } from '@/features/ScrollSave';
 import cls from './Page.module.scss';
-import { TestProps } from '@/shared/types/test';
+import { TestProps } from '@/shared/types/tests';
 
 interface PageProps extends TestProps {
     className?: string;
@@ -33,9 +33,11 @@ export const Page = (props: PageProps) => {
         onScrollEnd,
         isSaveScroll,
     } = props;
-    const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const wrapperRef =
+        useRef() as MutableRefObject<HTMLDivElement>;
 
-    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const triggerRef =
+        useRef() as MutableRefObject<HTMLDivElement>;
 
     const dispatch = useAppDispatch();
 
@@ -43,7 +45,7 @@ export const Page = (props: PageProps) => {
 
     // в селектор который вытаскивает объект с текущим положением скролла где ключ это адрес а значение это положение. вытаскиваю из него значение в массиве и преобразовываю его в число которое передаю ниже в wrapperRef.current.scrollTop при каждом рендере
     const scrollPosition = Number(
-        Object.values(useSelector(getScrollSaveSelectors)),
+        Object.values(useSelector(getScrollSaveSelectors))
     );
 
     // хук подгрузки на скролл.
@@ -67,12 +69,12 @@ export const Page = (props: PageProps) => {
                             position:
                                 e.currentTarget.scrollTop,
                             path: pathname,
-                        },
-                    ),
+                        }
+                    )
                 );
             }
         },
-        200,
+        200
     );
 
     //! если приняли пропсом со страницы onScrollEnd то внизу под компонентом добавляем див и сохраняем его в triggerRef
