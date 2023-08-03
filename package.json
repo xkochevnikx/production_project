@@ -23,7 +23,7 @@
         "postinstall": "node ./scripts/clear-cache.ts"
     },
     "lint-staged": {
-        "**/*.{ts,tsx}": "lint:fix"
+        "**/*.{ts,tsx}": "lint:ts"
     },
     "keywords": [],
     "author": "",
