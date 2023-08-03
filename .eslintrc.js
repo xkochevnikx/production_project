@@ -43,7 +43,7 @@ module.exports = {
         'no-underscore-dangle': 'off', //! оключаем запрет на нижние подчёркивания
         'max-len': [
             'error',
-            { ignoreComments: true, code: 150 },
+            { ignoreComments: true, code: 80 },
         ], //! ошибку если строчка длинная
         'jsx-a11y/no-static-element-interactions': 'off', //! отключаем правило сематники когда например еслинт ругается на онклик у блока див
         'jsx-a11y/click-events-have-key-events': 'off',
