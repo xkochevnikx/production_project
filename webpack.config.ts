@@ -16,7 +16,7 @@ export default (env: IBuildEnv) => {
             __dirname,
             'public',
             'index.html',
-        )
+        ),
         src: path.resolve(__dirname, 'src'),
         locales: path.resolve(
             __dirname,
