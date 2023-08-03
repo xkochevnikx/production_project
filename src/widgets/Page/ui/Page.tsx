@@ -1,8 +1,5 @@
 import {
-    MutableRefObject,
-    ReactNode,
-    useRef,
-    UIEvent,
+    MutableRefObject, ReactNode, useRef, UIEvent,
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -28,10 +25,7 @@ interface PageProps extends TestProps {
 
 export const Page = (props: PageProps) => {
     const {
-        className,
-        children,
-        onScrollEnd,
-        isSaveScroll,
+        className, children, onScrollEnd, isSaveScroll,
     } = props;
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
 
@@ -57,23 +51,17 @@ export const Page = (props: PageProps) => {
         wrapperRef.current.scrollTop = scrollPosition;
     });
 
-    const onScroll = useTrottle(
-        (e: UIEvent<HTMLDivElement>) => {
-            if (isSaveScroll) {
-                dispatch(
-                    scrollSaveSliceActions.setScrollPosition(
-                        {
-                            //! e.currentTarget.scrollTop возвращает сколько отмотали от верхней точки страницы в пикселях
-                            position:
-                                e.currentTarget.scrollTop,
-                            path: pathname,
-                        },
-                    ),
-                );
-            }
-        },
-        200,
-    );
+    const onScroll = useTrottle((e: UIEvent<HTMLDivElement>) => {
+        if (isSaveScroll) {
+            dispatch(
+                scrollSaveSliceActions.setScrollPosition({
+                    //! e.currentTarget.scrollTop возвращает сколько отмотали от верхней точки страницы в пикселях
+                    position: e.currentTarget.scrollTop,
+                    path: pathname,
+                }),
+            );
+        }
+    }, 200);
 
     //! если приняли пропсом со страницы onScrollEnd то внизу под компонентом добавляем див и сохраняем его в triggerRef
     //! вешаем на section onScroll который возвращаем объект события UIEvent
@@ -81,19 +69,12 @@ export const Page = (props: PageProps) => {
         <main
             onScroll={onScroll}
             ref={wrapperRef}
-            className={classNames(cls.Page, {}, [
-                className,
-            ])}
+            className={classNames(cls.Page, {}, [className])}
             // eslint-disable-next-line
             data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
-            {onScrollEnd && (
-                <div
-                    ref={triggerRef}
-                    className={cls.triggerDiv}
-                />
-            )}
+            {onScrollEnd && <div ref={triggerRef} className={cls.triggerDiv} />}
         </main>
     );
 };

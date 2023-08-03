@@ -9,7 +9,9 @@ project.addSourceFilesAtPaths('src/**/*.tsx');
 // и получаю эти добавленный файлы
 const files = project.getSourceFiles();
 // методу getDirectory передаю путь и получаю все файлы диреткории shared
-const sharedUiDirectory = project.getDirectory(path.resolve(__dirname, '..', 'src', 'shared', 'UI'));
+const sharedUiDirectory = project.getDirectory(
+    path.resolve(__dirname, '..', 'src', 'shared', 'UI'),
+);
 const componentDirs = sharedUiDirectory?.getDirectories();
 
 function isAbsolute(value: string) {
@@ -33,7 +35,9 @@ if (componentDirs) {
         // ? если его нет то создаю. первым аргументом задаю путь а вторым надо передать код который будет в этом файле,в нем делаю реэкспорт содержимого из файла, третим аргументом можно передать объект с флагом если хочу перезапмсать файл{ overwrite: true }
         if (!indexFile) {
             const sourceCode = `export * from "./${directory.getBaseName()}"`;
-            const file = directory.createSourceFile(indexFilePath, sourceCode, { overwrite: true });
+            const file = directory.createSourceFile(indexFilePath, sourceCode, {
+                overwrite: true,
+            });
             // сохраняю
             file.save();
         }
@@ -48,7 +52,6 @@ files.forEach((sourceFile) => {
         const segments = valueWithourAlias.split('/');
         const isSharedLayer = segments?.[0] === 'shared';
         const isUiSlice = segments?.[1] === 'UI';
-        console.log(valueWithourAlias);
 
         if (isAbsolute(valueWithourAlias) && isSharedLayer && isUiSlice) {
             const result = valueWithourAlias.split('/').slice(0, 3).join('/');

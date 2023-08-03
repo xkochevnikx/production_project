@@ -41,10 +41,7 @@ module.exports = {
         'import/extensions': 'off', //! отключаем свойство которое ругается что в импортах не указываю расширения но для этого у меня уже настроен билдрезолвер
         'import/no-extraneous-dependencies': 'off', //! это что то связано с импортом девзависмостей
         'no-underscore-dangle': 'off', //! оключаем запрет на нижние подчёркивания
-        'max-len': [
-            'error',
-            { ignoreComments: true, code: 80 },
-        ], //! ошибку если строчка длинная
+        'max-len': ['warn', { ignoreComments: true, code: 120 }], //! ошибку если строчка длинная
         'jsx-a11y/no-static-element-interactions': 'off', //! отключаем правило сематники когда например еслинт ругается на онклик у блока див
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error', //! это и правило ниже устанавливается от плагина react-hooks которое так же наверху нужно добавить в раздел plugins.
@@ -57,12 +54,8 @@ module.exports = {
         'react/jsx-no-useless-fragment': 'off',
         'no-console': 'warn', //ругаюсь на использование консоли в коде
         'prefer-const': 'error', //ругаюсь на использование let переменных
-        'fsd-path-svt/path-checker': [
-            'error',
-            { alias: '@' },
-        ],
-        'interface-prefix-control-svt/prefix-control':
-            'warn',
+        'fsd-path-svt/path-checker': ['error', { alias: '@' }],
+        'interface-prefix-control-svt/prefix-control': 'warn',
         'api-imports-svt/api-imports': [
             'error',
             {
@@ -78,10 +71,7 @@ module.exports = {
             'error',
             {
                 alias: '@',
-                ignoreImportPatterns: [
-                    '**/StoreProviders',
-                    '**/testing',
-                ],
+                ignoreImportPatterns: ['**/StoreProviders', '**/testing'],
             },
         ],
         'unused-imports/no-unused-imports': 'error',
