@@ -65,14 +65,12 @@
 
 В проекте используется eslint для проверки typescript кода и stylelint для проверки файлов со стилями.
 
-Также для строгого контроля главных архитектурных принципов написал 3 собственных кастомных плагина: 
+Также для строгого контроля главных архитектурных принципов написал 3 собственных кастомных плагина:
 
-
-
-  1. eslint-plugin-api-imports-svt, разрешает импорт из других модулей только из public api.
+1. eslint-plugin-api-imports-svt, разрешает импорт из других модулей только из public api.
    Так же дополнительно правило проводит проверку получателя импотрируемых данных предназначенных для тестирования, эти данные должны импортироваться экспортироваться из тестового public api только в файлы с тестовыми расширениями stories.tsx/test.ts/storeDecorator.tsx
-  2. eslint-plugin-fsd-path-svt - запрещает использовать абсолютные импорты в рамках одного модуля, они должны быть относительными.
-  3. eslint-plugin-interface-prefix-control-svt - разрешает использовать префиксы Interfaces in TypeScript начинающиеся только с "I".
+2. eslint-plugin-fsd-path-svt - запрещает использовать абсолютные импорты в рамках одного модуля, они должны быть относительными.
+3. eslint-plugin-interface-prefix-control-svt - разрешает использовать префиксы Interfaces in TypeScript начинающиеся только с "I".
 
 ##### Запуск линтеров
 
@@ -100,7 +98,10 @@
 
 ```typescript jsx
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import {
+    ComponentStory,
+    ComponentMeta,
+} from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Button, ButtonSize, ButtonTheme } from './Button';
@@ -114,7 +115,9 @@ export default {
     },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args) => (
+    <Button {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -155,7 +158,7 @@ Clear.args = {
 Конфигурация github actions находится в /.github/workflows.
 В ci прогоняются все виды тестов, сборка проекта и сторибука, линтинг.
 
-В прекоммит хуках проверяю проект линтерами, конфиг в /.husky
+В прекоммит хуках проверяю проект линтерами только тех файлов которые были изменены с помощью [lint-staged](https://github.com/okonet/lint-staged), конфиг в /.husky
 
 ---
 
@@ -219,28 +222,27 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ## Фичи (features)
 
--   [ArticleComments](/src/features/ArticleComments) 
--   [ArticleRating](/src/features/ArticleRating) 
--   [ArticlesInfiniteList](/src/features/ArticlesInfiniteList) 
--   [ArticlesSearch](/src/features/ArticlesSearch) 
--   [ArticlesSortSelected](/src/features/ArticlesSortSelected)  
--   [ScrollSave](/src/features/ScrollSave)  
--   [ArticlesTypeTabs](/src/features/ArticlesTypeTabs)  
--   [ArticleViewSelector](/src/features/ArticleViewSelector) 
--   [ArticleRecommendationsList](/src/features/ArticleRecommendationsList) 
--   [AuthByUsername](/src/features/AuthByUsername) 
--   [AvatarDropdown](/src/features/AvatarDropdown) 
--   [EditableProfileCard](/src/features/EditableProfileCard) 
--   [LanguageSwitcher](/src/features/LanguageSwitcher) 
--   [NotificationButton](/src/features/NotificationButton) 
--   [ProfileRating](/src/features/ProfileRating) 
--   [ThemeSwitcher](/src/features/ThemeSwitcher) 
--   
+-   [ArticleComments](/src/features/ArticleComments)
+-   [ArticleRating](/src/features/ArticleRating)
+-   [ArticlesInfiniteList](/src/features/ArticlesInfiniteList)
+-   [ArticlesSearch](/src/features/ArticlesSearch)
+-   [ArticlesSortSelected](/src/features/ArticlesSortSelected)
+-   [ScrollSave](/src/features/ScrollSave)
+-   [ArticlesTypeTabs](/src/features/ArticlesTypeTabs)
+-   [ArticleViewSelector](/src/features/ArticleViewSelector)
+-   [ArticleRecommendationsList](/src/features/ArticleRecommendationsList)
+-   [AuthByUsername](/src/features/AuthByUsername)
+-   [AvatarDropdown](/src/features/AvatarDropdown)
+-   [EditableProfileCard](/src/features/EditableProfileCard)
+-   [LanguageSwitcher](/src/features/LanguageSwitcher)
+-   [NotificationButton](/src/features/NotificationButton)
+-   [ProfileRating](/src/features/ProfileRating)
+-   [ThemeSwitcher](/src/features/ThemeSwitcher)
+-
 
-  ## UI Kit
-  
+## UI Kit
+
 -   [Shared](/src/shared/UI)
-
 
 ## Команда проекта
 
