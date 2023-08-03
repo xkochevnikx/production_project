@@ -22,6 +22,9 @@
         "prepare": "husky install",
         "postinstall": "node ./scripts/clear-cache.ts"
     },
+    "lint-staged": {
+        "**/*.{ts,tsx}": "lint:fix"
+    },
     "keywords": [],
     "author": "",
     "license": "ISC",
@@ -89,6 +92,7 @@
         "jest": "^27.5.1",
         "jest-html-reporters": "^3.1.4",
         "json-server": "^0.17.2",
+        "lint-staged": "^13.2.3",
         "loki": "^0.31.2",
         "mini-css-extract-plugin": "^2.5.3",
         "npm": "^9.4.1",
