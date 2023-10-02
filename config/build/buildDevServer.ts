@@ -6,7 +6,7 @@ export function buildDevServer(options: IBuildOptions): DevServerConfiguration {
         port: options.port,
         //! автоматически открывает приложение
         open: true,
-        //! historyApiFallback позволяет проксировать запросы через индекс (через корневую страницу)
+        //! historyApiFallback позволяет проксировать запросы через индекс (через корневую страницу) ибо у нас SPA
         historyApiFallback: true,
         hot: true,
     };

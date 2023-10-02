@@ -15,7 +15,7 @@
 -   При подгрузке статей показываю пользователю скелетоны.
 -   Каждая статья динамически формируется из переиспользумых блоков в зависимости от типа раздела.
 -   Под каждой статьей пользователь может оставлять комментарии. <br/>
-    .......... и многое другое, описание в процессе
+    ......... и многое другое, описание в процессе
 
 ### Технологии
 
@@ -98,10 +98,7 @@
 
 ```typescript jsx
 import React from 'react';
-import {
-    ComponentStory,
-    ComponentMeta,
-} from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Button, ButtonSize, ButtonTheme } from './Button';
@@ -115,9 +112,7 @@ export default {
     },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => (
-    <Button {...args} />
-);
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

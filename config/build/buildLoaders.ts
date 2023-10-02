@@ -20,6 +20,7 @@ export function buildLoaders(options: IBuildOptions): webpack.RuleSetRule[] {
 
     //! сперва обработавываем tsx/jsx потом ts/js
     const codeBabelLoader = buildBabelLoaders({ ...options, isTsx: false });
+
     const tsxCodeBabelLoader = buildBabelLoaders({ ...options, isTsx: true });
 
     const cssLoader = buildCssLoaders(isDev);

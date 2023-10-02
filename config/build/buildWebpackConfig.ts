@@ -21,8 +21,7 @@ export function buildWebpackConfig(
             filename: '[name].[contenthash].js',
             path: paths.build,
             clean: true,
-            assetModuleFilename:
-                'assets/[contanthash][ext]',
+            assetModuleFilename: 'assets/[contanthash][ext]',
             publicPath: '/',
         },
 
@@ -37,12 +36,8 @@ export function buildWebpackConfig(
         //! указываем расширение тех файлов при импорте которых не обязательно в конце указывать расширение
         resolve: buildResolvers(options),
         //! для режима разработки карты исходного кода что бы отслеживать по стек трейсу где произошла ошибка. В режими прода они не нужны это лишние файлы
-        devtool: isDev
-            ? 'eval-cheap-module-source-map'
-            : undefined,
-        //!
-        devServer: isDev
-            ? buildDevServer(options)
-            : undefined,
+        devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
+        //! так же дев сервер в режиме прод не нужен
+        devServer: isDev ? buildDevServer(options) : undefined,
     };
 }
